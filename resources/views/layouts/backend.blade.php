@@ -22,10 +22,8 @@
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{{asset('backend-assets/css/custom.css')}}">
     <!-- Favicon-->
-    <!-- <link rel="shortcut icon" href="img/favicon.ico"> -->
-    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <link rel="shortcut icon" href="{{asset('backend-assets/img/favicon.png')}}">
+    
   </head>
   <body>
     <header class="header">   
@@ -116,10 +114,10 @@
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Data Management</span>
         <ul class="list-unstyled">
-                <li><a href="index.html"> <i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard </a></li>
-                <li class="my_active"><a href="{{route('genre.index')}}"> <i class="icon-grid"></i>Genres </a></li>
-                <li class="my_active"><a href="{{route('cast.index')}}"> <i class="fa fa-video-camera" aria-hidden="true"></i> Casts </a></li>
-                <li class="my_active"><a href="{{route('movie.index')}}"> <i class="fa fa-film" aria-hidden="true"></i> Movies Data </a></li>
+                <li id="my_active"><a href="index.html"> <i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard </a></li>
+                <li id="my_active" class="myActive"><a href="{{route('genre.index')}}"> <i class="icon-grid"></i>Genres </a></li>
+                <li id="my_active"><a href="{{route('cast.index')}}"> <i class="fa fa-video-camera" aria-hidden="true"></i> Casts </a></li>
+                <li id="my_active"><a href="{{route('movie.index')}}"> <i class="fa fa-film" aria-hidden="true"></i> Movies Data </a></li>
         </ul><span class="heading">Order Management</span>
         <ul class="list-unstyled">
           <li><a href="forms.html"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Order </a></li>
@@ -149,5 +147,6 @@
     <script src="{{asset('backend-assets/vendor/jquery-validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('backend-assets/js/charts-home.js')}}"></script>
     <script src="{{asset('backend-assets/js/front.js')}}"></script>
+    <script src="{{asset('backend-assets/js/custom.js')}}"></script>
   </body>
 </html>
