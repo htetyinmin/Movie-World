@@ -16,7 +16,13 @@ class CreateCastsTable extends Migration
         Schema::create('casts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('photo'); 
+            $table->text('photo');
+            $table->text('gender');
+            $table->date('dob');
+            $table->text('pob');
+            $table->text('bio');
+            $table->text('gallery');
+            $table->text('status');
             $table->timestamps();
             $table->softDeletes();
         });

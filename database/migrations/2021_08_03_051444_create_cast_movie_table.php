@@ -15,7 +15,14 @@ class CreateCastMovieTable extends Migration
     {
         Schema::create('cast_movie', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('cast_id'); 
+            $table->unsignedBigInteger('movie_id');
             $table->timestamps();
+            $table->softDeletes();
+
+            // FK define
+            $table->foreign('cast_id')->references('id')->on('casts')->onDelete('cascade');
+            $table->foreign('movie_id')->references('id')->on('movies')->onDelete('cascade');
         });
     }
 
