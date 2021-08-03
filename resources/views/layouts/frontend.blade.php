@@ -61,7 +61,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="mobile-logo text-center">
-                                <a href="index.html"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/header-logo.png')}}"></a>
+                                <a href="index.html"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/mov.png')}}"></a>
                             </div>
                         </div>
                         <!-- Logo Col End -->
@@ -81,7 +81,7 @@
                     <div class="col-lg-9 pl-0">
                         <!-- Start Navigation -->
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index.html"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/header-logo.png')}}"></a>
+                            <a class="navbar-brand" href="index.html"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/mov.png')}}"></a>
                             <!-- Logo End -->
                             <div class="site-nav-inner float-left">
                                 <button aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button"><span class="fa fa-bars"></span></button> <!-- Navbar Toggler End -->
@@ -329,7 +329,7 @@
                     <div class="col-md-3">
                         <div class="footer-widget">
                             <div class="widget-content">
-                                <div class="footer-logo"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/footer-logo.png')}}"></div>
+                                <div class="footer-logo"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/mov.png')}}"></div>
                                 <div class="footer-about-text">
                                     <p class="text-muted">Here , write the complete address of the Registered office address along with telephone number.</p>
                                 </div>
