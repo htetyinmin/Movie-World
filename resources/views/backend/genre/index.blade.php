@@ -18,7 +18,7 @@
               </ul>
             </div>
             <div class="p-4 flex-shrink-1 bd-highlight">
-                  <a href="{{url('/create')}}" type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                  <a href="{{route('genre.create')}}" type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></a>
             </div>
           </div>
       <!-- Breadcrumb-->
@@ -46,7 +46,7 @@
                               <img src="{{asset('backend-assets/img/genres/01.jpg')}}" alt="Cover Photo" style="width: 60px; height:100px;" class="mr-3">
                         </td>
                         <td>
-                              <a href="{{url('/edit')}}" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                              <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
                               <a href="#" type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></a>
                         </td>
                       </tr>

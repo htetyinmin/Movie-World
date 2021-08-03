@@ -14,7 +14,7 @@ class CastController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.cast.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class CastController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.cast.create');
     }
 
     /**
@@ -57,7 +57,8 @@ class CastController extends Controller
      */
     public function edit(Cast $cast)
     {
-        //
+        return view('backend.cast.edit');
+        
     }
 
     /**

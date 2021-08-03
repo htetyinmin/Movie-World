@@ -117,8 +117,8 @@
         <!-- Sidebar Navidation Menus--><span class="heading">Data Management</span>
         <ul class="list-unstyled">
                 <li><a href="index.html"> <i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard </a></li>
-                <li class="active"><a href="{{url('/')}}"> <i class="icon-grid"></i>Genres </a></li>
-                <li><a href="charts.html"> <i class="fa fa-video-camera" aria-hidden="true"></i> Casts </a></li>
+                <li><a href="{{route('genre.index')}}"> <i class="icon-grid"></i>Genres </a></li>
+                <li><a href="{{route('cast.index')}}"> <i class="fa fa-video-camera" aria-hidden="true"></i> Casts </a></li>
                 <li><a href="forms.html"> <i class="fa fa-film" aria-hidden="true"></i> Movies Data </a></li>
         </ul><span class="heading">Order Management</span>
         <ul class="list-unstyled">

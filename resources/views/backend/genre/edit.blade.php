@@ -1,5 +1,6 @@
 @extends('layouts.backend')
 @section('content')
+
 <div class="page-content">
       <!-- Page Header-->
       <div class="page-header no-margin-bottom">
@@ -16,7 +17,7 @@
               </ul>
             </div>
             <div class="p-4 flex-shrink-1 bd-highlight">
-                  <a href="{{url('/')}}" type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                  <a href="#" type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
             </div>
       </div>
 
@@ -48,7 +49,7 @@
                 </form>
               </div>
             </div>
-          </div>
+      </div>
 
 </div>
 @endsection

@@ -17,7 +17,13 @@ use Illuminate\Support\Facades\Route;
 //     return view('backend.genres.index');
 // });
 
-Route::get('/genre', 'PageController@genre')->name('genre');
-Route::get('/create', 'PageController@create')->name('create');
-Route::get('/edit', 'PageController@edit')->name('edit');
+// Route::get('/genre', 'PageController@genre')->name('genre');
+// Route::get('/create', 'PageController@create')->name('create');
+// Route::get('/edit', 'PageController@edit')->name('edit');
+
+//CRUD
+Route::resource('genre', 'GenreController');
+Route::resource('cast', 'CastController');
+Route::resource('movie', 'MovieController');
+
 
