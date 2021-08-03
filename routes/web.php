@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', 'PageController@index')->name('index');
+
 // Route::get('/', function () {
 //     return view('backend.genres.index');
 // });
