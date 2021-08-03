@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('backend.genres.index');
+// });
+
+Route::get('/genre', 'PageController@genre')->name('genre');
+Route::get('/create', 'PageController@create')->name('create');
+Route::get('/edit', 'PageController@edit')->name('edit');
+
