@@ -117,9 +117,9 @@
         <!-- Sidebar Navidation Menus--><span class="heading">Data Management</span>
         <ul class="list-unstyled">
                 <li><a href="index.html"> <i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard </a></li>
-                <li><a href="{{route('genre.index')}}"> <i class="icon-grid"></i>Genres </a></li>
-                <li><a href="{{route('cast.index')}}"> <i class="fa fa-video-camera" aria-hidden="true"></i> Casts </a></li>
-                <li><a href="forms.html"> <i class="fa fa-film" aria-hidden="true"></i> Movies Data </a></li>
+                <li class="my_active"><a href="{{route('genre.index')}}"> <i class="icon-grid"></i>Genres </a></li>
+                <li class="my_active"><a href="{{route('cast.index')}}"> <i class="fa fa-video-camera" aria-hidden="true"></i> Casts </a></li>
+                <li class="my_active"><a href="{{route('movie.index')}}"> <i class="fa fa-film" aria-hidden="true"></i> Movies Data </a></li>
         </ul><span class="heading">Order Management</span>
         <ul class="list-unstyled">
           <li><a href="forms.html"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Order </a></li>
@@ -135,7 +135,7 @@
             <div class="footer__block block no-margin-bottom">
               <div class="container-fluid text-center">
                 <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-                 <p class="no-margin-bottom">2018 &copy; Your company. Download From <a target="_blank" href="https://templateshub.net">Templates Hub</a>.</p>
+                 <p class="no-margin-bottom">2020 &copy; code by ninja</a>.</p>
               </div>
             </div>
           </footer>

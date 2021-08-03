@@ -14,7 +14,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.movie.index');
     }
 
     /**
@@ -24,7 +24,8 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.movie.create');
+        
     }
 
     /**
@@ -57,7 +58,7 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        //
+        return view('backend.movie.edit');
     }
 
     /**
