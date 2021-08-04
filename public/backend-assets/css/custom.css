@@ -1,1 +1,19 @@
 /* your styles go here */
+/* your styles go here */
+
+.btwhite{
+      color: white;
+}
+
+  .btnn {
+        background-color: #ff0000;
+  }
+
+  .btnn:hover{
+        background-color: darkgray;
+  }
+
+  .user{
+        width: 265px;
+        height: 265px;
+  }

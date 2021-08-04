@@ -82,7 +82,7 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        //
+        return view('backend.movie.detail', compact('movie'));
     }
 
     /**
