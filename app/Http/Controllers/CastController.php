@@ -14,7 +14,8 @@ class CastController extends Controller
      */
     public function index()
     {
-        return view('backend.cast.index');
+        $casts = Cast::all();
+        return view('backend.cast.index', compact('casts'));
     }
 
     /**
@@ -35,7 +36,38 @@ class CastController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+
+        //VALIDATION
+        $request->validate([
+            "name" => "required|unique:casts|max:30|min:3",
+            "photo" => "required|mimes:jpeg,jpg,png",
+            "dob" => "required",
+            "pob" => "required",
+            "bio" => "required"
+        ]);
+
+        //FILE UPLOAD
+        if($request->file()) {
+            $fileName = time().'_'.$request->photo->getClientOriginalName();
+
+            $filePath = $request->file('photo')->storeAs('castimg', $fileName, 'public');
+        }
+
+        //DATA INSERT
+        $cast = new Cast;
+        $cast->name = $request->name;
+        $cast->photo = $filePath;
+        $cast->gender = $request->gender;
+        $cast->dob = $request->dob;
+        $cast->pob = $request->pob;
+        $cast->bio = $request->bio;
+        $cast->gallery = $filePath;
+        $cast->status = $request->status;
+        $cast->save();
+
+        //REDIRECT
+        return redirect()->route('cast.index');
     }
 
     /**
@@ -57,7 +89,7 @@ class CastController extends Controller
      */
     public function edit(Cast $cast)
     {
-        return view('backend.cast.edit');
+        return view('backend.cast.edit', compact('cast'));
         
     }
 
@@ -70,7 +102,43 @@ class CastController extends Controller
      */
     public function update(Request $request, Cast $cast)
     {
-        //
+        // dd($request);
+
+        //VALIDATION
+        $request->validate([
+            "name" => "required|max:30|min:3",
+            "photo" => "sometimes|mimes:jpeg,jpg,png",
+            "dob" => "required",
+            "pob" => "required",
+            "bio" => "required"
+        ]);
+
+        //FILE UPLOAD
+        if($request->file()) {
+            $fileName = time().'_'.$request->photo->getClientOriginalName();
+
+            $filePath = $request->file('photo')->storeAs('castimg', $fileName, 'public');
+
+            //DELETE OLD PHOTO
+            unlink(public_path('storage/').$cast->photo);
+
+        }else{
+            $filePath = $cast->photo;
+        }
+
+        //DATA INSERT
+        $cast->name = $request->name;
+        $cast->photo = $filePath;
+        $cast->gender = $request->gender;
+        $cast->dob = $request->dob;
+        $cast->pob = $request->pob;
+        $cast->bio = $request->bio;
+        $cast->gallery = $filePath;
+        $cast->status = $request->status;
+        $cast->save();
+
+        //REDIRECT
+        return redirect()->route('cast.index');
     }
 
     /**

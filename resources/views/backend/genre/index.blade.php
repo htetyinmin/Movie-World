@@ -14,7 +14,7 @@
             <div class="container-fluid">
               <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Genres            </li>
+                <li class="breadcrumb-item active">Genres</li>
               </ul>
             </div>
             <div class="p-4 flex-shrink-1 bd-highlight">
@@ -32,68 +32,28 @@
                   <table class="table table-striped table-hover">
                     <thead>
                       <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Cover</th>
-                        <th>Action</th>
+                        <th class="col-2">#</th>
+                        <th class="col-6">Name</th>
+                        <th class="col-4">Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Action</td>
-                        <td>
-                              <img src="{{asset('backend-assets/img/genres/01.jpg')}}" alt="Cover Photo" style="width: 60px; height:100px;" class="mr-3">
-                        </td>
-                        <td>
-                              <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
-                              <a href="#" type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Cartoon</td>
-                        <td>
-                              <img src="{{asset('backend-assets/img/genres/06.jpg')}}" alt="Cover Photo" style="width: 60px; height:100px;" class="mr-3">
-                        </td>
-                        <td>
-                              <button type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></button>
-                              <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Drama</td>
-                        <td>
-                              <img src="{{asset('backend-assets/img/genres/02.jpg')}}" alt="Cover Photo" style="width: 60px; height:100px;" class="mr-3">
-                        </td>
-                        <td>
-                              <button type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></button>
-                              <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">4</th>
-                        <td>Horror</td>
-                        <td>
-                              <img src="{{asset('backend-assets/img/genres/03.jpg')}}" alt="Cover Photo" style="width: 60px; height:100px;" class="mr-3">
-                        </td>
-                        <td>
-                              <button type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></button>
-                              <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">5</th>
-                        <td>Series</td>
-                        <td>
-                              <img src="{{asset('backend-assets/img/genres/04.jpg')}}" alt="Cover Photo" style="width: 60px; height:100px;" class="mr-3">
-                        </td>
-                        <td>
-                              <button type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></button>
-                              <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                        </td>
-                      </tr>
+
+                      @php
+                          $i=1;
+                      @endphp
+                      
+                      @foreach ($genres as $genre)
+                        <tr>  
+                          <th scope="row">{{$i++}}</th>
+                          <td>{{$genre->name}}</td>
+                          <td>
+                              <a href="{{route('genre.edit', $genre->id)}}" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                              <a href="#deleteModal" data-id="{{route('genre.destroy', $genre->id)}}" type="button" class="btn btn-primary deletebtn"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                          </td>
+                        </tr>
+                      @endforeach                    
+                      
                     </tbody>
                   </table>
                 </div>
@@ -104,4 +64,38 @@
       </section>
     </div>
 
+    <div class="modal fade" id="deleteModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form method="post" action="" id="deleteModalForm">
+            @csrf
+            @method('DELETE')
+            <div class="modal-header">
+              <h5 class="modal-title">Delete!</h5>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete?</p>
+            </div>
+            <div class="modal-footer">
+              <input type="submit" name="btnsubmit" class="btn btn-danger" value="Delete">
+              <button class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+@endsection
+
+@section('script')
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.deletebtn').click(function(){
+        var id = $(this).data('id');
+        // console.log(id);
+        $('#deleteModalForm').attr('action',id);
+        $('#deleteModal').modal('show');
+      })
+    })
+  </script>
 @endsection

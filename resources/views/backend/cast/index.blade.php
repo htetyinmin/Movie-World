@@ -14,7 +14,7 @@
             <div class="container-fluid">
               <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Casts            </li>
+                <li class="breadcrumb-item active">Casts</li>
               </ul>
             </div>
             <div class="p-4 flex-shrink-1 bd-highlight">
@@ -38,77 +38,31 @@
                         <th>Gender</th>
                         <th>Date Of Birth</th>
                         <th>Place Of Birth</th>
-                        <td>Bio</td>
-                        {{-- <th>Gallery</th> --}}
                         <th>Status</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Nay Toe</td>
-                        <td>
-                              <img src="{{asset('backend-assets/img/avatar-2.jpg')}}" alt="Cover Photo" style="width: 60px; height:100px;" class="mr-3">
-                        </td>
-                        <td>Male</td>
-                        <td>10/02/1897</td>
-                        <td>Houng Koung</td>
-                        <td>action and funny actor......</td>
-                        <td>Actor</td>
-                        <td>
-                              <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
-                              <a href="#" type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Nay Toe</td>
-                        <td>
-                              <img src="{{asset('backend-assets/img/avatar-2.jpg')}}" alt="Cover Photo" style="width: 60px; height:100px;" class="mr-3">
-                        </td>
-                        <td>Male</td>
-                        <td>10/02/1897</td>
-                        <td>Houng Koung</td>
-                        <td>action and funny actor......</td>
-                        <td>Actor</td>
-                        <td>
-                              <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
-                              <a href="#" type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Myint Myat</td>
-                        <td>
-                              <img src="{{asset('backend-assets/img/avatar-2.jpg')}}" alt="Cover Photo" style="width: 60px; height:100px;" class="mr-3">
-                        </td>
-                        <td>Male</td>
-                        <td>10/02/1897</td>
-                        <td>Houng Koung</td>
-                        <td>action and funny actor......</td>
-                        <td>Actor</td>
-                        <td>
-                              <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
-                              <a href="#" type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">4</th>
-                        <td>Phway Phway</td>
-                        <td>
-                              <img src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt="Cover Photo" style="width: 60px; height:100px;" class="mr-3">
-                        </td>
-                        <td>Female</td>
-                        <td>10/02/1897</td>
-                        <td>Houng Koung</td>
-                        <td>action and funny actor......</td>
-                        <td>Actress</td>
-                        <td>
-                              <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
-                              <a href="#" type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                        </td>
-                      </tr>
+                      @php
+                          $i=1;
+                      @endphp
+                      @foreach ($casts as $cast)
+                        <tr>
+                          <th scope="row">{{$i++}}</th>
+                          <td>{{$cast->name}}</td>
+                          <td>
+                                <img src="{{asset('storage/'.$cast->photo)}}" alt="Photo" width="80" height="80" class="mr-3">
+                          </td>
+                          <td>{{$cast->gender}}</td>
+                          <td>{{Carbon\Carbon::parse($cast->dob)->format('d/m/Y')}}</td>
+                          <td>{{$cast->pob}}</td>
+                          <td>{{$cast->status}}</td>
+                          <td>
+                                <a href="{{route('cast.edit', $cast->id)}}" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                                <a href="#deleteModal" data-id="{{route('cast.destroy', $cast->id)}}" type="button" class="btn btn-primary deletebtn"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                          </td>
+                        </tr>
+                      @endforeach
                     </tbody>
                   </table>
                 </div>
