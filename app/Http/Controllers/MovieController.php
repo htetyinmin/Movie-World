@@ -37,7 +37,41 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+
+        //VALIDATION
+        $request->validate([
+            "name" => "required|unique:casts|max:30|min:3",
+            "photo" => "required|mimes:jpeg,jpg,png",
+            "year" => "required",
+            "duration" => "required",
+            "overview" => "required",
+            "trailer" => "required"
+        ]);
+
+        //FILE UPLOAD
+        if($request->file()) {
+            $fileName = time().'_'.$request->photo->getClientOriginalName();
+
+            $filePath = $request->file('photo')->storeAs('movieimg', $fileName, 'public');
+        }
+
+        //DATA INSERT
+        $movie = new Movie;
+        $movie->name = $request->name;
+        $movie->photo = $filePath;
+        $movie->year = $request->year;
+        $movie->language = $request->language;
+        $movie->duration = $request->duration;
+        $movie->overview = $request->overview;
+        $movie->trailer = $request->trailer;
+        // $movie->gallery = $filePath;
+        // $movie->video = $filePath;
+        $movie->status = $request->status;
+        $movie->save();
+
+        //REDIRECT
+        return redirect()->route('movie.index');
     }
 
     /**
@@ -59,7 +93,7 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        return view('backend.movie.edit');
+        return view('backend.movie.edit', compact('movie'));
     }
 
     /**
@@ -71,7 +105,38 @@ class MovieController extends Controller
      */
     public function update(Request $request, Movie $movie)
     {
-        //
+        //VALIDATION
+        $request->validate([
+            "name" => "required|max:30|min:3",
+            "photo" => "sometimes|mimes:jpeg,jpg,png",
+            "year" => "required",
+            "duration" => "required",
+            "overview" => "required",
+            "trailer" => "required"
+        ]);
+
+        //FILE UPLOAD
+        if($request->file()) {
+            $fileName = time().'_'.$request->photo->getClientOriginalName();
+
+            $filePath = $request->file('photo')->storeAs('movieimg', $fileName, 'public');
+        }
+
+        //DATA INSERT
+        $movie->name = $request->name;
+        $movie->photo = $filePath;
+        $movie->year = $request->year;
+        $movie->language = $request->language;
+        $movie->duration = $request->duration;
+        $movie->overview = $request->overview;
+        $movie->trailer = $request->trailer;
+        // $movie->gallery = $filePath;
+        // $movie->video = $filePath;
+        $movie->status = $request->status;
+        $movie->save();
+
+        //REDIRECT
+        return redirect()->route('movie.index');
     }
 
     /**
@@ -82,6 +147,7 @@ class MovieController extends Controller
      */
     public function destroy(Movie $movie)
     {
-        //
+        $movie->delete();
+        return redirect()->route('movie.index');
     }
 }

@@ -54,6 +54,20 @@ class CastController extends Controller
             $filePath = $request->file('photo')->storeAs('castimg', $fileName, 'public');
         }
 
+        //MULTI FILE UPLOAD
+        $data = [];
+        if($request->hasfile('images')) {
+            
+            foreach($request->file('images') as $image){
+
+                $fileName = time().'_'.$image->getClientOriginalName();
+
+                $filePath = $image->storeAs('castimg', $fileName, 'public');
+                array_push($data, $filePath);
+            }
+        }
+        $photostring = json_encode($data);
+
         //DATA INSERT
         $cast = new Cast;
         $cast->name = $request->name;
@@ -62,7 +76,7 @@ class CastController extends Controller
         $cast->dob = $request->dob;
         $cast->pob = $request->pob;
         $cast->bio = $request->bio;
-        $cast->gallery = $filePath;
+        $cast->gallery = $photostring;
         $cast->status = $request->status;
         $cast->save();
 
@@ -114,7 +128,7 @@ class CastController extends Controller
         ]);
 
         //FILE UPLOAD
-        if($request->file()) {
+        if($request->hasfile('photo')) {
             $fileName = time().'_'.$request->photo->getClientOriginalName();
 
             $filePath = $request->file('photo')->storeAs('castimg', $fileName, 'public');
@@ -126,6 +140,52 @@ class CastController extends Controller
             $filePath = $cast->photo;
         }
 
+        //MULTI FILE UPLOAD
+        $oldphoto_arr = $request->oldPhoto;
+
+        if($oldphoto_arr){
+            if(in_array('', $oldphoto_arr)){
+                $oldphoto_str = json_encode($oldphoto_arr);
+            }
+        }
+        dd($oldphoto_arr);
+
+        $data = [];
+        if($request->hasfile('images')) {
+            
+            foreach($request->file('images') as $image){
+
+                $fileName = time().'_'.$image->getClientOriginalName();
+
+                $filePath = $image->storeAs('castimg', $fileName, 'public');
+                array_push($data, $filePath);
+            }
+        }
+
+        if(count($data)>0){
+            $newphoto_str = json_encode($data);
+        }else{
+            $newphoto_str = null;
+        }
+
+        if ($newphoto_str && $oldphoto_arr) 
+        {
+            $new_arr = json_decode($newphoto_str);
+            $old_arr = $oldphoto_arr;
+
+            $mergedArray = array_merge($new_arr,$old_arr);
+
+            $photo = json_encode($mergedArray);
+        }
+        elseif($newphoto_str)
+        {
+            $photo = $newphoto_str;
+        }
+        else
+        {
+            $photo = $oldphoto_str;
+        }
+
         //DATA INSERT
         $cast->name = $request->name;
         $cast->photo = $filePath;
@@ -133,7 +193,7 @@ class CastController extends Controller
         $cast->dob = $request->dob;
         $cast->pob = $request->pob;
         $cast->bio = $request->bio;
-        $cast->gallery = $filePath;
+        $cast->gallery = $photo;
         $cast->status = $request->status;
         $cast->save();
 
@@ -149,6 +209,7 @@ class CastController extends Controller
      */
     public function destroy(Cast $cast)
     {
-        //
+        $cast->delete();
+        return redirect()->route('cast.index');
     }
 }

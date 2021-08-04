@@ -58,8 +58,8 @@
                           <td>{{$movie->duration}}</td>
                           <td>{{$movie->status}}</td>
                           <td>
-                                <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
-                                <a href="#" type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                <a href="{{route('movie.edit', $movie->id)}}" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                                <a href="#deleteModal" data-id="{{route('movie.destroy', $movie->id)}}" type="button" class="btn btn-primary deletebtn"><i class="fa fa-trash" aria-hidden="true"></i></a>
                           </td>
                         </tr>
                       @endforeach
@@ -73,4 +73,38 @@
       </section>
     </div>
 
+    <div class="modal fade" id="deleteModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form method="post" action="" id="deleteModalForm">
+            @csrf
+            @method('DELETE')
+            <div class="modal-header">
+              <h5 class="modal-title">Delete!</h5>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete?</p>
+            </div>
+            <div class="modal-footer">
+              <input type="submit" name="btnsubmit" class="btn btn-danger" value="Delete">
+              <button class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+@endsection
+
+@section('script')
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.deletebtn').click(function(){
+        var id = $(this).data('id');
+        // console.log(id);
+        $('#deleteModalForm').attr('action',id);
+        $('#deleteModal').modal('show');
+      })
+    })
+  </script>
 @endsection

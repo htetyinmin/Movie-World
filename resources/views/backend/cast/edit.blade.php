@@ -76,7 +76,9 @@
                         <div class="form-group row">
                               <label class="col-sm-3 form-control-label">Gallery</label>
                               <div class="col-sm-9">
-                                    <input type="file" name="gallery" class="form-control-file">
+                                    <div class="input-images">
+
+                                    </div>
                               </div>
                         </div>
                         <div class="form-group row">
@@ -105,4 +107,44 @@
           </div>
 
 </div>
+@endsection
+
+@section('script')
+
+      <script>
+            $(document).ready(function(){
+                  var dbgallery = "{{$cast->gallery}}";
+                  if (dbgallery) {
+                var images = <?= json_encode($cast->gallery) ?>;
+                var img_array = $.parseJSON(images);
+                console.log(img_array);
+
+                var imgpre_arr=[];
+
+
+                for (i = 0; i < img_array.length; i++) 
+                {
+                    var imgpre_obj={};
+
+                    imgpre_obj.id = i;
+                    var img = img_array[i];
+                    imgpre_obj.src = "/storage/"+img;
+
+                    imgpre_arr.push(imgpre_obj);
+
+                }
+
+                $('.input-images').imageUploader({
+                   preloaded: imgpre_arr,
+                   preloadedInputName: 'oldPhoto',
+                });
+            }
+
+            else{
+                $('.input-images').imageUploader();
+            }
+
+            })
+      </script>
+
 @endsection

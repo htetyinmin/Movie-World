@@ -23,6 +23,10 @@
     <link rel="stylesheet" href="{{asset('backend-assets/css/custom.css')}}">
     <!-- Favicon-->
     <link rel="shortcut icon" href="{{asset('backend-assets/img/favicon.png')}}">
+
+    <link rel="stylesheet" href="{{asset('multipleimageupload/image-uploader.min.css')}}">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     
   </head>
   <body>
@@ -148,6 +152,8 @@
     <script src="{{asset('backend-assets/js/charts-home.js')}}"></script>
     <script src="{{asset('backend-assets/js/front.js')}}"></script>
     <script src="{{asset('backend-assets/js/custom.js')}}"></script>
+    <script src="{{asset('multipleimageupload/image-uploader.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     @yield('script')
   </body>
 </html>

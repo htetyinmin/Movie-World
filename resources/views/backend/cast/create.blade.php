@@ -44,7 +44,7 @@
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Gender</label>
                         <div class="i-checks col-sm-2">
-                              <input id="male" type="radio" value="Male" name="gender" class="radio-template" checked="checked">
+                              <input id="male" type="radio" value="Male" name="gender" class="radio-template" checked>
                               <label for="male">Male</label>
                         </div>
                         <div class="i-checks col-sm-2">
@@ -55,7 +55,7 @@
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Date Of Birth</label>
                         <div class="col-sm-9">
-                          <input type="date" name="dob" class="form-control-date">
+                          <input type="date" name="dob" class="form-control">
                         </div>
                   </div>
                   <div class="form-group row">
@@ -73,13 +73,15 @@
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Gallery</label>
                         <div class="col-sm-9">
-                          <input type="file" name="gallery" class="form-control-file">
+                          <div class="input-images">
+
+                          </div>
                         </div>
                   </div>
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Status</label>
                         <div class="i-checks col-sm-2">
-                              <input id="director" type="radio" value="Director" name="status" class="radio-template" checked="checked">
+                              <input id="director" type="radio" value="Director" name="status" class="radio-template" checked>
                               <label for="director">Director</label>
                         </div>
                         <div class="i-checks col-sm-2">
@@ -102,4 +104,14 @@
           </div>
 
 </div>
+@endsection
+
+@section('script')
+
+      <script>
+            $(document).ready(function(){
+                  $('.input-images').imageUploader();
+            })
+      </script>
+
 @endsection
