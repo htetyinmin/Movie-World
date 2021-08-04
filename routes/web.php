@@ -27,5 +27,6 @@ Route::get('/', 'PageController@index')->name('index');
 Route::resource('genre', 'GenreController');
 Route::resource('cast', 'CastController');
 Route::resource('movie', 'MovieController');
+Route::resource('package', 'PackageController');
 
 

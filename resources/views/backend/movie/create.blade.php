@@ -25,7 +25,7 @@
             <div class="block">
               <div class="title"><strong>Create Movies Data</strong></div>
               <div class="block-body">
-                <form class="form-horizontal" action="{{route('movie.store')}}" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="{{route('movie.store')}}" method="post" enctype="multipart/form-data"> 
                   @csrf
                   <div class="form-group row">
                     <label class="col-sm-3 form-control-label">Title</label>
