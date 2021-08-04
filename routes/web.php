@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PageController@index')->name('index');
+Route::get('/movielist', 'PageController@movielist')->name('movielist');
 
 // Route::get('/', function () {
 //     return view('backend.genres.index');

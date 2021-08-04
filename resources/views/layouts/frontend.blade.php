@@ -88,11 +88,11 @@
                                 <div class="navbar-collapse navbar-responsive-collapse collapse" id="navbarSupportedContent">
                                     <ul class="nav navbar-nav">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="index.html">Home</a>
+                                            <a class="nav-link active" href="{{url('/')}}">Home</a>
                                         </li>
                                         <!-- Nav Item 1 End -->
                                         <li class="nav-item">
-                                            <a class="nav-link" href="movies.html">Movies</a>
+                                            <a class="nav-link" href="{{url('/movielist')}}">Movies</a>
                                         </li>
                                         <!-- Nav Item 2 End -->
                                         <li class="nav-item">
@@ -238,85 +238,6 @@
         </header>
         <!-- Header End -->
 
-        <!-- Start Main Slider -->
-        <div class="main-slider" id="main-slider">
-            <div class="slider big-slider slider-wrap">
-                <div class="slide slick-bg bg-1">
-                    <div class="container-fluid position-relative h-100">
-                        <div class="slider-content h-100">
-                            <div class="row align-items-center h-100">
-                                <div class="col-xl-6 col-lg-12 col-md-12">
-                                    <h3 data-animation-in="fadeInUp" data-delay-in="1"><span class="badge bg-warning text-dark">New</span></h3>
-                                    <h1 data-animation-in="fadeInUp" data-delay-in="1">Iron door</h1>
-                                    <div class="slide-info" data-animation-in="fadeInUp" data-delay-in="1">
-                                        <span>2021</span> <span class="radius">+18</span> <span>2h 6m</span>
-                                    </div>
-                                    <p data-animation-in="fadeInUp" data-delay-in="1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                    <div class="slider-buttons d-flex align-items-center" data-animation-in="fadeInUp" data-delay-in="1">
-                                        <a class="btn hvr-sweep-to-right" href="watch-movie.html" tabindex="0"><i aria-hidden="true" class="fa fa-play mr-2"></i>Play Now</a> <a class="btn hvr-sweep-to-right ml-3" href="#" tabindex="0"><i class="fas fa-plus mr-2"></i>My List</a>
-                                    </div>
-                                </div>
-                                <!-- Col End -->
-                            </div>
-                            <!-- Row End -->
-                        </div>
-                        <!-- Slider Content End -->
-                    </div>
-                    <!-- Container End -->
-                </div>
-                <!-- Slide 1 End -->
-                <div class="slide slick-bg bg-2">
-                    <div class="container-fluid position-relative h-100">
-                        <div class="slider-content h-100">
-                            <div class="row align-items-center h-100">
-                                <div class="col-xl-6 col-lg-12 col-md-12">
-                                    <h3 data-animation-in="fadeInUp" data-delay-in="1"><span class="badge bg-warning text-dark">New</span></h3>
-                                    <h1 data-animation-in="fadeInUp" data-delay-in="1">The Earth</h1>
-                                    <div class="slide-info" data-animation-in="fadeInUp" data-delay-in="1">
-                                        <span>2021</span> <span class="radius">+18</span> <span>2h 6m</span>
-                                    </div>
-                                    <p data-animation-in="fadeInUp" data-delay-in="1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                    <div class="slider-buttons d-flex align-items-center" data-animation-in="fadeInUp" data-delay-in="1">
-                                        <a class="btn hvr-sweep-to-right" href="watch-movie.html" tabindex="0"><i aria-hidden="true" class="fa fa-play mr-2"></i>Play Now</a> <a class="btn hvr-sweep-to-right ml-3" href="#" tabindex="0"><i class="fas fa-plus mr-2"></i>My List</a>
-                                    </div>
-                                </div>
-                                <!-- Col End -->
-                            </div>
-                            <!-- Row End -->
-                        </div>
-                        <!-- Slider Content End -->
-                    </div>
-                    <!-- Container End -->
-                </div>
-                <!-- Slide 2 End -->
-                <div class="slide slick-bg bg-3">
-                    <div class="container-fluid position-relative h-100">
-                        <div class="slider-content h-100">
-                            <div class="row align-items-center h-100">
-                                <div class="col-xl-6 col-lg-12 col-md-12">
-                                    <h3 data-animation-in="fadeInUp" data-delay-in="1"><span class="badge bg-warning text-dark">New</span></h3>
-                                    <h1 data-animation-in="fadeInUp" data-delay-in="1">City dreams</h1>
-                                    <div class="slide-info" data-animation-in="fadeInUp" data-delay-in="1">
-                                        <span>2021</span> <span class="radius">+18</span> <span>2h 6m</span>
-                                    </div>
-                                    <p data-animation-in="fadeInUp" data-delay-in="1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                    <div class="slider-buttons d-flex align-items-center" data-animation-in="fadeInUp" data-delay-in="1">
-                                        <a class="btn hvr-sweep-to-right" href="watch-movie.html" tabindex="0"><i aria-hidden="true" class="fa fa-play mr-2"></i>Play Now</a> <a class="btn hvr-sweep-to-right ml-3" href="#" tabindex="0"><i class="fas fa-plus mr-2"></i>My List</a>
-                                    </div>
-                                </div>
-                                <!-- Col End -->
-                            </div>
-                            <!-- Row End -->
-                        </div>
-                        <!-- Slider Content End -->
-                    </div>
-                    <!-- Container End -->
-                </div>
-                <!-- Slide 3 End -->
-            </div>
-            <!-- Slide Wrap End -->
-        </div>
-        <!-- Main Slider End -->
 
         <!-- Start Main Content -->
         @yield('content')
