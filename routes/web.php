@@ -34,5 +34,6 @@ Route::get('/package', 'PageController@package')->name('package');
 Route::resource('genre', 'GenreController');
 Route::resource('cast', 'CastController');
 Route::resource('movie', 'MovieController');
+Route::resource('package', 'PackageController');
 
 
