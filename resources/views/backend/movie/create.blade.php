@@ -42,17 +42,25 @@
                   </div>
                   <div class="line"></div>
                   <div class="form-group row">
-                      <label for="id_label_multiple" class="col-sm-3 form-control-label">
-                        Genre
-                      </label>
+                      <label for="genres" class="col-sm-3 form-control-label">Genres</label>
                       <div class="col-sm-9">
-                        <select class="js-example-basic-multiple js-states form-control" id="id_label_multiple" multiple="multiple">
-                          <option value="AL">Alabama</option>
-                          <option value="AL">Alabama</option>
-                          <option value="WY">Wyoming</option>
+                        <select class="form-control multiple-select" name="genres[]" multiple="multiple" id="genres">
+                          @foreach ($genres as $genre)
+                              <option value="{{$genre->id}}">{{$genre->name}}</option>
+                          @endforeach
                         </select>
                       </div>
                   </div>
+                  <div class="form-group row">
+                    <label for="casts" class="col-sm-3 form-control-label">Casts</label>
+                    <div class="col-sm-9">
+                      <select class="form-control multiple-select" name="casts[]" multiple="multiple" id="casts">
+                        @foreach ($casts as $cast)
+                            <option value="{{$cast->id}}">{{$cast->name}}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                </div>
                   <div class="line"></div>
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Year</label>
@@ -64,7 +72,7 @@
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Language</label>
                         <div class="col-sm-9">
-                          <select name="language" class="form-control mb-3 mb-3">
+                          <select name="language" class="form-control">
                             <option value="English">English</option>
                             <option value="Korea">Korea</option>
                             <option value="Thai">Thai</option>
@@ -132,11 +140,14 @@
 
 </div>
 @endsection
+
 @section('script')
-<script>
-  $(document).ready(function() {
-$('.js-example-basic-multiple').select2();
-});
-</script>
-    
+
+  <script src="{{asset('backend-assets/select2/js/select2.min.js')}}"></script>
+  <script>
+    $(document).ready(function() {
+        $('.multiple-select').select2();
+    });
+  </script>
+      
 @endsection
