@@ -50,7 +50,7 @@
                           <td>{{$package->period}}</td>
                           <td>{{$package->description}}</td>
                           <td>
-                                <a href="{{route('package.edit', $package->id)}}" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                                <a href="{{route('package.edit', $package->id)}}" type="button" class="btn btn-warning mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
                                 <a href="#deleteModal" data-id="{{route('package.destroy', $package->id)}}" type="button" class="btn btn-primary deletebtn"><i class="fa fa-trash" aria-hidden="true"></i></a>
                           </td>
                         </tr>
