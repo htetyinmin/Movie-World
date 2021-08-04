@@ -1,19 +1,6 @@
 /* your styles go here */
 /* your styles go here */
 
-.btwhite{
-      color: white;
+.f-size{
+      font-size: 70px;
 }
-
-  .btnn {
-        background-color: #ff0000;
-  }
-
-  .btnn:hover{
-        background-color: darkgray;
-  }
-
-  .user{
-        width: 265px;
-        height: 265px;
-  }
