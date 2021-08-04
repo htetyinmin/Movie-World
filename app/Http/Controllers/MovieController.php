@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Cast;
+use App\Genre;
 use App\Movie;
 use Illuminate\Http\Request;
 
@@ -25,7 +27,9 @@ class MovieController extends Controller
      */
     public function create()
     {
-        return view('backend.movie.create');
+        $genres = Genre::all();
+        $casts = Cast::all();
+        return view('backend.movie.create', compact('genres', 'casts'));
         
     }
 
