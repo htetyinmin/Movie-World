@@ -58,7 +58,7 @@
                           <td>{{$movie->duration}}</td>
                           <td>{{$movie->status}}</td>
                           <td>
-                                <a href="{{route('movie.edit', $movie->id)}}" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                                <a href="{{route('movie.edit', $movie->id)}}" type="button" class="btn btn-warning mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
                                 <a href="{{route('movie.show', $movie->id)}}" type="button" class="btn btn-success mr-3"><i class="fa fa-info p-1" aria-hidden="true"></i></a>
                                 <a href="#deleteModal" data-id="{{route('movie.destroy', $movie->id)}}" type="button" class="btn btn-primary deletebtn"><i class="fa fa-trash" aria-hidden="true"></i></a>
                           </td>
@@ -87,7 +87,7 @@
               <p>Are you sure you want to delete?</p>
             </div>
             <div class="modal-footer">
-              <input type="submit" name="btnsubmit" class="btn btn-danger" value="Delete">
+              <input type="submit" name="btnsubmit" class="btn btn-primary" value="Delete">
               <button class="btn btn-secondary" data-dismiss="modal">Cancle</button>
             </div>
           </form>

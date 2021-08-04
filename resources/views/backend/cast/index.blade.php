@@ -87,7 +87,7 @@
               <p>Are you sure you want to delete?</p>
             </div>
             <div class="modal-footer">
-              <input type="submit" name="btnsubmit" class="btn btn-danger" value="Delete">
+              <input type="submit" name="btnsubmit" class="btn btn-primary" value="Delete">
               <button class="btn btn-secondary" data-dismiss="modal">Cancle</button>
             </div>
           </form>

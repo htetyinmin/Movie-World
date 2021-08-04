@@ -2,15 +2,18 @@
 @section('content')
 
 <div class="page-content">
-      <div class="page-header">
+      <div class="page-header d-flex">
         <div class="container-fluid">
           <h2 class="h5 no-margin-bottom">Cast Details</h2>
         </div>
+        <div class="p-4 flex-shrink-1 bd-highlight">
+            <a href="{{route('cast.index')}}" type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+      </div>
       </div>
       
       <section class="no-padding-bottom">
         <div class="container-fluid block">
-          <div class="row mb-5">
+          <div class="row m-5">
                 <div class="col-lg-4">
                       <div class="user-block text-center">
                             <img src="{{asset('backend-assets/img/avatar-6.jpg')}}" alt="..." class="img-fluid border border-dark rounded">
@@ -18,7 +21,7 @@
                 </div>
                 <div class="col-lg-8">
                       <div class="">
-                            <h2 class="text-uppercase text-primary mb-3">John Wish</h2>
+                            <h2 class="text-uppercase text-primary mb-3 f-size">John Wish</h2>
                       </div>
                       <div class="mb-3">
                             <span class="mr-2"><i class="fa fa-user mr-1" aria-hidden="true"></i> Male</span>
@@ -44,13 +47,15 @@
                 </div>
           </div>
           
+          <hr>
+
           <div class="row">
                 <!-- Start Related Photo Section -->
           <section class="mb-5">
           <div class="container-fluid">
               <div class="row">
                   <div class="col-lg-12 mb-2">
-                      <h2 class="block-title">Related Photos</h2>
+                      <h2 class="block-title">Gallery</h2>
                   </div>
                   <!-- Col End -->
               </div>
@@ -116,7 +121,9 @@
           <!-- Container End -->
       </section>
 
-          </div>
+      </div>
+
+      <hr>
 
           <div class="row">
                 <!-- Start Related Movie Section -->
