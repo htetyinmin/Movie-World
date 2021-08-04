@@ -38,60 +38,31 @@
                         <th>Year</th>
                         <th>Language</th>
                         <th>Duration</th>
-                        {{-- <td>Overview</td> --}}
-                        {{-- <th>Trailer</th> --}}
-                        {{-- <th>Gallery</th> --}}
-                        {{-- <th>Video</th> --}}
                         <th>Status</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>End Game</td>
-                        <td>
-                              <img src="{{asset('backend-assets/img/genres/mv-it1.jpg')}}" alt="Cover Photo" style="width: 60px; height:100px;" class="mr-3">
-                        </td>
-                        <td>2019</td>
-                        <td>English</td>
-                        <td>2hr 30min</td>
-                        <td>Free</td>
-                        <td>
-                              <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
-                              <a href="#" type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Fast & Furious 9</td>
-                        <td>
-                              <img src="{{asset('backend-assets/img/genres/mv-it2.jpg')}}" alt="Cover Photo" style="width: 60px; height:100px;" class="mr-3">
-                        </td>
-                        <td>2020</td>
-                        <td>English</td>
-                        <td>2hr 30min</td>
-                        <td>Premium</td>
-                        <td>
-                              <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
-                              <a href="#" type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>IT II</td>
-                        <td>
-                              <img src="{{asset('backend-assets/img/genres/mv-it7.jpg')}}" alt="Cover Photo" style="width: 60px; height:100px;" class="mr-3">
-                        </td>
-                        <td>2021</td>
-                        <td>Korea</td>
-                        <td>2hr 30min</td>
-                        <td>Premium</td>
-                        <td>
-                              <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
-                              <a href="#" type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                        </td>
-                      </tr>
+                      @php
+                          $i=1;
+                      @endphp
+                      @foreach ($movies as $movie)
+                        <tr>
+                          <th scope="row">{{$i++}}</th>
+                          <td>{{$movie->name}}</td>
+                          <td>
+                                <img src="{{asset('storage/'.$movie->photo)}}" alt="Photo" width="70" height="100" class="mr-3">
+                          </td>
+                          <td>{{$movie->year}}</td>
+                          <td>{{$movie->language}}</td>
+                          <td>{{$movie->duration}}</td>
+                          <td>{{$movie->status}}</td>
+                          <td>
+                                <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                                <a href="#" type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                          </td>
+                        </tr>
+                      @endforeach
                     </tbody>
                   </table>
                 </div>
