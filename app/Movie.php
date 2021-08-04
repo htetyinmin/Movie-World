@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Movie extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['name', 'photo', 'duration', 'language', 'overview', 'trailer', 'gallery', 'video', 'status'];
+    protected $fillable = ['name', 'photo', 'genres', 'casts', 'year', 'duration', 'language', 'overview', 'trailer', 'gallery', 'video', 'status'];
 
     public function genre()
     {
