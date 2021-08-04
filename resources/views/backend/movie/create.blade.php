@@ -46,10 +46,10 @@
                         Genre
                       </label>
                       <div class="col-sm-9">
-                        <select class="js-example-basic-multiple js-states form-control" id="id_label_multiple" multiple="multiple" name="genre[]">
-                          <option value="A">A</option>
-                          <option value="B">B</option>
-                          <option value="C">C</option>
+                        <select class="js-example-basic-multiple js-states form-control" id="id_label_multiple" multiple="multiple">
+                          <option value="AL">Alabama</option>
+                          <option value="AL">Alabama</option>
+                          <option value="WY">Wyoming</option>
                         </select>
                       </div>
                   </div>
@@ -131,4 +131,12 @@
           </div>
 
 </div>
+@endsection
+@section('script')
+<script>
+  $(document).ready(function() {
+$('.js-example-basic-multiple').select2();
+});
+</script>
+    
 @endsection

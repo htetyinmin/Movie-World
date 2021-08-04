@@ -21,6 +21,7 @@ Route::get('/login', 'PageController@login')->name('login');
 Route::get('/register', 'PageController@register')->name('register');
 Route::get('/package', 'PageController@package')->name('package');
 
+
 // Route::get('/', function () {
 //     return view('backend.genres.index');
 // });

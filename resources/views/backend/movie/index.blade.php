@@ -59,6 +59,7 @@
                           <td>{{$movie->status}}</td>
                           <td>
                                 <a href="{{route('movie.edit', $movie->id)}}" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                                <a href="{{route('movie.show', $movie->id)}}" type="button" class="btn btn-success mr-3"><i class="fa fa-info p-1" aria-hidden="true"></i></a>
                                 <a href="#deleteModal" data-id="{{route('movie.destroy', $movie->id)}}" type="button" class="btn btn-primary deletebtn"><i class="fa fa-trash" aria-hidden="true"></i></a>
                           </td>
                         </tr>

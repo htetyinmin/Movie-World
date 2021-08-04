@@ -33,4 +33,8 @@ class PageController extends Controller
     public function package(){
         return view('frontend.package');
     }
+
+    public function detail(){
+        return view('backend.detail');
+    }
 }

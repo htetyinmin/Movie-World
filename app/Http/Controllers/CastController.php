@@ -18,6 +18,7 @@ class CastController extends Controller
         return view('backend.cast.index', compact('casts'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -92,7 +93,7 @@ class CastController extends Controller
      */
     public function show(Cast $cast)
     {
-        //
+        return view('backend.cast.detail', compact('cast'));
     }
 
     /**
@@ -212,4 +213,5 @@ class CastController extends Controller
         $cast->delete();
         return redirect()->route('cast.index');
     }
+
 }
