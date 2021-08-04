@@ -19,7 +19,7 @@ Route::get('/about', 'PageController@about')->name('about');
 Route::get('/contact', 'PageController@contact')->name('contact');
 Route::get('/login', 'PageController@login')->name('login');
 Route::get('/register', 'PageController@register')->name('register');
-Route::get('/package', 'PageController@package')->name('package');
+Route::get('/pricing', 'PageController@pricing')->name('pricing');
 
 
 // Route::get('/', function () {

@@ -201,7 +201,7 @@
                                             </li>
                                             <!-- Li 1 end -->
                                             <li>
-                                                <a class="dropdown-item" href="{{url('/package')}}">Package Plans</a>
+                                                <a class="dropdown-item" href="{{url('/pricing')}}">Package Plans</a>
                                             </li>
                                             <!-- Li 2 end -->
                                             <li>

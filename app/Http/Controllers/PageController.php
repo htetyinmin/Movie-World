@@ -30,8 +30,8 @@ class PageController extends Controller
         return view('frontend.register');
     }
 
-    public function package(){
-        return view('frontend.package');
+    public function pricing(){
+        return view('frontend.pricing');
     }
 
     public function detail(){
