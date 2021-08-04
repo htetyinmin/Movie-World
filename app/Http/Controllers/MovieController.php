@@ -60,6 +60,8 @@ class MovieController extends Controller
         $movie = new Movie;
         $movie->name = $request->name;
         $movie->photo = $filePath;
+        $genres = $request->genre;
+        $casts = $request->cast;
         $movie->year = $request->year;
         $movie->language = $request->language;
         $movie->duration = $request->duration;
@@ -69,6 +71,14 @@ class MovieController extends Controller
         // $movie->video = $filePath;
         $movie->status = $request->status;
         $movie->save();
+
+        foreach ($genres as $genre) {
+            $movie->genres()->attach($genre);
+        }
+
+        foreach ($casts as $cast) {
+            $movie->casts()->attach($cast);
+        }
 
         //REDIRECT
         return redirect()->route('movie.index');
@@ -125,6 +135,8 @@ class MovieController extends Controller
         //DATA INSERT
         $movie->name = $request->name;
         $movie->photo = $filePath;
+        $genres = $request->genre;
+        $casts = $request->cast;
         $movie->year = $request->year;
         $movie->language = $request->language;
         $movie->duration = $request->duration;
@@ -134,6 +146,16 @@ class MovieController extends Controller
         // $movie->video = $filePath;
         $movie->status = $request->status;
         $movie->save();
+
+        $movie->genres()->detach();
+        foreach ($genres as $genre) {
+            $movie->genres()->attach($genre);
+        }
+
+        $movie->casts()->detach();
+        foreach ($casts as $cast) {
+            $movie->casts()->attach($cast);
+        }
 
         //REDIRECT
         return redirect()->route('movie.index');
