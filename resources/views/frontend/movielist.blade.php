@@ -6,10 +6,10 @@
 <div class="swiper-container loading">
     <div class="swiper-wrapper">
         <div class="swiper-slide swiper-bg" style="background-image:url(images/movies/01.jpg)">
-            <img src="images/movies/01.jpg" class="entity-img" alt="">
+            <img src="{{asset('frontend_assets/images/movies/01.jpg')}}" class="entity-img" alt="">
             <div class="top-badge">
                 <div class="video-badge">
-                    <img class="img-fluid" src="images/top-movies.png" alt="">
+                    <img class="img-fluid" src="{{asset('frontend_assets/images/top-movies.png')}}" alt="">
                 </div>
             </div>
             <div class="content">
@@ -22,11 +22,11 @@
             </div>
         </div>
         <!-- Slide 1 End -->
-        <div class="swiper-slide swiper-bg" style="background-image:url(images/movies/02.jpg)">
-            <img src="images/movies/02.jpg" class="entity-img" alt="">
+        <div class="swiper-slide swiper-bg" style="background-image:url({{asset('frontend_assets/images/movies/02.jpg')}})">
+            <img src="{{asset('frontend_assets/images/movies/02.jpg')}}" class="entity-img" alt="">
             <div class="top-badge">
                 <div class="video-badge">
-                    <img class="img-fluid" src="images/top-movies.png" alt="">
+                    <img class="img-fluid" src="{{asset('frontend_assets/images/top-movies.png')}}" alt="">
                 </div>
             </div>
             <div class="content">
@@ -39,11 +39,11 @@
             </div>
         </div>
         <!-- Slide 2 End -->
-        <div class="swiper-slide swiper-bg" style="background-image:url(images/movies/03.jpg)">
-            <img src="images/movies/03.jpg" class="entity-img" alt="">
+        <div class="swiper-slide swiper-bg" style="background-image:url({{asset('frontend_assets/images/movies/03.jpg')}})">
+            <img src="{{asset('frontend_assets/images/movies/03.jpg')}}" class="entity-img" alt="">
             <div class="top-badge">
                 <div class="video-badge">
-                    <img class="img-fluid" src="images/top-movies.png" alt="">
+                    <img class="img-fluid" src="{{asset('frontend_assets/images/top-movies.png')}}" alt="">
                 </div>
             </div>
             <div class="content">
@@ -56,11 +56,11 @@
             </div>
         </div>
         <!-- Slide 3 End -->
-        <div class="swiper-slide swiper-bg" style="background-image:url(images/movies/04.jpg)">
-            <img src="images/movies/04.jpg" class="entity-img" alt="">
+        <div class="swiper-slide swiper-bg" style="background-image:url({{asset('frontend_assets/images/movies/04.jpg')}})">
+            <img src="{{asset('frontend_assets/images/movies/04.jpg')}}" class="entity-img" alt="">
             <div class="top-badge">
                 <div class="video-badge">
-                    <img class="img-fluid" src="images/top-movies.png" alt="">
+                    <img class="img-fluid" src="{{asset('frontend_assets/images/top-movies.png')}}" alt="">
                 </div>
             </div>
             <div class="content">
@@ -73,11 +73,11 @@
             </div>
         </div>
         <!-- Slide 4 End -->
-        <div class="swiper-slide swiper-bg" style="background-image:url(images/movies/05.jpg)">
-            <img src="images/movies/05.jpg" class="entity-img" alt="">
+        <div class="swiper-slide swiper-bg" style="background-image:url({{asset('frontend_assets/images/movies/05.jpg')}})">
+            <img src="{{asset('frontend_assets/images/movies/05.jpg')}}" class="entity-img" alt="">
             <div class="top-badge">
                 <div class="video-badge">
-                    <img class="img-fluid" src="images/top-movies.png" alt="">
+                    <img class="img-fluid" src="{{asset('frontend_assets/images/top-movies.png')}}" alt="">
                 </div>
             </div>
             <div class="content">

@@ -95,35 +95,23 @@
                                             <a class="nav-link" href="{{url('/movielist')}}">Movies</a>
                                         </li>
                                         <!-- Nav Item 2 End -->
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="shows.html">Shows</a>
-                                        </li>
-                                        <!-- Nav Item 3 End -->
                                         <li class="nav-item dropdown">
                                             <a class="nav-link menu-dropdown" data-toggle="dropdown" href="#">Pages <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu fade-up" role="menu">
                                                 <li>
-                                                    <a class="dropdown-item" href="about.html">About Us</a>
+                                                    <a class="dropdown-item" href="{{url('/about')}}">About Us</a>
                                                 </li>
                                                 <!-- Sub Nav Item 1 End -->
                                                 <li>
-                                                    <a class="dropdown-item" href="contacts.html">Contact Us</a>
+                                                    <a class="dropdown-item" href="{{url('/contact')}}">Contact Us</a>
                                                 </li>
                                                 <!-- Sub Nav Item 2 End -->
-                                                <li>
-                                                    <a class="dropdown-item" href="404.html">404</a>
-                                                </li>
-                                                <!-- Sub Nav Item 3 End -->
-                                                <li>
-                                                    <a class="dropdown-item" href="login.html">Login</a>
-                                                </li>
-                                                <!-- Sub Nav Item 4 End -->
-                                                <li>
-                                                    <a class="dropdown-item" href="sign-up.html">Signup</a>
-                                                </li>
-                                                <!-- Sub Nav Item 5 End -->
                                             </ul>
                                             <!-- Dropdown End -->
+                                        </li>
+                                        <!-- Nav Item 3 End -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{url('/login')}}">Login</a>
                                         </li>
                                         <!-- Nav Item 4 End -->
                                     </ul>
@@ -197,7 +185,8 @@
                                 <div class="nav-filter">
                                     <a class="nav-link openbtn" onclick="openNav()"><svg class="filter-animate" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M24 14v-4c-1.619 0-2.906.267-3.705-1.476-.697-1.663.604-2.596 1.604-3.596l-2.829-2.828c-1.033 1.033-1.908 2.307-3.666 1.575-1.674-.686-1.404-2.334-1.404-3.675h-4c0 1.312.278 2.985-1.404 3.675-1.761.733-2.646-.553-3.667-1.574l-2.829 2.828c1.033 1.033 2.308 1.909 1.575 3.667-.348.849-1.176 1.404-2.094 1.404h-1.581v4c1.471 0 2.973-.281 3.704 1.475.698 1.661-.604 2.596-1.604 3.596l2.829 2.829c1-1 1.943-2.282 3.667-1.575 1.673.687 1.404 2.332 1.404 3.675h4c0-1.244-.276-2.967 1.475-3.704 1.645-.692 2.586.595 3.596 1.604l2.828-2.829c-1-1-2.301-1.933-1.604-3.595l.03-.072c.687-1.673 2.332-1.404 3.675-1.404zm-12 2c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z"></path>
-                                        </svg></a>
+                                        </svg>
+                                    </a>
                                 </div>
                                 <!-- Sidebar Filter Button End -->
                             </li>
@@ -208,11 +197,11 @@
                                         <div aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" id="dropdown-account" role="button"><img alt="" class="img-fluid user-icon rounded-circle" src="{{asset('frontend_assets/images/avatar/user.jpg')}}"></div>
                                         <ul class="dropdown-menu dropdown-menu-right fade-up">
                                             <li>
-                                                <a class="dropdown-item" href="account-settings.html">Account Settings</a>
+                                                <a class="dropdown-item" href="#">Account Settings</a>
                                             </li>
                                             <!-- Li 1 end -->
                                             <li>
-                                                <a class="dropdown-item" href="pricing-plan.html">pricing plans</a>
+                                                <a class="dropdown-item" href="{{url('/package')}}">Package Plans</a>
                                             </li>
                                             <!-- Li 2 end -->
                                             <li>

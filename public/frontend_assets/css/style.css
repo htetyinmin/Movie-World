@@ -258,6 +258,10 @@ hr {
     background: #ff0000;
 }
 
+.sec-text{
+    color: #ff0000;
+}
+
 .btn-primary:hover,
 .btn:focus {
     background: #272d33;
