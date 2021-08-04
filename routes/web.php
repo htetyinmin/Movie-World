@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PageController@index')->name('index');
+Route::get('/movielist', 'PageController@movielist')->name('movielist');
+Route::get('/about', 'PageController@about')->name('about');
+Route::get('/contact', 'PageController@contact')->name('contact');
+Route::get('/login', 'PageController@login')->name('login');
+Route::get('/register', 'PageController@register')->name('register');
+Route::get('/package', 'PageController@package')->name('package');
 
 // Route::get('/', function () {
 //     return view('backend.genres.index');

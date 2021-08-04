@@ -88,42 +88,30 @@
                                 <div class="navbar-collapse navbar-responsive-collapse collapse" id="navbarSupportedContent">
                                     <ul class="nav navbar-nav">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="index.html">Home</a>
+                                            <a class="nav-link active" href="{{url('/')}}">Home</a>
                                         </li>
                                         <!-- Nav Item 1 End -->
                                         <li class="nav-item">
-                                            <a class="nav-link" href="movies.html">Movies</a>
+                                            <a class="nav-link" href="{{url('/movielist')}}">Movies</a>
                                         </li>
                                         <!-- Nav Item 2 End -->
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="shows.html">Shows</a>
-                                        </li>
-                                        <!-- Nav Item 3 End -->
                                         <li class="nav-item dropdown">
                                             <a class="nav-link menu-dropdown" data-toggle="dropdown" href="#">Pages <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu fade-up" role="menu">
                                                 <li>
-                                                    <a class="dropdown-item" href="about.html">About Us</a>
+                                                    <a class="dropdown-item" href="{{url('/about')}}">About Us</a>
                                                 </li>
                                                 <!-- Sub Nav Item 1 End -->
                                                 <li>
-                                                    <a class="dropdown-item" href="contacts.html">Contact Us</a>
+                                                    <a class="dropdown-item" href="{{url('/contact')}}">Contact Us</a>
                                                 </li>
                                                 <!-- Sub Nav Item 2 End -->
-                                                <li>
-                                                    <a class="dropdown-item" href="404.html">404</a>
-                                                </li>
-                                                <!-- Sub Nav Item 3 End -->
-                                                <li>
-                                                    <a class="dropdown-item" href="login.html">Login</a>
-                                                </li>
-                                                <!-- Sub Nav Item 4 End -->
-                                                <li>
-                                                    <a class="dropdown-item" href="sign-up.html">Signup</a>
-                                                </li>
-                                                <!-- Sub Nav Item 5 End -->
                                             </ul>
                                             <!-- Dropdown End -->
+                                        </li>
+                                        <!-- Nav Item 3 End -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{url('/login')}}">Login</a>
                                         </li>
                                         <!-- Nav Item 4 End -->
                                     </ul>
@@ -197,7 +185,8 @@
                                 <div class="nav-filter">
                                     <a class="nav-link openbtn" onclick="openNav()"><svg class="filter-animate" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M24 14v-4c-1.619 0-2.906.267-3.705-1.476-.697-1.663.604-2.596 1.604-3.596l-2.829-2.828c-1.033 1.033-1.908 2.307-3.666 1.575-1.674-.686-1.404-2.334-1.404-3.675h-4c0 1.312.278 2.985-1.404 3.675-1.761.733-2.646-.553-3.667-1.574l-2.829 2.828c1.033 1.033 2.308 1.909 1.575 3.667-.348.849-1.176 1.404-2.094 1.404h-1.581v4c1.471 0 2.973-.281 3.704 1.475.698 1.661-.604 2.596-1.604 3.596l2.829 2.829c1-1 1.943-2.282 3.667-1.575 1.673.687 1.404 2.332 1.404 3.675h4c0-1.244-.276-2.967 1.475-3.704 1.645-.692 2.586.595 3.596 1.604l2.828-2.829c-1-1-2.301-1.933-1.604-3.595l.03-.072c.687-1.673 2.332-1.404 3.675-1.404zm-12 2c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z"></path>
-                                        </svg></a>
+                                        </svg>
+                                    </a>
                                 </div>
                                 <!-- Sidebar Filter Button End -->
                             </li>
@@ -208,11 +197,11 @@
                                         <div aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" id="dropdown-account" role="button"><img alt="" class="img-fluid user-icon rounded-circle" src="{{asset('frontend_assets/images/avatar/user.jpg')}}"></div>
                                         <ul class="dropdown-menu dropdown-menu-right fade-up">
                                             <li>
-                                                <a class="dropdown-item" href="account-settings.html">Account Settings</a>
+                                                <a class="dropdown-item" href="#">Account Settings</a>
                                             </li>
                                             <!-- Li 1 end -->
                                             <li>
-                                                <a class="dropdown-item" href="pricing-plan.html">pricing plans</a>
+                                                <a class="dropdown-item" href="{{url('/package')}}">Package Plans</a>
                                             </li>
                                             <!-- Li 2 end -->
                                             <li>
@@ -238,85 +227,6 @@
         </header>
         <!-- Header End -->
 
-        <!-- Start Main Slider -->
-        <div class="main-slider" id="main-slider">
-            <div class="slider big-slider slider-wrap">
-                <div class="slide slick-bg bg-1">
-                    <div class="container-fluid position-relative h-100">
-                        <div class="slider-content h-100">
-                            <div class="row align-items-center h-100">
-                                <div class="col-xl-6 col-lg-12 col-md-12">
-                                    <h3 data-animation-in="fadeInUp" data-delay-in="1"><span class="badge bg-warning text-dark">New</span></h3>
-                                    <h1 data-animation-in="fadeInUp" data-delay-in="1">Iron door</h1>
-                                    <div class="slide-info" data-animation-in="fadeInUp" data-delay-in="1">
-                                        <span>2021</span> <span class="radius">+18</span> <span>2h 6m</span>
-                                    </div>
-                                    <p data-animation-in="fadeInUp" data-delay-in="1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                    <div class="slider-buttons d-flex align-items-center" data-animation-in="fadeInUp" data-delay-in="1">
-                                        <a class="btn hvr-sweep-to-right" href="watch-movie.html" tabindex="0"><i aria-hidden="true" class="fa fa-play mr-2"></i>Play Now</a> <a class="btn hvr-sweep-to-right ml-3" href="#" tabindex="0"><i class="fas fa-plus mr-2"></i>My List</a>
-                                    </div>
-                                </div>
-                                <!-- Col End -->
-                            </div>
-                            <!-- Row End -->
-                        </div>
-                        <!-- Slider Content End -->
-                    </div>
-                    <!-- Container End -->
-                </div>
-                <!-- Slide 1 End -->
-                <div class="slide slick-bg bg-2">
-                    <div class="container-fluid position-relative h-100">
-                        <div class="slider-content h-100">
-                            <div class="row align-items-center h-100">
-                                <div class="col-xl-6 col-lg-12 col-md-12">
-                                    <h3 data-animation-in="fadeInUp" data-delay-in="1"><span class="badge bg-warning text-dark">New</span></h3>
-                                    <h1 data-animation-in="fadeInUp" data-delay-in="1">The Earth</h1>
-                                    <div class="slide-info" data-animation-in="fadeInUp" data-delay-in="1">
-                                        <span>2021</span> <span class="radius">+18</span> <span>2h 6m</span>
-                                    </div>
-                                    <p data-animation-in="fadeInUp" data-delay-in="1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                    <div class="slider-buttons d-flex align-items-center" data-animation-in="fadeInUp" data-delay-in="1">
-                                        <a class="btn hvr-sweep-to-right" href="watch-movie.html" tabindex="0"><i aria-hidden="true" class="fa fa-play mr-2"></i>Play Now</a> <a class="btn hvr-sweep-to-right ml-3" href="#" tabindex="0"><i class="fas fa-plus mr-2"></i>My List</a>
-                                    </div>
-                                </div>
-                                <!-- Col End -->
-                            </div>
-                            <!-- Row End -->
-                        </div>
-                        <!-- Slider Content End -->
-                    </div>
-                    <!-- Container End -->
-                </div>
-                <!-- Slide 2 End -->
-                <div class="slide slick-bg bg-3">
-                    <div class="container-fluid position-relative h-100">
-                        <div class="slider-content h-100">
-                            <div class="row align-items-center h-100">
-                                <div class="col-xl-6 col-lg-12 col-md-12">
-                                    <h3 data-animation-in="fadeInUp" data-delay-in="1"><span class="badge bg-warning text-dark">New</span></h3>
-                                    <h1 data-animation-in="fadeInUp" data-delay-in="1">City dreams</h1>
-                                    <div class="slide-info" data-animation-in="fadeInUp" data-delay-in="1">
-                                        <span>2021</span> <span class="radius">+18</span> <span>2h 6m</span>
-                                    </div>
-                                    <p data-animation-in="fadeInUp" data-delay-in="1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                    <div class="slider-buttons d-flex align-items-center" data-animation-in="fadeInUp" data-delay-in="1">
-                                        <a class="btn hvr-sweep-to-right" href="watch-movie.html" tabindex="0"><i aria-hidden="true" class="fa fa-play mr-2"></i>Play Now</a> <a class="btn hvr-sweep-to-right ml-3" href="#" tabindex="0"><i class="fas fa-plus mr-2"></i>My List</a>
-                                    </div>
-                                </div>
-                                <!-- Col End -->
-                            </div>
-                            <!-- Row End -->
-                        </div>
-                        <!-- Slider Content End -->
-                    </div>
-                    <!-- Container End -->
-                </div>
-                <!-- Slide 3 End -->
-            </div>
-            <!-- Slide Wrap End -->
-        </div>
-        <!-- Main Slider End -->
 
         <!-- Start Main Content -->
         @yield('content')
