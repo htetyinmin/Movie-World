@@ -59,6 +59,20 @@ class MovieController extends Controller
             $filePath = $request->file('photo')->storeAs('movieimg', $fileName, 'public');
         }
 
+        //MULTI FILE UPLOAD
+        $data = [];
+        if($request->hasfile('images')) {
+            
+            foreach($request->file('images') as $image){
+
+                $fileNames = time().'_'.$image->getClientOriginalName();
+
+                $filePaths = $image->storeAs('castimg', $fileNames, 'public');
+                array_push($data, $filePaths);
+            }
+        }
+        $photostring = json_encode($data);
+
         //DATA INSERT
         $movie = new Movie;
         $movie->name = $request->name;
@@ -70,7 +84,7 @@ class MovieController extends Controller
         $movie->duration = $request->duration;
         $movie->overview = $request->overview;
         $movie->trailer = $request->trailer;
-        // $movie->gallery = $filePath;
+        $movie->gallery =  $photostring;
         // $movie->video = $filePath;
         $movie->status = $request->status;
         $movie->save();

@@ -49,7 +49,7 @@ class CastController extends Controller
         ]);
 
         //FILE UPLOAD
-        if($request->file()) {
+        if($request->hasfile('photo')) {
             $fileName = time().'_'.$request->photo->getClientOriginalName();
 
             $filePath = $request->file('photo')->storeAs('castimg', $fileName, 'public');
@@ -61,10 +61,10 @@ class CastController extends Controller
             
             foreach($request->file('images') as $image){
 
-                $fileName = time().'_'.$image->getClientOriginalName();
+                $fileNames = time().'_'.$image->getClientOriginalName();
 
-                $filePath = $image->storeAs('castimg', $fileName, 'public');
-                array_push($data, $filePath);
+                $filePaths = $image->storeAs('castimg', $fileNames, 'public');
+                array_push($data, $filePaths);
             }
         }
         $photostring = json_encode($data);
@@ -156,10 +156,10 @@ class CastController extends Controller
             
             foreach($request->file('images') as $image){
 
-                $fileName = time().'_'.$image->getClientOriginalName();
+                $fileNames = time().'_'.$image->getClientOriginalName();
 
-                $filePath = $image->storeAs('castimg', $fileName, 'public');
-                array_push($data, $filePath);
+                $filePaths = $image->storeAs('castimg', $fileNames, 'public');
+                array_push($data, $filePaths);
             }
         }
 

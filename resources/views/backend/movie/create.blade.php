@@ -105,7 +105,9 @@
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Gallery</label>
                         <div class="col-sm-9">
-                          <input type="file" name="gallery" class="form-control-file" multiple>
+                          <div class="input-images">
+
+                          </div>
                         </div>
                   </div>
                   <div class="line"></div>
@@ -157,12 +159,16 @@
     });
 
     $(document).ready(function() {
-        $('.multiple-select').select2({
-    			theme: 'bootstrap4',
-      			width: 'style',
-      			placeholder: $(this).attr('Choose Language'),
-    		}
+
+      $('.input-images').imageUploader();
+
+      $('.multiple-select').select2({
+        theme: 'bootstrap4',
+          width: 'style',
+          placeholder: $(this).attr('Choose Language'),
+        }
       );
+
     });
   </script>
       
