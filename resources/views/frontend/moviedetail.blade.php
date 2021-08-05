@@ -2,30 +2,32 @@
 @section('title','Movie World | Movie Detail Page')
 @section('content')
 
+@foreach ($movies as $movie)
+
 <!-- Start Banner Section -->
 <div class="banner-single banner-wrap banner-bg movie-bg">
       <div class="container-fluid">
-          <div class="banner-content">
-              <div class="transparent-block">
-                  <div class="banner-caption">
-                      <div class="position-relative mb-4">
-                          <a href="watch-movie.html" class="d-flex align-items-center">
-                              <div class="play-icon">
-                                  <div class="circle pulse"></div>
-                                  <div class="circle">
-                                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                                          <polygon points="40,30 65,50 40,70"></polygon>
-                                      </svg>
-                                  </div>
-                              </div>
-                              <h2 class="banner-name text-white font-weight-700">Play The Dark Knight Rises</h2>
-                          </a>
-                      </div>
-                  </div>
-                  <!-- Banner Caption End -->
-              </div>
-              <!-- Transparent Block End -->
-          </div>
+            <div class="banner-content">
+                <div class="transparent-block">
+                    <div class="banner-caption">
+                        <div class="position-relative mb-4">
+                            <a href="watch-movie.html" class="d-flex align-items-center">
+                                <div class="play-icon">
+                                    <div class="circle pulse"></div>
+                                    <div class="circle">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                                            <polygon points="40,30 65,50 40,70"></polygon>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h2 class="banner-name text-white font-weight-700">{{$movie->name}}</h2>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Banner Caption End -->
+                </div>
+                <!-- Transparent Block End -->
+            </div>   
           <!-- Banner Content End -->
       </div>
       <!-- Container End -->
@@ -41,7 +43,7 @@
                       <div class="row">
                           <div class="col-md-12">
                               <div class="play-thumb mb-4">
-                                  <img class="img-fluid" src="{{asset('frontend_assets/images/play-page/01.jpg')}}" alt="">
+                                  <img class="img-fluid" src="{{asset('storage/'.$movie->photo)}}" alt="">
                                   <div class="top-badge">
                                       <div class="video-badge">
                                           <img class="img-fluid" src="{{asset('frontend_assets/images/top-movies.png')}}" alt="">
@@ -65,19 +67,19 @@
                   <div class="col-md-9">
                       <div class="play-details-content">
                           <div class="title-block d-flex align-items-center justify-content-between">
-                              <h2 class="play-title">The Dark Knight Rises</h2>
+                              <h2 class="play-title">{{$movie->name}}</h2>
                           </div>
                           <!-- Title Block -->
                           <div class="details-info mb-4">
-                              <span><i class="icofont-user mr-2" aria-hidden="true"></i> 18+</span>
-                              <span><i class="icofont-clock-time mr-2" aria-hidden="true"></i> 2hr 45min</span>
-                              <span><i class="icofont-simple-smile mr-2" aria-hidden="true"></i> 2021</span>
+                              {{-- <span><i class="icofont-user mr-2" aria-hidden="true"></i> 18+</span> --}}
+                              <span><i class="icofont-clock-time mr-2" aria-hidden="true"></i> {{$movie->duration}}</span>
+                              <span><i class="icofont-simple-smile mr-2" aria-hidden="true"></i> {{$movie->year}}</span>
                               <span><i class="icofont-movie mr-2" aria-hidden="true"></i> Action</span>
-                              <span><i class="icofont-world mr-2" aria-hidden="true"></i> United States</span>
+                              <span><i class="icofont-world mr-2" aria-hidden="true"></i> {{$movie->language}}</span>
                           </div>
                           <!-- Details Info -->
                           <div class="details-desc">
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                              <p>{{$movie->overview}}</p>
                           </div>
                           <!-- Details Desc -->
                           <div class="movie-persons mb-4">
@@ -120,7 +122,7 @@
                                                   <!-- Modal Body -->
                                                   <div class="modal-body">
                                                       <video class="video d-block" controls="" loop="">
-                                                          <source src="video/01-video.mp4" type="video/mp4">
+                                                          <source src="{{asset('frontend_assets/video/01-video.mp4')}}" type="video/mp4">
                                                       </video>
                                                   </div>
                                                   <!-- Modal Body -->
@@ -214,7 +216,7 @@
                               <h2 class="video-title"><a href="movie-single.html">life is Beautiful</a></h2>
                               <div class="video-info d-flex align-items-center">
                                   <span class="video-year">2021</span>
-                                  <span class="video-age">free</span>
+                                  <span class="video-age"></span>
                                   <span class="video-type">Action</span>
                               </div>
                           </div>
@@ -241,7 +243,7 @@
                               <h2 class="video-title"><a href="movie-single.html">The End</a></h2>
                               <div class="video-info d-flex align-items-center">
                                   <span class="video-year">2021</span>
-                                  <span class="video-age">free</span>
+                                  <span class="video-age"></span>
                                   <span class="video-type">Action</span>
                               </div>
                           </div>
@@ -268,7 +270,7 @@
                               <h2 class="video-title"><a href="movie-single.html">the beginning</a></h2>
                               <div class="video-info d-flex align-items-center">
                                   <span class="video-year">2021</span>
-                                  <span class="video-age">free</span>
+                                  <span class="video-age"></span>
                                   <span class="video-type">Action</span>
                               </div>
                           </div>
@@ -295,7 +297,7 @@
                               <h2 class="video-title"><a href="movie-single.html">The Search</a></h2>
                               <div class="video-info d-flex align-items-center">
                                   <span class="video-year">2021</span>
-                                  <span class="video-age">free</span>
+                                  <span class="video-age"></span>
                                   <span class="video-type">Action</span>
                               </div>
                           </div>
@@ -322,7 +324,7 @@
                               <h2 class="video-title"><a href="movie-single.html">The Treasures</a></h2>
                               <div class="video-info d-flex align-items-center">
                                   <span class="video-year">2021</span>
-                                  <span class="video-age">free</span>
+                                  <span class="video-age"></span>
                                   <span class="video-type">Action</span>
                               </div>
                           </div>
@@ -349,7 +351,7 @@
                               <h2 class="video-title"><a href="movie-single.html">Problems</a></h2>
                               <div class="video-info d-flex align-items-center">
                                   <span class="video-year">2021</span>
-                                  <span class="video-age">free</span>
+                                  <span class="video-age"></span>
                                   <span class="video-type">Action</span>
                               </div>
                           </div>
@@ -366,5 +368,7 @@
       <!-- Related Movies Section End -->
   </div>
   <!-- Main Content End -->
+
+  @endforeach
 
 @endsection
