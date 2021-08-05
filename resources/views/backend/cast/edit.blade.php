@@ -115,34 +115,32 @@
             $(document).ready(function(){
                   var dbgallery = "{{$cast->gallery}}";
                   if (dbgallery) {
-                var images = <?= json_encode($cast->gallery) ?>;
-                var img_array = $.parseJSON(images);
-                console.log(img_array);
+                        var images = <?= json_encode($cast->gallery) ?>;
+                        var img_array = $.parseJSON(images);
+                        console.log(img_array);
 
-                var imgpre_arr=[];
+                        var imgpre_arr=[];
 
 
-                for (i = 0; i < img_array.length; i++) 
-                {
-                    var imgpre_obj={};
+                        for (i = 0; i < img_array.length; i++) 
+                        {
+                              var imgpre_obj={};
 
-                    imgpre_obj.id = i;
-                    var img = img_array[i];
-                    imgpre_obj.src = "/storage/"+img;
+                              imgpre_obj.id = i;
+                              var img = img_array[i];
+                              imgpre_obj.src = "/storage/"+img;
 
-                    imgpre_arr.push(imgpre_obj);
+                              imgpre_arr.push(imgpre_obj);
 
-                }
+                        }
 
-                $('.input-images').imageUploader({
-                   preloaded: imgpre_arr,
-                   preloadedInputName: 'oldPhoto',
-                });
-            }
-
-            else{
-                $('.input-images').imageUploader();
-            }
+                        $('.input-images').imageUploader({
+                              preloaded: imgpre_arr,
+                              preloadedInputName: 'oldPhoto',
+                        });
+                  }else{
+                        $('.input-images').imageUploader();
+                  }
 
             })
       </script>

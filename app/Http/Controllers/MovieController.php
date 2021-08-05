@@ -67,7 +67,7 @@ class MovieController extends Controller
 
                 $fileNames = time().'_'.$image->getClientOriginalName();
 
-                $filePaths = $image->storeAs('castimg', $fileNames, 'public');
+                $filePaths = $image->storeAs('movieimg', $fileNames, 'public');
                 array_push($data, $filePaths);
             }
         }
@@ -149,6 +149,57 @@ class MovieController extends Controller
             $fileName = time().'_'.$request->photo->getClientOriginalName();
 
             $filePath = $request->file('photo')->storeAs('movieimg', $fileName, 'public');
+        //DELETE OLD PHOTO
+            unlink(public_path('storage/').$movie->photo);
+
+        }else{
+            $filePath = $movie->photo;
+        }
+
+        //MULTI FILE UPLOAD
+        $oldphoto_arr = $request->oldPhoto;
+
+        if($oldphoto_arr){
+            if(in_array('', $oldphoto_arr)){
+                $oldphoto_str = json_encode($oldphoto_arr);
+            }
+        }
+        dd($oldphoto_arr);
+
+        $data = [];
+        if($request->hasfile('images')) {
+            
+            foreach($request->file('images') as $image){
+
+                $fileNames = time().'_'.$image->getClientOriginalName();
+
+                $filePaths = $image->storeAs('movieimg', $fileNames, 'public');
+                array_push($data, $filePaths);
+            }
+        }
+
+        if(count($data)>0){
+            $newphoto_str = json_encode($data);
+        }else{
+            $newphoto_str = null;
+        }
+
+        if ($newphoto_str && $oldphoto_arr) 
+        {
+            $new_arr = json_decode($newphoto_str);
+            $old_arr = $oldphoto_arr;
+
+            $mergedArray = array_merge($new_arr,$old_arr);
+
+            $photo = json_encode($mergedArray);
+        }
+        elseif($newphoto_str)
+        {
+            $photo = $newphoto_str;
+        }
+        else
+        {
+            $photo = $oldphoto_str;
         }
 
         //DATA INSERT
@@ -161,7 +212,7 @@ class MovieController extends Controller
         $movie->duration = $request->duration;
         $movie->overview = $request->overview;
         $movie->trailer = $request->trailer;
-        // $movie->gallery = $filePath;
+        $movie->gallery =  $photo;
         // $movie->video = $filePath;
         $movie->status = $request->status;
         $movie->save();
