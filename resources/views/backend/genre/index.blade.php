@@ -48,7 +48,7 @@
                           <th scope="row">{{$i++}}</th>
                           <td>{{$genre->name}}</td>
                           <td>
-                              <a href="{{route('genre.edit', $genre->id)}}" type="button" class="btn btn-primary mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                              <a href="{{route('genre.edit', $genre->id)}}" type="button" class="btn btn-warning mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
                               <a href="#deleteModal" data-id="{{route('genre.destroy', $genre->id)}}" type="button" class="btn btn-primary deletebtn"><i class="fa fa-trash" aria-hidden="true"></i></a>
                           </td>
                         </tr>

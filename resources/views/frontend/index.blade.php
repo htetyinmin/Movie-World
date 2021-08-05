@@ -13,7 +13,7 @@
                             <h3 data-animation-in="fadeInUp" data-delay-in="1"><span class="badge bg-warning text-dark">New</span></h3>
                             <h1 data-animation-in="fadeInUp" data-delay-in="1">Iron door</h1>
                             <div class="slide-info" data-animation-in="fadeInUp" data-delay-in="1">
-                                <span>2021</span> <span class="radius">+18</span> <span>2h 6m</span>
+                                <span>2021</span> <span class="radius">Premium</span> <span>2h 6m</span>
                             </div>
                             <p data-animation-in="fadeInUp" data-delay-in="1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
                             <div class="slider-buttons d-flex align-items-center" data-animation-in="fadeInUp" data-delay-in="1">
@@ -37,7 +37,7 @@
                             <h3 data-animation-in="fadeInUp" data-delay-in="1"><span class="badge bg-warning text-dark">New</span></h3>
                             <h1 data-animation-in="fadeInUp" data-delay-in="1">The Earth</h1>
                             <div class="slide-info" data-animation-in="fadeInUp" data-delay-in="1">
-                                <span>2021</span> <span class="radius">+18</span> <span>2h 6m</span>
+                                <span>2021</span> <span class="radius">free</span> <span>2h 6m</span>
                             </div>
                             <p data-animation-in="fadeInUp" data-delay-in="1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
                             <div class="slider-buttons d-flex align-items-center" data-animation-in="fadeInUp" data-delay-in="1">
@@ -61,7 +61,7 @@
                             <h3 data-animation-in="fadeInUp" data-delay-in="1"><span class="badge bg-warning text-dark">New</span></h3>
                             <h1 data-animation-in="fadeInUp" data-delay-in="1">City dreams</h1>
                             <div class="slide-info" data-animation-in="fadeInUp" data-delay-in="1">
-                                <span>2021</span> <span class="radius">+18</span> <span>2h 6m</span>
+                                <span>2021</span> <span class="radius">free</span> <span>2h 6m</span>
                             </div>
                             <p data-animation-in="fadeInUp" data-delay-in="1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
                             <div class="slider-buttons d-flex align-items-center" data-animation-in="fadeInUp" data-delay-in="1">
@@ -108,7 +108,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-aditions/01.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-aditions/01.')}}jpg"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -118,7 +118,7 @@
                                                             <a href="#"><i class="fas fa-plus"></i></a>
                                                         </li>
                                                         <li>
-                                                            <a href="movie-single.html"><i class="fas fa-info"></i></a>
+                                                            <a href="{{url('/moviedetail')}}"><i class="fas fa-info"></i></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -128,7 +128,7 @@
                                             <div class="video-content">
                                                 <h2 class="video-title"><a href="movie-single.html">Iron door</a></h2>
                                                 <div class="video-info d-flex align-items-center">
-                                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                                    <span class="video-year">2021</span> <span class="video-age">free</span> <span class="video-type">Action</span>
                                                 </div>
                                             </div>
                                             <!-- video Content End -->
@@ -139,7 +139,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-aditions/02.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-aditions/02.')}}jpg"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -159,7 +159,7 @@
                                             <div class="video-content">
                                                 <h2 class="video-title"><a href="movie-single.html">The Earth</a></h2>
                                                 <div class="video-info d-flex align-items-center">
-                                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                                    <span class="video-year">2021</span> <span class="video-age">free</span> <span class="video-type">Action</span>
                                                 </div>
                                             </div>
                                             <!-- video Content End -->
@@ -170,7 +170,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-aditions/03.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-aditions/03.')}}jpg"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -190,7 +190,7 @@
                                             <div class="video-content">
                                                 <h2 class="video-title"><a href="movie-single.html">City dreams</a></h2>
                                                 <div class="video-info d-flex align-items-center">
-                                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                                    <span class="video-year">2021</span> <span class="video-age">free</span> <span class="video-type">Action</span>
                                                 </div>
                                             </div>
                                             <!-- video Content End -->
@@ -201,7 +201,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-aditions/04.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-aditions/04.')}}jpg"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -221,7 +221,7 @@
                                             <div class="video-content">
                                                 <h2 class="video-title"><a href="movie-single.html">Divine hand</a></h2>
                                                 <div class="video-info d-flex align-items-center">
-                                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                                    <span class="video-year">2021</span> <span class="video-age">free</span> <span class="video-type">Action</span>
                                                 </div>
                                             </div>
                                             <!-- video Content End -->
@@ -232,7 +232,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-aditions/05.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-aditions/05.')}}jpg"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -252,7 +252,7 @@
                                             <div class="video-content">
                                                 <h2 class="video-title"><a href="movie-single.html">Deceived</a></h2>
                                                 <div class="video-info d-flex align-items-center">
-                                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                                    <span class="video-year">2021</span> <span class="video-age">free</span> <span class="video-type">Action</span>
                                                 </div>
                                             </div>
                                             <!-- video Content End -->
@@ -263,7 +263,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-aditions/06.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-aditions/06.')}}jpg"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -283,7 +283,7 @@
                                             <div class="video-content">
                                                 <h2 class="video-title"><a href="movie-single.html">Heaven is now</a></h2>
                                                 <div class="video-info d-flex align-items-center">
-                                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                                    <span class="video-year">2021</span> <span class="video-age">free</span> <span class="video-type">Action</span>
                                                 </div>
                                             </div>
                                             <!-- video Content End -->
@@ -300,7 +300,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-movies/01.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-movies/01.jp')}}g"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -320,7 +320,7 @@
                                             <div class="video-content">
                                                 <h2 class="video-title"><a href="movie-single.html">A dam wind</a></h2>
                                                 <div class="video-info d-flex align-items-center">
-                                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                                    <span class="video-year">2021</span> <span class="video-age">free</span> <span class="video-type">Action</span>
                                                 </div>
                                             </div>
                                             <!-- video Content End -->
@@ -331,7 +331,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-movies/02.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-movies/02.jp')}}g"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -351,7 +351,7 @@
                                             <div class="video-content">
                                                 <h2 class="video-title"><a href="movie-single.html">the message</a></h2>
                                                 <div class="video-info d-flex align-items-center">
-                                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                                    <span class="video-year">2021</span> <span class="video-age">free</span> <span class="video-type">Action</span>
                                                 </div>
                                             </div>
                                             <!-- video Content End -->
@@ -362,7 +362,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-movies/03.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-movies/03.jp')}}g"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -382,7 +382,7 @@
                                             <div class="video-content">
                                                 <h2 class="video-title"><a href="movie-single.html">Verbal messages</a></h2>
                                                 <div class="video-info d-flex align-items-center">
-                                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                                    <span class="video-year">2021</span> <span class="video-age">free</span> <span class="video-type">Action</span>
                                                 </div>
                                             </div>
                                             <!-- video Content End -->
@@ -393,7 +393,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-movies/04.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-movies/04.jp')}}g"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -413,7 +413,7 @@
                                             <div class="video-content">
                                                 <h2 class="video-title"><a href="movie-single.html">hard life</a></h2>
                                                 <div class="video-info d-flex align-items-center">
-                                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                                    <span class="video-year">2021</span> <span class="video-age">free</span> <span class="video-type">Action</span>
                                                 </div>
                                             </div>
                                             <!-- video Content End -->
@@ -424,7 +424,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-movies/05.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-movies/05.jp')}}g"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -444,7 +444,7 @@
                                             <div class="video-content">
                                                 <h2 class="video-title"><a href="movie-single.html">Destiny</a></h2>
                                                 <div class="video-info d-flex align-items-center">
-                                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                                    <span class="video-year">2021</span> <span class="video-age">free</span> <span class="video-type">Action</span>
                                                 </div>
                                             </div>
                                             <!-- video Content End -->
@@ -455,7 +455,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-movies/06.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-movies/06.jp')}}g"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -475,7 +475,7 @@
                                             <div class="video-content">
                                                 <h2 class="video-title"><a href="movie-single.html">Paper hero</a></h2>
                                                 <div class="video-info d-flex align-items-center">
-                                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                                    <span class="video-year">2021</span> <span class="video-age">free</span> <span class="video-type">Action</span>
                                                 </div>
                                             </div>
                                             <!-- video Content End -->
@@ -492,7 +492,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-shows/01.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-shows/01.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -523,7 +523,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-shows/02.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-shows/02.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -554,7 +554,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-shows/03.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-shows/03.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -585,7 +585,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-shows/04.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-shows/04.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -616,7 +616,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-shows/05.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-shows/05.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -647,7 +647,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/latest-shows/06.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/latest-shows/06.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -700,7 +700,7 @@
                             <div class="item">
                                 <div class="video-block">
                                     <div class="video-thumb position-relative thumb-overlay">
-                                        <a href="#"><img alt="" class="img-fluid" src="images/popular/01.jpg"></a>
+                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/popular/01.jpg')}}"></a>
                                         <div class="box-content">
                                             <ul class="icon">
                                                 <li>
@@ -720,7 +720,7 @@
                                     <div class="video-content">
                                         <h2 class="video-title"><a href="movie-single.html">the land of fear</a></h2>
                                         <div class="video-info d-flex align-items-center">
-                                            <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                            <span class="video-year">2021</span> <span class="video-age">free</span> <span class="video-type">Action</span>
                                         </div>
                                     </div>
                                     <!-- video Content End -->
@@ -731,7 +731,7 @@
                             <div class="item">
                                 <div class="video-block">
                                     <div class="video-thumb position-relative thumb-overlay">
-                                        <a href="#"><img alt="" class="img-fluid" src="images/popular/02.jpg"></a>
+                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/popular/02.jpg')}}"></a>
                                         <div class="box-content">
                                             <ul class="icon">
                                                 <li>
@@ -751,7 +751,7 @@
                                     <div class="video-content">
                                         <h2 class="video-title"><a href="movie-single.html">Criminal</a></h2>
                                         <div class="video-info d-flex align-items-center">
-                                            <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                            <span class="video-year">2021</span> <span class="video-age">free</span> <span class="video-type">Action</span>
                                         </div>
                                     </div>
                                     <!-- video Content End -->
@@ -762,7 +762,7 @@
                             <div class="item">
                                 <div class="video-block">
                                     <div class="video-thumb position-relative thumb-overlay">
-                                        <a href="#"><img alt="" class="img-fluid" src="images/popular/03.jpg"></a>
+                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/popular/03.jpg')}}"></a>
                                         <div class="box-content">
                                             <ul class="icon">
                                                 <li>
@@ -782,7 +782,7 @@
                                     <div class="video-content">
                                         <h2 class="video-title"><a href="movie-single.html">The thug</a></h2>
                                         <div class="video-info d-flex align-items-center">
-                                            <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                            <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                         </div>
                                     </div>
                                     <!-- video Content End -->
@@ -793,7 +793,7 @@
                             <div class="item">
                                 <div class="video-block">
                                     <div class="video-thumb position-relative thumb-overlay">
-                                        <a href="#"><img alt="" class="img-fluid" src="images/popular/04.jpg"></a>
+                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/popular/04.jpg')}}"></a>
                                         <div class="box-content">
                                             <ul class="icon">
                                                 <li>
@@ -813,7 +813,7 @@
                                     <div class="video-content">
                                         <h2 class="video-title"><a href="movie-single.html">Terrifying night</a></h2>
                                         <div class="video-info d-flex align-items-center">
-                                            <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                            <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                         </div>
                                     </div>
                                     <!-- video Content End -->
@@ -824,7 +824,7 @@
                             <div class="item">
                                 <div class="video-block">
                                     <div class="video-thumb position-relative thumb-overlay">
-                                        <a href="#"><img alt="" class="img-fluid" src="images/popular/05.jpg"></a>
+                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/popular/05.jpg')}}"></a>
                                         <div class="box-content">
                                             <ul class="icon">
                                                 <li>
@@ -844,7 +844,7 @@
                                     <div class="video-content">
                                         <h2 class="video-title"><a href="movie-single.html">The Winter</a></h2>
                                         <div class="video-info d-flex align-items-center">
-                                            <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                            <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                         </div>
                                     </div>
                                     <!-- video Content End -->
@@ -855,8 +855,8 @@
                             <div class="item">
                                 <div class="video-block">
                                     <div class="video-thumb position-relative thumb-overlay">
-                                        <a href="#"><img alt="" class="img-fluid" src="images/popular/06.jpg"></a>
-                                        <div class="box-content">
+                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/popular/06.jpg')}}"></a>
+                                          <div class="box-content">
                                             <ul class="icon">
                                                 <li>
                                                     <a href="watch-movie.html"><i class="fas fa-play"></i></a>
@@ -875,7 +875,7 @@
                                     <div class="video-content">
                                         <h2 class="video-title"><a href="movie-single.html">the fear</a></h2>
                                         <div class="video-info d-flex align-items-center">
-                                            <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                            <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                         </div>
                                     </div>
                                     <!-- video Content End -->
@@ -886,7 +886,7 @@
                             <div class="item">
                                 <div class="video-block">
                                     <div class="video-thumb position-relative thumb-overlay">
-                                        <a href="#"><img alt="" class="img-fluid" src="images/popular/07.jpg"></a>
+                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/popular/07.jpg')}}"></a>
                                         <div class="box-content">
                                             <ul class="icon">
                                                 <li>
@@ -906,7 +906,7 @@
                                     <div class="video-content">
                                         <h2 class="video-title"><a href="movie-single.html">the love</a></h2>
                                         <div class="video-info d-flex align-items-center">
-                                            <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                            <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                         </div>
                                     </div>
                                     <!-- video Content End -->
@@ -939,10 +939,10 @@
                         <!-- Start Swiper Slider -->
                         <div class="swiper-container loading pt-0">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide swiper-bg" style="background-image:url(images/movies/01.jpg)">
-                                    <img alt="" class="entity-img" src="images/movies/01.jpg">
+                                <div class="swiper-slide swiper-bg" style="background-image:url(frontend_assets/images/movies/01.jpg)">
+                                    <img alt="" class="entity-img" src="{{asset('frontend_assets/images/movies/01.jpg')}}">
                                     <div class="top-badge">
-                                        <div class="video-badge"><img alt="" class="img-fluid" src="images/top-movies.png"></div>
+                                        <div class="video-badge"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/top-movies.png')}}"></div>
                                     </div>
                                     <div class="content">
                                         <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Romantic world</p><span class="caption mb-4" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
@@ -952,10 +952,10 @@
                                     </div>
                                 </div>
                                 <!-- Slide 1 End -->
-                                <div class="swiper-slide swiper-bg" style="background-image:url(images/movies/02.jpg)">
-                                    <img alt="" class="entity-img" src="images/movies/02.jpg">
+                                <div class="swiper-slide swiper-bg" style="background-image:url(frontend_assets/images/movies/02.jpg)">
+                                    <img alt="" class="entity-img" src="{{asset('frontend_assets/images/movies/02.jpg')}}">
                                     <div class="top-badge">
-                                        <div class="video-badge"><img alt="" class="img-fluid" src="images/top-movies.png"></div>
+                                        <div class="video-badge"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/top-movies.png')}}"></div>
                                     </div>
                                     <div class="content">
                                         <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Incantation</p><span class="caption mb-4" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
@@ -965,10 +965,10 @@
                                     </div>
                                 </div>
                                 <!-- Slide 2 End -->
-                                <div class="swiper-slide swiper-bg" style="background-image:url(images/movies/03.jpg)">
-                                    <img alt="" class="entity-img" src="images/movies/03.jpg">
+                                <div class="swiper-slide swiper-bg" style="background-image:url(frontend_assets/images/movies/03.jpg)">
+                                    <img alt="" class="entity-img" src="{{asset('frontend_assets/images/movies/03.jpg')}}">
                                     <div class="top-badge">
-                                        <div class="video-badge"><img alt="" class="img-fluid" src="images/top-movies.png"></div>
+                                        <div class="video-badge"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/top-movies.png')}}"></div>
                                     </div>
                                     <div class="content">
                                         <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">the years</p><span class="caption mb-4" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
@@ -978,10 +978,10 @@
                                     </div>
                                 </div>
                                 <!-- Slide 3 End -->
-                                <div class="swiper-slide swiper-bg" style="background-image:url(images/movies/04.jpg)">
-                                    <img alt="" class="entity-img" src="images/movies/04.jpg">
+                                <div class="swiper-slide swiper-bg" style="background-image:url(frontend_assets/images/movies/04.jpg)">
+                                    <img alt="" class="entity-img" src="{{asset('frontend_assets/images/movies/04.jpg')}}">
                                     <div class="top-badge">
-                                        <div class="video-badge"><img alt="" class="img-fluid" src="images/top-movies.png"></div>
+                                        <div class="video-badge"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/top-movies.png')}}"></div>
                                     </div>
                                     <div class="content">
                                         <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">The house</p><span class="caption mb-4" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
@@ -991,10 +991,10 @@
                                     </div>
                                 </div>
                                 <!-- Slide 4 End -->
-                                <div class="swiper-slide swiper-bg" style="background-image:url(images/movies/05.jpg)">
-                                    <img alt="" class="entity-img" src="images/movies/05.jpg">
+                                <div class="swiper-slide swiper-bg" style="background-image:url(frontend_assets/images/movies/05.jpg)">
+                                    <img alt="" class="entity-img" src="{{asset('frontend_assets/images/movies/05.jpg')}}">
                                     <div class="top-badge">
-                                        <div class="video-badge"><img alt="" class="img-fluid" src="images/top-movies.png"></div>
+                                        <div class="video-badge"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/top-movies.png')}}"></div>
                                     </div>
                                     <div class="content">
                                         <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Treason</p><span class="caption mb-4" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
@@ -1029,7 +1029,7 @@
                             <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                 <div class="video-block">
                                     <div class="video-thumb position-relative thumb-overlay">
-                                        <a href="#"><img alt="" class="img-fluid" src="images/trending/01.jpg"></a>
+                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/trending/01.jpg')}}"></a>
                                         <div class="box-content">
                                             <ul class="icon">
                                                 <li>
@@ -1049,7 +1049,7 @@
                                     <div class="video-content">
                                         <h2 class="video-title"><a href="movie-single.html">Freedom</a></h2>
                                         <div class="video-info d-flex align-items-center">
-                                            <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                            <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                         </div>
                                     </div>
                                     <!-- video Content End -->
@@ -1060,7 +1060,7 @@
                             <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                 <div class="video-block">
                                     <div class="video-thumb position-relative thumb-overlay">
-                                        <a href="#"><img alt="" class="img-fluid" src="images/trending/02.jpg"></a>
+                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/trending/02.jpg')}}"></a>
                                         <div class="box-content">
                                             <ul class="icon">
                                                 <li>
@@ -1080,7 +1080,7 @@
                                     <div class="video-content">
                                         <h2 class="video-title"><a href="movie-single.html">the world</a></h2>
                                         <div class="video-info d-flex align-items-center">
-                                            <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                            <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                         </div>
                                     </div>
                                     <!-- video Content End -->
@@ -1091,7 +1091,7 @@
                             <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                 <div class="video-block">
                                     <div class="video-thumb position-relative thumb-overlay">
-                                        <a href="#"><img alt="" class="img-fluid" src="images/trending/03.jpg"></a>
+                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/trending/03.jpg')}}"></a>
                                         <div class="box-content">
                                             <ul class="icon">
                                                 <li>
@@ -1111,7 +1111,7 @@
                                     <div class="video-content">
                                         <h2 class="video-title"><a href="movie-single.html">The gang</a></h2>
                                         <div class="video-info d-flex align-items-center">
-                                            <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                            <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                         </div>
                                     </div>
                                     <!-- video Content End -->
@@ -1122,7 +1122,7 @@
                             <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                 <div class="video-block">
                                     <div class="video-thumb position-relative thumb-overlay">
-                                        <a href="#"><img alt="" class="img-fluid" src="images/trending/04.jpg"></a>
+                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/trending/04.jpg')}}"></a>
                                         <div class="box-content">
                                             <ul class="icon">
                                                 <li>
@@ -1142,7 +1142,7 @@
                                     <div class="video-content">
                                         <h2 class="video-title"><a href="movie-single.html">World of war</a></h2>
                                         <div class="video-info d-flex align-items-center">
-                                            <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                            <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                         </div>
                                     </div>
                                     <!-- video Content End -->
@@ -1153,7 +1153,7 @@
                             <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                 <div class="video-block">
                                     <div class="video-thumb position-relative thumb-overlay">
-                                        <a href="#"><img alt="" class="img-fluid" src="images/trending/05.jpg"></a>
+                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/trending/05.jpg')}}"></a>
                                         <div class="box-content">
                                             <ul class="icon">
                                                 <li>
@@ -1173,7 +1173,7 @@
                                     <div class="video-content">
                                         <h2 class="video-title"><a href="movie-single.html">Happy holiday</a></h2>
                                         <div class="video-info d-flex align-items-center">
-                                            <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                            <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                         </div>
                                     </div>
                                     <!-- video Content End -->
@@ -1184,7 +1184,7 @@
                             <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                 <div class="video-block">
                                     <div class="video-thumb position-relative thumb-overlay">
-                                        <a href="#"><img alt="" class="img-fluid" src="images/trending/06.jpg"></a>
+                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/trending/06.jpg')}}"></a>
                                         <div class="box-content">
                                             <ul class="icon">
                                                 <li>
@@ -1204,7 +1204,7 @@
                                     <div class="video-content">
                                         <h2 class="video-title"><a href="movie-single.html">weekend</a></h2>
                                         <div class="video-info d-flex align-items-center">
-                                            <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                            <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                         </div>
                                     </div>
                                     <!-- video Content End -->
@@ -1223,7 +1223,7 @@
         <!-- Trending Section End -->
         <!-- Start Last Seasons Section -->
         <section class="last-seasons pb-0">
-            <div class="last-season" style="background-image: linear-gradient(to top, #202020, rgb(2 2 2 / 90%)), url(images/parallax/best-series.jpg);">
+            <div class="last-season" style="background-image: linear-gradient(to top, #202020, rgb(2 2 2 / 90%)), url({{asset('frontend_assets/images/parallax/best-series.jpg')}});">
                 <div class="container-fluid">
                     <div class="season-header text-center">
                         <h5 class="mb-4">featured</h5>
@@ -1249,7 +1249,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-drama/01.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-drama/01.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1280,7 +1280,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-drama/02.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-drama/02.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1311,7 +1311,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-drama/03.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-drama/03.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1342,7 +1342,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-drama/04.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-drama/04.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1373,7 +1373,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-drama/05.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-drama/05.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1404,7 +1404,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-drama/06.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-drama/06.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1441,7 +1441,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-action/01.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-action/01.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1472,7 +1472,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-action/02.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-action/02.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1503,7 +1503,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-action/03.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-action/03.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1534,7 +1534,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-action/04.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-action/04.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1565,7 +1565,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-action/05.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-action/05.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1596,7 +1596,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-action/06.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-action/06.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1633,7 +1633,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-romance/01.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-romance/01.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1664,7 +1664,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-romance/02.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-romance/02.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1695,7 +1695,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-romance/03.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-romance/03.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1726,7 +1726,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-romance/04.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-romance/04.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1757,7 +1757,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-romance/05.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-romance/05.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1788,7 +1788,7 @@
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                                         <div class="video-block">
                                             <div class="video-thumb position-relative thumb-overlay">
-                                                <a href="#"><img alt="" class="img-fluid" src="images/best-romance/06.jpg"></a>
+                                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/best-romance/06.jpg')}}"></a>
                                                 <div class="box-content">
                                                     <ul class="icon">
                                                         <li>
@@ -1844,7 +1844,7 @@
                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                         <div class="video-block">
                             <div class="video-thumb position-relative thumb-overlay">
-                                <a href="#"><img alt="" class="img-fluid" src="images/suggested/01.jpg"></a>
+                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/suggested/01.jpg')}}"></a>
                                 <div class="box-content">
                                     <ul class="icon">
                                         <li>
@@ -1864,7 +1864,7 @@
                             <div class="video-content">
                                 <h2 class="video-title"><a href="movie-single.html">The Colors</a></h2>
                                 <div class="video-info d-flex align-items-center">
-                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                    <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                 </div>
                             </div>
                             <!-- video Content End -->
@@ -1875,7 +1875,7 @@
                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                         <div class="video-block">
                             <div class="video-thumb position-relative thumb-overlay">
-                                <a href="#"><img alt="" class="img-fluid" src="images/suggested/02.jpg"></a>
+                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/suggested/02.jpg')}}"></a>
                                 <div class="box-content">
                                     <ul class="icon">
                                         <li>
@@ -1895,7 +1895,7 @@
                             <div class="video-content">
                                 <h2 class="video-title"><a href="movie-single.html">The Devastation</a></h2>
                                 <div class="video-info d-flex align-items-center">
-                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                    <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                 </div>
                             </div>
                             <!-- video Content End -->
@@ -1906,7 +1906,7 @@
                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                         <div class="video-block">
                             <div class="video-thumb position-relative thumb-overlay">
-                                <a href="#"><img alt="" class="img-fluid" src="images/suggested/03.jpg"></a>
+                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/suggested/03.jpg')}}"></a>
                                 <div class="box-content">
                                     <ul class="icon">
                                         <li>
@@ -1926,7 +1926,7 @@
                             <div class="video-content">
                                 <h2 class="video-title"><a href="movie-single.html">The Beauty</a></h2>
                                 <div class="video-info d-flex align-items-center">
-                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                    <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                 </div>
                             </div>
                             <!-- video Content End -->
@@ -1937,7 +1937,7 @@
                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                         <div class="video-block">
                             <div class="video-thumb position-relative thumb-overlay">
-                                <a href="#"><img alt="" class="img-fluid" src="images/suggested/04.jpg"></a>
+                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/suggested/04.jpg')}}"></a>
                                 <div class="box-content">
                                     <ul class="icon">
                                         <li>
@@ -1957,7 +1957,7 @@
                             <div class="video-content">
                                 <h2 class="video-title"><a href="movie-single.html">The Silence</a></h2>
                                 <div class="video-info d-flex align-items-center">
-                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                    <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                 </div>
                             </div>
                             <!-- video Content End -->
@@ -1968,7 +1968,7 @@
                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                         <div class="video-block">
                             <div class="video-thumb position-relative thumb-overlay">
-                                <a href="#"><img alt="" class="img-fluid" src="images/suggested/05.jpg"></a>
+                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/suggested/05.jpg')}}"></a>
                                 <div class="box-content">
                                     <ul class="icon">
                                         <li>
@@ -1988,7 +1988,7 @@
                             <div class="video-content">
                                 <h2 class="video-title"><a href="movie-single.html">the door is open</a></h2>
                                 <div class="video-info d-flex align-items-center">
-                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                    <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                 </div>
                             </div>
                             <!-- video Content End -->
@@ -1999,7 +1999,7 @@
                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                         <div class="video-block">
                             <div class="video-thumb position-relative thumb-overlay">
-                                <a href="#"><img alt="" class="img-fluid" src="images/suggested/06.jpg"></a>
+                                <a href="#"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/suggested/06.jpg')}}"></a>
                                 <div class="box-content">
                                     <ul class="icon">
                                         <li>
@@ -2019,7 +2019,7 @@
                             <div class="video-content">
                                 <h2 class="video-title"><a href="movie-single.html">The Journey</a></h2>
                                 <div class="video-info d-flex align-items-center">
-                                    <span class="video-year">2021</span> <span class="video-age">+18</span> <span class="video-type">Action</span>
+                                    <span class="video-year">2021</span> <span class="video-age">Premium</span> <span class="video-type">Action</span>
                                 </div>
                             </div>
                             <!-- video Content End -->
