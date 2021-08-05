@@ -37,4 +37,8 @@ class PageController extends Controller
     public function detail(){
         return view('backend.detail');
     }
+
+    public function moviedetail(){
+        return view('frontend.moviedetail');
+    }
 }

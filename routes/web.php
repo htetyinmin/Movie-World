@@ -20,6 +20,7 @@ Route::get('/contact', 'PageController@contact')->name('contact');
 Route::get('/login', 'PageController@login')->name('login');
 Route::get('/register', 'PageController@register')->name('register');
 Route::get('/pricing', 'PageController@pricing')->name('pricing');
+Route::get('/moviedetail', 'PageController@moviedetail')->name('moviedetail');
 
 
 // Route::get('/', function () {
