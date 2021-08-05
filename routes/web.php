@@ -20,8 +20,13 @@ Route::get('/about', 'PageController@about')->name('about');
 Route::get('/contact', 'PageController@contact')->name('contact');
 Route::get('/login', 'PageController@login')->name('login');
 Route::get('/register', 'PageController@register')->name('register');
+<<<<<<< HEAD
+// Route::get('/pricing', 'PageController@pricing')->name('pricing');
+Route::get('/moviedetail', 'PageController@moviedetail')->name('moviedetail');
+=======
 Route::get('/pricing', 'PageController@pricing')->name('pricing');
 Route::get('/moviedetail/{id}', 'PageController@moviedetail')->name('moviedetail');
+>>>>>>> 310c838949734435ad50fcb5aa1480924fb6d21c
 
 
 // Route::get('/', function () {
@@ -41,4 +46,4 @@ Route::resource('package', 'PackageController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/pricing', 'HomeController@index')->name('pricing');

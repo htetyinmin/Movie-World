@@ -205,7 +205,12 @@
                                             </li>
                                             <!-- Li 2 end -->
                                             <li>
-                                                <a class="dropdown-item" href="#">Logout</a>
+                                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">Logout</a>
+                                                
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form>
                                             </li>
                                             <!-- Li 3 end -->
                                         </ul>
