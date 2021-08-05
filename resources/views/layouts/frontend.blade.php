@@ -111,7 +111,7 @@
                                         </li>
                                         <!-- Nav Item 3 End -->
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{url('/login')}}">Login</a>
+                                            <a class="nav-link" href="{{route('pricing')}}">Pricing</a>
                                         </li>
                                         <!-- Nav Item 4 End -->
                                     </ul>
@@ -196,22 +196,33 @@
                                     <div class="dropdown">
                                         <div aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" id="dropdown-account" role="button"><img alt="" class="img-fluid user-icon rounded-circle" src="{{asset('frontend_assets/images/avatar/user.jpg')}}"></div>
                                         <ul class="dropdown-menu dropdown-menu-right fade-up">
+                                            @if (Auth::user())
                                             <li>
-                                                <a class="dropdown-item" href="#">Account Settings</a>
+                                                <a href="" class="dropdown-item"><i class="fa fa-user mr-3"></i>{{ Auth::user()->name }}</a>
                                             </li>
-                                            <!-- Li 1 end -->
                                             <li>
-                                                <a class="dropdown-item" href="{{url('/pricing')}}">Package Plans</a>
+                                                <a href="" class="dropdown-item"><i class="fa fa-cogs mr-3"></i>Account Settings</a>
                                             </li>
-                                            <!-- Li 2 end -->
                                             <li>
                                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">Logout</a>
+                                                document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt mr-3"></i>Logout</a>
                                                 
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                     @csrf
                                                 </form>
                                             </li>
+                                            @else
+                                            <li>
+                                                <a class="dropdown-item" href="{{url('/register')}}">
+                                                    <i class="fas fa-user-plus mr-3"></i>
+                                                    Register
+                                                </a>
+                                                <a class="dropdown-item" href="{{url('/login')}}">
+                                                    <i class="fas fa-sign-in-alt mr-3"></i>
+                                                    Login
+                                                </a>
+                                            </li>
+											@endif
                                             <!-- Li 3 end -->
                                         </ul>
                                         <!-- Account List End -->

@@ -26,14 +26,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $packages = Package::all();
         $roles = Auth::user()->getRoleNames();
         if ($roles[0] == 'admin') {
             return redirect()->route('genre.index');
         }else{
             return redirect()->route('index');
         }
-
-        
     }
 }
