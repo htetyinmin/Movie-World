@@ -38,3 +38,7 @@ Route::resource('movie', 'MovieController');
 Route::resource('package', 'PackageController');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
