@@ -26,7 +26,9 @@
 
     <link rel="stylesheet" href="{{asset('multipleimageupload/image-uploader.min.css')}}">
 
-    <link href="{{asset('backend-assets/select2/css/select2.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('backend-assets/select2/select2.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('backend-assets/select2/select2-bootstrap4.css')}}" rel="stylesheet" />
+    <style>.selection{display: block}</style>
 
     
   </head>

@@ -8,15 +8,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Movie extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['name', 'photo', 'genres', 'casts', 'year', 'duration', 'language', 'overview', 'trailer', 'gallery', 'video', 'status'];
+    protected $fillable = ['name', 'photo', 'year', 'duration', 'language', 'overview', 'trailer', 'gallery', 'video', 'status'];
 
-    public function genre()
+    public function genres()
     {
-        return $this->belongsTo('App\Genre');
+        return $this->belongsToMany('App\Genre')->withTimestamps();
     }
 
-    public function cast()
+    public function casts()
     {
-        return $this->belongsTo('App\Cast');
+        return $this->belongsToMany('App\Cast')->withTimestamps();
     }
 }

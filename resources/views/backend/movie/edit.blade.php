@@ -25,7 +25,7 @@
             <div class="block">
               <div class="title"><strong>Edit Movies Data</strong></div>
               <div class="block-body">
-                <form class="form-horizontal" action="{{route('movie.update', $movie->id)}}" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="{{route('movie.update', $movie->id)}}" method="post" enctype="multipart/form-data"> 
                   @csrf
                   @method('PUT')
                   <div class="form-group row">
@@ -43,6 +43,35 @@
                   </div>
                   <div class="line"></div>
                   <div class="form-group row">
+                      <label for="genres" class="col-sm-3 form-control-label">Genres</label>
+                      <div class="col-sm-9">
+                        <select class="form-control multiple-select" name="genres[]" multiple="multiple" id="genres">
+                          @foreach ($genres as $genre)
+                              <option value="{{$genre->id}}" 
+                                @foreach($movie->genres as $gen_mov) <?php if($genre->id==$gen_mov->pivot->genre_id) { ?> selected <?php }; ?> 
+                                @endforeach>
+                                {{$genre->name}}
+                              </option>
+                          @endforeach
+                        </select>
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="casts" class="col-sm-3 form-control-label">Casts</label>
+                    <div class="col-sm-9">
+                      <select class="form-control multiple-select" name="casts[]" multiple="multiple" id="casts">
+                        @foreach ($casts as $cast)
+                            <option value="{{$cast->id}}" 
+                              @foreach($movie->casts as $cast_mov) <?php if($cast->id==$cast_mov->pivot->cast_id) { ?> selected <?php }; ?> 
+                              @endforeach>
+                              {{$cast->name}}
+                            </option>
+                        @endforeach
+                      </select>
+                    </div>
+                </div>
+                  <div class="line"></div>
+                  <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Year</label>
                         <div class="col-sm-9">
                               <input type="text" name="year" class="form-control" value="{{$movie->year}}">
@@ -52,7 +81,7 @@
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Language</label>
                         <div class="col-sm-9">
-                          <select name="language" class="form-control mb-3 mb-3">
+                          <select name="language" class="form-control">
                             <option value="English">English</option>
                             <option value="Korea">Korea</option>
                             <option value="Thai">Thai</option>
@@ -71,7 +100,7 @@
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Overview</label>
                         <div class="col-sm-9">
-                              <textarea name="overview" cols="30" rows="4" class="form-control"> {{$movie->overview}}</textarea>
+                              <textarea name="overview" cols="30" rows="4" class="form-control">{{$movie->overview}}</textarea>
                         </div>
                   </div>
                   <div class="line"></div>
@@ -119,4 +148,31 @@
           </div>
 
 </div>
+@endsection
+
+@section('script')
+
+  <script src="{{asset('backend-assets/select2/select2.min.js')}}"></script>
+  <script>
+    $(function () {
+      $('select').each(function () {
+          $(this).select2({
+            theme: 'bootstrap4',
+            width: 'style',
+            placeholder: $(this).attr('placeholder'),
+            allowClear: Boolean($(this).data('allow-clear')),
+          });
+      });
+    });
+
+    $(document).ready(function() {
+        $('.multiple-select').select2({
+    			theme: 'bootstrap4',
+      			width: 'style',
+      			placeholder: $(this).attr('Choose Language'),
+    		}
+      );
+    });
+  </script>
+      
 @endsection

@@ -29,8 +29,7 @@ class MovieController extends Controller
     {
         $genres = Genre::all();
         $casts = Cast::all();
-        return view('backend.movie.create', compact('genres', 'casts'));
-        
+        return view('backend.movie.create', compact('genres', 'casts'));        
     }
 
     /**
@@ -64,8 +63,8 @@ class MovieController extends Controller
         $movie = new Movie;
         $movie->name = $request->name;
         $movie->photo = $filePath;
-        $genres = $request->genre;
-        $casts = $request->cast;
+        $genres = $request->genres;
+        $casts = $request->casts;
         $movie->year = $request->year;
         $movie->language = $request->language;
         $movie->duration = $request->duration;
@@ -107,7 +106,9 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        return view('backend.movie.edit', compact('movie'));
+        $genres = Genre::all();
+        $casts = Cast::all();
+        return view('backend.movie.edit', compact('genres', 'casts', 'movie')); 
     }
 
     /**

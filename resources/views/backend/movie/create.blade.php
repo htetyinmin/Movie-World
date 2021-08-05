@@ -143,10 +143,26 @@
 
 @section('script')
 
-  <script src="{{asset('backend-assets/select2/js/select2.min.js')}}"></script>
+  <script src="{{asset('backend-assets/select2/select2.min.js')}}"></script>
   <script>
+    $(function () {
+      $('select').each(function () {
+          $(this).select2({
+            theme: 'bootstrap4',
+            width: 'style',
+            placeholder: $(this).attr('placeholder'),
+            allowClear: Boolean($(this).data('allow-clear')),
+          });
+      });
+    });
+
     $(document).ready(function() {
-        $('.multiple-select').select2();
+        $('.multiple-select').select2({
+    			theme: 'bootstrap4',
+      			width: 'style',
+      			placeholder: $(this).attr('Choose Language'),
+    		}
+      );
     });
   </script>
       

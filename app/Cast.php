@@ -12,6 +12,6 @@ class Cast extends Model
 
     public function movie()
     {
-        return $this->belongsTo('App\Movie');
+        return $this->belongsToMany('App\Movie')->withTimestamps();
     }
 }
