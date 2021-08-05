@@ -20,9 +20,8 @@ Route::get('/movielist', 'PageController@movielist')->name('movielist');
 Route::get('/about', 'PageController@about')->name('about');
 Route::get('/contact', 'PageController@contact')->name('contact');
 // Route::get('/login', 'PageController@login')->name('login');
-Route::get('/register', 'PageController@register')->name('register');
+// Route::get('/register', 'PageController@register')->name('register');
 // Route::get('/pricing', 'PageController@pricing')->name('pricing');
-Route::get('/pricing', 'PageController@pricing')->name('pricing');
 Route::get('/moviedetail/{id}', 'PageController@moviedetail')->name('moviedetail');
 
 
