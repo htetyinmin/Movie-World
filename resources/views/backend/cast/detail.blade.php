@@ -16,21 +16,21 @@
           <div class="row m-5">
                 <div class="col-lg-4">
                       <div class="user-block text-center">
-                            <img src="{{asset('backend-assets/img/avatar-6.jpg')}}" alt="..." class="img-fluid border border-dark rounded">
+                            <img src="{{asset('storage/'.$cast->photo)}}" alt="Photo" class="img-fluid border border-dark rounded">
                       </div>
                 </div>
                 <div class="col-lg-8">
                       <div class="">
-                            <h2 class="text-uppercase text-primary mb-3 f-size">John Wish</h2>
+                            <h2 class="text-uppercase text-white mb-3 f-size">{{$cast->name}}</h2>
                       </div>
                       <div class="mb-3">
-                            <span class="mr-2"><i class="fa fa-user mr-1" aria-hidden="true"></i> Male</span>
-                            <span class="mr-2"><i class="fa fa-birthday-cake mr-1" aria-hidden="true"></i> 1980</span>
-                            <span class="mr-2"><i class="fa fa-film mr-1" aria-hidden="true"></i> Actor</span>
-                            <span class="mr-2"><i class="fa fa-globe mr-1" aria-hidden="true"></i> United States</span>
+                            <span class="mr-3"><i class="fa fa-user mr-1" aria-hidden="true"></i> {{$cast->gender}} </span>
+                            <span class="mr-3"><i class="fa fa-birthday-cake mr-1" aria-hidden="true"></i> {{$cast->dob}} </span>
+                            <span class="mr-3"><i class="fa fa-film mr-1" aria-hidden="true"></i> {{$cast->status}} </span>
+                            <span class="mr-3"><i class="fa fa-globe mr-1" aria-hidden="true"></i> {{$cast->pob}} </span>
                       </div>
                       <div class="">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto expedita et rerum cum quidem animi, nemo dolores labore ipsam soluta assumenda aliquid reprehenderit pariatur accusamus sed corrupti corporis possimus totam!</p>
+                            <p> {{$cast->bio}} </p>
                       </div>
                       <div class="details-buttons">
                             <div class="row d-flex align-items-center">
@@ -64,7 +64,7 @@
                   <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                       <div>
                             <div>
-                              <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
+                              <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt="">
                             </div>
                       </div>
                   </div>

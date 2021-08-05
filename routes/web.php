@@ -19,7 +19,7 @@ Route::get('/about', 'PageController@about')->name('about');
 Route::get('/contact', 'PageController@contact')->name('contact');
 Route::get('/login', 'PageController@login')->name('login');
 Route::get('/register', 'PageController@register')->name('register');
-Route::get('/pricing', 'PageController@pricing')->name('pricing');
+// Route::get('/pricing', 'PageController@pricing')->name('pricing');
 Route::get('/moviedetail', 'PageController@moviedetail')->name('moviedetail');
 
 
@@ -41,4 +41,4 @@ Route::resource('package', 'PackageController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/pricing', 'HomeController@index')->name('pricing');
