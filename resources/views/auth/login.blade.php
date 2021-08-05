@@ -48,21 +48,38 @@
 
                         <div class="col-lg-6">
                             <!-- Start Form -->
-                            <form id="login-form" action="#" method="post" class="mb-4">
+                            <form id="login-form" method="post" class="mb-4" action="{{ route('login') }}">
+                                @csrf
                                 <div class="error-container"></div>
                                 <div class="form-group">
-                                    <label class="control-label col-xs-4">Username</label>
-                                    <input type="text" class="form-control" name="username" required="required">
+                                    <label for="email" class="control-label col-xs-4">Email</label>
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-xs-4">Password</label>
-                                    <input type="password" class="form-control" name="password" required="required">
+                                    <label for="password" class="control-label col-xs-4">Password</label>
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label class="checkbox-inline mb-3"><input type="checkbox" required="required"> Save Password</label>
+                                    <label class="checkbox-inline mb-3"><input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}> Save Password</label>
+    
                                     <button type="submit" class="btn btn-block hvr-sweep-to-right btn-primary btn-lg">Login</button>
                                 </div>
-                                <a href="reset-password.html">Lost your Password?</a>
+                                @if (Route::has('password.request'))
+                                    <a href="{{ route('password.request') }}">Lost your Password?</a>
+                                    </a>
+                                @endif
                             </form>
                             <!-- Form End -->
                             <div class="row d-flex align-items-center mb-4">

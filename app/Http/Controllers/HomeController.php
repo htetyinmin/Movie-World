@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Package;
+use Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.pricing');
+        $packages = Package::all();
+        $roles = Auth::user()->getRoleNames();
+        if ($roles[0] == 'admin') {
+            return redirect()->route('genre.index');
+        }else{
+            return redirect()->route('index');
+        }
+
+        
     }
 }

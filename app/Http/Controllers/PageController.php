@@ -28,9 +28,9 @@ class PageController extends Controller
         return view('frontend.contact');
     }
 
-    public function login(){
-        return view('frontend.login');
-    }
+    // public function login(){
+    //     return view('frontend.login');
+    // }
 
     public function register(){
         return view('frontend.register');
@@ -49,7 +49,7 @@ class PageController extends Controller
     public function moviedetail($id){
         $genres = Genre::all();
         $casts = Cast::all();
-        $movies = Movie::where('id', $id)->get();
+        $movies = Movie::where('id', $id);
         return view('frontend.moviedetail', compact('genres', 'casts', 'movies'));
     }
 }
