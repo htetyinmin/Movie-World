@@ -4,3 +4,7 @@
 .f-size{
       font-size: 55px;
 }
+
+.my-a:hover {
+      color: #ff0000;
+}

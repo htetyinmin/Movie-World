@@ -63,6 +63,7 @@
 
       <script>
             $(document).ready(function(){
+                  $("#package").addClass("active");
                   $('.input-images').imageUploader();
             })
       </script>

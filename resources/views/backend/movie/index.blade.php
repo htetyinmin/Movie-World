@@ -100,6 +100,8 @@
 @section('script')
   <script type="text/javascript">
     $(document).ready(function(){
+      $("#movie").addClass("active");
+      
       $('.deletebtn').click(function(){
         var id = $(this).data('id');
         // console.log(id);

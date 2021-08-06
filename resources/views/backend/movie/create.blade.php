@@ -159,6 +159,7 @@
     });
 
     $(document).ready(function() {
+      $("#movie").addClass("active");
 
       $('.input-images').imageUploader();
 

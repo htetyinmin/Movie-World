@@ -27,7 +27,6 @@ class HomeController extends Controller
     {
         $roles = Auth::user()->getRoleNames();
         if ($roles[0] == 'admin') {
-            // dd($roles[0]);
             return redirect()->route('genre.index');
         }else{
             return redirect()->route('index');

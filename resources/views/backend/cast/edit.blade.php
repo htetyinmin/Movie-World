@@ -113,6 +113,8 @@
 
       <script>
             $(document).ready(function(){
+                  $("#cast").addClass("active");
+                  
                   var dbgallery = "{{$cast->gallery}}";
                   if (dbgallery) {
                         var images = <?= json_encode($cast->gallery) ?>;

@@ -110,6 +110,7 @@
 
       <script>
             $(document).ready(function(){
+                  $("#cast").addClass("active");
                   $('.input-images').imageUploader();
             })
       </script>

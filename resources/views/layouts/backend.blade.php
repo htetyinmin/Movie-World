@@ -28,6 +28,7 @@
 
     <link href="{{asset('backend-assets/select2/select2.min.css')}}" rel="stylesheet" />
     <link href="{{asset('backend-assets/select2/select2-bootstrap4.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{asset('frontend_assets/magnific-popup/magnific-popup.css')}}">
     <style>.selection{display: block}</style>
 
     
@@ -55,8 +56,8 @@
             <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
           </div>
           <div class="right-menu list-inline no-margin-bottom">    
-            <div class="list-inline-item"><a href="#" class="search-open nav-link"><i class="icon-magnifying-glass-browser"></i></a></div>
-            <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link messages-toggle"><i class="icon-email"></i><span class="badge dashbg-1">5</span></a>
+            <div class="list-inline-item"><a href="#" class="search-open nav-link my-a"><i class="icon-magnifying-glass-browser"></i></a></div>
+            <div class="list-inline-item dropdown my-a"><a id="navbarDropdownMenuLink1" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link messages-toggle"><i class="icon-email"></i><span class="badge dashbg-1">5</span></a>
               <div aria-labelledby="navbarDropdownMenuLink1" class="dropdown-menu messages"><a href="#" class="dropdown-item message d-flex align-items-center">
                   <div class="profile"><img src="img/avatar-3.jpg" alt="..." class="img-fluid">
                     <div class="status online"></div>
@@ -76,7 +77,7 @@
                   <div class="content">   <strong class="d-block">Sara Wood</strong><span class="d-block">lorem ipsum dolor sit amit</span><small class="date d-block">10:30pm</small></div></a><a href="#" class="dropdown-item text-center message"> <strong>See All Messages <i class="fa fa-angle-right"></i></strong></a></div>
             </div>
             <!-- Tasks-->
-            <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink2" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link tasks-toggle"><i class="icon-new-file"></i><span class="badge dashbg-3">9</span></a>
+            {{-- <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink2" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link tasks-toggle"><i class="icon-new-file"></i><span class="badge dashbg-3">9</span></a>
               <div aria-labelledby="navbarDropdownMenuLink2" class="dropdown-menu tasks-list"><a href="#" class="dropdown-item">
                   <div class="text d-flex justify-content-between"><strong>Task 1</strong><span>40% complete</span></div>
                   <div class="progress">
@@ -99,14 +100,14 @@
                     <div role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-1"></div>
                   </div></a><a href="#" class="dropdown-item text-center"> <strong>See All Tasks <i class="fa fa-angle-right"></i></strong></a>
               </div>
-            </div>
+            </div> --}}
             <!-- Tasks end-->
 
             <!-- Log out               -->
             <div class="list-inline-item logout">
               {{-- <a id="logout" href="#" class="nav-link">Logout <i class="icon-logout"></i></a> --}}
-              <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();"><i class="fa fa-sign-out mr-3"></i></a>
+              <a class="nav-link my-a" href="{{ route('logout') }}" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();"><i class="icon-logout"></i> Logout </a>
 
               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
@@ -130,16 +131,16 @@
           </div>
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Data Management</span>
-        <ul class="list-unstyled">
+        <ul class="list-unstyled" id="my-list">
                 <li class=""><a href="index.html"> <i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard </a></li>
-                <li class="" class="myActive"><a href="{{route('genre.index')}}"> <i class="icon-grid"></i>Genres </a></li>
-                <li class=""><a href="{{route('cast.index')}}"> <i class="fa fa-video-camera" aria-hidden="true"></i> Casts </a></li>
-                <li class=""><a href="{{route('movie.index')}}"> <i class="fa fa-film" aria-hidden="true"></i> Movies Data </a></li>
-                <li class=""><a href="{{route('package.index')}}"> <i class="fa fa-archive" aria-hidden="true"></i> Packages </a></li>
-        </ul><span class="heading">Order Management</span>
+                <li class="" id="genre"><a href="{{route('genre.index')}}"> <i class="icon-grid"></i>Genres </a></li>
+                <li class="" id="cast"><a href="{{route('cast.index')}}"> <i class="fa fa-video-camera" aria-hidden="true"></i> Casts </a></li>
+                <li class="" id="movie"><a href="{{route('movie.index')}}"> <i class="fa fa-film" aria-hidden="true"></i> Movies Data </a></li>
+                <li class="" id="package"><a href="{{route('package.index')}}"> <i class="fa fa-archive" aria-hidden="true"></i> Packages </a></li>
+        </ul><span class="heading">User Management</span>
         <ul class="list-unstyled">
-          <li><a href="forms.html"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Order </a></li>
-          <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li>
+          <li class="" id="user"><a href="forms.html"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Users </a></li>
+          {{-- <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li> --}}
         </ul>
       </nav>
       <!-- Sidebar Navigation end-->
@@ -156,6 +157,7 @@
             </div>
           </footer>
     </div>
+
     <!-- JavaScript files-->
     <script src="{{asset('backend-assets/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('backend-assets/vendor/popper.js/umd/popper.min.js')}}"> </script>
@@ -167,6 +169,7 @@
     <script src="{{asset('backend-assets/js/front.js')}}"></script>
     <script src="{{asset('backend-assets/js/custom.js')}}"></script>
     <script src="{{asset('multipleimageupload/image-uploader.min.js')}}"></script>
+    <script src="{{asset('frontend_assets/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
     @yield('script')
   </body>
 </html>

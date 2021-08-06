@@ -84,11 +84,9 @@
               <!-- Row End -->
               <div class="row">
                   <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                      <div>
-                            <div>
-                              <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
-                            </div>
-                      </div>
+                      <a class="image-link" href="{{asset('backend-assets/img/avatar-0.jpg')}}">
+                          <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt="">
+                      </a>
                   </div>
                   <!-- Col End -->
                   <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
@@ -134,11 +132,11 @@
                   <!-- Col End -->
               </div>
               <!-- Row End -->
-              <div class="row">
+              {{-- <div class="row">
                 <div class="m-3">
                   <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-play mr-2" aria-hidden="true"></i>Show All</a>
                 </div>
-              </div>
+              </div> --}}
           </div>
           <!-- Container End -->
       </section>
@@ -197,6 +195,9 @@
 @section('script')
   <script type="text/javascript">
     $(document).ready(function(){
+      $('.image-link').magnificPopup({type:'image'});
+      $("#movie").addClass("active");
+      
       $('.deletebtn').click(function(){
         var id = $(this).data('id');
         // console.log(id);

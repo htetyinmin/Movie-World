@@ -168,6 +168,8 @@
     });
 
     $(document).ready(function() {
+      $("#movie").addClass("active");
+      
         $('.multiple-select').select2({
     			theme: 'bootstrap4',
       			width: 'style',
