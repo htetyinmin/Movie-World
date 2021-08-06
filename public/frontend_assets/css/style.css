@@ -636,48 +636,6 @@ ul.list-check li:before {
 }
 
 /* Video block style */
-.video-block{
-    position: relative;
-    overflow: hidden;
-}
-
-.video-block .video-thumb {
-    max-width: 100%;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 15px;
-}
-
-.video-block .video-thumb img {
-    display: block;
-    width: 100%;
-    -webkit-transition: all .3s ease-out;
-    -o-transition: all .3s ease-out;
-    transition: all .3s ease-out;
-}
-
-.video-block .video-thumb img {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
-}
-
-.video-block .video-thumb::after {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), to(rgba(0, 0, 0, 0.8)));
-    background: -webkit-linear-gradient(top, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
-    background: -o-linear-gradient(top, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
-    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
-    -webkit-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-}
-
 /* Video block Effects */
 .video-block .icon,
 .video-block .title {
@@ -685,7 +643,8 @@ ul.list-check li:before {
     position: absolute;
 }
 
-.video-block .video-block:after {
+.video-block:after,
+.video-block:before {
     height: 50%;
     background: rgba(0, 0, 0, .5);
     position: absolute;
@@ -706,7 +665,7 @@ ul.list-check li:before {
     transition: all .3s ease .2s
 }
 
-.video-block .icon {
+.video-block:hover .icon {
     top: 0;
 }
 
@@ -736,6 +695,7 @@ ul.list-check li:before {
     color: #fff;
     box-shadow: 0 0 10px #000 inset, 0 0 0 3px #fff
 }
+
 
 /* Video block info */
 .video-info span {
