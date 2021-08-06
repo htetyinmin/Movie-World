@@ -42,4 +42,4 @@ Route::resource('package', 'PackageController');
 
 Auth::routes();
 
-Route::get('/pricing', 'HomeController@index')->name('pricing');
+Route::get('/home', 'HomeController@index')->name('home');
