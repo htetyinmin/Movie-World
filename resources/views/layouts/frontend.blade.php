@@ -37,6 +37,7 @@
     <link href="{{asset('frontend_assets/css/style.css')}}" rel="stylesheet">
     <!-- Responsive Styles -->
     <link href="{{asset('frontend_assets/css/responsive.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('frontend_assets/css/custom.css')}}">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
           <script src="js/html5shiv.js"></script>
@@ -376,12 +377,20 @@
                 </div>
                 <!-- Row End -->
             </div>
-            <!-- Container End -->
+            <div class="container-fluid">
+                <div class="row justify-content-center pt-5">
+                    <div class="col-md-12 col-lg-6">
+                        <p class="text-center text-muted">© Copyright 2021, All Rights Reserved</p>
+                    </div>
+                </div>
+            </div>
         </div>
+            <!-- Container End -->
+            
         <!-- Footer Section End -->
 
         <!-- Start Copyrights Section -->
-        <div class="copyright">
+        {{-- <div class="copyright">
             <div class="container-fluid">
                 <div class="row justify-content-between">
                     <div class="col-md-6">
@@ -406,7 +415,7 @@
                 <!-- Row End -->
             </div>
             <!-- Container End -->
-        </div>
+        </div> --}}
         <!-- Copyrights Section End -->
 
         <!-- To Top Button Start-->
