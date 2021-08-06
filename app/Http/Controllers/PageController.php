@@ -49,7 +49,7 @@ class PageController extends Controller
     public function moviedetail($id){
         $genres = Genre::all();
         $casts = Cast::all();
-        $movies = Movie::where('id', $id);
+        $movies = Movie::where('id', $id)->get();
         return view('frontend.moviedetail', compact('genres', 'casts', 'movies'));
     }
 }

@@ -60,7 +60,7 @@
 body,
 p {
     font-family: 'Poppins', sans-serif;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 400;
     letter-spacing: 0px;
     line-height: 1.5;
@@ -636,19 +636,19 @@ ul.list-check li:before {
 }
 
 /* Video block style */
-.video-block {
+.video-block, .gallery-block {
     position: relative;
     overflow: hidden;
 }
 
-.video-block .video-thumb {
+.video-block, .gallery-block .video-thumb {
     max-width: 100%;
     position: relative;
     overflow: hidden;
     margin-bottom: 15px;
 }
 
-.video-block .video-thumb img {
+.video-block, .gallery-block .video-thumb img {
     display: block;
     width: 100%;
     -webkit-transition: all .3s ease-out;
@@ -656,13 +656,13 @@ ul.list-check li:before {
     transition: all .3s ease-out;
 }
 
-.video-block:hover .video-thumb img {
+.video-block, .gallery-block:hover .video-thumb img {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
 
-.video-block .video-thumb::after {
+.video-block, .gallery-block .video-thumb::after {
     position: absolute;
     content: '';
     width: 100%;
@@ -679,14 +679,14 @@ ul.list-check li:before {
 }
 
 /* Video block Effects */
-.video-block .icon,
-.video-block .title {
+.video-block, .gallery-block .icon,
+.video-block, .gallery-block .title {
     margin: 0;
     position: absolute;
 }
 
-.video-block:after,
-.video-block:before {
+.video-block, .gallery-block:after,
+.video-block, .gallery-block:before {
     height: 50%;
     background: rgba(0, 0, 0, .5);
     position: absolute;
@@ -697,7 +697,7 @@ ul.list-check li:before {
     transform: rotateZ(90deg);
 }
 
-.video-block .icon {
+.video-block, .gallery-block .icon {
     padding: 7px 5px;
     list-style: none;
     background: #ff0000;
@@ -707,16 +707,16 @@ ul.list-check li:before {
     transition: all .3s ease .2s
 }
 
-.video-block:hover .icon {
+.video-block, .gallery-block:hover .icon {
     top: 0;
 }
 
-.video-block .icon li {
+.video-block, .gallery-block .icon li {
     display: block;
     margin: 10px 0;
 }
 
-.video-block .icon li a {
+.video-block, .gallery-block .icon li a {
     display: block;
     width: 35px;
     height: 35px;
@@ -728,12 +728,12 @@ ul.list-check li:before {
     text-align: center;
 }
 
-.video-block .icon li a,
-.video-block .icon a:hover {
+.video-block, .gallery-block .icon li a,
+.video-block, .gallery-block .icon a:hover {
     border-radius: 50%
 }
 
-.video-block .icon li a:hover {
+.video-block, .gallery-block .icon li a:hover {
     color: #fff;
     box-shadow: 0 0 10px #000 inset, 0 0 0 3px #fff
 }

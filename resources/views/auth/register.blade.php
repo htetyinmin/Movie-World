@@ -36,7 +36,7 @@
               <div class="row">
                   <div class="col-lg-12">
                       <!-- Start Form -->
-                      <form id="signup-form" method="POST" action="{{ route('register') }}">
+                    <form id="signup-form" method="POST" action="{{ route('register') }}">
                         @csrf
                           <div class="error-container"></div>
                           <div class="row justify-content-center"">

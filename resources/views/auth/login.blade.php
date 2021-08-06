@@ -72,7 +72,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label class="checkbox-inline col-xs-4 mb-3"><input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}> Save Password</label>
+                                    <label class="checkbox-inline col-xs-4 mb-3"><input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}> Save Password</label>
     
                                     <button type="submit" class="btn btn-block hvr-sweep-to-right btn-primary btn-lg">Login</button>
                                 </div>

@@ -103,7 +103,15 @@
             <!-- Tasks end-->
 
             <!-- Log out               -->
-            <div class="list-inline-item logout">                   <a id="logout" href="login.html" class="nav-link">Logout <i class="icon-logout"></i></a></div>
+            <div class="list-inline-item logout">
+              {{-- <a id="logout" href="#" class="nav-link">Logout <i class="icon-logout"></i></a> --}}
+              <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();"><i class="fa fa-sign-out mr-3"></i></a>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
+            </div>
           </div>
         </div>
       </nav>
@@ -115,7 +123,9 @@
         <div class="sidebar-header d-flex align-items-center">
           <div class="avatar"><img src="{{asset('backend-assets/img/avatar-6.jpg')}}" alt="..." class="img-fluid rounded-circle"></div>
           <div class="title">
-            <h1 class="h5">Admin</h1>
+            @if (Auth::user())
+            <h1 class="h5">{{ Auth::user()->name }}</h1>
+            @endif
             <p>Data Manager</p>
           </div>
         </div>

@@ -114,7 +114,7 @@
               <!-- Row End -->
               <div class="row">
                 <div class="m-3">
-                  <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-film mr-1" aria-hidden="true"></i>150</a>
+                  <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-play mr-1" aria-hidden="true"></i>Show All</a>
                 </div>
               </div>
           </div>
@@ -158,7 +158,7 @@
               <!-- Row End -->
               <div class="row">
                 <div class="m-3">
-                  <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-film mr-1" aria-hidden="true"></i>150</a>
+                  <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-play mr-1" aria-hidden="true"></i>Show All</a>
                 </div>
               </div>
           </div>
