@@ -93,7 +93,9 @@ class CastController extends Controller
      */
     public function show(Cast $cast)
     {
-        return view('backend.cast.detail', compact('cast'));
+        $gallerys = json_decode($cast->gallery);
+        // dd($gallerys);
+        return view('backend.cast.detail', compact('cast', 'gallerys'));
     }
 
     /**

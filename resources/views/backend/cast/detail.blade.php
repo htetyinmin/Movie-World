@@ -2,13 +2,13 @@
 @section('content')
 
   <div class="page-content">
-    <div class="page-header d-flex">
+      <div class="page-header d-flex">
         <div class="container-fluid">
           <h2 class="h5 no-margin-bottom">Cast Details</h2>
         </div>
         <div class="p-4 flex-shrink-1 bd-highlight">
             <a href="{{route('cast.index')}}" type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-      </div>
+        </div>
       </div>
       
       <section class="no-padding-bottom">
@@ -51,7 +51,7 @@
 
           <div class="row">
                 <!-- Start Related Photo Section -->
-            <section class="mb-5">
+            <section class="mb-2">
               <div class="container-fluid">
                   <div class="row">
                       <div class="col-lg-12 mb-2">
@@ -61,68 +61,23 @@
                   </div>
                   <!-- Row End -->
                   <div class="row">
-                      <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2" style="width:130; height:150;">
-                        <a class="image-link" href="{{asset('backend-assets/img/avatar-0.jpg')}}">
-                          <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt="">
-                        </a>
-                      </div>
-                      <!-- Col End -->
-                      <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2" style="width:130px; height:150px;">
-                        <a class="image-link" href="{{asset('backend-assets/img/avatar-0.jpg')}}">
-                          <img class="img-fluid" src="{{asset('frontend_assets/images/slider/slider1.jpg')}}" alt="">
-                        </a>
-                      </div>
-                      <!-- Col End -->
-                      <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                          <div>
-                                <div>
-                                  <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
-                                </div>
-                          </div>
-                      </div>
-                      <!-- Col End -->
-                      <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                          <div>
-                                <div>
-                                  <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
-                                </div>
-                          </div>
-                      </div>
-                      <!-- Col End -->
-                      
-                      <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                          <div>
-                                <div>
-                                  <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
-                                </div>
-                          </div>
-                      </div>
-                      <!-- Col End -->
-                      <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                          <div>
-                                <div>
-                                  <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
-                                </div>
-                          </div>
-                      </div>
-                      <!-- Col End -->
+                      @foreach ($gallerys as $gallery)
+                        <div class="">
+                          <a class="image-link" href="{{asset('storage/'.$gallery)}}">
+                            <img class="p-2" width="auto" height="200" src="{{asset('storage/'.$gallery)}}" alt="Photo">
+                          </a>
+                        </div>
+                      @endforeach
                   </div>
-                  <!-- Row End -->
-                  {{-- <div class="row">
-                    <div class="m-3">
-                      <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-play mr-1" aria-hidden="true"></i>Show All</a>
-                    </div>
-                  </div> --}}
               </div>
             <!-- Container End -->
             </section>
 
           </div>
-
         </div>
       </section>
 
-    </div>      
+       
   </div>
 @endsection
 
@@ -137,6 +92,13 @@
         $('#deleteModalForm').attr('action',id);
         $('#deleteModal').modal('show');
       })
+
+      var dbgallery = "{{$cast->gallery}}";
+      if (dbgallery) {
+        var images = <?= json_encode($cast->gallery) ?>;
+        var img_array = $.parseJSON(images);
+        console.log(img_array);
+      }
     })
   </script>
 @endsection

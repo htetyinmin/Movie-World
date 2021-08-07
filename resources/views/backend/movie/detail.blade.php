@@ -8,7 +8,7 @@
         </div>
         <div class="p-4 flex-shrink-1 bd-highlight">
             <a href="{{route('movie.index')}}" type="button" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-      </div>
+        </div>
       </div>
       
       <section class="no-padding-bottom">
@@ -16,22 +16,22 @@
           <div class="row mb-5">
                 <div class="col-lg-4">
                       <div class="user-block text-center">
-                            <img src="{{asset('backend-assets/img/03.jpg')}}" alt="..." class="img-fluid border border-dark rounded">
+                        <img src="{{asset('storage/'.$movie->photo)}}" alt="Photo" class="img-fluid border border-dark rounded">
                       </div>
                 </div>
                 <div class="col-lg-8">
                       <div class="">
-                            <h1 class="text-uppercase text-primary mb-5 f-size">The Dark Knight</h1>
+                            <h1 class="text-uppercase text-primary mb-5 f-size">{{$movie->name}}</h1>
                       </div>
                       <div class="mb-5">
-                            <span class="mr-2"><i class="fa fa-user mr-1" aria-hidden="true"></i> +18</span>
-                            <span class="mr-2"><i class="fa fa-clock mr-1" aria-hidden="true"></i> 2hr 30min</span>
-                            <span class="mr-2"><i class="fa fa-smile mr-1" aria-hidden="true"></i> 2020</span>
+                            {{-- <span class="mr-2"><i class="fa fa-user mr-1" aria-hidden="true"></i> +18</span> --}}
+                            <span class="mr-2"><i class="fa fa-clock mr-1" aria-hidden="true"></i> {{$movie->duration}} </span>
+                            <span class="mr-2"><i class="fa fa-smile mr-1" aria-hidden="true"></i> {{$movie->year}} </span>
                             <span class="mr-2"><i class="fa fa-film mr-1" aria-hidden="true"></i> Action</span>
-                            <span class="mr-2"><i class="fa fa-globe mr-1" aria-hidden="true"></i> English</span>
+                            <span class="mr-2"><i class="fa fa-globe mr-1" aria-hidden="true"></i> {{$movie->language}}</span>
                       </div>
                       <div class="mb-5">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto expedita et rerum cum quidem animi, nemo dolores labore ipsam soluta assumenda aliquid reprehenderit pariatur accusamus sed corrupti corporis possimus totam!</p>
+                            <p>{{$movie->overview}}</p>
                       </div>
                       <!-- Details Desc -->
                       <div class="row mb-4">
@@ -45,7 +45,7 @@
                                 <p>Christian Bale, Michael Cain, Gary Oldman, Anne Hathway, Tom Hardy, Marion Cotillard</p>
                             </div>
                             <!-- Person Block -->
-                        </div>
+                      </div>
                       <div class="details-buttons">
                             <div class="row d-flex align-items-center">
                                 <div class="mb-3">
@@ -54,108 +54,82 @@
                                 <!-- Col End -->
                                 <div class="mb-3">
                                     <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-plus mr-2" aria-hidden="true"></i>Add List</a>
-                              </div>
-                              <!-- Col End -->
-                              <div class="mb-3">
-                                    <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-film mr-2" aria-hidden="true"></i>Trailer</a>
-                              </div>
+                                </div>
                               <!-- Col End -->
                                 <div class="mb-3">
-                                    <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-share mr-2" aria-hidden="true"></i>Share</a>
-                              </div>
+                                  <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-film mr-2" aria-hidden="true"></i>Trailer</a>
+                                </div>
+                              <!-- Col End -->
+                                <div class="mb-3">
+                                  <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-share mr-2" aria-hidden="true"></i>Share</a>
+                                </div>
                             </div>
                             <!-- Row End -->
-                        </div>
+                      </div>
                 </div>
           </div>
 
           <hr>
           
           <div class="row">
-                <!-- Start Related Photo Section -->
-          <section class="mb-5">
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="col-lg-12 mb-2">
-                      <h2 class="block-title">Gallery</h2>
-                  </div>
-                  <!-- Col End -->
-              </div>
-              <!-- Row End -->
-              <div class="row">
-                  <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                      <a class="image-link" href="{{asset('backend-assets/img/avatar-0.jpg')}}">
-                          <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt="">
-                      </a>
-                  </div>
-                  <!-- Col End -->
-                  <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                      <div>
-                            <div>
-                              <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
-                            </div>
-                      </div>
-                  </div>
-                  <!-- Col End -->
-                  <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                      <div>
-                            <div>
-                              <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
-                            </div>
-                      </div>
-                  </div>
-                  <!-- Col End -->
-                  <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                      <div>
-                            <div>
-                              <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
-                            </div>
-                      </div>
-                  </div>
-                  <!-- Col End -->
-                  
-                  <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                      <div>
-                            <div>
-                              <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
-                            </div>
-                      </div>
-                  </div>
-                  <!-- Col End -->
-                  <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                      <div>
-                            <div>
-                              <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
-                            </div>
-                      </div>
-                  </div>
-                  <!-- Col End -->
-              </div>
-              <!-- Row End -->
-              {{-- <div class="row">
-                <div class="m-3">
-                  <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-play mr-2" aria-hidden="true"></i>Show All</a>
+                  <!-- Start Related Photo Section -->
+            <section class="mb-2">
+              <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 mb-2">
+                        <h2 class="block-title">Gallery</h2>
+                    </div>
+                    <!-- Col End -->
                 </div>
-              </div> --}}
-          </div>
-          <!-- Container End -->
-      </section>
+                <!-- Row End -->
+                <div class="row">
+                    @foreach ($gallerys as $gallery)
+                      <div class="">
+                        <a class="image-link" href="{{asset('storage/'.$gallery)}}">
+                          <img class="p-2" width="auto" height="200" src="{{asset('storage/'.$gallery)}}" alt="Photo">
+                        </a>
+                      </div>
+                    @endforeach
+                </div>
+              </div>
+            <!-- Container End -->
+            </section>
 
           </div>
 
           <hr>
 
-          <div class="container p-5">
-                <div class="row justify-content-center ">
-                  <iframe width="900" height="500" src="https://www.youtube.com/embed/07d2dXHYb94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="row">
+                  <!-- Start Related Movie Section -->
+            <section class="mb-2">
+              <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 mb-2">
+                        <h2 class="block-title">Video</h2>
+                    </div>
+                    <!-- Col End -->
                 </div>
-          </div>
-      
+                <!-- Row End -->
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2" >
+                        {{-- <iframe width="700" height="500" src="https://www.youtube.com/embed/07d2dXHYb94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
+                        <video src="{{asset('frontend_assets/video/01-video.mp4')}}" width="auto" height="500" style="border: 2px solid #000000; border-radius: 3px;" controls></video>
+                    </div>
+                  </div>
+                </div>
+                <!-- Row End -->
+                {{-- <div class="row">
+                  <div class="m-3">
+                    <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-play mr-2" aria-hidden="true"></i>SHow All</a>
+                  </div>
+                </div> --}}
+              </div>
+            </section>
 
           </div>
+        </div>
       </section>
-
-    </div>
 
 @endsection
 

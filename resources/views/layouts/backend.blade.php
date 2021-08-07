@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="{{asset('backend-assets/css/custom.css')}}">
     <!-- Favicon-->
     <link rel="shortcut icon" href="{{asset('backend-assets/img/favicon.png')}}">
+    <!-- Owl Carousel Styles -->
+    <link href="{{asset('frontend_assets/css/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{asset('frontend_assets/css/owl.theme.default.min.css')}}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset('multipleimageupload/image-uploader.min.css')}}">
 
@@ -168,6 +171,7 @@
     <script src="{{asset('backend-assets/js/charts-home.js')}}"></script>
     <script src="{{asset('backend-assets/js/front.js')}}"></script>
     <script src="{{asset('backend-assets/js/custom.js')}}"></script>
+    <script src="{{asset('frontend_assets/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('multipleimageupload/image-uploader.min.js')}}"></script>
     <script src="{{asset('frontend_assets/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
     @yield('script')

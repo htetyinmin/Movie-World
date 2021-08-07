@@ -238,10 +238,10 @@
             <div class="row">
                 <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 gallery">
                     <div class="gallery-wrap">
-                        <img src="{{asset('frontend_assets/images/suggested/01.jpg')}}" class="img-fluid" alt="">
+                            <img src="{{asset('frontend_assets/images/suggested/01.jpg')}}" class="img-fluid" alt="">
                         <div class="gallery-info">
                             <div class="gallery-links">
-                            <a href=""><h4>John Wich</h4></a>
+                                <a class="image-link" href="{{asset('frontend_assets/images/suggested/01.jpg')}}"><h4>John Wich</h4></a>
                             </div>
                         </div>
                     </div>
