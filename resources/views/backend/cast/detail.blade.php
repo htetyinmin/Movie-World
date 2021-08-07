@@ -1,8 +1,8 @@
 @extends('layouts.backend')
 @section('content')
 
-<div class="page-content">
-      <div class="page-header d-flex">
+  <div class="page-content">
+    <div class="page-header d-flex">
         <div class="container-fluid">
           <h2 class="h5 no-margin-bottom">Cast Details</h2>
         </div>
@@ -40,10 +40,10 @@
                                 <!-- Col End -->
                                 <div class="mb-3">
                                     <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-star mr-1" aria-hidden="true"></i>250</a>
-                              </div>
+                                </div>
                             </div>
                             <!-- Row End -->
-                        </div>
+                      </div>
                 </div>
           </div>
           
@@ -51,123 +51,79 @@
 
           <div class="row">
                 <!-- Start Related Photo Section -->
-          <section class="mb-5">
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="col-lg-12 mb-2">
-                      <h2 class="block-title">Gallery</h2>
+            <section class="mb-5">
+              <div class="container-fluid">
+                  <div class="row">
+                      <div class="col-lg-12 mb-2">
+                          <h2 class="block-title">Gallery</h2>
+                      </div>
+                      <!-- Col End -->
                   </div>
-                  <!-- Col End -->
+                  <!-- Row End -->
+                  <div class="row">
+                      <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2" style="width:130; height:150;">
+                        <a class="image-link" href="{{asset('backend-assets/img/avatar-0.jpg')}}">
+                          <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt="">
+                        </a>
+                      </div>
+                      <!-- Col End -->
+                      <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2" style="width:130px; height:150px;">
+                        <a class="image-link" href="{{asset('backend-assets/img/avatar-0.jpg')}}">
+                          <img class="img-fluid" src="{{asset('frontend_assets/images/slider/slider1.jpg')}}" alt="">
+                        </a>
+                      </div>
+                      <!-- Col End -->
+                      <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+                          <div>
+                                <div>
+                                  <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
+                                </div>
+                          </div>
+                      </div>
+                      <!-- Col End -->
+                      <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+                          <div>
+                                <div>
+                                  <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
+                                </div>
+                          </div>
+                      </div>
+                      <!-- Col End -->
+                      
+                      <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+                          <div>
+                                <div>
+                                  <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
+                                </div>
+                          </div>
+                      </div>
+                      <!-- Col End -->
+                      <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+                          <div>
+                                <div>
+                                  <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
+                                </div>
+                          </div>
+                      </div>
+                      <!-- Col End -->
+                  </div>
+                  <!-- Row End -->
+                  {{-- <div class="row">
+                    <div class="m-3">
+                      <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-play mr-1" aria-hidden="true"></i>Show All</a>
+                    </div>
+                  </div> --}}
               </div>
-              <!-- Row End -->
-              <div class="row">
-                  <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                    <a class="image-link" href="{{asset('backend-assets/img/avatar-0.jpg')}}">
-                      <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt="">
-                    </a>
-                  </div>
-                  <!-- Col End -->
-                  <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                      <div>
-                            <div>
-                              <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
-                            </div>
-                      </div>
-                  </div>
-                  <!-- Col End -->
-                  <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                      <div>
-                            <div>
-                              <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
-                            </div>
-                      </div>
-                  </div>
-                  <!-- Col End -->
-                  <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                      <div>
-                            <div>
-                              <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
-                            </div>
-                      </div>
-                  </div>
-                  <!-- Col End -->
-                  
-                  <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                      <div>
-                            <div>
-                              <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
-                            </div>
-                      </div>
-                  </div>
-                  <!-- Col End -->
-                  <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                      <div>
-                            <div>
-                              <img class="img-fluid" src="{{asset('backend-assets/img/avatar-0.jpg')}}" alt=""></a>
-                            </div>
-                      </div>
-                  </div>
-                  <!-- Col End -->
-              </div>
-              <!-- Row End -->
-              {{-- <div class="row">
-                <div class="m-3">
-                  <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-play mr-1" aria-hidden="true"></i>Show All</a>
-                </div>
-              </div> --}}
-          </div>
-          <!-- Container End -->
-      </section>
-
-      </div>
-
-      <hr>
-
-          <div class="row">
-                <!-- Start Related Movie Section -->
-          <section class="mb-5">
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="col-lg-12 mb-2">
-                      <h2 class="block-title">Related Movie</h2>
-                  </div>
-                  <!-- Col End -->
-              </div>
-              <!-- Row End -->
-              <div class="row">
-                  <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                      <div>
-                            <div>
-                                  <iframe width="500" height="200" class="img-fluid" src="https://www.youtube.com/embed/07d2dXHYb94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                      </div>
-                  </div>
-                  <!-- Col End -->
-                  <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                      <div>
-                            <div>
-                                  <iframe width="500" height="200" class="img-fluid" src="https://www.youtube.com/embed/07d2dXHYb94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                      </div>
-                  </div>
-                  <!-- Col End -->
-                  
-              </div>
-              <!-- Row End -->
-              <div class="row">
-                <div class="m-3">
-                  <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-play mr-1" aria-hidden="true"></i>Show All</a>
-                </div>
-              </div>
-          </div>
-          <!-- Container End -->
-      </section>
+            <!-- Container End -->
+            </section>
 
           </div>
+
+        </div>
       </section>
 
     </div>      
-
+  </div>
 @endsection
 
 @section('script')

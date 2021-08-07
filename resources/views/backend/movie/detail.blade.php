@@ -145,45 +145,12 @@
 
           <hr>
 
-          <div class="row">
-                <!-- Start Related Movie Section -->
-          <section class="mb-5">
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="col-lg-12 mb-2">
-                      <h2 class="block-title">Video</h2>
-                  </div>
-                  <!-- Col End -->
-              </div>
-              <!-- Row End -->
-              <div class="row">
-                  <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                      <div>
-                            <div>
-                                  <iframe width="500" height="200" class="img-fluid" src="https://www.youtube.com/embed/07d2dXHYb94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                      </div>
-                  </div>
-                  <!-- Col End -->
-                  <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                      <div>
-                            <div>
-                                  <iframe width="500" height="200" class="img-fluid" src="https://www.youtube.com/embed/07d2dXHYb94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                      </div>
-                  </div>
-                  <!-- Col End -->
-                  
-              </div>
-              <!-- Row End -->
-              <div class="row">
-                <div class="m-3">
-                  <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-play mr-2" aria-hidden="true"></i>SHow All</a>
+          <div class="container p-5">
+                <div class="row justify-content-center ">
+                  <iframe width="900" height="500" src="https://www.youtube.com/embed/07d2dXHYb94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-              </div>
           </div>
-          <!-- Container End -->
-      </section>
+      
 
           </div>
       </section>
