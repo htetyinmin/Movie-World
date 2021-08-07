@@ -196,6 +196,11 @@ img {
     display: inline-block;
 }
 
+.my-img {
+    width: auto !important;
+    height: 200px !important;
+}
+
 /* unstyled */
 .unstyled {
     list-style: none;

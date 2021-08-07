@@ -111,26 +111,17 @@
                 </div>
                 <!-- Row End -->
                 <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2" >
-                        {{-- <iframe width="700" height="500" src="https://www.youtube.com/embed/07d2dXHYb94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
-                        <video src="{{asset('frontend_assets/video/01-video.mp4')}}" width="auto" height="500" style="border: 2px solid #000000; border-radius: 3px;" controls></video>
-                    </div>
+                  <div class="row mb-2">
+                    <video src="{{asset('frontend_assets/video/01-video.mp4')}}" width="auto" height="500" style="border: 2px solid #000000; border-radius: 3px;" controls></video>
                   </div>
                 </div>
-                <!-- Row End -->
-                {{-- <div class="row">
-                  <div class="m-3">
-                    <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-play mr-2" aria-hidden="true"></i>SHow All</a>
-                  </div>
-                </div> --}}
               </div>
             </section>
 
           </div>
         </div>
       </section>
-
+</div>
 @endsection
 
 @section('script')

@@ -49,6 +49,9 @@ class PageController extends Controller
         $genres = Genre::all();
         $casts = Cast::all();
         $movies = Movie::where('id', $id)->get();
-        return view('frontend.moviedetail', compact('genres', 'casts', 'movies'));
+        $gallery = Movie::all();
+        // dd($movies[0]);
+        $gallerys = json_decode($movies[0]->gallery);
+        return view('frontend.moviedetail', compact('genres', 'casts', 'movies', 'gallerys'));
     }
 }

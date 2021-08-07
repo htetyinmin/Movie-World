@@ -194,31 +194,26 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                    <div class="gallery-block">
-                        <div class="video-thumb position-relative thumb-overlay">
-                            <a class="image-link" href="{{asset('frontend_assets/images/suggested/01.jpg')}}"><img class="img-fluid" src="{{asset('frontend_assets/images/suggested/01.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <!-- video Block End -->
-                </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                    <div class="gallery-block">
-                        <div class="video-thumb position-relative thumb-overlay">
-                            <a href="#"><img class="img-fluid" src="{{asset('frontend_assets/images/suggested/01.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <!-- video Block End -->
-                </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                    <div class="gallery-block">
-                        <div class="video-thumb position-relative thumb-overlay">
-                            <a href="#"><img class="img-fluid" src="{{asset('frontend_assets/images/suggested/01.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <!-- video Block End -->
-                </div>
+                @foreach ($gallerys as $gallery)
+                  <div class="">
+                    <a class="image-link" href="{{asset('storage/'.$gallery)}}">
+                      <img class="p-2 my-img" src="{{asset('storage/'.$gallery)}}" alt="Photo">
+                    </a>
+                  </div>
+                @endforeach
             </div>
+            {{-- <div class="row">
+                @foreach ($gallerys as $gallery)
+                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+                    <div class="gallery-block">
+                        <div class="video-thumb position-relative thumb-overlay">
+                            <a class="image-link" href="{{asset('storage/'.$gallery)}}"><img class="" height="200" width="auto" src="{{asset('storage/'.$gallery)}}" alt=""></a>
+                        </div>
+                    </div>
+                    <!-- video Block End -->
+                </div>
+                @endforeach
+            </div> --}}
             <div class="row">
                 <div class="m-3">
                   <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-play mr-1" aria-hidden="true"></i>Show All</a>
