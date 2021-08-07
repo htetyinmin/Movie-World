@@ -1,37 +1,34 @@
 @extends('layouts.frontend')
-@section('title','Movie World | Movie Detail Page')
+@section('title','Movie World | Cast Detail Page')
 @section('content')
 
-@foreach ($movies as $movie)
-<!-- Start Banner Section -->
-<div class="banner-single banner-wrap banner-bg movie-bg">
-    <div class="container-fluid">
-        <div class="banner-content">
-            <div class="transparent-block">
-                <div class="banner-caption">
-                    <div class="position-relative mb-4">
-                        <a href="watch-movie.html" class="d-flex align-items-center">
-                            <div class="play-icon">
-                                <div class="circle pulse"></div>
-                                <div class="circle">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                                        <polygon points="40,30 65,50 40,70"></polygon>
-                                    </svg>
-                                </div>
-                            </div>
-                            <h2 class="banner-name text-white font-weight-700">{{$movie->name}}</h2>
-                        </a>
-                    </div>
-                </div>
-                <!-- Banner Caption End -->
-            </div>
-            <!-- Transparent Block End -->
-        </div>
-        <!-- Banner Content End -->
-    </div>
-    <!-- Container End -->
+
+@foreach ($casts as $cast)
+
+<div class="sub-header">
+      <div class="container-fluid">
+          <div class="row align-items-center">
+              <div class="col-sm-12">
+                  <nav aria-label="breadcrumb" class="text-center breadcrumb-nav">
+                      <h2 class="Page-title">Cast Details</h2>
+                      <ol class="breadcrumb">
+                          <li>
+                              <i class="fa fa-home"></i>
+                              <a href="#">Home</a>
+                              <i class="fa fa-angle-right"></i>
+                          </li>
+                          <li><a href="#">Cast</a></li>
+                      </ol>
+                  </nav>
+                  <!-- Breadcrumb End -->
+              </div>
+              <!-- Col End -->
+          </div>
+          <!-- Row End -->
+      </div>
+      <!-- Container end -->
 </div>
-<!-- Banner Section End -->
+
 <!-- Start Main Content -->
 <div class="main-content">
     <!-- Start Play Details Section -->
@@ -42,21 +39,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="play-thumb mb-4">
-                                <img class="img-fluid" src="{{asset('storage/'.$movie->photo)}}" alt="">
-                                <div class="top-badge">
-                                    <div class="video-badge">
-                                        <img class="img-fluid" src="images/top-movies.png" alt="">
-                                    </div>
-                                </div>
+                                <img class="img-fluid" src="{{asset('storage/'.$cast->photo)}}" alt="">
                             </div>
-                            <!-- Play Thumb End -->
-                            <div class="thumb-details text-center">
-                                <span> 1080p</span>
-                                <span>24p</span>
-                                <span><img class="img-fluid" src="{{asset('frontend_assetss/images/dts-logo.png')}}" alt=""></span>
-                                <span>7.1</span>
-                            </div>
-                            <!-- Thumb Details End -->
                         </div>
                         <!-- Col End -->
                     </div>
@@ -66,35 +50,21 @@
                 <div class="col-md-9">
                     <div class="play-details-content">
                         <div class="title-block d-flex align-items-center justify-content-between">
-                            <h2 class="play-title">{{$movie->name}}</h2>
+                            <h2 class="play-title">{{$cast->name}}</h2>
                         </div>
-                        <!-- Title Block -->
+                        
                         <div class="details-info mb-4">
-                            <span><i class="icofont-clock-time mr-2" aria-hidden="true"></i> {{$movie->duration}} </span>
-                            <span><i class="icofont-simple-smile mr-2" aria-hidden="true"></i> {{$movie->year}} </span>
-                            <span><i class="icofont-movie mr-2" aria-hidden="true"></i> Action</span>
-                            <span><i class="icofont-world mr-2" aria-hidden="true"></i> {{$movie->language}} </span>
+                              <span><i class="icofont-user mr-2" aria-hidden="true"></i> {{$cast->gender}}</span>
+                              <span><i class="icofont-birthday-cake mr-2"></i> {{$cast->dob}} </span>
+                              <span><i class="icofont-movie mr-2" aria-hidden="true"></i> Actor</span>
+                            <span><i class="icofont-clock-time mr-2" aria-hidden="true"></i> {{$cast->pob}} </span>
+                            {{-- <span><i class="icofont-world mr-2" aria-hidden="true"></i> {{$movie->language}} </span> --}}
                         </div>
-                        <!-- Details Info -->
+                        
                         <div class="details-desc">
-                            <p>{{$movie->overview}}</p>
+                            <p>{{$cast->bio}}</p>
                         </div>
-                        <!-- Details Desc -->
-                        <div class="movie-persons mb-4">
-                            <div class="person-block">
-                                <h5 class="title">Director</h5>
-                                @foreach ($casts as $cast)
-                                    <a href="{{route('castdetail', $cast->id)}}"><p class="name">{{$cast->name}}</p></a>
-                                @endforeach
-                            </div>
-                            <!-- Person Block -->
-                            <div class="person-block">
-                                <h5 class="title">Cast</h5>
-                                <p>Christian Bale, Michael Cain, Gary Oldman, Anne Hathway, Tom Hardy, Marion Cotillard</p>
-                            </div>
-                            <!-- Person Block -->
-                        </div>
-                        <!-- Movie Persons -->
+
                         <div class="details-buttons">
                             <div class="row d-flex align-items-center">
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
@@ -229,58 +199,7 @@
         </div>
     </section>
 
-    {{-- Casts --}}
-    <section class="hollywood-movies">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="block-title">Casts</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 gallery">
-                    <div class="gallery-wrap">
-                            <img src="{{asset('frontend_assets/images/suggested/01.jpg')}}" class="img-fluid" alt="">
-                        <div class="gallery-info">
-                            <div class="gallery-links">
-                                <a class="image-link" href="{{asset('frontend_assets/images/suggested/01.jpg')}}"><h4>John Wich</h4></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 gallery">
-                    <div class="gallery-wrap">
-                        <img src="{{asset('frontend_assets/images/suggested/01.jpg')}}" class="img-fluid" alt="">
-                        <div class="gallery-info">
-                            <div class="gallery-links">
-                            <a href=""><h4>John Wich</h4></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 gallery">
-                    <div class="gallery-wrap">
-                        <img src="{{asset('frontend_assets/images/suggested/01.jpg')}}" class="img-fluid" alt="">
-                        <div class="gallery-info">
-                            <div class="gallery-links">
-                            <a href=""><h4>John Wich</h4></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="m-3">
-                  <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-play mr-1" aria-hidden="true"></i>Show All</a>
-                </div>
-            </div>    
-        </div>
-    </section>
-
-    
-
 </div>
-<!-- Main Content End -->
 
 @endforeach
 

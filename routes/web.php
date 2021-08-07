@@ -19,6 +19,7 @@ Route::get('/', 'PageController@index')->name('index');
 Route::get('/movielist', 'PageController@movielist')->name('movielist');
 Route::get('/about', 'PageController@about')->name('about');
 Route::get('/contact', 'PageController@contact')->name('contact');
+Route::get('/castdetail/{id}', 'PageController@castdetail')->name('castdetail');
 // Route::get('/login', 'PageController@login')->name('login');
 // Route::get('/register', 'PageController@register')->name('register');
 Route::get('/pricing', 'PageController@pricing')->name('pricing');
