@@ -109,7 +109,8 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        return view('backend.movie.detail', compact('movie'));
+        $gallerys = json_decode($movie->gallery);
+        return view('backend.movie.detail', compact('movie', 'gallerys'));
     }
 
     /**

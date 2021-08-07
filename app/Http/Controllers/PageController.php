@@ -41,10 +41,9 @@ class PageController extends Controller
         return view('frontend.pricing', compact('packages'));
     }
 
-    public function detail(){
-        
-        return view('backend.detail');
-    }
+    // public function detail(){
+    //     return view('backend.detail');
+    // }
 
     public function moviedetail($id){
         $genres = Genre::all();

@@ -383,7 +383,7 @@
             <div class="container-fluid">
                 <div class="row justify-content-center pt-5">
                     <div class="col-md-12 col-lg-6">
-                        <p class="text-center text-muted">© Copyright 2021, All Rights Reserved</p>
+                        <p class="text-center text-muted m-0 p-0">© Copyright 2021, All Rights Reserved</p>
                     </div>
                 </div>
             </div>
