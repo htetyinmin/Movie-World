@@ -7,6 +7,7 @@ use App\Cast;
 use App\Genre;
 use App\Package;
 use App\Moviedownload;
+use App\User;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -37,7 +38,8 @@ class PageController extends Controller
     public function movielist(){
         $movies = Movie::all();
         $genres = Genre::all();
-        return view('frontend.movielist', compact('movies', 'genres') );
+        $lastmovies = Movie::latest()->take(10)->get();
+        return view('frontend.movielist', compact('movies', 'genres', 'lastmovies') );
     }
 
     public function genrelist(){
@@ -119,5 +121,11 @@ class PageController extends Controller
         $movies = Movie::all();
         $gallerys = json_decode($casts[0]->gallery);
         return view('frontend.castdetail', compact('genres', 'casts', 'movies', 'gallerys'));
+    }
+
+    public function user(){
+        // $genres = Genre::all();
+        $users = User::all();
+        return view('backend.user.index', compact('users'));
     }
 }

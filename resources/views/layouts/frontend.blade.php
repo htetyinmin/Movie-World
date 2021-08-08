@@ -74,7 +74,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="mobile-logo text-center">
-                                <a href="index.html"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/mov.png')}}"></a>
+                                <a href="{{url('/')}}"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/mov.png')}}"></a>
                             </div>
                         </div>
                         <!-- Logo Col End -->
@@ -94,7 +94,7 @@
                     <div class="col-lg-9 pl-0">
                         <!-- Start Navigation -->
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index.html"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/mov.png')}}"></a>
+                            <a class="navbar-brand" href="{{url('/')}}"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/mov.png')}}"></a>
                             <!-- Logo End -->
                             <div class="site-nav-inner float-left">
                                 <button aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button"><span class="fa fa-bars"></span></button> <!-- Navbar Toggler End -->

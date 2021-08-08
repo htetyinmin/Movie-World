@@ -409,9 +409,9 @@
                                 @foreach($currentyearmovies as $currentyearmovie)
                                 <div class="swiper-slide swiper-bg" style="background-image:url({{asset('storage/'.$currentyearmovie->photo)}})">
                                     <img alt="" class="entity-img" src="{{asset('storage/'.$currentyearmovie->photo)}}">
-                                    <div class="top-badge">
+                                    {{-- <div class="top-badge">
                                         <div class="video-badge"><img alt="" class="img-fluid" src="{{asset('storage/'.$currentyearmovie->photo)}}"></div>
-                                    </div>
+                                    </div> --}}
                                     <div class="content">
                                         <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">
                                             {{$currentyearmovie->name}}

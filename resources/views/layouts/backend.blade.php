@@ -142,7 +142,7 @@
                 <li class="" id="package"><a href="{{route('package.index')}}"> <i class="fa fa-archive" aria-hidden="true"></i> Packages </a></li>
         </ul><span class="heading">User Management</span>
         <ul class="list-unstyled">
-          <li class="" id="user"><a href="forms.html"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Users </a></li>
+          <li class="" id="user"><a href="{{route('user')}}"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Users </a></li>
           {{-- <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li> --}}
         </ul>
       </nav>
