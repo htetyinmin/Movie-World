@@ -4,6 +4,8 @@
 
 @foreach ($movies as $movie)
 <!-- Start Banner Section -->
+
+    
 <div class="banner-single banner-wrap banner-bg movie-bg">
     <div class="container-fluid">
         <div class="banner-content">
@@ -31,6 +33,8 @@
     </div>
     <!-- Container End -->
 </div>
+
+
 <!-- Banner Section End -->
 <!-- Start Main Content -->
 <div class="main-content">

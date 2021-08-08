@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'PageController@index')->name('index');
 Route::get('/movielist', 'PageController@movielist')->name('movielist');
+Route::get('/genrelist', 'PageController@genrelist')->name('genrelist');
 Route::get('/about', 'PageController@about')->name('about');
 Route::get('/contact', 'PageController@contact')->name('contact');
 Route::get('/castdetail/{id}', 'PageController@castdetail')->name('castdetail');

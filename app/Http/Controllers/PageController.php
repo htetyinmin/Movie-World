@@ -13,19 +13,30 @@ class PageController extends Controller
     public function index(){
         $movies = Movie::all();
         $genres = Genre::all();
-        return view('frontend.index', compact('movies', 'genres'));
+        $new_mov = Movie::latest()->limit(3)->get();
+        return view('frontend.index', compact('movies', 'genres', 'new_mov'));
     }
 
     public function movielist(){
-        return view('frontend.movielist');
+        $movies = Movie::all();
+        $genres = Genre::all();
+        return view('frontend.movielist', compact('movies', 'genres') );
+    }
+
+    public function genrelist(){
+        $movies = Movie::all();
+        $genres = Genre::all();
+        return view('frontend.movielist', compact('movies', 'genres') );
     }
 
     public function about(){
-        return view('frontend.about');
+        $genres = Genre::all();
+        return view('frontend.about', compact('genres'));
     }
 
     public function contact(){
-        return view('frontend.contact');
+        $genres = Genre::all();
+        return view('frontend.contact', compact('genres'));
     }
 
     // public function login(){
@@ -33,12 +44,14 @@ class PageController extends Controller
     // }
 
     public function register(){
-        return view('frontend.register');
+        $genres = Genre::all();
+        return view('frontend.register', compact('genres'));
     }
 
     public function pricing(){
         $packages = Package::all();
-        return view('frontend.pricing', compact('packages'));
+        $genres = Genre::all();
+        return view('frontend.pricing', compact('packages','genres'));
     }
 
     // public function detail(){
@@ -52,6 +65,8 @@ class PageController extends Controller
         $gallery = Movie::all();
         // dd($movies[0]);
         $gallerys = json_decode($movies[0]->gallery);
+        // $covers = json_decode($movies[0]->gallery[1]);
+        // dd($covers);
         return view('frontend.moviedetail', compact('genres', 'casts', 'movies', 'gallerys'));
     }
 

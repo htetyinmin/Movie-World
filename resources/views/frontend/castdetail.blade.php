@@ -10,14 +10,14 @@
           <div class="row align-items-center">
               <div class="col-sm-12">
                   <nav aria-label="breadcrumb" class="text-center breadcrumb-nav">
-                      <h2 class="Page-title">Cast Details</h2>
+                      <h2 class="Page-title">About {{$cast->name}}</h2>
                       <ol class="breadcrumb">
                           <li>
                               <i class="fa fa-home"></i>
                               <a href="#">Home</a>
                               <i class="fa fa-angle-right"></i>
                           </li>
-                          <li><a href="#">Cast</a></li>
+                          <li><a href="#">{{$cast->status}}</a></li>
                       </ol>
                   </nav>
                   <!-- Breadcrumb End -->
@@ -50,14 +50,14 @@
                 <div class="col-md-9">
                     <div class="play-details-content">
                         <div class="title-block d-flex align-items-center justify-content-between">
-                            <h2 class="play-title">{{$cast->name}}</h2>
+                            <h2 class="play-title"> {{$cast->name}} </h2>
                         </div>
                         
                         <div class="details-info mb-4">
-                              <span><i class="icofont-user mr-2" aria-hidden="true"></i> {{$cast->gender}}</span>
-                              <span><i class="icofont-birthday-cake mr-2"></i> {{$cast->dob}} </span>
-                              <span><i class="icofont-movie mr-2" aria-hidden="true"></i> Actor</span>
-                            <span><i class="icofont-clock-time mr-2" aria-hidden="true"></i> {{$cast->pob}} </span>
+                              <span><i class="icofont-user mr-2"></i> {{$cast->gender}}</span>
+                              <span><i class="icofont-birthday-cake mr-2"></i> {{Carbon\Carbon::parse($cast->dob)->format('d-M-Y')}} </span>
+                              <span><i class="icofont-movie mr-2"></i> {{$cast->status}} </span>
+                            <span><i class="icofont-location-pin mr-2"></i> {{$cast->pob}} </span>
                             {{-- <span><i class="icofont-world mr-2" aria-hidden="true"></i> {{$movie->language}} </span> --}}
                         </div>
                         

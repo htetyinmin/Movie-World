@@ -5,7 +5,7 @@
 <!-- Start Main Slider -->
 <div class="main-slider" id="main-slider">
     <div class="slider big-slider slider-wrap">
-        @foreach ($movies as $movie)
+        @foreach ($new_mov as $movie)
         
         <div class="slide slick-bg bg-1">
             <div class="container-fluid position-relative h-100">
