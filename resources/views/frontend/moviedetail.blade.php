@@ -2,6 +2,45 @@
 @section('title','Movie World | Movie Detail Page')
 @section('content')
 
+<?php
+
+    if(Auth::user()){
+        $authuser = Auth::user();
+
+        $authuser_package = $authuser->payments->last()->package_id;
+
+        $payment = $authuser->payments->last();
+
+        $installmentdate = $payment->date;
+
+        $todaydate = Carbon\Carbon::now();
+
+        $status = 1;
+
+
+        if ($authuser_package == 2) {
+            $expiredate = Carbon\Carbon::parse($installmentdate)->addMonths(1);
+            $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
+
+            if($diff <= 0 ){
+                $status = 0; // Expired [ 1 Month ]
+            }
+        }
+
+        if ($authuser_package ==3) {
+            $expiredate = Carbon\Carbon::parse($installmentdate)->addYear();
+            $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
+
+            if($diff <= 0 ){
+                $status = 0; // Expired [ 1 Year ]
+            }
+        }
+
+    }
+
+
+?>
+
 <!-- Start Banner Section -->
 @php 
     $images = json_decode($movie->gallery)
@@ -112,13 +151,50 @@
                         <div class="details-buttons">
                             <div class="row d-flex align-items-center">
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
-                                    <a href="{{route('watchmovie', $movie->id)}}" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-ui-play mr-2" aria-hidden="true"></i>Play</a>
+                                    @if($movie->video)
+
+                                        <a @if(Auth::user()) href="{{route('watchmovie', $movie->id)}}" @else href="route('login')" @endif  class="btn d-block hvr-sweep-to-right" tabindex="0">
+                                            <i class="icofont-ui-play mr-2" aria-hidden="true"></i>Play
+                                        </a>
+                                    @endif
                                 </div>
                                 <!-- Col End -->
-                                @if($movie->status == 'Free')
-                                <div class="col-6 col-xl mb-xl-0 mb-3">
-                                    <a href="{{route('moviedetail', $movie->id)}}" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="fas fa-download mr-2" aria-hidden="true"></i>Download</a>
-                                </div>
+                                @if($movie->video)
+
+                                    <div class="col-6 col-xl mb-xl-0 mb-3">
+                                        <a class="btn d-block hvr-sweep-to-right" tabindex="0" <?php 
+                                            if (Auth::user()) {
+                                                $route = route('downloadmovie', $movie->id);
+
+                                                if($status == 0){
+                                                    echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+                                                }else{
+                                                    if($movie->status == "Premium"){
+
+                                                        if ($authuser_package > 1 ) {
+                                                            echo "href=$route";
+                                                        }
+                                                        else{
+                                                            echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                                                        }
+                                                    }
+
+                                                    else {
+                                                        echo "href=$route";
+                                                    }
+
+                                                    
+                                                }
+                                            }
+                                            else{
+                                                $route = route('login');
+                                                echo "href=$route";
+                                            }
+                                        ?>
+                                        >
+                                            <i class="fas fa-download mr-2" aria-hidden="true"></i>Download
+                                        </a>
+                                    </div>
                                 @endif
                                 <!-- Col End -->
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
