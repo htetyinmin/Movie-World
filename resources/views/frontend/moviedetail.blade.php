@@ -76,15 +76,17 @@
                         <div class="details-info mb-4">
                             <span><i class="icofont-clock-time mr-2" aria-hidden="true"></i> {{$movie->duration}} </span>
                             <span><i class="icofont-simple-smile mr-2" aria-hidden="true"></i> {{$movie->year}} </span>
-                            <span><i class="icofont-movie mr-2" aria-hidden="true"></i> @foreach ($movie->genres as $genre)
-                                {{$genre->name}}
-                            @endforeach</span>
                             <span><i class="icofont-world mr-2" aria-hidden="true"></i> {{$movie->language}} </span>
+                            <span><i class="icofont-movie mr-2" aria-hidden="true"></i> Genres -  @foreach ($movie->genres as $genre)
+                                {{$genre->name}}
+                            @endforeach
+                            </span>
                         </div>
                         <!-- Details Info -->
                         <div class="details-desc">
                             <p>{{$movie->overview}}</p>
                         </div>
+
                         <!-- Details Desc -->
                         <div class="movie-persons mb-4">
                             <div class="person-block">

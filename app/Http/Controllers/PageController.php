@@ -62,10 +62,11 @@ class PageController extends Controller
         $genres = Genre::all();
         $casts = Cast::all();
         $movies = Movie::where('id', $id)->get();
-        $gallery = Movie::all();
+        // $gallery = Movie::all();
         // dd($gallery);
         $gallerys = json_decode($movies[0]->gallery);
         $cast_gallerys = json_decode($casts[0]->gallery);
+        // dd($cast_gallerys);
         // $covers = json_decode($movies[0]->gallery[1]);
         // dd($covers);
         return view('frontend.moviedetail', compact('genres', 'casts', 'movies', 'gallerys', 'cast_gallerys'));
