@@ -135,10 +135,8 @@
                         <!-- Details Desc -->
                         <div class="movie-persons mb-4">
                             <div class="person-block">
-                                <h5 class="title">Genre</h5>
-                                @foreach($movie->genres as $genre)
-                                    <a href="" class="mr-3"><i class="icofont-movie mr-2" aria-hidden="true"></i> {{ $genre->name }}</a>
-                                @endforeach
+                                <h5 class="title">Director</h5>
+                                    <a href="" class="mr-3"> Scott Robert</a>
 
                             </div>
                             <!-- Person Block -->

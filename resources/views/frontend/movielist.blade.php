@@ -5,91 +5,24 @@
 <!-- Start Swiper Slider -->
 <div class="swiper-container loading">
     <div class="swiper-wrapper">
-        <div class="swiper-slide swiper-bg" style="background-image:url(images/movies/01.jpg)">
-            <img src="{{asset('frontend_assets/images/movies/01.jpg')}}" class="entity-img" alt="">
+        @foreach ($lastmovies as $lastmovie)
+        <div class="swiper-slide swiper-bg" style="background-image:url({{asset('storage/'.$lastmovie->photo)}})">
+            <img src="{{asset('storage/'.$lastmovie->photo)}}" class="entity-img" alt="">
             <div class="top-badge">
                 <div class="video-badge">
                     <img class="img-fluid" src="{{asset('frontend_assets/images/top-movies.png')}}" alt="">
                 </div>
             </div>
             <div class="content">
-                <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">A dam wind</p>
-                <span class="caption mb-4" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+                <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">{{$lastmovie->name}}</p>
+                <span class="caption mb-4" data-swiper-parallax="-20%">{{$lastmovie->overview}}</span>
                 <div class="slider-buttons d-flex align-items-center" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">
                     <a href="watch-movie.html" class="btn hvr-sweep-to-right" tabindex="0"><i class="fa fa-play mr-2" aria-hidden="true"></i>Play Now</a>
                     <a href="#" class="btn hvr-sweep-to-right ml-3" tabindex="0"><i class="fas fa-plus mr-2"></i>My List</a>
                 </div>
             </div>
         </div>
-        <!-- Slide 1 End -->
-        <div class="swiper-slide swiper-bg" style="background-image:url(images/movies/02.jpg)">
-            <img src="{{asset('frontend_assets/images/movies/02.jpg')}}" class="entity-img" alt="">
-            <div class="top-badge">
-                <div class="video-badge">
-                    <img class="img-fluid" src="{{asset('frontend_assets/images/top-movies.png')}}" alt="">
-                </div>
-            </div>
-            <div class="content">
-                <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">the message</p>
-                <span class="caption mb-4" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
-                <div class="slider-buttons d-flex align-items-center" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">
-                    <a href="watch-movie.html" class="btn hvr-sweep-to-right" tabindex="0"><i class="fa fa-play mr-2" aria-hidden="true"></i>Play Now</a>
-                    <a href="#" class="btn hvr-sweep-to-right ml-3" tabindex="0"><i class="fas fa-plus mr-2"></i>My List</a>
-                </div>
-            </div>
-        </div>
-        <!-- Slide 2 End -->
-        <div class="swiper-slide swiper-bg" style="background-image:url(images/movies/03.jpg)">
-            <img src="{{asset('frontend_assets/images/movies/03.jpg')}}" class="entity-img" alt="">
-            <div class="top-badge">
-                <div class="video-badge">
-                    <img class="img-fluid" src="{{asset('frontend_assets/images/top-movies.png')}}" alt="">
-                </div>
-            </div>
-            <div class="content">
-                <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Verbal messages</p>
-                <span class="caption mb-4" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
-                <div class="slider-buttons d-flex align-items-center" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">
-                    <a href="watch-movie.html" class="btn hvr-sweep-to-right" tabindex="0"><i class="fa fa-play mr-2" aria-hidden="true"></i>Play Now</a>
-                    <a href="#" class="btn hvr-sweep-to-right ml-3" tabindex="0"><i class="fas fa-plus mr-2"></i>My List</a>
-                </div>
-            </div>
-        </div>
-        <!-- Slide 3 End -->
-        <div class="swiper-slide swiper-bg" style="background-image:url(images/movies/04.jpg)">
-            <img src={{asset('frontend_assets/"images/movies/04.jpg')}}" class="entity-img" alt="">
-            <div class="top-badge">
-                <div class="video-badge">
-                    <img class="img-fluid" src="{{asset('frontend_assets/images/top-movies.png')}}" alt="">
-                </div>
-            </div>
-            <div class="content">
-                <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">hard life</p>
-                <span class="caption mb-4" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
-                <div class="slider-buttons d-flex align-items-center" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">
-                    <a href="watch-movie.html" class="btn hvr-sweep-to-right" tabindex="0"><i class="fa fa-play mr-2" aria-hidden="true"></i>Play Now</a>
-                    <a href="#" class="btn hvr-sweep-to-right ml-3" tabindex="0"><i class="fas fa-plus mr-2"></i>My List</a>
-                </div>
-            </div>
-        </div>
-        <!-- Slide 4 End -->
-        <div class="swiper-slide swiper-bg" style="background-image:url(images/movies/05.jpg)">
-            <img src="{{asset('frontend_assets/images/movies/05.jpg')}}" class="entity-img" alt="">
-            <div class="top-badge">
-                <div class="video-badge">
-                    <img class="img-fluid" src="{{asset('frontend_assets/images/top-movies.png')}}" alt="">
-                </div>
-            </div>
-            <div class="content">
-                <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Destiny</p>
-                <span class="caption mb-4" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
-                <div class="slider-buttons d-flex align-items-center" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">
-                    <a href="watch-movie.html" class="btn hvr-sweep-to-right" tabindex="0"><i class="fa fa-play mr-2" aria-hidden="true"></i>Play Now</a>
-                    <a href="#" class="btn hvr-sweep-to-right ml-3" tabindex="0"><i class="fas fa-plus mr-2"></i>My List</a>
-                </div>
-            </div>
-        </div>
-        <!-- Slide 5 End -->
+        @endforeach
     </div>
     <!-- Swiper Wrapper -->
     <div class="swiper-button-prev swiper-button-white"></div>
@@ -335,7 +268,7 @@
                             <h2 class="video-title"><a href="movie-single.html">{{$movie->name}}</a></h2>
                             <div class="video-info d-flex align-items-center">
                                 <span class="video-year">{{$movie->year}}</span>
-                                <span class="video-age">{{$movie->duration}}</span>
+                                {{-- <span class="video-age">{{$movie->duration}}</span> --}}
                                 <span class="video-age badge badge-pill badge-warning text-dark">{{$movie->status}}</span>
                             </div>
                         </div>
