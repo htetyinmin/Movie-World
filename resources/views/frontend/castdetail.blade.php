@@ -1,43 +1,34 @@
 @extends('layouts.frontend')
-@section('title','Movie World | Movie Detail Page')
+@section('title','Movie World | Cast Detail Page')
 @section('content')
 
-<!-- Start Banner Section -->
-@php 
-    $images = json_decode($movie->gallery)
-@endphp
 
-<div class="banner-single banner-wrap banner-bg movie-bg" style="background-image:url({{asset('storage/'.$images[0])}})">
+@foreach ($casts as $cast)
 
-    <div class="container-fluid">
-        <div class="banner-content">
-            <div class="transparent-block">
-                <div class="banner-caption">
-                    <div class="position-relative mb-4">
-                        <a href="watch-movie.html" class="d-flex align-items-center">
-                            <div class="play-icon">
-                                <div class="circle pulse"></div>
-                                <div class="circle">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                                        <polygon points="40,30 65,50 40,70"></polygon>
-                                    </svg>
-                                </div>
-                            </div>
-                            <h2 class="banner-name text-white font-weight-700">{{$movie->name}}</h2>
-                        </a>
-                    </div>
-                </div>
-                <!-- Banner Caption End -->
-            </div>
-            <!-- Transparent Block End -->
-        </div>
-        <!-- Banner Content End -->
-    </div>
-    <!-- Container End -->
+<div class="sub-header">
+      <div class="container-fluid">
+          <div class="row align-items-center">
+              <div class="col-sm-12">
+                  <nav aria-label="breadcrumb" class="text-center breadcrumb-nav">
+                      <h2 class="Page-title">About - <a href="#">{{$cast->name}}</a></h2>
+                      <ol class="breadcrumb">
+                          <li>
+                              <i class="fa fa-home"></i>
+                              <a href="{{url('/')}}">Home</a>
+                              <i class="fa fa-angle-right"></i>
+                          </li>
+                          <li><a href="#">{{$cast->status}}</a></li>
+                      </ol>
+                  </nav>
+                  <!-- Breadcrumb End -->
+              </div>
+              <!-- Col End -->
+          </div>
+          <!-- Row End -->
+      </div>
+      <!-- Container end -->
 </div>
 
-
-<!-- Banner Section End -->
 <!-- Start Main Content -->
 <div class="main-content">
     <!-- Start Play Details Section -->
@@ -48,21 +39,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="play-thumb mb-4">
-                                <img class="img-fluid" src="{{asset('storage/'.$movie->photo)}}" alt="">
-                                <div class="top-badge">
-                                    <div class="video-badge">
-                                        <img class="img-fluid" src="images/top-movies.png" alt="">
-                                    </div>
-                                </div>
+                                <img class="img-fluid" src="{{asset('storage/'.$cast->photo)}}" alt="">
                             </div>
-                            <!-- Play Thumb End -->
-                            <div class="thumb-details text-center">
-                                <span> 1080p</span>
-                                <span>24p</span>
-                                <span><img class="img-fluid" src="{{asset('frontend_assetss/images/dts-logo.png')}}" alt=""></span>
-                                <span>7.1</span>
-                            </div>
-                            <!-- Thumb Details End -->
                         </div>
                         <!-- Col End -->
                     </div>
@@ -72,54 +50,30 @@
                 <div class="col-md-9">
                     <div class="play-details-content">
                         <div class="title-block d-flex align-items-center justify-content-between">
-                            <h2 class="play-title">{{$movie->name}}</h2>
+                            <h2 class="play-title"> {{$cast->name}} </h2>
                         </div>
-                        <!-- Title Block -->
+                        
                         <div class="details-info mb-4">
-                            <span><i class="icofont-clock-time mr-2" aria-hidden="true"></i> {{$movie->duration}} </span>
-                            <span><i class="icofont-simple-smile mr-2" aria-hidden="true"></i> {{$movie->year}} </span>
-                            <span><i class="icofont-world mr-2" aria-hidden="true"></i> {{$movie->language}} </span>
-                            <span><i class="icofont-movie mr-2" aria-hidden="true"></i> Genres -  @foreach ($movie->genres as $genre)
-                                {{$genre->name}}
-                            @endforeach
-                            </span>
+                              <span><i class="icofont-user mr-2"></i> {{$cast->gender}}</span>
+                              <span><i class="icofont-birthday-cake mr-2"></i> {{Carbon\Carbon::parse($cast->dob)->format('d-M-Y')}} </span>
+                              <span><i class="icofont-movie mr-2"></i> {{$cast->status}} </span>
+                            <span><i class="icofont-location-pin mr-2"></i> {{$cast->pob}} </span>
+                            {{-- <span><i class="icofont-world mr-2" aria-hidden="true"></i> {{$movie->language}} </span> --}}
                         </div>
-                        <!-- Details Info -->
+                        
                         <div class="details-desc">
-                            <p>{{$movie->overview}}</p>
+                            <p>{{$cast->bio}}</p>
                         </div>
 
-                        <!-- Details Desc -->
-                        <div class="movie-persons mb-4">
-                            <div class="person-block">
-                                <h5 class="title">Genre</h5>
-                                @foreach($movie->genres as $genre)
-                                    <a href="" class="mr-3"><i class="icofont-movie mr-2" aria-hidden="true"></i> {{ $genre->name }}</a>
-                                @endforeach
-
-                            </div>
-                            <!-- Person Block -->
-                            <div class="person-block">
-                                <h5 class="title">Cast</h5>
-
-                                <span>@foreach ($movie->casts as $cast)
-                                    <a href="{{route('castdetail', $cast->id)}}">{{$cast->name}}</a>
-                                @endforeach</span>
-                            </div>
-                            <!-- Person Block -->
-                        </div>
-                        <!-- Movie Persons -->
                         <div class="details-buttons">
                             <div class="row d-flex align-items-center">
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
-                                    <a href="{{route('watchmovie', $movie->id)}}" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-ui-play mr-2" aria-hidden="true"></i>Play</a>
+                                    <a href="watch-movie.html" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-ui-play mr-2" aria-hidden="true"></i>Play</a>
                                 </div>
                                 <!-- Col End -->
-                                @if($movie->status == 'Free')
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
-                                    <a href="{{route('moviedetail', $movie->id)}}" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="fas fa-download mr-2" aria-hidden="true"></i>Download</a>
+                                    <a href="watch-movie.html" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-plus mr-2" aria-hidden="true"></i>MY List</a>
                                 </div>
-                                @endif
                                 <!-- Col End -->
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
                                     <a id="trailer" class="btn d-block hvr-sweep-to-right" tabindex="0" data-toggle="modal" data-target="#trailer-modal" aria-hidden="true"><i class="icofont-ui-movie mr-2" aria-hidden="true"></i>Trailer</a>
@@ -137,9 +91,9 @@
                                                 </div>
                                                 <!-- Modal Body -->
                                                 <div class="modal-body">
-                                                    <div class="embed-responsive embed-responsive-16by9">
-                                                        <iframe class="embed-responsive-item" src="{{ $movie->trailer }}" allowfullscreen></iframe>
-                                                    </div>
+                                                    <video class="video d-block" controls="" loop="">
+                                                        <source src="video/01-video.mp4" type="video/mp4">
+                                                    </video>
                                                 </div>
                                                 <!-- Modal Body -->
                                             </div>
@@ -208,63 +162,25 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="block-title">Gallery</h2>
+                    <h2 class="block-title">Photos</h2>
                 </div>
             </div>
             <div class="row">
+                @foreach ($gallerys as $gallery)
+                  <div class="">
+                    <a class="image-link" href="{{asset('storage/'.$gallery)}}">
+                      <img class="p-2 my-img" src="{{asset('storage/'.$gallery)}}" alt="Photo">
+                    </a>
+                  </div>
+                @endforeach
                 
-
-                @foreach($images as $key => $image)
-
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                    <div class="gallery-block">
-                        <div class="video-thumb position-relative thumb-overlay">
-                            <a class="image-link" href="{{asset('storage/'.$image)}}">
-                                <img class="img-fluid" src="{{asset('storage/'.$image)}}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-            
+            </div> 
         </div>
     </section>
-
-    {{-- Casts --}}
-    <section class="hollywood-movies">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="block-title">Casts</h2>
-                </div>
-            </div>
-            <div class="row">
-                @foreach($movie->casts as $cast)
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 gallery">
-                    <div class="gallery-wrap">
-                            <img src="{{asset('storage/'.$cast->photo)}}" class="img-fluid" alt="">
-                        <div class="gallery-info">
-                            <div class="gallery-links">
-                                <a class="image-link" href="{{asset('storage/'.$cast->photo)}}"><h4> {{ $cast->name }} </h4>
-                                </a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-
-            </div>  
-
-        </div>
-    </section>
-
-    
 
 </div>
-<!-- Main Content End -->
 
+@endforeach
 
 @endsection
 

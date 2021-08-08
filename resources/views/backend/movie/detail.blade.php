@@ -27,7 +27,9 @@
                             {{-- <span class="mr-2"><i class="fa fa-user mr-1" aria-hidden="true"></i> +18</span> --}}
                             <span class="mr-2"><i class="fa fa-clock mr-1" aria-hidden="true"></i> {{$movie->duration}} </span>
                             <span class="mr-2"><i class="fa fa-smile mr-1" aria-hidden="true"></i> {{$movie->year}} </span>
-                            <span class="mr-2"><i class="fa fa-film mr-1" aria-hidden="true"></i> Action</span>
+                            <span class="mr-2"><i class="fa fa-film mr-1" aria-hidden="true"></i>@foreach ($movie->genres as $genre)
+                                {{$genre->name}}
+                            @endforeach </span>
                             <span class="mr-2"><i class="fa fa-globe mr-1" aria-hidden="true"></i> {{$movie->language}}</span>
                       </div>
                       <div class="mb-5">
@@ -42,7 +44,9 @@
                             <!-- Person Block -->
                             <div class="col-6">
                                 <h5 class="title">Cast</h5>
-                                <p>Christian Bale, Michael Cain, Gary Oldman, Anne Hathway, Tom Hardy, Marion Cotillard</p>
+                                @foreach ($movie->casts as $cast)
+                                  <a href="#" class="text-gray cast-a">{{$cast->name}}</a>
+                                @endforeach
                             </div>
                             <!-- Person Block -->
                       </div>
@@ -117,21 +121,16 @@
                         {{-- <iframe width="700" height="500" src="https://www.youtube.com/embed/07d2dXHYb94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
                         <video src="{{asset('storage/'.$movie->video)}}" style="border: 2px solid #000000; border-radius: 3px;" controls></video>
                     </div>
+
                   </div>
                 </div>
-                <!-- Row End -->
-                {{-- <div class="row">
-                  <div class="m-3">
-                    <a href="#" type="button" class="btn btn-primary mr-3"><i class="fa fa-play mr-2" aria-hidden="true"></i>SHow All</a>
-                  </div>
-                </div> --}}
               </div>
             </section>
 
           </div>
         </div>
       </section>
-
+</div>
 @endsection
 
 @section('script')

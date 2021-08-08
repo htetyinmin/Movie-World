@@ -74,7 +74,7 @@
 <li>
     <a class="btn hvr-sweep-to-right ml-3"
     <?php 
-        if ($authuser) {
+        if (Auth::user()) {
             $route = route('downloadmovie', $newmovie->id);
 
             if($status == 0){
@@ -104,6 +104,7 @@
     </a>
 </li>
 @endif
+
                             </div>
                         </div>
                         <!-- Col End -->
@@ -159,7 +160,7 @@
 <li>
     <a 
     <?php 
-        if ($authuser) {
+        if (Auth::user()) {
             $route = route('downloadmovie', $newfreemovie->id);
 
             if($status == 0){
@@ -232,7 +233,7 @@
 <li>
     <a 
     <?php 
-        if ($authuser) {
+        if (Auth::user()) {
             $route = route('downloadmovie', $newpremiummovie->id);
 
             if($status == 0){
@@ -313,7 +314,7 @@
                                                 <ul class="icon">
                                                     <li>
                                                         <a href="{{route('watchmovie', $movie->id)}}"><i class="fas fa-play"></i></a>
-                                                    </li>
+
                                                     <li>
                                                         <a href="{{route('moviedetail', $movie->id)}}"><i class="fas fa-info"></i></a>
                                                     </li>
@@ -322,7 +323,7 @@
 <li>
     <a 
     <?php 
-        if ($authuser) {
+        if (Auth::user()) {
             $route = route('downloadmovie', $movie->id);
 
             if($status == 0){
@@ -362,6 +363,10 @@
                                             <h2 class="video-title"><a href="{{route('moviedetail', $movie->id)}}">{{$movie->name}}</a></h2>
                                             <div class="video-info d-flex align-items-center">
                                                 <span class="video-year">{{$movie->year}}</span> <span class="video-age">{{$movie->status}}</span>
+                                                <span class="video-age badge badge-pill badge-warning text-dark">{{$movie->status}}</span> 
+                                                @foreach ($movie->genres as $genre)
+                                                <span class="video-type">{{$genre->name}}</span>
+                                                @endforeach
                                             </div>
                                         </div>
                                         <!-- video Content End -->
@@ -413,7 +418,7 @@
 <li>
     <a class="btn hvr-sweep-to-right ml-3"
     <?php 
-        if ($authuser) {
+        if (Auth::user()) {
             $route = route('downloadmovie', $currentyearmovie->id);
 
             if($status == 0){
@@ -488,7 +493,7 @@
 <li>
     <a 
     <?php 
-        if ($authuser) {
+        if (Auth::user()) {
             $route = route('downloadmovie', $trendingmovie->id);
 
             if($status == 0){

@@ -100,7 +100,7 @@
 <!-- Start Main Content -->
 <div class="main-content">
     <!-- Start Recently Added Section -->
-    <section class="recently-added">
+    {{-- <section class="recently-added">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -305,36 +305,37 @@
             <!-- Row End -->
         </div>
         <!-- Container End -->
-    </section>
+    </section> --}}
     <!-- Recently Added Section End -->
     <!-- Start Hollywood Movies Section -->
     <section class="hollywood-movies">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="block-title">Hollywood Movies</h2>
+                    <h2 class="block-title">Movies Collections</h2>
                 </div>
             </div>
             <div class="row">
+                @foreach ($movies as $movie)
                 <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                     <div class="video-block">
                         <div class="video-thumb position-relative thumb-overlay">
-                            <a href="#"><img class="img-fluid" src="images/suggested/01.jpg" alt=""></a>
+                            <a href="#"><img class="img-fluid" src="{{asset('storage/'.$movie->photo)}}" alt=""></a>
                             <div class="box-content">
                                 <ul class="icon">
                                     <li><a href="watch-movie.html"><i class="fas fa-play"></i></a></li>
                                     <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                    <li><a href="movie-single.html"><i class="fas fa-info"></i></a></li>
+                                    <li><a href="{{route('moviedetail', $movie->id)}}"><i class="fas fa-info"></i></a></li>
                                 </ul>
                             </div>
                             <!-- Box Content End -->
                         </div>
                         <!-- Video Thumb End -->
                         <div class="video-content">
-                            <h2 class="video-title"><a href="movie-single.html">The Colors</a></h2>
+                            <h2 class="video-title"><a href="movie-single.html">{{$movie->name}}</a></h2>
                             <div class="video-info d-flex align-items-center">
-                                <span class="video-year">2021</span>
-                                <span class="video-age">+18</span>
+                                <span class="video-year">{{$movie->year}}</span>
+                                <span class="video-age">{{$movie->duration}}</span>
                                 <span class="video-type">Action</span>
                             </div>
                         </div>
@@ -342,142 +343,7 @@
                     </div>
                     <!-- video Block End -->
                 </div>
-                <!-- Col End -->
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                    <div class="video-block">
-                        <div class="video-thumb position-relative thumb-overlay">
-                            <a href="#"><img class="img-fluid" src="images/suggested/02.jpg" alt=""></a>
-                            <div class="box-content">
-                                <ul class="icon">
-                                    <li><a href="watch-movie.html"><i class="fas fa-play"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                    <li><a href="movie-single.html"><i class="fas fa-info"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Box Content End -->
-                        </div>
-                        <!-- Video Thumb End -->
-                        <div class="video-content">
-                            <h2 class="video-title"><a href="movie-single.html">The Devastation</a></h2>
-                            <div class="video-info d-flex align-items-center">
-                                <span class="video-year">2021</span>
-                                <span class="video-age">+18</span>
-                                <span class="video-type">Action</span>
-                            </div>
-                        </div>
-                        <!-- video Content End -->
-                    </div>
-                    <!-- video Block End -->
-                </div>
-                <!-- Col End -->
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                    <div class="video-block">
-                        <div class="video-thumb position-relative thumb-overlay">
-                            <a href="#"><img class="img-fluid" src="images/suggested/03.jpg" alt=""></a>
-                            <div class="box-content">
-                                <ul class="icon">
-                                    <li><a href="watch-movie.html"><i class="fas fa-play"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                    <li><a href="movie-single.html"><i class="fas fa-info"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Box Content End -->
-                        </div>
-                        <!-- Video Thumb End -->
-                        <div class="video-content">
-                            <h2 class="video-title"><a href="movie-single.html">The Beauty</a></h2>
-                            <div class="video-info d-flex align-items-center">
-                                <span class="video-year">2021</span>
-                                <span class="video-age">+18</span>
-                                <span class="video-type">Action</span>
-                            </div>
-                        </div>
-                        <!-- video Content End -->
-                    </div>
-                    <!-- video Block End -->
-                </div>
-                <!-- Col End -->
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                    <div class="video-block">
-                        <div class="video-thumb position-relative thumb-overlay">
-                            <a href="#"><img class="img-fluid" src="images/suggested/04.jpg" alt=""></a>
-                            <div class="box-content">
-                                <ul class="icon">
-                                    <li><a href="watch-movie.html"><i class="fas fa-play"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                    <li><a href="movie-single.html"><i class="fas fa-info"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Box Content End -->
-                        </div>
-                        <!-- Video Thumb End -->
-                        <div class="video-content">
-                            <h2 class="video-title"><a href="movie-single.html">The Silence</a></h2>
-                            <div class="video-info d-flex align-items-center">
-                                <span class="video-year">2021</span>
-                                <span class="video-age">+18</span>
-                                <span class="video-type">Action</span>
-                            </div>
-                        </div>
-                        <!-- video Content End -->
-                    </div>
-                    <!-- video Block End -->
-                </div>
-                <!-- Col End -->
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                    <div class="video-block">
-                        <div class="video-thumb position-relative thumb-overlay">
-                            <a href="#"><img class="img-fluid" src="images/suggested/05.jpg" alt=""></a>
-                            <div class="box-content">
-                                <ul class="icon">
-                                    <li><a href="watch-movie.html"><i class="fas fa-play"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                    <li><a href="movie-single.html"><i class="fas fa-info"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Box Content End -->
-                        </div>
-                        <!-- Video Thumb End -->
-                        <div class="video-content">
-                            <h2 class="video-title"><a href="movie-single.html">the door is open</a></h2>
-                            <div class="video-info d-flex align-items-center">
-                                <span class="video-year">2021</span>
-                                <span class="video-age">+18</span>
-                                <span class="video-type">Action</span>
-                            </div>
-                        </div>
-                        <!-- video Content End -->
-                    </div>
-                    <!-- video Block End -->
-                </div>
-                <!-- Col End -->
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                    <div class="video-block">
-                        <div class="video-thumb position-relative thumb-overlay">
-                            <a href="#"><img class="img-fluid" src="images/suggested/06.jpg" alt=""></a>
-                            <div class="box-content">
-                                <ul class="icon">
-                                    <li><a href="watch-movie.html"><i class="fas fa-play"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                    <li><a href="movie-single.html"><i class="fas fa-info"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Box Content End -->
-                        </div>
-                        <!-- Video Thumb End -->
-                        <div class="video-content">
-                            <h2 class="video-title"><a href="movie-single.html">The Great Journey</a></h2>
-                            <div class="video-info d-flex align-items-center">
-                                <span class="video-year">2021</span>
-                                <span class="video-age">+18</span>
-                                <span class="video-type">Action</span>
-                            </div>
-                        </div>
-                        <!-- video Content End -->
-                    </div>
-                    <!-- video Block End -->
-                </div>
-                <!-- Col End -->
+                @endforeach
             </div>
             <!-- Row End -->
         </div>
@@ -485,7 +351,7 @@
     </section>
     <!-- Hollywood Movies Section End -->
     <!-- Start Award-Winning Movies Section -->
-    <section class="award-winning">
+    {{-- <section class="award-winning">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -659,7 +525,7 @@
             <!-- Row End -->
         </div>
         <!-- Container End -->
-    </section>
+    </section> --}}
     <!-- Award-Winning Movies Section End -->
 </div>
 <!-- Main Content End -->

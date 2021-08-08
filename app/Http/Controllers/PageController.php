@@ -31,27 +31,40 @@ class PageController extends Controller
         $trendingmovies = Movie::all()->random(6);
 
         return view('frontend.index', compact('movies', 'genres', 'newmovies', 'newfreemovies', 'newpremiummovies', 'currentyearmovies', 'trendingmovies'));
+
     }
 
     public function movielist(){
-        return view('frontend.movielist');
+        $movies = Movie::all();
+        $genres = Genre::all();
+        return view('frontend.movielist', compact('movies', 'genres') );
+    }
+
+    public function genrelist(){
+        $movies = Movie::all();
+        $genres = Genre::all();
+        return view('frontend.genrelist', compact('movies', 'genres') );
     }
 
     public function about(){
-        return view('frontend.about');
+        $genres = Genre::all();
+        return view('frontend.about', compact('genres'));
     }
 
     public function contact(){
-        return view('frontend.contact');
+        $genres = Genre::all();
+        return view('frontend.contact', compact('genres'));
     }
 
     public function register(){
-        return view('frontend.register');
+        $genres = Genre::all();
+        return view('frontend.register', compact('genres'));
     }
 
     public function pricing(){
         $packages = Package::all();
-        return view('frontend.pricing', compact('packages'));
+        $genres = Genre::all();
+        return view('frontend.pricing', compact('packages','genres'));
     }
 
     public function watchmovie($id){
@@ -88,5 +101,22 @@ class PageController extends Controller
             $movie = Movie::find($id);
             $download =  public_path(). '/storage/' .$movie->video;
             return response()->download($download);
+        $movies = Movie::where('id', $id)->get();
+        // $gallery = Movie::all();
+        // dd($gallery);
+        $gallerys = json_decode($movies[0]->gallery);
+        $cast_gallerys = json_decode($casts[0]->gallery);
+        // dd($cast_gallerys);
+        // $covers = json_decode($movies[0]->gallery[1]);
+        // dd($covers);
+        return view('frontend.moviedetail', compact('genres', 'casts', 'movies', 'gallerys', 'cast_gallerys'));
+    }
+
+    public function castdetail($id){
+        $genres = Genre::all();
+        $casts = Cast::where('id', $id)->get();
+        $movies = Movie::all();
+        $gallerys = json_decode($casts[0]->gallery);
+        return view('frontend.castdetail', compact('genres', 'casts', 'movies', 'gallerys'));
     }
 }

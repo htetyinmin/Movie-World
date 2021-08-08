@@ -109,16 +109,13 @@
                                         </li>
                                         <!-- Nav Item 2 End -->
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link menu-dropdown" data-toggle="dropdown" href="#">Pages <i class="fa fa-angle-down"></i></a>
+                                            <a class="nav-link menu-dropdown" data-toggle="dropdown" href="#"> Genre <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu fade-up" role="menu">
+                                                @foreach ($common[0] as $genre)
                                                 <li>
-                                                    <a class="dropdown-item" href="{{url('/about')}}">About Us</a>
+                                                    <a class="dropdown-item" href="#">{{$genre->name}}</a>
                                                 </li>
-                                                <!-- Sub Nav Item 1 End -->
-                                                <li>
-                                                    <a class="dropdown-item" href="{{url('/contact')}}">Contact Us</a>
-                                                </li>
-                                                <!-- Sub Nav Item 2 End -->
+                                                @endforeach
                                             </ul>
                                             <!-- Dropdown End -->
                                         </li>
@@ -265,8 +262,8 @@
         <div class="main-footer">
             <div class="container-fluid">
                 <div class="row justify-content-lg-between justify-content-center">
-                    <div class="col-md-3">
-                        <div class="footer-widget">
+                    <div class="col-md-6">
+                        <div class="footer-widget px-5">
                             <div class="widget-content">
                                 <div class="footer-logo"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/mov.png')}}"></div>
                                 <div class="footer-about-text">
@@ -299,25 +296,22 @@
                         <!-- Footer Widget End -->
                     </div>
                     <!-- Col End -->
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="footer-widget">
                             <div class="widget">
                                 <div class="widget-header">
-                                    <h2 class="widget-title">Display Type</h2>
+                                    <h2 class="widget-title">Company</h2>
                                 </div>
                                 <div class="widget-content footer-menu">
                                     <ul class="f-link list-unstyled mb-0">
                                         <li>
-                                            <a href="#">Action</a>
+                                            <a href="{{url('/about')}}">About Us</a>
                                         </li>
                                         <li>
-                                            <a href="#">Comedy</a>
+                                            <a href="{{url('/contact')}}">Contact</a>
                                         </li>
                                         <li>
-                                            <a href="#">Drama</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Horror</a>
+                                            <a href="#">Help Center</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -328,25 +322,22 @@
                         <!-- Footer Widget End -->
                     </div>
                     <!-- Col End -->
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="footer-widget">
                             <div class="widget">
                                 <div class="widget-header">
-                                    <h2 class="widget-title">Production</h2>
+                                    <h2 class="widget-title">Get The Apps</h2>
                                 </div>
                                 <div class="widget-content footer-menu">
                                     <ul class="f-link list-unstyled mb-0">
                                         <li>
-                                            <a href="#">2018 Year</a>
+                                            <a href="#">IOS</a>
                                         </li>
                                         <li>
-                                            <a href="#">2019 Year</a>
+                                            <a href="#">Android</a>
                                         </li>
                                         <li>
-                                            <a href="#">2020 Year</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">2021 Year</a>
+                                            <a href="#">Amazon Fire</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -357,26 +348,23 @@
                         <!-- Footer Widget End -->
                     </div>
                     <!-- Col End -->
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="footer-widget">
                             <div class="widget">
                                 <div class="widget-header">
-                                    <h2 class="widget-title">Display Quality</h2>
+                                    <h2 class="widget-title">Legel</h2>
                                 </div>
                                 <div class="widget-content footer-menu">
                                     <ul class="f-link list-unstyled mb-0">
                                         <li>
-                                            <a href="#">720p HDTV</a>
+                                            <a href="#">Privacy Policy (Updated)</a>
                                         </li>
                                         <li>
-                                            <a href="#">1080p BluRay</a>
+                                            <a href="#">Terms of use</a>
                                         </li>
-                                        <li>
+                                        {{-- <li>
                                             <a href="#">720p BluRay</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">1080p WEB-DL</a>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
                                 <!-- Widget Content End -->

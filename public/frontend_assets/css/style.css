@@ -196,6 +196,11 @@ img {
     display: inline-block;
 }
 
+.my-img {
+    width: auto !important;
+    height: 200px !important;
+}
+
 /* unstyled */
 .unstyled {
     list-style: none;
@@ -738,7 +743,7 @@ ul.list-check li:before {
     text-align: left !important;
     color: #a3a3a3;
     margin-right: 8px;
-    padding-right: 10px;
+    padding-right: 5px;
     line-height: 12px;
     display: inline-block;
 }
