@@ -10,11 +10,11 @@
           <div class="row align-items-center">
               <div class="col-sm-12">
                   <nav aria-label="breadcrumb" class="text-center breadcrumb-nav">
-                      <h2 class="Page-title">About {{$cast->name}}</h2>
+                      <h2 class="Page-title">About - <a href="#">{{$cast->name}}</a></h2>
                       <ol class="breadcrumb">
                           <li>
                               <i class="fa fa-home"></i>
-                              <a href="#">Home</a>
+                              <a href="{{url('/')}}">Home</a>
                               <i class="fa fa-angle-right"></i>
                           </li>
                           <li><a href="#">{{$cast->status}}</a></li>

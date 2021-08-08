@@ -14,7 +14,7 @@
                           <ol class="breadcrumb">
                               <li>
                                   <i class="fa fa-home"></i>
-                                  <a href="#">Home</a>
+                                  <a href="{{url('/')}}">Home</a>
                                   <i class="fa fa-angle-right"></i>
                               </li>
                               <li><a href="#">Contact Us</a></li>

@@ -26,7 +26,7 @@ class PageController extends Controller
     public function genrelist(){
         $movies = Movie::all();
         $genres = Genre::all();
-        return view('frontend.movielist', compact('movies', 'genres') );
+        return view('frontend.genrelist', compact('movies', 'genres') );
     }
 
     public function about(){
@@ -63,11 +63,12 @@ class PageController extends Controller
         $casts = Cast::all();
         $movies = Movie::where('id', $id)->get();
         $gallery = Movie::all();
-        // dd($movies[0]);
+        // dd($gallery);
         $gallerys = json_decode($movies[0]->gallery);
+        $cast_gallerys = json_decode($casts[0]->gallery);
         // $covers = json_decode($movies[0]->gallery[1]);
         // dd($covers);
-        return view('frontend.moviedetail', compact('genres', 'casts', 'movies', 'gallerys'));
+        return view('frontend.moviedetail', compact('genres', 'casts', 'movies', 'gallerys', 'cast_gallerys'));
     }
 
     public function castdetail($id){

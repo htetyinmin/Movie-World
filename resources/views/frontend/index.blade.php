@@ -19,7 +19,7 @@
                             </div>
                             <p data-animation-in="fadeInUp" data-delay-in="1">{{$movie->overview}}</p>
                             <div class="slider-buttons d-flex align-items-center" data-animation-in="fadeInUp" data-delay-in="1">
-                                <a class="btn hvr-sweep-to-right" href="watch-movie.html" tabindex="0"><i aria-hidden="true" class="fa fa-play mr-2"></i>Play Now</a> <a class="btn hvr-sweep-to-right ml-3" href="#" tabindex="0"><i class="fas fa-plus mr-2"></i>My List</a>
+                                <a class="btn hvr-sweep-to-right" href="{{route('moviedetail', $movie->id)}}" tabindex="0"><i aria-hidden="true" class="fa fa-play mr-2"></i>Play Now</a> <a class="btn hvr-sweep-to-right ml-3" href="#" tabindex="0"><i class="fas fa-plus mr-2"></i>My List</a>
                             </div>
                         </div>
                         <!-- Col End -->
@@ -509,7 +509,7 @@
                                             <div class="box-content">
                                                 <ul class="icon">
                                                     <li>
-                                                        <a href="watch-movie.html"><i class="fas fa-play"></i></a>
+                                                        <a href="#"><i class="fas fa-play"></i></a>
                                                     </li>
                                                     <li>
                                                         <a href="#"><i class="fas fa-plus"></i></a>
@@ -523,9 +523,12 @@
                                         </div>
                                         <!-- Video Thumb End -->
                                         <div class="video-content">
-                                            <h2 class="video-title"><a href="movie-single.html">{{$movie->name}}</a></h2>
+                                            <h2 class="video-title"><a href="{{route('moviedetail', $movie->id)}}">{{$movie->name}}</a></h2>
                                             <div class="video-info d-flex align-items-center">
-                                                <span class="video-year">{{$movie->year}}</span> <span class="video-age">{{$movie->status}}</span> <span class="video-type">Action</span>
+                                                <span class="video-year">{{$movie->year}}</span> <span class="video-age badge badge-pill badge-warning text-dark">{{$movie->status}}</span> 
+                                                @foreach ($movie->genres as $genre)
+                                                <span class="video-type">{{$genre->name}}</span>
+                                                @endforeach
                                             </div>
                                         </div>
                                         <!-- video Content End -->

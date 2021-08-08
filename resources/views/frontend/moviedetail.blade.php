@@ -76,7 +76,9 @@
                         <div class="details-info mb-4">
                             <span><i class="icofont-clock-time mr-2" aria-hidden="true"></i> {{$movie->duration}} </span>
                             <span><i class="icofont-simple-smile mr-2" aria-hidden="true"></i> {{$movie->year}} </span>
-                            <span><i class="icofont-movie mr-2" aria-hidden="true"></i> Action</span>
+                            <span><i class="icofont-movie mr-2" aria-hidden="true"></i> @foreach ($movie->genres as $genre)
+                                {{$genre->name}}
+                            @endforeach</span>
                             <span><i class="icofont-world mr-2" aria-hidden="true"></i> {{$movie->language}} </span>
                         </div>
                         <!-- Details Info -->
@@ -87,14 +89,14 @@
                         <div class="movie-persons mb-4">
                             <div class="person-block">
                                 <h5 class="title">Director</h5>
-                                @foreach ($casts as $cast)
-                                    <a href="{{route('castdetail', $cast->id)}}"><p class="name">{{$cast->name}}</p></a>
-                                @endforeach
+                                    <a href="#"><p class="name">Scott Latt</p></a>
                             </div>
                             <!-- Person Block -->
                             <div class="person-block">
                                 <h5 class="title">Cast</h5>
-                                <p>Christian Bale, Michael Cain, Gary Oldman, Anne Hathway, Tom Hardy, Marion Cotillard</p>
+                                <span>@foreach ($movie->casts as $cast)
+                                    <a href="{{route('castdetail', $cast->id)}}">{{$cast->name}}</a>
+                                @endforeach</span>
                             </div>
                             <!-- Person Block -->
                         </div>
@@ -237,36 +239,20 @@
                 </div>
             </div>
             <div class="row">
+                @foreach ($cast_gallerys as $cast_gallery)
                 <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 gallery">
                     <div class="gallery-wrap">
-                            <img src="{{asset('frontend_assets/images/suggested/01.jpg')}}" class="img-fluid" alt="">
+                            <img src="{{asset('storage/'.$cast_gallery)}}" class="img-fluid" alt="">
                         <div class="gallery-info">
                             <div class="gallery-links">
-                                <a class="image-link" href="{{asset('frontend_assets/images/suggested/01.jpg')}}"><h4>John Wich</h4></a>
+                                <a class="image-link" href="#"><h4><small>@foreach ($movie->casts as $cast)
+                                    {{$cast->name}}
+                                @endforeach</small></h4></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 gallery">
-                    <div class="gallery-wrap">
-                        <img src="{{asset('frontend_assets/images/suggested/01.jpg')}}" class="img-fluid" alt="">
-                        <div class="gallery-info">
-                            <div class="gallery-links">
-                            <a href=""><h4>John Wich</h4></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 gallery">
-                    <div class="gallery-wrap">
-                        <img src="{{asset('frontend_assets/images/suggested/01.jpg')}}" class="img-fluid" alt="">
-                        <div class="gallery-info">
-                            <div class="gallery-links">
-                            <a href=""><h4>John Wich</h4></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="row">
                 <div class="m-3">

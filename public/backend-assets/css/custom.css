@@ -5,6 +5,12 @@
       font-size: 55px;
 }
 
+
 .my-a:hover {
       color: #ff0000;
+}
+
+.cast-a:hover{
+      color: #ff0000;
+      text-decoration: none;
 }
