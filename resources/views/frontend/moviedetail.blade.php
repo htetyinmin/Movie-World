@@ -53,7 +53,11 @@
             <div class="transparent-block">
                 <div class="banner-caption">
                     <div class="position-relative mb-4">
-                        <a href="watch-movie.html" class="d-flex align-items-center">
+                        @foreach ($playmovies as $playmovie)
+                            
+                        <a class="d-flex align-items-center" @if(Auth::user()) href="{{route('watchmovie', $playmovie->id)}}" @else href="route('login')" @endif tabindex="0">
+                        @endforeach
+                        {{-- <a href="watch-movie.html" class="d-flex align-items-center"> --}}
                             <div class="play-icon">
                                 <div class="circle pulse"></div>
                                 <div class="circle">
@@ -319,10 +323,10 @@
                 @foreach($movie->casts as $cast)
                 <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 gallery">
                     <div class="gallery-wrap">
-                            <img src="{{asset('storage/'.$cast->photo)}}" class="img-fluid" alt="">
+                            <img src="{{asset('storage/'.$cast->photo)}}" class="my-img" alt="CastPhoto">
                         <div class="gallery-info">
                             <div class="gallery-links">
-                                <a class="image-link" href="{{asset('storage/'.$cast->photo)}}"><h4> {{ $cast->name }} </h4>
+                                <a href="{{route('castdetail', $cast->id)}}"><h6 class="my-a"> {{ $cast->name }} </h6>
                                 </a>
 
                             </div>

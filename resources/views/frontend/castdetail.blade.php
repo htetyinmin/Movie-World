@@ -68,41 +68,13 @@
                         <div class="details-buttons">
                             <div class="row d-flex align-items-center">
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
-                                    <a href="watch-movie.html" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-ui-play mr-2" aria-hidden="true"></i>Play</a>
+                                    <a href="#" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-star mr-2" aria-hidden="true"></i>150</a>
                                 </div>
                                 <!-- Col End -->
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
-                                    <a href="watch-movie.html" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-plus mr-2" aria-hidden="true"></i>MY List</a>
+                                    <a href="#" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-film mr-2" aria-hidden="true"></i>300</a>
                                 </div>
                                 <!-- Col End -->
-                                <div class="col-6 col-xl mb-xl-0 mb-3">
-                                    <a id="trailer" class="btn d-block hvr-sweep-to-right" tabindex="0" data-toggle="modal" data-target="#trailer-modal" aria-hidden="true"><i class="icofont-ui-movie mr-2" aria-hidden="true"></i>Trailer</a>
-                                    <!-- Modal Trailer -->
-                                    <div class="modal fade" id="trailer-modal" tabindex="0" role="dialog" aria-labelledby="trailer-modal" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg" role="document" id="trailerModal">
-                                            <!-- Modal Content -->
-                                            <div class="modal-content">
-                                                <!-- modal header -->
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Trailer</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                                                    </button>
-                                                </div>
-                                                <!-- Modal Body -->
-                                                <div class="modal-body">
-                                                    <video class="video d-block" controls="" loop="">
-                                                        <source src="video/01-video.mp4" type="video/mp4">
-                                                    </video>
-                                                </div>
-                                                <!-- Modal Body -->
-                                            </div>
-                                            <!-- Modal Content -->
-                                        </div>
-                                        <!-- Modal Dialog -->
-                                    </div>
-                                    <!-- Modal Trailer -->
-                                </div>
                                 <!-- Col End -->
                                 <div class="col-6 col-xl mb-xl-0">
                                     <a id="share" class="btn hvr-sweep-to-right d-block" tabindex="0" data-toggle="modal" data-target="#share-modal">

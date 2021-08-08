@@ -44,6 +44,7 @@
 <!-- Start Main Slider -->
 <div class="main-slider" id="main-slider">
     <div class="slider big-slider slider-wrap">
+        
         @foreach ($newmovies as $key => $newmovie)
 
         
@@ -201,7 +202,7 @@
                                                     <div class="video-content">
                                                         <h2 class="video-title"><a href="movie-single.html">{{$newfreemovie->name}}</a></h2>
                                                         <div class="video-info d-flex align-items-center">
-                                                            <span class="video-year">{{$newfreemovie->year}}</span> <span class="video-age">{{$newfreemovie->status}}</span> 
+                                                            <span class="video-year">{{$newfreemovie->year}}</span><span class="video-age badge badge-pill badge-warning text-dark">{{$newfreemovie->status}}</span>
                                                         </div>
                                                     </div>
                                                     <!-- video Content End -->
@@ -279,7 +280,7 @@
                                                     <div class="video-content">
                                                         <h2 class="video-title"><a href="movie-single.html">{{$newpremiummovie->name}}</a></h2>
                                                         <div class="video-info d-flex align-items-center">
-                                                            <span class="video-year">{{$newpremiummovie->year}}</span> <span class="video-age">{{$newpremiummovie->status}}</span> 
+                                                            <span class="video-year">{{$newpremiummovie->year}}</span> <span class="video-age badge badge-pill badge-warning text-dark">{{$newpremiummovie->status}}</span> 
                                                         </div>
                                                     </div>
                                                     <!-- video Content End -->
@@ -371,11 +372,8 @@
                                         <div class="video-content">
                                             <h2 class="video-title"><a href="{{route('moviedetail', $movie->id)}}">{{$movie->name}}</a></h2>
                                             <div class="video-info d-flex align-items-center">
-                                                <span class="video-year">{{$movie->year}}</span> <span class="video-age">{{$movie->status}}</span>
+                                                <span class="video-year">{{$movie->year}}</span>
                                                 <span class="video-age badge badge-pill badge-warning text-dark">{{$movie->status}}</span> 
-                                                @foreach ($movie->genres as $genre)
-                                                <span class="video-type">{{$genre->name}}</span>
-                                                @endforeach
                                             </div>
                                         </div>
                                         <!-- video Content End -->

@@ -336,7 +336,7 @@
                             <div class="video-info d-flex align-items-center">
                                 <span class="video-year">{{$movie->year}}</span>
                                 <span class="video-age">{{$movie->duration}}</span>
-                                <span class="video-type">Action</span>
+                                <span class="video-age badge badge-pill badge-warning text-dark">{{$movie->status}}</span>
                             </div>
                         </div>
                         <!-- video Content End -->

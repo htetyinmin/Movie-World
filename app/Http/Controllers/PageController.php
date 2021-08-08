@@ -77,7 +77,8 @@ class PageController extends Controller
         $genres = Genre::all();
         $casts = Cast::all();
         $movie = Movie::find($id);
-        return view('frontend.moviedetail', compact('genres', 'casts', 'movie'));
+        $playmovies = Movie::all();
+        return view('frontend.moviedetail', compact('genres', 'casts', 'movie', 'playmovies'));
     }
 
     public function downloadmovie($id){

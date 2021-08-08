@@ -117,4 +117,13 @@
       bottom: 15px;
       right: 15px;
     }
+
+    .my-gallery{
+      width: 400px;
+      height: auto;
+    }
+
+    .my-a:hover{
+        color: #ff0000;
+    }
     
