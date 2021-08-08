@@ -105,7 +105,7 @@ class PageController extends Controller
         // $gallery = Movie::all();
         // dd($gallery);
         $gallerys = json_decode($movies[0]->gallery);
-        $cast_gallerys = json_decode($casts[0]->gallery);
+        // $cast_gallerys = json_decode($casts[0]->gallery);
         // dd($cast_gallerys);
         // $covers = json_decode($movies[0]->gallery[1]);
         // dd($covers);

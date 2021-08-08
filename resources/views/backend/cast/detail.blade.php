@@ -25,7 +25,7 @@
                       </div>
                       <div class="mb-3">
                             <span class="mr-3"><i class="fa fa-user mr-1" aria-hidden="true"></i> {{$cast->gender}} </span>
-                            <span class="mr-3"><i class="fa fa-birthday-cake mr-1" aria-hidden="true"></i> {{$cast->dob}} </span>
+                            <span class="mr-3"><i class="fa fa-birthday-cake mr-1" aria-hidden="true"></i> {{Carbon\Carbon::parse($cast->dob)->format('d M Y')}} </span>
                             <span class="mr-3"><i class="fa fa-film mr-1" aria-hidden="true"></i> {{$cast->status}} </span>
                             <span class="mr-3"><i class="fa fa-globe mr-1" aria-hidden="true"></i> {{$cast->pob}} </span>
                       </div>

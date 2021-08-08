@@ -37,7 +37,6 @@
                         <th>Photo</th>
                         <th>Gender</th>
                         <th>Date Of Birth</th>
-                        <th>Place Of Birth</th>
                         <th>Status</th>
                         <th>Action</th>
                       </tr>
@@ -51,11 +50,10 @@
                           <th scope="row">{{$i++}}</th>
                           <td>{{$cast->name}}</td>
                           <td>
-                                <img src="{{asset('storage/'.$cast->photo)}}" alt="Photo" width="80" height="80" class="mr-3">
+                                <img src="{{asset('storage/'.$cast->photo)}}" alt="Photo" width="70" height="100" class="mr-3">
                           </td>
                           <td>{{$cast->gender}}</td>
                           <td>{{Carbon\Carbon::parse($cast->dob)->format('d/m/Y')}}</td>
-                          <td>{{$cast->pob}}</td>
                           <td>{{$cast->status}}</td>
                           <td>
                                 <a href="{{route('cast.edit', $cast->id)}}" type="button" class="btn btn-warning mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
