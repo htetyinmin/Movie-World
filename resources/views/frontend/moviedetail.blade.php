@@ -296,11 +296,11 @@
 
                 @foreach($images as $key => $image)
 
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+                <div class="">
                     <div class="gallery-block">
                         <div class="video-thumb position-relative thumb-overlay">
                             <a class="image-link" href="{{asset('storage/'.$image)}}">
-                                <img class="img-fluid" src="{{asset('storage/'.$image)}}" alt="">
+                                <img class="my-img" src="{{asset('storage/'.$image)}}" alt="">
                             </a>
                         </div>
                     </div>
