@@ -27,23 +27,35 @@
               <div class="block-body">
                 <form class="form-horizontal" action="{{route('package.store')}}" method="post">
                   @csrf
-                  <div class="form-group row">
+                    <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">Plan Name</label>
+                        <div class="col-sm-9">
+                        <input type="text" name="title" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Fees</label>
                         <div class="col-sm-9">
                         <input type="text" name="fees" class="form-control">
                         </div>
-                  </div>
+                    </div>
                   <div class="line"></div>
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Period</label>
                         <div class="col-sm-9">
-                          <input type="text" name="period" class="form-control">
+                              <input type="text" name="period" class="form-control">
                         </div>
                   </div>
                   <div class="form-group row">
-                        <label class="col-sm-3 form-control-label">Description</label>
-                        <div class="col-sm-9">
-                              <textarea name="description" cols="30" rows="4" class="form-control"></textarea>
+                        <div class="col-sm-3">
+                              <label class=" form-control-label d-block">Description</label>
+                              <button type="button" class="btn btn-light float-end btn-sm btn_add_size">
+                                    <i class="fa fa-plus"></i>  More 
+                              </button>
+                        </div>
+
+                        <div class="col-sm-9 more_size">
+                              <input type="text" name="description[]" class="form-control">
                         </div>
                   </div>
                   <div class="form-group row">
@@ -62,9 +74,33 @@
 @section('script')
 
       <script>
+            var x = 1; //Initial input field is set to 1
+            var sizes;
             $(document).ready(function(){
-                  $("#package").addClass("active");
-                  $('.input-images').imageUploader();
+                $("#package").addClass("active");
+
+                var max_fields = 10; //Maximum allowed input fields 
+                var wrapper    = $(".more_size"); //Input fields wrapper
+                var add_button = $(".btn_add_size"); //Add button class or ID
+
+                $(add_button).click(function(e){
+                    e.preventDefault();
+                    if(x < max_fields){ 
+                        x++; //input field increment
+                        $(wrapper).append(`<div class="form-group input-group my-3">
+                                                <input type="text" name="description[]" placeholder="More Description" class="form-control"/>
+                                                <button class="btn btn-danger btn_remove_size" type="button" id="button-addon2"><i class="fa fa-close"></i></button>
+                                                </div>`);
+                    }
+                });
+
+                $(wrapper).on("click",".btn_remove_size", function(e){ 
+                      e.preventDefault();
+                        $(this).parent('div').remove(); //remove inout field
+                        x--; //inout field decrement
+                  });
+
+
             })
       </script>
 

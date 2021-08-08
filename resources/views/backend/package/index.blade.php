@@ -29,27 +29,43 @@
               <div class="block">
                 <div class="title"><strong>Packages Data Table</strong></div>
                 <div class="table-responsive"> 
-                  <table class="table table-striped table-hover">
+                  <table class="table table-striped table-hover ">
                     <thead>
                       <tr>
                         <th>#</th>
+                        <th>Plan Name</th>
+
                         <th>Fee</th>
                         <th>Period</th>
                         <th>Description</th>
                         <th>Action</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="align-middle py-auto">
                       @php
                           $i=1;
                       @endphp
                       @foreach ($packages as $package)
+                      @php
+                          $data = json_decode($package->description,true);
+                      @endphp
                         <tr>
-                          <th scope="row">{{$i++}}</th>
-                          <td>{{$package->fees}}</td>
-                          <td>{{$package->period}}</td>
-                          <td>{{$package->description}}</td>
-                          <td>
+                          <th class="align-middle" scope="row">{{$i++}}</th>
+                          <td class="align-middle">{{$package->title}}</td>
+
+                          <td class="align-middle">{{$package->fees}}</td>
+                          <td class="align-middle">{{$package->period}}</td>
+                          <td class="align-middle">
+                            <ul type="none" class="lh-lg">
+                                @foreach($data as $result)
+                                  <li  class=""> 
+                                    <i class="fa fa-check-circle text-success mr-2"></i> {{$result}} 
+                                  </li>
+                                @endforeach
+                                
+                            </ul>
+                          </td>
+                          <td class="align-middle">
                                 <a href="{{route('package.edit', $package->id)}}" type="button" class="btn btn-warning mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
                                 <a href="#deleteModal" data-id="{{route('package.destroy', $package->id)}}" type="button" class="btn btn-primary deletebtn"><i class="fa fa-trash" aria-hidden="true"></i></a>
                           </td>

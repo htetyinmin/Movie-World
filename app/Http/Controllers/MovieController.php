@@ -53,7 +53,7 @@ class MovieController extends Controller
         ]);
 
         //FILE UPLOAD
-        if($request->file()) {
+        if($request->file('photo')) {
             $fileName = time().'_'.$request->photo->getClientOriginalName();
 
             $filePath = $request->file('photo')->storeAs('movieimg', $fileName, 'public');
@@ -73,6 +73,16 @@ class MovieController extends Controller
         }
         $photostring = json_encode($data);
 
+        // Movie Video Upload
+        if ($request->hasfile('video')) {
+
+            //78748785858_bella.jpg
+            $fileName1 = time().'_'.$request->video->getClientOriginalName();
+            //categoryimg/78748785858_bella.jpg
+            $filepath1 =$request->file('video')->storeAs('movievideo',$fileName1,'public');
+
+        }
+
         //DATA INSERT
         $movie = new Movie;
         $movie->name = $request->name;
@@ -85,7 +95,7 @@ class MovieController extends Controller
         $movie->overview = $request->overview;
         $movie->trailer = $request->trailer;
         $movie->gallery =  $photostring;
-        // $movie->video = $filePath;
+        $movie->video = $filepath1;
         $movie->status = $request->status;
         $movie->save();
 
@@ -146,7 +156,7 @@ class MovieController extends Controller
         ]);
 
         //FILE UPLOAD
-        if($request->file()) {
+        if($request->file('photo')) {
             $fileName = time().'_'.$request->photo->getClientOriginalName();
 
             $filePath = $request->file('photo')->storeAs('movieimg', $fileName, 'public');
@@ -161,11 +171,15 @@ class MovieController extends Controller
         $oldphoto_arr = $request->oldPhoto;
 
         if($oldphoto_arr){
-            if(in_array('', $oldphoto_arr)){
-                $oldphoto_str = json_encode($oldphoto_arr);
+            $update_oldphoto_arr = array();
+            foreach($oldphoto_arr as $value){
+                $update_oldphoto_arr[] = str_replace('/storage/','',$value);
+                
             }
+
+            $oldphoto_str = json_encode($update_oldphoto_arr);
+            
         }
-        dd($oldphoto_arr);
 
         $data = [];
         if($request->hasfile('images')) {
@@ -185,10 +199,10 @@ class MovieController extends Controller
             $newphoto_str = null;
         }
 
-        if ($newphoto_str && $oldphoto_arr) 
+        if ($newphoto_str && $update_oldphoto_arr) 
         {
             $new_arr = json_decode($newphoto_str);
-            $old_arr = $oldphoto_arr;
+            $old_arr = $update_oldphoto_arr;
 
             $mergedArray = array_merge($new_arr,$old_arr);
 
@@ -202,19 +216,36 @@ class MovieController extends Controller
         {
             $photo = $oldphoto_str;
         }
+        
+        // Movie Video Upload
+        if ($request->hasfile('video')) {
+
+            //78748785858_bella.jpg
+            $fileName1 = time().'_'.$request->video->getClientOriginalName();
+            //categoryimg/78748785858_bella.jpg
+            $filepath1 =$request->file('video')->storeAs('movievideo',$fileName1,'public');
+
+            //DELETE OLD PHOTO
+            if($movie->video){
+                unlink(public_path('storage/').$movie->video);
+            }
+        }
+        else{
+            $filepath1 = $movie->video;
+        }
 
         //DATA INSERT
         $movie->name = $request->name;
         $movie->photo = $filePath;
-        $genres = $request->genre;
-        $casts = $request->cast;
+        $genres = $request->genres;
+        $casts = $request->casts;
         $movie->year = $request->year;
         $movie->language = $request->language;
         $movie->duration = $request->duration;
         $movie->overview = $request->overview;
         $movie->trailer = $request->trailer;
         $movie->gallery =  $photo;
-        // $movie->video = $filePath;
+        $movie->video = $filepath1;
         $movie->status = $request->status;
         $movie->save();
 

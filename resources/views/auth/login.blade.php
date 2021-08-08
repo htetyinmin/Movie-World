@@ -50,6 +50,27 @@
                             <!-- Start Form -->
                             <form id="login-form" method="post" class="mb-4" action="{{ route('login') }}">
                                 @csrf
+
+
+                                @if ($errors->any())
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    {{ $errors }}
+                                    <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
+                                </div>
+                                @endif
+
+
+                                @if (session('message'))
+
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong> Sorry!</strong> {{ session('message') }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                @endif
+
                                 <div class="error-container"></div>
                                 <div class="form-group">
                                     <label for="email" class="control-label col-xs-4">Email</label>

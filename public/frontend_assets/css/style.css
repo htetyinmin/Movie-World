@@ -455,9 +455,7 @@ ul.list-check li:before {
     background-image: url(../images/shows/01.jpg);
 }
 
-.banner-bg.movie-bg {
-    background-image: url(../images/movies/01.jpg);
-}
+
 
 /* Sub header */
 .sub-header {
@@ -1556,18 +1554,6 @@ ul.navbar-nav > li.active a::before {
     z-index: -1;
 }
 
-/* Slider Images Background */
-.slick-bg.bg-1 {
-    background-image: url(../images/slider/slider1.jpg);
-}
-
-.slick-bg.bg-2 {
-    background-image: url(../images/slider/slider2.jpg);
-}
-
-.slick-bg.bg-3 {
-    background-image: url(../images/slider/slider3.jpg);
-}
 
 /* Slider Content */
 .main-slider h1 {

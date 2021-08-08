@@ -41,11 +41,20 @@
     <link rel="stylesheet" href="{{asset('frontend_assets/css/custom.css')}}">
 
     <link rel="stylesheet" href="{{asset('frontend_assets/magnific-popup/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{ asset('step-style.css') }}">
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
           <script src="js/html5shiv.js"></script>
           <script src="js/respond.min.js"></script>
         <![endif]-->
+    <style type="text/css">
+        .form-control:focus{
+            background-color: transparent !important;
+            border-color: #ff0000 !important;
+            color: #959595 !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -899,6 +908,13 @@
     <!-- Template Custom -->
     <script src="{{asset('frontend_assets/js/main.js')}}"></script>
     <script src="{{asset('frontend_assets/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+
+    <script src="{{asset('jquery.steps.js')}}"></script>
+    <script src="{{asset('main.js')}}"></script>
+    <script>
+        $("[data-toggle=popover]").popover();
+        $('[data-toggle="tooltip"]').tooltip();
+    </script>
     @yield('script')
 
 </body>

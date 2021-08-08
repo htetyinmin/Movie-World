@@ -47,9 +47,10 @@ class PackageController extends Controller
 
         //DATA INSERT
         $package = new Package;
+        $package->title = $request->title;
         $package->fees = $request->fees;
         $package->period = $request->period;
-        $package->description = $request->description;
+        $package->description = json_encode($request->description);
         $package->save();
 
         //REDIRECT
@@ -95,6 +96,7 @@ class PackageController extends Controller
         ]);
 
         //DATA INSERT
+        $package->title = $request->title;
         $package->fees = $request->fees;
         $package->period = $request->period;
         $package->description = $request->description;

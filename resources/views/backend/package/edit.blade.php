@@ -1,5 +1,11 @@
 @extends('layouts.backend')
 @section('content')
+   @php
+        $descriptions = json_decode($package->description,true);
+        $description_count = count($descriptions);
+
+
+    @endphp
 <div class="page-content">
       <!-- Page Header-->
       <div class="page-header no-margin-bottom">
@@ -31,6 +37,13 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group row">
+                              <label class="col-sm-3 form-control-label">Plan Name</label>
+                              <div class="col-sm-9">
+                              <input type="text" name="title" class="form-control" value="{{$package->title}}" >
+                              </div>
+                          </div>
+
+                        <div class="form-group row">
                               <label class="col-sm-3 form-control-label">Fees</label>
                               <div class="col-sm-9">
                                     <input type="text" name="fees" value="{{$package->fees}}" class="form-control">
@@ -44,9 +57,23 @@
                               </div>
                         </div>
                         <div class="form-group row">
-                              <label class="col-sm-3 form-control-label">Description</label>
-                              <div class="col-sm-9">
-                                    <textarea name="description" cols="30" rows="4" class="form-control">{{$package->description}}</textarea>
+
+                              <div class="col-sm-3">
+                                    <label class=" form-control-label d-block">Description</label>
+                                    <button type="button" class="btn btn-light float-end btn-sm btn_add_size">
+                                          <i class="fa fa-plus"></i>  More 
+                                    </button>
+                              </div>
+
+                              <div class="col-sm-9 more_size">
+                                    <input type="text" name="description[]" class="form-control" value="{{ $descriptions[0] }}">
+
+                                    @for ($i=1; $i < $description_count; $i++)
+                                    <div class="form-group input-group my-3">
+                                          <input type="text" name="description[]" placeholder="More Description" class="form-control" value="{{ $descriptions[$i] }}"/>
+                                          <button class="btn btn-danger btn_remove_size" type="button"><i class="fa fa-close"></i></button>
+                                    </div>
+                                    @endfor
                               </div>
                         </div>
                         <div class="form-group row">
@@ -63,9 +90,53 @@
 @endsection
 
 @section('script')
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $("#package").addClass("active");
-    })
-  </script>
+      <script>
+            $(document).ready(function(){
+                $("#package").addClass("active");
+
+                  var x = {!! $description_count !!}; //Initial input field is set to 1
+
+
+                  var max_fields = 10; //Maximum allowed input fields 
+                  var wrapper    = $(".more_size"); //Input fields wrapper
+                  var add_button = $(".btn_add_size"); //Add button class or ID
+
+                  $(add_button).click(function(e){
+                        e.preventDefault();
+                        if(x < max_fields){ 
+                              x++; //input field increment
+                              $(wrapper).append(`<div class="form-group input-group my-3">
+                                                <input type="text" name="description[]" placeholder="More Description" class="form-control"/>
+                                                <button class="btn btn-danger btn_remove_size" type="button"><i class="fa fa-close"></i></button>
+                                                </div>`);
+                    }
+                  });
+
+
+                  $(wrapper).on("click",".btn_remove_size", function(e){ 
+                      e.preventDefault();
+                        $(this).parent('div').remove(); //remove inout field
+                        x--; //inout field decrement
+                  });
+
+                  // append_description_wrapper(x);
+
+                  // function append_description_wrapper(x){
+                  
+                  //       $.each(descriptions,function(i,v){
+                  //         if(i > 0){
+                  //             $(wrapper).append(`<div class="form-group input-group mb-3">
+                  //                       <input type="text" class="form-control" name="description[]" value="${v}">
+                  //                       <button class="btn btn-danger btn_remove_size" type="button">
+                  //                         <i class="fa fa-close"></i>
+                  //                       </button>
+                  //                   </div>`);
+                  //         }
+                  //       })
+
+                      
+                  // }
+
+            })
+      </script>
 @endsection

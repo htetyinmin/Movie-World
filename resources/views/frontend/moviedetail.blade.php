@@ -2,9 +2,12 @@
 @section('title','Movie World | Movie Detail Page')
 @section('content')
 
-@foreach ($movies as $movie)
 <!-- Start Banner Section -->
-<div class="banner-single banner-wrap banner-bg movie-bg">
+@php 
+    $images = json_decode($movie->gallery)
+@endphp
+
+<div class="banner-single banner-wrap banner-bg movie-bg" style="background-image:url({{asset('storage/'.$images[0])}})">
     <div class="container-fluid">
         <div class="banner-content">
             <div class="transparent-block">
@@ -72,7 +75,6 @@
                         <div class="details-info mb-4">
                             <span><i class="icofont-clock-time mr-2" aria-hidden="true"></i> {{$movie->duration}} </span>
                             <span><i class="icofont-simple-smile mr-2" aria-hidden="true"></i> {{$movie->year}} </span>
-                            <span><i class="icofont-movie mr-2" aria-hidden="true"></i> Action</span>
                             <span><i class="icofont-world mr-2" aria-hidden="true"></i> {{$movie->language}} </span>
                         </div>
                         <!-- Details Info -->
@@ -82,13 +84,17 @@
                         <!-- Details Desc -->
                         <div class="movie-persons mb-4">
                             <div class="person-block">
-                                <h5 class="title">Director</h5>
-                                <p class="name">Christopher Nolan</p>
+                                <h5 class="title">Genre</h5>
+                                @foreach($movie->genres as $genre)
+                                    <a href="" class="mr-3"><i class="icofont-movie mr-2" aria-hidden="true"></i> {{ $genre->name }}</a>
+                                @endforeach
                             </div>
                             <!-- Person Block -->
                             <div class="person-block">
                                 <h5 class="title">Cast</h5>
-                                <p>Christian Bale, Michael Cain, Gary Oldman, Anne Hathway, Tom Hardy, Marion Cotillard</p>
+                                @foreach($movie->casts as $cast)
+                                    <a href="" class="mr-3"> {{ $cast->name }}</a>
+                                @endforeach
                             </div>
                             <!-- Person Block -->
                         </div>
@@ -96,12 +102,14 @@
                         <div class="details-buttons">
                             <div class="row d-flex align-items-center">
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
-                                    <a href="watch-movie.html" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-ui-play mr-2" aria-hidden="true"></i>Play</a>
+                                    <a href="{{route('watchmovie', $movie->id)}}" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-ui-play mr-2" aria-hidden="true"></i>Play</a>
                                 </div>
                                 <!-- Col End -->
+                                @if($movie->status == 'Free')
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
-                                    <a href="watch-movie.html" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-plus mr-2" aria-hidden="true"></i>MY List</a>
+                                    <a href="{{route('moviedetail', $movie->id)}}" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="fas fa-download mr-2" aria-hidden="true"></i>Download</a>
                                 </div>
+                                @endif
                                 <!-- Col End -->
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
                                     <a id="trailer" class="btn d-block hvr-sweep-to-right" tabindex="0" data-toggle="modal" data-target="#trailer-modal" aria-hidden="true"><i class="icofont-ui-movie mr-2" aria-hidden="true"></i>Trailer</a>
@@ -119,9 +127,9 @@
                                                 </div>
                                                 <!-- Modal Body -->
                                                 <div class="modal-body">
-                                                    <video class="video d-block" controls="" loop="">
-                                                        <source src="video/01-video.mp4" type="video/mp4">
-                                                    </video>
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        <iframe class="embed-responsive-item" src="{{ $movie->trailer }}" allowfullscreen></iframe>
+                                                    </div>
                                                 </div>
                                                 <!-- Modal Body -->
                                             </div>
@@ -190,40 +198,26 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="block-title">Photos</h2>
+                    <h2 class="block-title">Gallery</h2>
                 </div>
             </div>
             <div class="row">
+                
+
+                @foreach($images as $key => $image)
+
                 <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                     <div class="gallery-block">
                         <div class="video-thumb position-relative thumb-overlay">
-                            <a class="image-link" href="{{asset('frontend_assets/images/suggested/01.jpg')}}"><img class="img-fluid" src="{{asset('frontend_assets/images/suggested/01.jpg')}}" alt=""></a>
+                            <a class="image-link" href="{{asset('storage/'.$image)}}"><img class="img-fluid" src="{{asset('storage/'.$image)}}" alt=""></a>
                         </div>
                     </div>
                     <!-- video Block End -->
                 </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                    <div class="gallery-block">
-                        <div class="video-thumb position-relative thumb-overlay">
-                            <a href="#"><img class="img-fluid" src="{{asset('frontend_assets/images/suggested/01.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <!-- video Block End -->
-                </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                    <div class="gallery-block">
-                        <div class="video-thumb position-relative thumb-overlay">
-                            <a href="#"><img class="img-fluid" src="{{asset('frontend_assets/images/suggested/01.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <!-- video Block End -->
-                </div>
-            </div>
-            <div class="row">
-                <div class="m-3">
-                  <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-play mr-1" aria-hidden="true"></i>Show All</a>
-                </div>
-            </div>    
+
+                @endforeach
+                
+            </div>   
         </div>
     </section>
 
@@ -236,42 +230,21 @@
                 </div>
             </div>
             <div class="row">
+                @foreach($movie->casts as $cast)
                 <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 gallery">
                     <div class="gallery-wrap">
-                            <img src="{{asset('frontend_assets/images/suggested/01.jpg')}}" class="img-fluid" alt="">
+                            <img src="{{asset('storage/'.$cast->photo)}}" class="img-fluid" alt="">
                         <div class="gallery-info">
                             <div class="gallery-links">
-                                <a class="image-link" href="{{asset('frontend_assets/images/suggested/01.jpg')}}"><h4>John Wich</h4></a>
+                                <a class="image-link" href="{{asset('storage/'.$cast->photo)}}"><h4> {{ $cast->name }} </h4>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 gallery">
-                    <div class="gallery-wrap">
-                        <img src="{{asset('frontend_assets/images/suggested/01.jpg')}}" class="img-fluid" alt="">
-                        <div class="gallery-info">
-                            <div class="gallery-links">
-                            <a href=""><h4>John Wich</h4></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 gallery">
-                    <div class="gallery-wrap">
-                        <img src="{{asset('frontend_assets/images/suggested/01.jpg')}}" class="img-fluid" alt="">
-                        <div class="gallery-info">
-                            <div class="gallery-links">
-                            <a href=""><h4>John Wich</h4></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="m-3">
-                  <a href="#" type="button" class="btn btn-primary mr-3 px-5"><i class="fa fa-play mr-1" aria-hidden="true"></i>Show All</a>
-                </div>
-            </div>    
+                @endforeach
+
+            </div>  
         </div>
     </section>
 
@@ -280,7 +253,6 @@
 </div>
 <!-- Main Content End -->
 
-@endforeach
 
 @endsection
 

@@ -176,9 +176,9 @@
       			placeholder: $(this).attr('Choose Language'),
     		})
 
-        var dbgallery = "{{$cast->gallery}}";
+        var dbgallery = "{{$movie->gallery}}";
         if (dbgallery) {
-              var images = <?= json_encode($cast->gallery) ?>;
+              var images = <?= json_encode($movie->gallery) ?>;
               var img_array = $.parseJSON(images);
               console.log(img_array);
 

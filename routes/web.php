@@ -15,15 +15,25 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+Route::get('/login', 'AuthController@loginform')->name('login');
+Route::post('/login', 'AuthController@login');
+
+Route::post('/register', 'AuthController@register');
+Route::get('/register', 'AuthController@registerform')->name('register');
+
+Route::post('logout','AuthController@logout')->name('logout');
+
+
 Route::get('/', 'PageController@index')->name('index');
 Route::get('/movielist', 'PageController@movielist')->name('movielist');
 Route::get('/about', 'PageController@about')->name('about');
 Route::get('/contact', 'PageController@contact')->name('contact');
-// Route::get('/login', 'PageController@login')->name('login');
-// Route::get('/register', 'PageController@register')->name('register');
+
 Route::get('/pricing', 'PageController@pricing')->name('pricing');
 Route::get('/moviedetail/{id}', 'PageController@moviedetail')->name('moviedetail');
 
+Route::get('/watchmovie/{id}', 'PageController@watchmovie')->name('watchmovie');
+Route::get('/downloadmovie/{id}', 'PageController@downloadmovie')->name('downloadmovie');
 
 // Route::get('/', function () {
 //     return view('backend.genres.index');
@@ -40,6 +50,6 @@ Route::resource('movie', 'MovieController');
 Route::resource('package', 'PackageController');
 
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

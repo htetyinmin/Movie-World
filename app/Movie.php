@@ -19,4 +19,9 @@ class Movie extends Model
     {
         return $this->belongsToMany('App\Cast')->withTimestamps();
     }
+
+    public function moviedownloads()
+    {
+        return $this->hasMany('App\Moviedownload');
+    }
 }
