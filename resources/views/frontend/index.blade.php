@@ -17,13 +17,6 @@
 
         $status = 1;
 
-        if ($authuser_package == 1) {
-            $expiredate = Carbon\Carbon::parse($installmentdate)->addDays(30);
-            $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
-            if($diff <= 0 ){
-                $status = 0; // Expired [ 1 Month ]
-            }
-        }
 
         if ($authuser_package == 2) {
             $expiredate = Carbon\Carbon::parse($installmentdate)->addMonths(1);
@@ -39,7 +32,7 @@
             $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
 
             if($diff <= 0 ){
-                $status = 0; // Expired [ 1 Month ]
+                $status = 0; // Expired [ 1 Year ]
             }
         }
 
