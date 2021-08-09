@@ -18,6 +18,7 @@
         $status = 1;
 
 
+
         if ($authuser_package == 2) {
             $expiredate = Carbon\Carbon::parse($installmentdate)->addMonths(1);
             $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);

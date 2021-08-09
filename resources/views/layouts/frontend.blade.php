@@ -311,7 +311,7 @@
                                             <a href="{{url('/contact')}}">Contact</a>
                                         </li>
                                         <li>
-                                            <a href="#">Help Center</a>
+                                            <a href="{{url('/help')}}">Help Center</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -357,14 +357,14 @@
                                 <div class="widget-content footer-menu">
                                     <ul class="f-link list-unstyled mb-0">
                                         <li>
-                                            <a href="#">Privacy Policy (Updated)</a>
+                                            <a href="{{url('/privacy')}}">Privacy Policy</a>
                                         </li>
                                         <li>
-                                            <a href="#">Terms of use</a>
+                                            <a href="{{url('/term')}}">Terms of use</a>
                                         </li>
-                                        {{-- <li>
-                                            <a href="#">720p BluRay</a>
-                                        </li> --}}
+                                        <li>
+                                            <a href="#">Download Now</a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <!-- Widget Content End -->
