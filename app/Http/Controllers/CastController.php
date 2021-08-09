@@ -18,7 +18,6 @@ class CastController extends Controller
         return view('backend.cast.index', compact('casts'));
     }
 
-
     /**
      * Show the form for creating a new resource.
      *

@@ -10,7 +10,7 @@ class Cast extends Model
     use SoftDeletes;
     protected $fillable = ['name', 'photo', 'gender', 'dob', 'pob', 'bio', 'gallery', 'status'];
 
-    public function movie()
+    public function movies()
     {
         return $this->belongsToMany('App\Movie')->withTimestamps();
     }

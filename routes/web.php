@@ -59,7 +59,6 @@ Route::resource('package', 'PackageController');
 
 Route::get('/user', 'PageController@user')->name('user');
 
-
 // Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

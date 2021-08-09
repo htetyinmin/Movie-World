@@ -914,6 +914,9 @@ ul.list-check li:before {
 .details-desc p {
     margin: 32px 0;
     width: 100%;
+    color: #a3a3a3;
+    font-size: 16px;
+    text-align: justify;
 }
 
 .movie-persons {

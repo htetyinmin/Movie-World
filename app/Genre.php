@@ -10,7 +10,7 @@ class Genre extends Model
     use SoftDeletes;
     protected $fillable = ['name'];
 
-    public function movie()
+    public function movies()
     {
         return $this->belongsToMany('App\Movie')->withTimestamps();
     }

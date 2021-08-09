@@ -122,8 +122,8 @@
                             <span><i class="icofont-clock-time mr-2" aria-hidden="true"></i> {{$movie->duration}} </span>
                             <span><i class="icofont-simple-smile mr-2" aria-hidden="true"></i> {{$movie->year}} </span>
                             <span><i class="icofont-world mr-2" aria-hidden="true"></i> {{$movie->language}} </span>
-                            <span><i class="icofont-movie mr-2" aria-hidden="true"></i> Genres -  @foreach ($movie->genres as $genre)
-                                {{$genre->name}}
+                            <span><i class="fa fa-film mr-2" aria-hidden="true"></i> @foreach ($movie->genres as $genre)
+                                {{$genre->name}}@if (!$loop->last),@endif
                             @endforeach
                             </span>
                         </div>
@@ -136,15 +136,16 @@
                         <div class="movie-persons mb-4">
                             <div class="person-block">
                                 <h5 class="title">Director</h5>
-                                    <a href="" class="mr-3"> Scott Robert</a>
-
+                                @foreach ($movie->casts->where('status', 'Director') as $director)
+                                    <a href="{{route('castdetail', $director->id)}}" class="mr-3">{{$director->name}}</a>
+                                @endforeach
                             </div>
                             <!-- Person Block -->
                             <div class="person-block">
                                 <h5 class="title">Cast</h5>
 
-                                <span>@foreach ($movie->casts as $cast)
-                                    <a href="{{route('castdetail', $cast->id)}}">{{$cast->name}}</a>
+                                <span>@foreach ($movie->casts->whereNotIn('status', 'Director') as $cast)
+                                    <a href="{{route('castdetail', $cast->id)}}">{{$cast->name}}@if (!$loop->last),@endif</a>
                                 @endforeach</span>
                             </div>
                             <!-- Person Block -->
@@ -298,7 +299,7 @@
                     <div class="gallery-block">
                         <div class="video-thumb position-relative thumb-overlay">
                             <a class="image-link" href="{{asset('storage/'.$image)}}">
-                                <img class="my-img" src="{{asset('storage/'.$image)}}" alt="">
+                                <img class="p-2 my-img" src="{{asset('storage/'.$image)}}" alt="">
                             </a>
                         </div>
                     </div>

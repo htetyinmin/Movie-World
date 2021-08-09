@@ -154,10 +154,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="block-title"> Also Movies by {{$cast->name}} </h2>
+                    <h2 class="block-title"> Movies by {{$cast->name}} </h2>
                     <!-- Start Pupular Slider -->
                     <div class="owl-carousel owl-theme" id="pupular-slider">
-                        @foreach ($movies as $movie)
+                        @foreach ($cast->movies as $movie)
                             <div class="item">
                                 <div class="video-block">
                                     <div class="video-thumb position-relative thumb-overlay">
