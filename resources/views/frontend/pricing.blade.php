@@ -43,19 +43,23 @@
                   <!-- Row End -->
                   <div class="row">
                       @foreach ($packages as $package)
+                        @php
+                            $data = json_decode($package->description,true);
+                        @endphp
                         <div class="col-lg-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title text-muted text-uppercase text-center">{{$package->description}}</h5>
+                                    <h5 class="card-title text-muted text-uppercase text-center">{{$package->title}}</h5>
                                     <h6 class="card-price text-center">{{$package->fees}}<span class="period">/{{$package->period}}</span></h6>
                                     <hr>
                                     <ul class="fa-ul">
-                                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>New Movies</strong></li>
-                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Streamit Special</li>
-                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>American Tv Shows</li>
-                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Hollywood Movies</li>
-                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>FHD (1080p) Video Quality</li>
-                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Ad Free Entertainment</li>
+                                        @foreach($data as $result)
+                                              <p  class=""> 
+                                                <i class="fa fa-check-circle text-success mr-2"></i> {{$result}} 
+                                              </p>
+                                            @endforeach
+                                        {{-- <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>{{$package->description}}</strong></li> --}}
+                                        
                                     </ul>
                                     <a href="#" class="btn btn-block btn-primary hvr-sweep-to-right text-uppercase">Purchase</a>
                                 </div>

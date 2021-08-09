@@ -17,7 +17,7 @@
                 <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">{{$lastmovie->name}}</p>
                 <span class="caption mb-4" data-swiper-parallax="-20%">{{$lastmovie->overview}}</span>
                 <div class="slider-buttons d-flex align-items-center" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">
-                    <a href="watch-movie.html" class="btn hvr-sweep-to-right" tabindex="0"><i class="fa fa-play mr-2" aria-hidden="true"></i>Play Now</a>
+                    <a @if(Auth::user()) href="{{route('watchmovie', $lastmovie->id)}}" @else href="route('login')" @endif class="btn hvr-sweep-to-right"  tabindex="0"><i class="fa fa-play mr-2" aria-hidden="true"></i>Play Now</a>
                     <a href="#" class="btn hvr-sweep-to-right ml-3" tabindex="0"><i class="fas fa-plus mr-2"></i>My List</a>
                 </div>
             </div>
@@ -256,7 +256,7 @@
                             <a href="#"><img class="img-fluid" src="{{asset('storage/'.$movie->photo)}}" alt=""></a>
                             <div class="box-content">
                                 <ul class="icon">
-                                    <li><a href="watch-movie.html"><i class="fas fa-play"></i></a></li>
+                                    <li><a @if(Auth::user()) href="{{route('watchmovie', $movie->id)}}" @else href="route('login')" @endif><i class="fas fa-play"></i></a></li>
                                     <li><a href="#"><i class="fas fa-plus"></i></a></li>
                                     <li><a href="{{route('moviedetail', $movie->id)}}"><i class="fas fa-info"></i></a></li>
                                 </ul>

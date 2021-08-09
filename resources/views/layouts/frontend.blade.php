@@ -113,7 +113,7 @@
                                             <ul class="dropdown-menu fade-up" role="menu">
                                                 @foreach ($common[0] as $genre)
                                                 <li>
-                                                    <a class="dropdown-item" href="#">{{$genre->name}}</a>
+                                                    <a class="dropdown-item" href="{{url('/genrelist')}}">{{$genre->name}}</a>
                                                 </li>
                                                 @endforeach
                                             </ul>
