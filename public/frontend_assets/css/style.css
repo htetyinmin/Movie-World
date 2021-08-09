@@ -1679,6 +1679,15 @@ ul.navbar-nav > li.active a::before {
     color: #fff;
 }
 
+.my-content {
+    position: absolute;
+    bottom: 3%;
+    left: 0;
+    width: 100%;
+    padding-left: 5%;
+    color: #fff;
+}
+
 .swiper-slide .content .title {
     font-size: 42px;
     font-weight: bold;

@@ -421,6 +421,8 @@
                                             {{$currentyearmovie->name}}
                                         </p>
                                         <span class="caption mb-4" data-swiper-parallax="-20%">{{ $currentyearmovie->overview }}</span>
+                                    </div>
+                                    <div class="my-content">
                                         <div class="slider-buttons d-flex align-items-center" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">
                                             <a class="btn hvr-sweep-to-right" @if(Auth::user()) href="{{route('watchmovie', $currentyearmovie->id)}}" @else href="route('login')" @endif tabindex="0"><i aria-hidden="true" class="fa fa-play mr-2"></i>Play Now</a> 
                                             <a class="btn hvr-sweep-to-right ml-3" href="{{route('moviedetail', $currentyearmovie->id)}}" tabindex="0"><i class="fas fa-plus mr-2"></i>View Detail</a>
@@ -462,7 +464,7 @@
     </a>
 </li>
 @endif
-                                        </div>
+                                        </div>  
                                     </div>
                                 </div>
                                 @endforeach
