@@ -13,7 +13,7 @@
       <div class="d-flex bd-highlight">
             <div class="container-fluid">
               <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{route('movie.index')}}">Home</a></li>
                 <li class="breadcrumb-item active">Movie      </li>
               </ul>
             </div>
@@ -36,8 +36,6 @@
                         <th>Title</th>
                         <th>Cover</th>
                         <th>Year</th>
-                        <th>Language</th>
-                        <th>Duration</th>
                         <th>Status</th>
                         <th>Action</th>
                       </tr>
@@ -54,8 +52,6 @@
                                 <img src="{{asset('storage/'.$movie->photo)}}" alt="Photo" width="70" height="100" class="mr-3">
                           </td>
                           <td>{{$movie->year}}</td>
-                          <td>{{$movie->language}}</td>
-                          <td>{{$movie->duration}}</td>
                           <td>{{$movie->status}}</td>
                           <td>
                                 <a href="{{route('movie.edit', $movie->id)}}" type="button" class="btn btn-warning mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>

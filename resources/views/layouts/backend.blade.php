@@ -52,7 +52,7 @@
         </div>
         <div class="container-fluid d-flex align-items-center justify-content-between">
           <div class="navbar-header">
-            <!-- Navbar Header--><a href="index.html" class="navbar-brand">
+            <!-- Navbar Header--><a href="{{route('genre.index')}}" class="navbar-brand">
               <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">Movie</strong><strong>World</strong></div>
               <div class="brand-text brand-sm"><strong class="text-primary">M</strong><strong>W</strong></div></a>
             <!-- Sidebar Toggle Btn-->
@@ -135,7 +135,7 @@
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Data Management</span>
         <ul class="list-unstyled" id="my-list">
-                <li class=""><a href="index.html"> <i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard </a></li>
+                <li class=""><a href="{{route('genre.index')}}"> <i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard </a></li>
                 <li class="" id="genre"><a href="{{route('genre.index')}}"> <i class="icon-grid"></i>Genres </a></li>
                 <li class="" id="cast"><a href="{{route('cast.index')}}"> <i class="fa fa-video-camera" aria-hidden="true"></i> Casts </a></li>
                 <li class="" id="movie"><a href="{{route('movie.index')}}"> <i class="fa fa-film" aria-hidden="true"></i> Movies Data </a></li>

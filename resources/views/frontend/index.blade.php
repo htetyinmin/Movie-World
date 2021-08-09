@@ -47,8 +47,11 @@
         
         @foreach ($newmovies as $key => $newmovie)
 
+        @php 
+            $images = json_decode($newmovie->gallery)
+        @endphp
         
-        <div class="slide slick-bg bg-{{ $newmovie->id }}" style="background-image: url({{asset('storage/'.$newmovie->photo)}});">
+        <div class="slide slick-bg bg-{{ $newmovie->id }}" style="background-image: url({{asset('storage/'.$images[0])}});">
             <div class="container-fluid position-relative h-100">
                 <div class="slider-content h-100">
                     <div class="row align-items-center h-100">
@@ -194,44 +197,44 @@
     </a>
 </li>
 @endif
-                                                            </ul>
-                                                        </div>
-                                                        <!-- Box Content End -->
-                                                    </div>
-                                                    <!-- Video Thumb End -->
-                                                    <div class="video-content">
-                                                        <h2 class="video-title"><a href="movie-single.html">{{$newfreemovie->name}}</a></h2>
-                                                        <div class="video-info d-flex align-items-center">
-                                                            <span class="video-year">{{$newfreemovie->year}}</span><span class="video-age badge badge-pill badge-warning text-dark">{{$newfreemovie->status}}</span>
-                                                        </div>
-                                                    </div>
-                                                    <!-- video Content End -->
-                                                </div>
-                                                <!-- video Block End -->
-                                            </div>   
-                                        @endforeach
-                                    </div>
-                                    <!-- Col End -->
-                                
-                                <!-- Row End -->
+                                </ul>
                             </div>
-                            <!-- Tap Pane 1 End -->
-                            <div id="pills-movies" class="tab-pane animated fadeInRight">
-                                <div class="row">
-                                    @foreach ($newpremiummovies as $newpremiummovie)
+                            <!-- Box Content End -->
+                        </div>
+                        <!-- Video Thumb End -->
+                        <div class="video-content">
+                            <h2 class="video-title"><a href="movie-single.html">{{$newfreemovie->name}}</a></h2>
+                            <div class="video-info d-flex align-items-center">
+                                <span class="video-year">{{$newfreemovie->year}}</span><span class="video-age badge badge-pill badge-warning text-dark">{{$newfreemovie->status}}</span>
+                            </div>
+                        </div>
+                        <!-- video Content End -->
+                    </div>
+                    <!-- video Block End -->
+                </div>   
+            @endforeach
+        </div>
+        <!-- Col End -->
+    
+    <!-- Row End -->
+</div>
+<!-- Tap Pane 1 End -->
+<div id="pills-movies" class="tab-pane animated fadeInRight">
+    <div class="row">
+        @foreach ($newpremiummovies as $newpremiummovie)
 
-                                        <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                                                <div class="video-block">
-                                                    <div class="video-thumb position-relative thumb-overlay">
-                                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('storage/'.$newpremiummovie->photo)}}"></a>
-                                                        <div class="box-content">
-                                                            <ul class="icon">
-                                                                <li>
-                                                                    <a @if(Auth::user()) href="{{route('watchmovie', $newfreemovie->id)}}" @else href="route('login')" @endif ><i class="fas fa-play"></i></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="{{route('moviedetail', $newpremiummovie->id)}}"><i class="fas fa-info"></i></a>
-                                                                </li>
+            <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+                    <div class="video-block">
+                        <div class="video-thumb position-relative thumb-overlay">
+                            <a href="#"><img alt="" class="img-fluid" src="{{asset('storage/'.$newpremiummovie->photo)}}"></a>
+                            <div class="box-content">
+                                <ul class="icon">
+                                    <li>
+                                        <a @if(Auth::user()) href="{{route('watchmovie', $newfreemovie->id)}}" @else href="route('login')" @endif ><i class="fas fa-play"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('moviedetail', $newpremiummovie->id)}}"><i class="fas fa-info"></i></a>
+                                    </li>
 
 @if($newpremiummovie->video)
 <li>

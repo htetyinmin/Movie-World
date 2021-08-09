@@ -12,8 +12,8 @@
       <div class="d-flex bd-highlight">
             <div class="container-fluid">
               <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Genres Data           </li>
+                <li class="breadcrumb-item"><a href="{{route('genre.index')}}">Home</a></li>
+                <li class="breadcrumb-item active">Genres Data</li>
               </ul>
             </div>
             <div class="p-4 flex-shrink-1 bd-highlight">
