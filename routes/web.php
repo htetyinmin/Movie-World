@@ -29,6 +29,10 @@ Route::get('/movielist', 'PageController@movielist')->name('movielist');
 Route::get('/genrelist', 'PageController@genrelist')->name('genrelist');
 Route::get('/about', 'PageController@about')->name('about');
 Route::get('/contact', 'PageController@contact')->name('contact');
+Route::get('/term', 'PageController@term')->name('term');
+Route::get('/privacy', 'PageController@privacy')->name('privacy');
+Route::get('/userdetail', 'PageController@userdetail')->name('userdetail');
+Route::get('/help', 'PageController@help')->name('help');
 
 Route::get('/castdetail/{id}', 'PageController@castdetail')->name('castdetail');
 // Route::get('/login', 'PageController@login')->name('login');

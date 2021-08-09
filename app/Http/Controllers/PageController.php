@@ -58,6 +58,24 @@ class PageController extends Controller
         return view('frontend.contact', compact('genres'));
     }
 
+    public function term(){
+        return view('frontend.term');
+    }
+
+    public function help(){
+        return view('frontend.help');
+    }
+
+    public function privacy(){
+        return view('frontend.privacy');
+    }
+
+    public function userdetail(){
+        // $users = User::where('id', $id)->get();
+        // dd($users);
+        return view('frontend.userdetail');
+    }
+
     public function register(){
         $genres = Genre::all();
         return view('frontend.register', compact('genres'));

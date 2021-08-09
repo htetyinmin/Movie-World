@@ -449,7 +449,7 @@ ul.list-check li:before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 75%;
     height: 100%;
     background: linear-gradient(90deg, rgb(39 40 41) 0%, rgb(39 40 41) 35%, rgba(83, 100, 141, 0) 100%);
     z-index: 1;
@@ -1126,8 +1126,8 @@ video {
 
 .filter-accordion .btn {
     width: 100%;
-    font-weight: bold;
-    color: #004987;
+    /* font-weight: bold; */
+    color: #fff;
 }
 
 .filter-accordion .btn-link:hover,
@@ -1553,7 +1553,7 @@ ul.navbar-nav > li.active a::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 90%;
+    width: 70%;
     height: 100%;
     background: linear-gradient(90deg, rgb(39 40 41) 0%, rgb(39 40 41) 35%, rgba(83, 100, 141, 0) 100%);
     z-index: -1;
