@@ -6,7 +6,11 @@
 <div class="swiper-container loading">
     <div class="swiper-wrapper">
         @foreach ($lastmovies as $lastmovie)
-        <div class="swiper-slide swiper-bg" style="background-image:url({{asset('storage/'.$lastmovie->photo)}})">
+
+        @php 
+            $images = json_decode($lastmovie->gallery)
+        @endphp
+        <div class="swiper-slide swiper-bg" style="background-image:url({{asset('storage/'.$images[0])}})">
             <img src="{{asset('storage/'.$lastmovie->photo)}}" class="entity-img" alt="">
             <div class="top-badge">
                 <div class="video-badge">

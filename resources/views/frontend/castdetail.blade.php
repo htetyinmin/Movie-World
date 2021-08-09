@@ -150,6 +150,92 @@
         </div>
     </section>
 
+    <section class="pupular">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="block-title"> Also Movies by {{$cast->name}} </h2>
+                    <!-- Start Pupular Slider -->
+                    <div class="owl-carousel owl-theme" id="pupular-slider">
+                        @foreach ($movies as $movie)
+                            <div class="item">
+                                <div class="video-block">
+                                    <div class="video-thumb position-relative thumb-overlay">
+                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('storage/'.$movie->photo)}}"></a>
+                                        <div class="box-content">
+                                            <ul class="icon">
+                                                <li>
+                                                    <a @if(Auth::user()) href="{{route('watchmovie', $movie->id)}}" @else href="route('login')" @endif ><i class="fas fa-play"></i></a>
+
+                                                <li>
+                                                    <a href="{{route('moviedetail', $movie->id)}}"><i class="fas fa-info"></i></a>
+                                                </li>
+
+@if($movie->video)
+<li>
+<a 
+<?php 
+    if (Auth::user()) {
+        $route = route('downloadmovie', $movie->id);
+
+        if($status == 0){
+            echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+        }else{
+            if($movie->status == "Premium"){
+
+                if ($authuser_package > 1 ) {
+                    echo "href=$route";
+                }
+                else{
+                    echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                }
+            }
+
+            else {
+                echo "href=$route";
+            }
+
+            
+        }
+    }
+    else{
+        $route = route('login');
+        echo "href=$route";
+    }
+?>
+>
+<i class="fas fa-download"></i>
+</a>
+</li>
+@endif
+
+                                            </ul>
+                                        </div>
+                                        <!-- Box Content End -->
+                                    </div>
+                                    <!-- Video Thumb End -->
+                                    <div class="video-content">
+                                        <h2 class="video-title"><a href="{{route('moviedetail', $movie->id)}}">{{$movie->name}}</a></h2>
+                                        <div class="video-info d-flex align-items-center">
+                                            <span class="video-year">{{$movie->year}}</span>
+                                            <span class="video-age badge badge-pill badge-warning text-dark">{{$movie->status}}</span> 
+                                        </div>
+                                    </div>
+                                    <!-- video Content End -->
+                                </div>
+                                <!-- video Block End -->
+                            </div>
+                        @endforeach
+                    </div>
+                    <!-- Pupular Slider End -->
+                </div>
+                <!-- Col End -->
+            </div>
+            <!-- Row End -->
+        </div>
+        <!-- Container End -->
+    </section>
+
 </div>
 
 @endforeach
