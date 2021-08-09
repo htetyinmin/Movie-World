@@ -208,10 +208,10 @@
                                         <ul class="dropdown-menu dropdown-menu-right fade-up">
                                             @if (Auth::user())
                                             <li>
-                                                <a href="" class="dropdown-item"><i class="fa fa-user mr-3"></i>{{ Auth::user()->name }}</a>
+                                                <a href="{{url('userdetail')}}" class="dropdown-item"><i class="fa fa-user mr-3"></i>{{ Auth::user()->name }}</a>
                                             </li>
                                             <li>
-                                                <a href="" class="dropdown-item"><i class="fa fa-cogs mr-3"></i>Account Settings</a>
+                                                <a href="#" class="dropdown-item"><i class="fa fa-cogs mr-3"></i>Account Settings</a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

@@ -70,9 +70,10 @@ class PageController extends Controller
         return view('frontend.privacy');
     }
 
-    public function userdetail($id){
-        $users = User::all();
-        return view('frontend.userdetail', compact('users'));
+    public function userdetail(){
+        // $users = User::where('id', $id)->get();
+        // dd($users);
+        return view('frontend.userdetail');
     }
 
     public function register(){
