@@ -150,4 +150,7 @@ class PageController extends Controller
         $users = User::all();
         return view('backend.user.index', compact('users'));
     }
+    public function test(){
+        return view('backend.cast.test');
+    }
 }
