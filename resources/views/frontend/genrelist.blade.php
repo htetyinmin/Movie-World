@@ -45,7 +45,7 @@
                                 <a href="#"><img class="img-fluid" src="{{asset('storage/'.$movie->photo)}}" alt=""></a>
                                 <div class="box-content">
                                     <ul class="icon">
-                                        <li><a href="watch-movie.html"><i class="fas fa-play"></i></a></li>
+                                        <li><a @if(Auth::user()) href="{{route('watchmovie', $movie->id)}}" @else href="route('login')" @endif><i class="fas fa-play"></i></a></li>
                                         <li><a href="#"><i class="fas fa-plus"></i></a></li>
                                         <li><a href="{{route('moviedetail', $movie->id)}}"><i class="fas fa-info"></i></a></li>
                                     </ul>
