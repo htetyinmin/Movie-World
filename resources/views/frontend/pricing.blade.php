@@ -50,9 +50,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title text-muted text-uppercase text-center">{{$package->title}}</h5>
-                                    <h6 class="card-price text-center">{{$package->fees}}<span class="period">/{{$package->period}}</span></h6>
+                                    <h6 class="card-price text-center">{{$package->fees}}<span class="period"><br>{{$package->period}}</span></h6>
                                     <hr>
-                                    <ul class="fa-ul">
+                                    <ul class="pl-0">
                                         @foreach($data as $result)
                                               <p  class=""> 
                                                 <i class="fa fa-check-circle text-success mr-2"></i> {{$result}} 
