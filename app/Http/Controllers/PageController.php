@@ -122,6 +122,7 @@ class PageController extends Controller
             $movie = Movie::find($id);
             $download =  public_path(). '/storage/' .$movie->video;
             return response()->download($download);
+            
         $movies = Movie::where('id', $id)->get();
         // $gallery = Movie::all();
         // dd($gallery);

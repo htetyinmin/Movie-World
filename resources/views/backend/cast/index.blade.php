@@ -75,6 +75,9 @@
                       </tr>
                     </tfoot>
                   </table>
+
+                  {{$casts->links()}}
+                  
                 </div>
               </div>
             </div>

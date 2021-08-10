@@ -15,9 +15,10 @@ class CastController extends Controller
      */
     public function index()
     {
-        $casts = Cast::all();
-        // $pagcasts = DB::table('casts')->paginate(5);
-        return view('backend.cast.index', compact('casts'));
+        // $casts = Cast::all();
+        $casts = DB::table('casts')->paginate(5);
+
+        return view('backend.cast.index', ['casts' => $casts]);
     }
 
     /**

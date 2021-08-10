@@ -6,6 +6,7 @@ use App\Cast;
 use App\Genre;
 use App\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MovieController extends Controller
 {
@@ -16,8 +17,9 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movies = Movie::all();
-        return view('backend.movie.index', compact('movies'));
+        $movies = DB::table('movies')->paginate(5);
+
+        return view('backend.movie.index', ['movies' => $movies]);
     }
 
     /**

@@ -41,12 +41,12 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @php
+                      {{-- @php
                           $i=1;
-                      @endphp
+                      @endphp --}}
                       @foreach ($movies as $movie)
                         <tr>
-                          <th scope="row">{{$i++}}</th>
+                          <th scope="row">{{$movie->id}}</th>
                           <td>{{$movie->name}}</td>
                           <td>
                                 <img src="{{asset('storage/'.$movie->photo)}}" alt="Photo" width="70" height="100" class="mr-3">
@@ -61,7 +61,18 @@
                         </tr>
                       @endforeach
                     </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Cover</th>
+                        <th>Year</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </tfoot>
                   </table>
+                  {{$movies->links()}}
                 </div>
               </div>
             </div>
