@@ -165,7 +165,7 @@
                                         <div class="box-content">
                                             <ul class="icon">
                                                 <li>
-                                                    <a @if(Auth::user()) href="{{route('watchmovie', $movie->id)}}" @else href="route('login')" @endif ><i class="fas fa-play"></i></a>
+                                                    <a @if(Auth::user()) href="{{route('watchmovie', $movie->id)}}" @else href="{{route('login')}}" @endif ><i class="fas fa-play"></i></a>
 
                                                 <li>
                                                     <a href="{{route('moviedetail', $movie->id)}}"><i class="fas fa-info"></i></a>

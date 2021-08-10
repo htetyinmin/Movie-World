@@ -55,7 +55,7 @@
                     <div class="position-relative mb-4">
                         @foreach ($playmovies as $playmovie)
                             
-                        <a class="d-flex align-items-center" @if(Auth::user()) href="{{route('watchmovie', $playmovie->id)}}" @else href="route('login')" @endif tabindex="0">
+                        <a class="d-flex align-items-center" @if(Auth::user()) href="{{route('watchmovie', $playmovie->id)}}" @else href="{{route('login')}}" @endif tabindex="0">
                         @endforeach
                         {{-- <a href="watch-movie.html" class="d-flex align-items-center"> --}}
                             <div class="play-icon">
@@ -156,7 +156,7 @@
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
                                     @if($movie->video)
 
-                                        <a @if(Auth::user()) href="{{route('watchmovie', $movie->id)}}" @else href="route('login')" @endif  class="btn d-block hvr-sweep-to-right" tabindex="0">
+                                        <a @if(Auth::user()) href="{{route('watchmovie', $movie->id)}}" @else href="{{route('login')}}" @endif  class="btn d-block hvr-sweep-to-right" tabindex="0">
                                             <i class="icofont-ui-play mr-2" aria-hidden="true"></i>Play
                                         </a>
                                     @endif
