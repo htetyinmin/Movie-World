@@ -164,7 +164,5 @@ class PageController extends Controller
         $search = $_GET['search'];
         $movies = Movie::where('name', 'like', '%'.$search.'%')->get();
         return view('frontend.search', compact('movies') );
-    public function test(){
-        return view('backend.cast.test');
     }
 }

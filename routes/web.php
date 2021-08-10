@@ -59,7 +59,6 @@ Route::resource('movie', 'MovieController');
 Route::resource('package', 'PackageController');
 
 Route::get('/user', 'PageController@user')->name('user');
-Route::get('/test', 'PageController@test')->name('test');
 
 // Auth::routes();
 
