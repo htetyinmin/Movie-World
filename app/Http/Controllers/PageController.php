@@ -36,7 +36,7 @@ class PageController extends Controller
     }
 
     public function movielist(){
-        $movies = Movie::all();
+        $movies = Movie::paginate(10);
         $genres = Genre::all();
         $lastmovies = Movie::latest()->take(10)->get();
         return view('frontend.movielist', compact('movies', 'genres', 'lastmovies') );
@@ -155,6 +155,7 @@ class PageController extends Controller
     public function search(Request $request){
         if($request->ajax()){
             $query = $request->searchdata;
+
 
             $data=DB::table('movies')->where('name','like','%'.$query.'%')
                     ->orWhere('overview','like','%'.$query.'%')

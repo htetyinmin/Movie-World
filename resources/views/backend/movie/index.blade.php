@@ -44,9 +44,10 @@
                       {{-- @php
                           $i=1;
                       @endphp --}}
+                      {{-- @php $i = $movies->getFrom(); @endphp --}}
                       @foreach ($movies as $movie)
                         <tr>
-                          <th scope="row">{{$movie->id}}</th>
+                          <th scope="row">{{1}}</th>
                           <td>{{$movie->name}}</td>
                           <td>
                                 <img src="{{asset('storage/'.$movie->photo)}}" alt="Photo" width="70" height="100" class="mr-3">
