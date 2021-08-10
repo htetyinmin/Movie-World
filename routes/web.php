@@ -33,6 +33,7 @@ Route::get('/term', 'PageController@term')->name('term');
 Route::get('/privacy', 'PageController@privacy')->name('privacy');
 Route::get('/userdetail', 'PageController@userdetail')->name('userdetail');
 Route::get('/help', 'PageController@help')->name('help');
+Route::get('/search', 'PageController@search')->name('search');
 
 Route::get('/castdetail/{id}', 'PageController@castdetail')->name('castdetail');
 // Route::get('/login', 'PageController@login')->name('login');

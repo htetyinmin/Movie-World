@@ -4,10 +4,12 @@
 <head>
     <!-- Basic Page -->
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <!-- Mobile Specific -->
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
     <!-- Favicon -->
     <link href="{{asset('frontend_assets/images/favicon.png')}}" rel="shortcut icon" type="image/x-icon">
     <link href="{{asset('frontend_assets/images/favicon.png')}}" rel="icon" type="image/x-icon">
@@ -434,11 +436,16 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="search-panel">
-                    <form class="search-group">
+                    <form class="search-group" action="{{route('search')}}" method="get">
                         <div class="input-group">
-                            <input class="form-control" name="s" placeholder="Search" type="search" value=""> <button class="input-group-btn search-button"><i class="fas fa-search"></i></button>
+                            <input id="search" class="form-control" name="search" placeholder="Search..." type="search" size="10" value="">
                         </div>
                     </form>
+                    <div class="container">
+                        <ul class="list-group list-group-flush" id="search-output">
+                            
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -902,6 +909,36 @@
     <script>
         $("[data-toggle=popover]").popover();
         $('[data-toggle="tooltip"]').tooltip();
+
+        // SEARCH
+        $('#search').on('keyup', function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+          var search_data =$(this).val();
+          if(search_data.length>0){
+            $.ajax({
+                url: "/search",
+                method:"GET",
+                data:{
+                    searchdata:search_data
+                },
+                success: function(res){
+                    console.log(res);
+                    var search_html ="";
+                    $.each(res,function(i,v){
+
+                        var detailUrl ="moviedetail/"+v.id;
+                        // console.log(detailUrl);
+                        search_html+=`<li class="list-group-item"><a href="${detailUrl}"><img src="../storage/${v.photo}" width="100" class="pr-3">${v.name}</a></li>`;
+                   });
+                   $('#search-output').html(search_html);
+                }
+            });
+          }
+      });
     </script>
     @yield('script')
 

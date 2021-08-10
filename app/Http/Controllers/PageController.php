@@ -8,7 +8,7 @@ use App\Genre;
 use App\Package;
 use App\Moviedownload;
 use App\User;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Auth;
@@ -149,5 +149,20 @@ class PageController extends Controller
         // $genres = Genre::all();
         $users = User::all();
         return view('backend.user.index', compact('users'));
+    }
+
+    public function search(Request $request){
+        if($request->ajax()){
+            $query = $request->searchdata;
+
+            $data=DB::table('movies')->where('name','like','%'.$query.'%')
+                    ->orWhere('overview','like','%'.$query.'%')
+                    ->get();
+
+            return response()->json($data);
+        }
+        $search = $_GET['search'];
+        $movies = Movie::where('name', 'like', '%'.$search.'%')->get();
+        return view('frontend.search', compact('movies') );
     }
 }
