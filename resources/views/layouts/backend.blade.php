@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{asset('backend-assets/css/style.default.css')}}" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{{asset('backend-assets/css/custom.css')}}">
+    <link rel="stylesheet" href="{{asset('backend-assets/datatables/dataTables.bootstrap4.css')}}">
     <!-- Favicon-->
     <link rel="shortcut icon" href="{{asset('backend-assets/img/favicon.png')}}">
     <!-- Owl Carousel Styles -->
@@ -174,6 +175,9 @@
     <script src="{{asset('frontend_assets/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('multipleimageupload/image-uploader.min.js')}}"></script>
     <script src="{{asset('frontend_assets/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('frontend_assets/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('frontend_assets/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('frontend_assets/demo/datables-demo.js')}}"></script>
     @yield('script')
   </body>
 </html>

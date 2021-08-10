@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cast;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CastController extends Controller
 {
@@ -15,6 +16,7 @@ class CastController extends Controller
     public function index()
     {
         $casts = Cast::all();
+        // $pagcasts = DB::table('casts')->paginate(5);
         return view('backend.cast.index', compact('casts'));
     }
 

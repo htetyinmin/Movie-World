@@ -29,7 +29,7 @@
               <div class="block">
                 <div class="title"><strong>Casts Data Table</strong></div>
                 <div class="table-responsive"> 
-                  <table class="table table-striped table-hover">
+                  <table class="table table-striped table-hover" width="100%" id="dataTable">
                     <thead>
                       <tr>
                         <th>#</th>
@@ -63,6 +63,17 @@
                         </tr>
                       @endforeach
                     </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Photo</th>
+                        <th>Gender</th>
+                        <th>Date Of Birth</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </tfoot>
                   </table>
                 </div>
               </div>
@@ -106,6 +117,9 @@
         $('#deleteModalForm').attr('action',id);
         $('#deleteModal').modal('show');
       })
+
+      $('#dataTable').DataTable();
+
     })
   </script>
 @endsection
