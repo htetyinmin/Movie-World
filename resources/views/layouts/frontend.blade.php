@@ -148,6 +148,7 @@
                                 <div class="nav-notification">
                                     <a class="nav-link menu-dropdown" data-toggle="dropdown" href="#"><i class="icofont-notification"></i></a>
                                     <ul class="dropdown-menu dropdown-menu-right fade-up" role="menu">
+                                        
                                         <li>
                                             <a class="dropdown-item" href="#">
                                                 <div class="notification-card media">
