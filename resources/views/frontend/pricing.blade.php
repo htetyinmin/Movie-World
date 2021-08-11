@@ -33,15 +33,40 @@
           <!-- Start Pricing Section -->
           <section class="pricing">
               <div class="container">
-                  <div class="row text-center intro">
-                      <div class="col-12">
-                          <h2>Our Monthly Plans</h2>
-                          <p class="text-max-800">Choose the ideal plan for what you need. We work with affordable prices for all types of pocket.</p>
-                      </div>
-                      <!-- Col End -->
-                  </div>
-                  <!-- Row End -->
-                  <div class="row">
+                <section>
+                    <h3 style="margin-bottom: 37px;">Choose Your Plan?</h3>
+                    <div class="grid">
+
+                        @foreach($packages as $key => $package)
+                        @php
+                            $data = json_decode($package->description,true);
+                        @endphp
+                        <div class="grid-item @if($key == 0) active @endif" id="{{ $package->id }}">
+                            <div class="thumb" id="{{ $package->id }}">
+                                <h3> {{ $package->title }} Plan </h3>
+                                <h5> {{ $package->period }} </h5>
+                                <div class="pb-2 pt-5">
+                                    @foreach($data as $result)
+                                      <p  class=""> 
+                                        <i class="fa fa-check-circle text-success mr-2"></i> {{$result}} 
+                                      </p>
+                                    @endforeach
+                                </div>
+                                
+                            </div>
+                            <div class="heading">{{ $package->fees }}</div>
+                        </div>
+
+                        @endforeach
+                        
+                    </div>
+
+                    <div class="text-right">
+                        <a href="#" class="btn btn-primary hvr-sweep-to-right text-uppercase">Purchase</a>
+                    </div>
+                </section>
+                  
+                  {{-- <div class="row">
                       @foreach ($packages as $package)
                         @php
                             $data = json_decode($package->description,true);
@@ -58,18 +83,17 @@
                                                 <i class="fa fa-check-circle text-success mr-2"></i> {{$result}} 
                                               </p>
                                             @endforeach
-                                        {{-- <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>{{$package->description}}</strong></li> --}}
                                         
                                     </ul>
                                     <a href="#" class="btn btn-block btn-primary hvr-sweep-to-right text-uppercase">Purchase</a>
                                 </div>
-                                <!-- Card Body End -->
+                                
                             </div>
-                            <!-- Card End -->
+                           
                         </div>
                       @endforeach
                       
-                  </div>
+                  </div> --}}
                   <!-- Row End -->
               </div>
               <!-- Container End -->

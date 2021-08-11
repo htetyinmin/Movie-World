@@ -44,18 +44,20 @@ class PageController extends Controller
 
     public function genrelist($id){
         $movies = Movie::all();
-        $genres = Genre::all();
+        $genres = Genre::where('id', $id)->get();
         return view('frontend.genrelist', compact('movies', 'genres') );
     }
 
     public function about(){
         $genres = Genre::all();
-        return view('frontend.about', compact('genres'));
+        $movies = Movie::all();
+        return view('frontend.about', compact('genres', 'movies'));
     }
 
     public function contact(){
         $genres = Genre::all();
-        return view('frontend.contact', compact('genres'));
+        $movies = Movie::all();
+        return view('frontend.contact', compact('genres', 'movies'));
     }
 
     public function term(){

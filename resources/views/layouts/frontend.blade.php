@@ -113,10 +113,10 @@
                                         <li class="nav-item dropdown">
                                             <a class="nav-link menu-dropdown" data-toggle="dropdown" href="#"> Genre <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu fade-up" role="menu">
-                                                {{-- {{$common[0]}} --}}
-                                                @foreach ($common[0] as $genre)
+                                                @foreach ($genres as $genre)
+                                                {{-- {{$genre->id}} --}}
                                                 <li>
-                                                    <a class="dropdown-item" href="{{url('/genrelist', $genre->id)}}">{{$genre->name}}</a>
+                                                    <a class="dropdown-item" href="{{route('genrelist', $genre->id)}}">{{$genre->name}}</a>
                                                 </li>
                                                 @endforeach
                                             </ul>
@@ -149,18 +149,20 @@
                                 <div class="nav-notification">
                                     <a class="nav-link menu-dropdown" data-toggle="dropdown" href="#"><i class="icofont-notification"></i></a>
                                     <ul class="dropdown-menu dropdown-menu-right fade-up" role="menu">
+                                        
                                         <li>
                                             <a class="dropdown-item" href="#">
                                                 <div class="notification-card media">
                                                     <div class="notification-thumb"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/notify/thumb-1.jpg')}}"></div>
                                                     <!-- Notification thumb end -->
                                                     <div class="notification-content media-body">
-                                                        <h2 class="notification-title">Iron Door</h2><span class="date"><i class="far fa-clock"></i> 1 min ago</span>
+                                                        <h2 class="notification-title">Black Shadow</h2><span class="date"><i class="far fa-clock"></i> 1 min ago</span>
                                                     </div>
                                                     <!-- Notification Content end -->
                                                 </div>
                                             </a>
                                         </li>
+                                        
                                         <!-- Li 1 end -->
                                         <li>
                                             <a class="dropdown-item" href="#">
