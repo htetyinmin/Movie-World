@@ -46,7 +46,6 @@
     <div class="slider big-slider slider-wrap">
         @foreach ($newmovies as $key => $newmovie)
 
-        
         <div class="slide slick-bg bg-{{ $newmovie->id }}" style="background-image: url({{asset('storage/'.$newmovie->photo)}});">
             <div class="container-fluid position-relative h-100">
                 <div class="slider-content h-100">
