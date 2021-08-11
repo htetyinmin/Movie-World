@@ -2,6 +2,7 @@
 @section('title','Movie World | Genre List')
 @section('content')
 
+@foreach ($genres as $genre)
 <!-- Main Class Start -->
 <div class="main" id="main">
       <!-- Start Sub Header Section -->
@@ -10,14 +11,14 @@
               <div class="row align-items-center">
                   <div class="col-sm-12">
                       <nav aria-label="breadcrumb" class="text-center breadcrumb-nav">
-                          <h2 class="Page-title">Comedy</h2>
+                          <h2 class="Page-title">{{$genre->name}}</h2>
                           <ol class="breadcrumb">
                               <li>
                                   <i class="fa fa-home"></i>
                                   <a href="{{url('/')}}">Home</a>
                                   <i class="fa fa-angle-right"></i>
                               </li>
-                              <li><a href="#">genres</a></li>
+                              <li><a href="">genres</a></li>
                           </ol>
                       </nav>
                       <!-- Breadcrumb End -->
@@ -30,15 +31,16 @@
       </div>
       <!-- Sub Header Section End -->
       <!-- Start Main Content -->
+      
       <section class="hollywood-movies">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="block-title">Comedy Movies</h2>
+                        <h2 class="block-title">{{$genre->name}} Movies</h2>
                     </div>
                 </div>
                 <div class="row">
-                    @foreach ($movies as $movie)
+                    @foreach ($genre->movies as $movie)
                     <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
                         <div class="video-block">
                             <div class="video-thumb position-relative thumb-overlay">
@@ -73,6 +75,7 @@
         </section>
       <!-- Main Content End -->
       
+      
       <!-- To Top Button Start-->
       <div class="back-to-top-btn">
           <div class="back-to-top" style="display: block;">
@@ -82,5 +85,6 @@
       <!-- To Top Button End -->
 </div>
   <!-- Main Class End -->
+@endforeach
 
 @endsection

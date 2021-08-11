@@ -26,7 +26,7 @@ Route::post('logout','AuthController@logout')->name('logout');
 
 Route::get('/', 'PageController@index')->name('index');
 Route::get('/movielist', 'PageController@movielist')->name('movielist');
-Route::get('/genrelist', 'PageController@genrelist')->name('genrelist');
+Route::get('/genrelist/{id}', 'PageController@genrelist')->name('genrelist');
 Route::get('/about', 'PageController@about')->name('about');
 Route::get('/contact', 'PageController@contact')->name('contact');
 Route::get('/term', 'PageController@term')->name('term');

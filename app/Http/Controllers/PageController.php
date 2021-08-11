@@ -43,9 +43,8 @@ class PageController extends Controller
     }
 
     public function genrelist($id){
-        $movies = Movie::all();
         $genres = Genre::where('id', $id)->get();
-        return view('frontend.genrelist', compact('movies', 'genres') );
+        return view('frontend.genrelist', compact('genres') );
     }
 
     public function about(){
@@ -61,15 +60,21 @@ class PageController extends Controller
     }
 
     public function term(){
-        return view('frontend.term');
+        $genres = Genre::all();
+        $movies = Movie::all();
+        return view('frontend.term', compact('genres', 'movies'));
     }
 
     public function help(){
-        return view('frontend.help');
+        $genres = Genre::all();
+        $movies = Movie::all();
+        return view('frontend.help', compact('genres', 'movies'));
     }
 
     public function privacy(){
-        return view('frontend.privacy');
+        $genres = Genre::all();
+        $movies = Movie::all();
+        return view('frontend.privacy', compact('genres', 'movies'));
     }
 
     public function userdetail(){
@@ -90,9 +95,9 @@ class PageController extends Controller
     }
 
     public function watchmovie($id){
+        $genres = Genre::all();
         $movie = Movie::find($id);
-
-        return view('frontend.watchmovie',compact('movie'));
+        return view('frontend.watchmovie',compact('genres', 'movie'));
     }
 
     public function moviedetail($id){
@@ -149,9 +154,9 @@ class PageController extends Controller
     }
 
     public function user(){
-        // $genres = Genre::all();
+        $genres = Genre::all();
         $users = User::all();
-        return view('backend.user.index', compact('users'));
+        return view('backend.user.index', compact('genres', 'users'));
     }
 
     public function search(Request $request){

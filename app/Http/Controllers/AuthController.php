@@ -10,13 +10,15 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use App\User;
+use App\Genre;
 use Carbon\Carbon;
 
 class AuthController extends Controller
 {
     public function registerform(){
+        $genres = Genre::all();
         $packages = Package::all();
-        return view('auth.register', compact('packages'));
+        return view('auth.register', compact('genres', 'packages'));
     }
 
     public function register(Request $request){
@@ -59,7 +61,8 @@ class AuthController extends Controller
     }
 
     public function loginform(){
-        return view('auth.login');   
+        $genres = Genre::all();
+        return view('auth.login', compact('genres'));   
     }
 
     public function login(Request $request){
