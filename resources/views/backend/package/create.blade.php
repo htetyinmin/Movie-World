@@ -30,20 +30,35 @@
                     <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Plan Name</label>
                         <div class="col-sm-9">
-                        <input type="text" name="title" class="form-control">
+                        <input type="text" name="title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}">
+                        @if ($errors->has('title'))
+                              <span class="invalid-feedback">
+                              <strong>{{ $errors->first('title') }}</strong>
+                              </span>
+                        @endif
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Fees</label>
                         <div class="col-sm-9">
-                        <input type="text" name="fees" class="form-control">
+                        <input type="text" name="fees" class="form-control{{ $errors->has('fees') ? ' is-invalid' : '' }}">
+                        @if ($errors->has('fees'))
+                              <span class="invalid-feedback">
+                              <strong>{{ $errors->first('fees') }}</strong>
+                              </span>
+                        @endif
                         </div>
                     </div>
                   <div class="line"></div>
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Period</label>
                         <div class="col-sm-9">
-                              <input type="text" name="period" class="form-control">
+                              <input type="text" name="period" class="form-control{{ $errors->has('period') ? ' is-invalid' : '' }}">
+                              @if ($errors->has('period'))
+                                    <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('period') }}</strong>
+                                    </span>
+                              @endif
                         </div>
                   </div>
                   <div class="form-group row">

@@ -38,7 +38,7 @@ class PageController extends Controller
     }
 
     public function movielist(){
-        $movies = Movie::paginate(10);
+        $movies = Movie::paginate(24);
         $genres = Genre::all();
         $lastmovies = Movie::latest()->take(10)->get();
         $noti_movies = Movie::latest()->take(3)->get();
