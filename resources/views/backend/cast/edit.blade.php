@@ -41,17 +41,18 @@
                               <label class="col-sm-3 form-control-label">Photo</label>
                               <div class="col-sm-9">
                                     <input type="file" name="photo" class="form-control-file">
+                                    <img src="{{asset('storage/'.$cast->photo)}}" alt="" class="img-fluid w-25 mt-3">
                               </div>
                         </div>
                         <div class="line"></div>
                         <div class="form-group row">
                               <label class="col-sm-3 form-control-label">Gender</label>
                               <div class="i-checks col-sm-2">
-                                    <input id="male" type="radio" value="Male" name="gender" class="radio-template" checked="checked">
+                                    <input id="male" type="radio" value="Male" name="gender" class="radio-template" @if($cast->gender == 'Male') {{'checked'}} @endif>
                                     <label for="male">Male</label>
                               </div>
                               <div class="i-checks col-sm-2">
-                                    <input id="female" type="radio" value="Female" name="gender" class="radio-template">
+                                    <input id="female" type="radio" value="Female" name="gender" class="radio-template" @if($cast->gender == 'Female') {{'checked'}} @endif>
                                     <label for="female">Female</label>
                               </div>
                         </div>
@@ -84,15 +85,15 @@
                         <div class="form-group row">
                               <label class="col-sm-3 form-control-label">Status</label>
                               <div class="i-checks col-sm-2">
-                                    <input id="director" type="radio" value="Director" name="status" class="radio-template" checked="checked">
+                                    <input id="director" type="radio" value="Director" name="status" class="radio-template" @if($cast->status == 'Director') {{'checked'}} @endif>
                                     <label for="director">Director</label>
                               </div>
                               <div class="i-checks col-sm-2">
-                                    <input id="actor" type="radio" value="Actor" name="status" class="radio-template">
+                                    <input id="actor" type="radio" value="Actor" name="status" class="radio-template" @if($cast->status == 'Actor') {{'checked'}} @endif>
                                     <label for="actor">Actor</label>
                               </div>
                               <div class="i-checks col-sm-2">
-                                    <input id="actress" type="radio" value="Actress" name="status" class="radio-template">
+                                    <input id="actress" type="radio" value="Actress" name="status" class="radio-template" @if($cast->status == 'Actress') {{'checked'}} @endif>
                                     <label for="actress">Actress</label>
                               </div>
                         </div>

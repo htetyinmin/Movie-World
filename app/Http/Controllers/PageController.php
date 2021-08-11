@@ -177,7 +177,7 @@ class PageController extends Controller
     public function user(){
         $noti_movies = Movie::latest()->take(3)->get();
         $genres = Genre::all();
-        $users = User::all();
+        $users = User::paginate(5);
         return view('backend.user.index', compact('noti_movies', 'genres', 'users'));
     }
 

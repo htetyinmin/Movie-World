@@ -39,6 +39,7 @@
                         <label class="col-sm-3 form-control-label">Cover</label>
                         <div class="col-sm-9">
                           <input type="file" name="photo" class="form-control-file">
+                          <img src="{{asset('storage/'.$movie->photo)}}" alt="" class="img-fluid w-25 mt-3">
                         </div>
                   </div>
                   <div class="line"></div>
@@ -130,11 +131,11 @@
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Status</label>
                         <div class="i-checks col-sm-2">
-                              <input id="radioCustom1" type="radio" value="Free" name="status" class="radio-template" checked>
+                              <input id="radioCustom1" type="radio" value="Free" name="status" class="radio-template" @if($movie->status == 'Free') {{'checked'}} @endif>
                               <label for="radioCustom1">Free</label>
                         </div>
                         <div class="i-checks col-sm-2">
-                              <input id="radioCustom1" type="radio" value="Premium" name="status" class="radio-template">
+                              <input id="radioCustom1" type="radio" value="Premium" name="status" class="radio-template" @if($movie->status == 'Premium') {{'checked'}} @endif>
                               <label for="radioCustom1">Premium</label>
                         </div>
                   </div>
