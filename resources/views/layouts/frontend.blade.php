@@ -320,9 +320,9 @@
                                         <li>
                                             <a href="#">Android</a>
                                         </li>
-                                        <li>
+                                        {{-- <li>
                                             <a href="#">Amazon Fire</a>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
                                 <!-- Widget Content End -->
@@ -345,9 +345,6 @@
                                         </li>
                                         <li>
                                             <a href="{{url('/term')}}">Terms of use</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Download Now</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -372,35 +369,6 @@
             <!-- Container End -->
             
         <!-- Footer Section End -->
-
-        <!-- Start Copyrights Section -->
-        {{-- <div class="copyright">
-            <div class="container-fluid">
-                <div class="row justify-content-between">
-                    <div class="col-md-6">
-                        <p>© Copyright 2021, All Rights Reserved</p>
-                    </div>
-                    <!-- Col End -->
-                    <div class="col-md-6">
-                        <div class="copyright-menu text-right">
-                            <ul>
-                                <li>
-                                    <a href="terms.html">Terms of Service</a>
-                                </li>
-                                <li>
-                                    <a href="privacy.html">Privacy Policy</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Copyrights Menu End -->
-                    </div>
-                    <!-- Col End -->
-                </div>
-                <!-- Row End -->
-            </div>
-            <!-- Container End -->
-        </div> --}}
-        <!-- Copyrights Section End -->
 
         <!-- To Top Button Start-->
         <div class="back-to-top-btn">
@@ -872,16 +840,13 @@
                 <!-- modal header End -->
                 <div class="modal-body">
                     <div class="icon-container d-flex">
-                        <div class="icon-block"><i class="social-icon fab fa-twitter fa-2x"></i>
+                        <div class="icon-block"><a class="my-twitter" href="http://twitter.com/home?status=movieworld.org" target="_blank"><i class="social-icon fab fa-twitter fa-2x"></i></a>
                             <p>Twitter</p>
                         </div>
-                        <div class="icon-block"><i class="social-icon fab fa-facebook fa-2x"></i>
+                        <div class="icon-block"><a class="my-facebook" href="https://www.facebook.com/sharer/sharer.php?u=movieworld.org" target="_blank"><i class="social-icon fab fa-facebook fa-2x"></i></a>
                             <p>Facebook</p>
                         </div>
-                        <div class="icon-block"><i class="social-icon fab fa-instagram fa-2x"></i>
-                            <p>Instagram</p>
-                        </div>
-                        <div class="icon-block"><i class="social-icon fab fa-telegram fa-2x"></i>
+                        <div class="icon-block"><a class="my-telegram" href="https://t.me/share/url?url=movieworld.org&text=Best Movie Site Ever!" target="_blank"><i class="social-icon fab fa-telegram fa-2x"></i></a>
                             <p>Telegram</p>
                         </div>
                     </div>

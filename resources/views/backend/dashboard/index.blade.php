@@ -11,20 +11,20 @@
       <!-- Breadcrumb-->
       <div class="container-fluid">
         <ul class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Charts            </li>
+          <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
         </ul>
       </div>
       <section>
         <div class="container-fluid">
           <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
               <div class="line-chart block chart">
-                <div class="title"><strong>Movies Chart</strong></div>
+                <div class="title"><strong>Movie Download Count Chart</strong></div>
                 <canvas id="lineChartCustom1"></canvas>
               </div>
             </div>
-            <div class="col-lg-4">       
+            {{-- <div class="col-lg-12">       
               <div class="lin-chart block chart">
                 <div class="title"><strong>Movies Chart</strong></div>
                 <div class="line-chart chart margin-bottom-sm">
@@ -34,7 +34,7 @@
                   <canvas id="lineChartCustom3"></canvas>
                 </div>
               </div>
-            </div>
+            </div> --}}
             <div class="col-lg-4">
               <div class="chart block">
                 <div class="title"> <strong>Genres Chart</strong></div>

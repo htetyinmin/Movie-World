@@ -118,13 +118,29 @@
       right: 15px;
     }
 
-    .my-gallery{
+    .my-gallery {
       width: 400px;
       height: auto;
     }
 
-    .my-a:hover{
+    .my-a:hover {
         color: #ff0000;
+    }
+
+    .my-twitter {
+      color: #1DA1F2 !important;
+    }
+
+    .my-facebook {
+      color: #4267B2 !important;
+    }
+
+    .my-instagram {
+      color: #FD1D1D !important;
+    }
+
+    .my-telegram {
+      color: #0088CC !important;
     }
     
     .caption{

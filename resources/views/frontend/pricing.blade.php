@@ -66,13 +66,11 @@
                         </div>
 
                         <div class="text-right">
-                            <a class="btn btn-primary hvr-sweep-to-right text-uppercase purchaseBtn" href="
-                                @if(Auth::user())
-                                    {{route('index')}}
-                                @else
-                                    {{route('login')}}
-                                @endif
-                            ">Purchase</a>
+                            @if(Auth::user())
+                                <button class="btn btn-primary hvr-sweep-to-right text-uppercase purchaseBtn">Purchase</button>
+                            @else
+                                <a href="{{route('login')}}" class="btn btn-primary hvr-sweep-to-right text-uppercase">Login to Purchase</a>
+                            @endif
                         </div>
                     </form>
                 </section>

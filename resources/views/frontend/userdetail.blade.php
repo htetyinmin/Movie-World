@@ -34,12 +34,19 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="play-thumb mb-4">
-                    <img class="img-fluid" src="{{asset('frontend_assets/images/play-page/01.jpg')}}" alt="">
+                    <img class="img-fluid" src="{{asset('frontend_assets/images/user3.png')}}" alt="">
                 </div>
             </div>
             <div class="col-md-9">
-                <div class="col-4">
-                    <h2 class="">{{$user->name}}</h2>
+                <div class="col-4 mt-5">
+                    <h2 class="d-inline-block">{{$user->name}}</h2>
+                        @foreach ($payments as $payment)
+                            @if($payment->package_id == 1)
+                            <span class="badge badge-pill badge-warning text-dark ml-2">Free</span>
+                            @else
+                            <span class="badge badge-pill badge-warning text-dark ml-2">Premium</span>
+                            @endif
+                        @endforeach
                 </div>
                 <hr>
                 <div class="row mb-5">
@@ -75,10 +82,10 @@
                         @foreach ($payments as $payment)
                             @if($payment->package_id == 1)
                             <h4>Free</h4>
-                            <span class="badge badge-pill badge-warning text-dark mb-3">Free</span>
+                            {{-- <span class="badge badge-pill badge-warning text-dark mb-3">Free</span> --}}
                             @else
                             <h4>Premium</h4>
-                            <span class="badge badge-pill badge-warning text-dark mb-3">Premium</span>
+                            {{-- <span class="badge badge-pill badge-warning text-dark mb-3">Premium</span> --}}
                             @endif
                         @endforeach
                     </div>
