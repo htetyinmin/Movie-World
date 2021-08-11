@@ -149,11 +149,15 @@ class CastController extends Controller
         $oldphoto_arr = $request->oldPhoto;
 
         if($oldphoto_arr){
-            if(in_array('', $oldphoto_arr)){
-                $oldphoto_str = json_encode($oldphoto_arr);
+            $update_oldphoto_arr = array();
+            foreach($oldphoto_arr as $value){
+                $update_oldphoto_arr[] = str_replace('/storage/','',$value);
+                
             }
+
+            $oldphoto_str = json_encode($update_oldphoto_arr);
         }
-        dd($oldphoto_arr);
+        // dd($update_oldphoto_arr);
 
         $data = [];
         if($request->hasfile('images')) {
@@ -173,10 +177,10 @@ class CastController extends Controller
             $newphoto_str = null;
         }
 
-        if ($newphoto_str && $oldphoto_arr) 
+        if ($newphoto_str && $update_oldphoto_arr) 
         {
             $new_arr = json_decode($newphoto_str);
-            $old_arr = $oldphoto_arr;
+            $old_arr = $update_oldphoto_arr;
 
             $mergedArray = array_merge($new_arr,$old_arr);
 
