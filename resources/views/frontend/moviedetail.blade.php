@@ -53,10 +53,41 @@
             <div class="transparent-block">
                 <div class="banner-caption">
                     <div class="position-relative mb-4">
-                        @foreach ($playmovies as $playmovie)
+                        {{-- @foreach ($playmovies as $playmovie) --}}
                             
-                        <a class="d-flex align-items-center" @if(Auth::user()) href="{{route('watchmovie', $playmovie->id)}}" @else href="{{route('login')}}" @endif tabindex="0">
-                        @endforeach
+    <a class="d-flex align-items-center" tabindex="0"
+    
+        <?php 
+            if (Auth::user()) {
+                $route = route('watchmovie', $movie->id);
+
+                if($status == 0){
+                    echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+                }else{
+                    if($movie->status == "Premium"){
+
+                        if ($authuser_package > 1 ) {
+                            echo "href=$route";
+                        }
+                        else{
+                            echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                        }
+                    }
+
+                    else {
+                        echo "href=$route";
+                    }
+
+                    
+                }
+            }
+            else{
+                $route = route('login');
+                echo "href=$route";
+            }
+        ?>
+
+    >
                         {{-- <a href="watch-movie.html" class="d-flex align-items-center"> --}}
                             <div class="play-icon">
                                 <div class="circle pulse"></div>
@@ -68,6 +99,8 @@
                             </div>
                             <h2 class="banner-name text-white font-weight-700">{{$movie->name}}</h2>
                         </a>
+
+                        
                     </div>
                 </div>
                 <!-- Banner Caption End -->
@@ -156,7 +189,37 @@
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
                                     @if($movie->video)
 
-                                        <a @if(Auth::user()) href="{{route('watchmovie', $movie->id)}}" @else href="{{route('login')}}" @endif  class="btn d-block hvr-sweep-to-right" tabindex="0">
+    <a class="btn d-block hvr-sweep-to-right" tabindex="0"
+        <?php 
+            if (Auth::user()) {
+                $route = route('watchmovie', $movie->id);
+
+                if($status == 0){
+                    echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+                }else{
+                    if($movie->status == "Premium"){
+
+                        if ($authuser_package > 1 ) {
+                            echo "href=$route";
+                        }
+                        else{
+                            echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                        }
+                    }
+
+                    else {
+                        echo "href=$route";
+                    }
+
+                    
+                }
+            }
+            else{
+                $route = route('login');
+                echo "href=$route";
+            }
+        ?>
+    >
                                             <i class="icofont-ui-play mr-2" aria-hidden="true"></i>Play
                                         </a>
                                     @endif

@@ -64,7 +64,39 @@
                             </div>
                             <p data-animation-in="fadeInUp" data-delay-in="1">{{$newmovie->overview}}</p>
                             <div class="slider-buttons d-flex align-items-center" data-animation-in="fadeInUp" data-delay-in="1">
-                                <a class="btn hvr-sweep-to-right" @if(Auth::user()) href="{{route('watchmovie', $newmovie->id)}}" @else href="{{route('login')}}" @endif tabindex="0">
+                                <a class="btn hvr-sweep-to-right"
+                                
+    <?php 
+        if (Auth::user()) {
+            $route = route('watchmovie', $newmovie->id);
+
+            if($status == 0){
+                echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+            }else{
+                if($newmovie->status == "Premium"){
+
+                    if ($authuser_package > 1 ) {
+                        echo "href=$route";
+                    }
+                    else{
+                        echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                    }
+                }
+
+                else {
+                    echo "href=$route";
+                }
+
+                
+            }
+        }
+        else{
+            $route = route('login');
+            echo "href=$route";
+        }
+    ?>
+                                
+                                tabindex="0">
                                     <i aria-hidden="true" class="fa fa-play mr-2"></i>Play Now
                                 </a> 
                                 <a class="btn hvr-sweep-to-right ml-3" href="{{route('moviedetail', $newmovie->id)}}" tabindex="0">
@@ -231,7 +263,37 @@
                             <div class="box-content">
                                 <ul class="icon">
                                     <li>
-                                        <a @if(Auth::user()) href="{{route('watchmovie', $newfreemovie->id)}}" @else href="{{route('login')}}" @endif ><i class="fas fa-play"></i></a>
+    <a 
+        <?php 
+            if (Auth::user()) {
+                $route = route('watchmovie', $newpremiummovie->id);
+
+                if($status == 0){
+                    echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+                }else{
+                    if($newpremiummovie->status == "Premium"){
+
+                        if ($authuser_package > 1 ) {
+                            echo "href=$route";
+                        }
+                        else{
+                            echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                        }
+                    }
+
+                    else {
+                        echo "href=$route";
+                    }
+
+                    
+                }
+            }
+            else{
+                $route = route('login');
+                echo "href=$route";
+            }
+        ?>
+    ><i class="fas fa-play"></i></a>
                                     </li>
                                     <li>
                                         <a href="{{route('moviedetail', $newpremiummovie->id)}}"><i class="fas fa-info"></i></a>
@@ -324,7 +386,39 @@
                                             <div class="box-content">
                                                 <ul class="icon">
                                                     <li>
-                                                        <a @if(Auth::user()) href="{{route('watchmovie', $movie->id)}}" @else href="{{route('login')}}" @endif ><i class="fas fa-play"></i></a>
+            <a
+
+            <?php 
+            if (Auth::user()) {
+                $route = route('watchmovie', $movie->id);
+    
+                if($status == 0){
+                    echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+                }else{
+                    if($movie->status == "Premium"){
+    
+                        if ($authuser_package > 1 ) {
+                            echo "href=$route";
+                        }
+                        else{
+                            echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                        }
+                    }
+    
+                    else {
+                        echo "href=$route";
+                    }
+    
+                    
+                }
+            }
+            else{
+                $route = route('login');
+                echo "href=$route";
+            }
+        ?>
+                
+            ><i class="fas fa-play"></i></a>
 
                                                     <li>
                                                         <a href="{{route('moviedetail', $movie->id)}}"><i class="fas fa-info"></i></a>
@@ -424,7 +518,39 @@
                                     </div>
                                     <div class="my-content">
                                         <div class="slider-buttons d-flex align-items-center" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">
-                                            <a class="btn hvr-sweep-to-right" @if(Auth::user()) href="{{route('watchmovie', $currentyearmovie->id)}}" @else href="{{route('login')}}" @endif tabindex="0"><i aria-hidden="true" class="fa fa-play mr-2"></i>Play Now</a> 
+        <a class="btn hvr-sweep-to-right" 
+
+        <?php 
+        if (Auth::user()) {
+            $route = route('watchmovie', $currentyearmovie->id);
+
+            if($status == 0){
+                echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+            }else{
+                if($currentyearmovie->status == "Premium"){
+
+                    if ($authuser_package > 1 ) {
+                        echo "href=$route";
+                    }
+                    else{
+                        echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                    }
+                }
+
+                else {
+                    echo "href=$route";
+                }
+
+                
+            }
+        }
+        else{
+            $route = route('login');
+            echo "href=$route";
+        }
+    ?>
+         
+        tabindex="0"><i aria-hidden="true" class="fa fa-play mr-2"></i>Play Now</a> 
                                             <a class="btn hvr-sweep-to-right ml-3" href="{{route('moviedetail', $currentyearmovie->id)}}" tabindex="0"><i class="fas fa-plus mr-2"></i>View Detail</a>
 
 @if($currentyearmovie->video)
@@ -500,7 +626,38 @@
                                             <div class="box-content">
                                                 <ul class="icon">
                                                     <li>
-                                                        <a @if(Auth::user()) href="{{route('watchmovie', $trendingmovie->id)}}" @else href="{{route('login')}}" @endif ><i class="fas fa-play"></i></a>
+        <a
+
+        <?php 
+        if (Auth::user()) {
+            $route = route('watchmovie', $trendingmovie->id);
+
+            if($status == 0){
+                echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+            }else{
+                if($trendingmovie->status == "Premium"){
+
+                    if ($authuser_package > 1 ) {
+                        echo "href=$route";
+                    }
+                    else{
+                        echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                    }
+                }
+
+                else {
+                    echo "href=$route";
+                }
+
+                
+            }
+        }
+        else{
+            $route = route('login');
+            echo "href=$route";
+        }
+    ?>
+    ><i class="fas fa-play"></i></a>
                                                     </li>
                                                     <li>
                                                         <a href="{{route('moviedetail', $trendingmovie->id)}}"><i class="fas fa-info"></i></a>
@@ -550,7 +707,7 @@
                                         <div class="video-content">
                                             <h2 class="video-title"><a href="{{route('moviedetail', $trendingmovie->id)}}">{{$trendingmovie->name}}</a></h2>
                                             <div class="video-info d-flex align-items-center">
-                                                <span class="video-year">{{$trendingmovie->year}}</span> <span class="video-age">{{$trendingmovie->status}}</span>
+                                                <span class="video-year">{{$trendingmovie->year}}</span> <span class="video-age badge badge-pill badge-warning text-dark">{{$trendingmovie->status}}</span>
                                             </div>
                                         </div>
                                         <!-- video Content End -->

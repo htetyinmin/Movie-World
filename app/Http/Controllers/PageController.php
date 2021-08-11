@@ -117,9 +117,8 @@ class PageController extends Controller
         $genres = Genre::all();
         $casts = Cast::all();
         $movie = Movie::find($id);
-        $playmovies = Movie::all();
         $noti_movies = Movie::latest()->take(3)->get();
-        return view('frontend.moviedetail', compact('genres', 'casts', 'movie', 'playmovies', 'noti_movies'));
+        return view('frontend.moviedetail', compact('genres', 'casts', 'movie', 'noti_movies'));
     }
 
     public function downloadmovie($id){
@@ -192,7 +191,9 @@ class PageController extends Controller
             return response()->json($data);
         }
         $search = $_GET['search'];
+        $genres = Genre::all();
+        $noti_movies = Movie::latest()->take(3)->get();
         $movies = Movie::where('name', 'like', '%'.$search.'%')->get();
-        return view('frontend.search', compact('movies') );
+        return view('frontend.search', compact('genres', 'noti_movies', 'movies') );
     }
 }
