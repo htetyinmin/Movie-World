@@ -19,26 +19,28 @@
 
             $status = $dbStatus;
 
+            if ($authuser_package > 1) {
 
-            $totaldateCount = 0;
+                $totaldateCount = 0;
 
-            $payments = $authuser->payments;
-            foreach($payments as $payment){
-                if ($payment->package_id == 2) {
-                    $expiredate = Carbon\Carbon::parse($payment->date)->addMonths(1);
-                    $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
+                $payments = $authuser->payments;
+                foreach($payments as $payment){
+                    if ($payment->package_id == 2) {
+                        $expiredate = Carbon\Carbon::parse($payment->date)->addMonths(1);
+                        $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
+                    }
+
+                    if ($payment->package_id == 3) {
+                        $expiredate = Carbon\Carbon::parse($payment->date)->addYear();
+                        $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
+                    }
+
+                    $totaldateCount += $diff;
                 }
 
-                if ($payment->package_id == 3) {
-                    $expiredate = Carbon\Carbon::parse($payment->date)->addYear();
-                    $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
+                if ($totaldateCount <= 0) {
+                    $status = 1;
                 }
-
-                $totaldateCount += $diff;
-            }
-
-            if ($totaldateCount <= 0) {
-                $status = 1;
             }
             
 

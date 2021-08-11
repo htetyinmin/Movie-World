@@ -51,7 +51,8 @@ class AuthController extends Controller
         Payment::create([
             'date' => $today,
             'user_id' => $user->id,
-            'package_id' => $planid
+            'package_id' => $planid,
+            'status' => 0
         ]);
 
         $credentials = $request->only('email', 'password');
