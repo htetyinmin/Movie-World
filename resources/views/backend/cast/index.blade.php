@@ -13,7 +13,7 @@
       <div class="d-flex bd-highlight">
             <div class="container-fluid">
               <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{route('cast.index')}}">Home</a></li>
                 <li class="breadcrumb-item active">Casts</li>
               </ul>
             </div>
@@ -29,7 +29,7 @@
               <div class="block">
                 <div class="title"><strong>Casts Data Table</strong></div>
                 <div class="table-responsive"> 
-                  <table class="table table-striped table-hover">
+                  <table class="table table-striped table-hover" width="100%" id="dataTable">
                     <thead>
                       <tr>
                         <th>#</th>
@@ -37,25 +37,20 @@
                         <th>Photo</th>
                         <th>Gender</th>
                         <th>Date Of Birth</th>
-                        <th>Place Of Birth</th>
                         <th>Status</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @php
-                          $i=1;
-                      @endphp
-                      @foreach ($casts as $cast)
+                      @foreach ($casts as $key => $cast)
                         <tr>
-                          <th scope="row">{{$i++}}</th>
+                          <th scope="row">{{$casts->firstItem() + $key}}</th>
                           <td>{{$cast->name}}</td>
                           <td>
-                                <img src="{{asset('storage/'.$cast->photo)}}" alt="Photo" width="80" height="80" class="mr-3">
+                                <img src="{{asset('storage/'.$cast->photo)}}" alt="Photo" width="70" height="100" class="mr-3">
                           </td>
                           <td>{{$cast->gender}}</td>
                           <td>{{Carbon\Carbon::parse($cast->dob)->format('d/m/Y')}}</td>
-                          <td>{{$cast->pob}}</td>
                           <td>{{$cast->status}}</td>
                           <td>
                                 <a href="{{route('cast.edit', $cast->id)}}" type="button" class="btn btn-warning mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
@@ -65,7 +60,23 @@
                         </tr>
                       @endforeach
                     </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Photo</th>
+                        <th>Gender</th>
+                        <th>Date Of Birth</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </tfoot>
                   </table>
+
+                  <div class="d-flex justify-content-center mt-4">
+                    {{ $casts->links() }}
+                  </div>
+                  
                 </div>
               </div>
             </div>
@@ -108,6 +119,9 @@
         $('#deleteModalForm').attr('action',id);
         $('#deleteModal').modal('show');
       })
+
+      $('#dataTable').DataTable();
+
     })
   </script>
 @endsection

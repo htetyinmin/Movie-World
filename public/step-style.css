@@ -25,22 +25,24 @@
     position: relative; }
     .steps ul:before {
       content: "1";
-      font-size: 40px;}
+      font-size: 30px;}
     .steps ul:after {
       content: "/ 3";
-      font-size: 15px;
+      font-size: 26px;
       position: absolute;
-      left: 16px;
+      left: 65px;
       top: 13px;
-      width: 22px; }
+      width: 38px; }
     .steps ul.step-2:before {
-      content: "2"; }
+      content: "2";
+      font-size: 30px; }
     .steps ul.step-2:after {
-      left: 31px; }
+      left: 65px; }
     .steps ul.step-3:before {
-      content: "3"; }
+      content: "3";
+      font-size: 30px; }
     .steps ul.step-3:after {
-      left: 31px; }
+      left: 65px; }
 
 
 
@@ -163,7 +165,7 @@
 
 @media (max-width: 767px) {
   body {
-    background: none;
+    /* background: none; */
     height: auto;
     display: block; }
 

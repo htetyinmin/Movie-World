@@ -25,7 +25,7 @@
                       </div>
                       <div class="mb-3">
                             <span class="mr-3"><i class="fa fa-user mr-1" aria-hidden="true"></i> {{$cast->gender}} </span>
-                            <span class="mr-3"><i class="fa fa-birthday-cake mr-1" aria-hidden="true"></i> {{$cast->dob}} </span>
+                            <span class="mr-3"><i class="fa fa-birthday-cake mr-1" aria-hidden="true"></i> {{Carbon\Carbon::parse($cast->dob)->format('d M Y')}} </span>
                             <span class="mr-3"><i class="fa fa-film mr-1" aria-hidden="true"></i> {{$cast->status}} </span>
                             <span class="mr-3"><i class="fa fa-globe mr-1" aria-hidden="true"></i> {{$cast->pob}} </span>
                       </div>
@@ -73,6 +73,34 @@
             <!-- Container End -->
             </section>
 
+          </div>
+
+          <hr>
+
+          <div class="row">
+            <!-- Start Related Photo Section -->
+            <section class="mb-2">
+              <div class="container-fluid">
+                  <div class="row">
+                      <div class="col-lg-12 mb-2">
+                          <h2 class="block-title">Movie</h2>
+                      </div>
+                      <!-- Col End -->
+                  </div>
+                  <!-- Row End -->
+                  <div class="row">
+                    @foreach ($cast->movies as $movie)
+                        <div class="col-lg-3 col-md-6 py-2">
+                          <a class="image-link" href="{{asset('storage/'.$movie->photo)}}">
+                            <img alt="" class="img-fluid" src="{{asset('storage/'.$movie->photo)}}">
+                          </a>
+                            <h5 class="pt-1 text-center">{{$movie->name}}</h5>
+                        </div>
+                      @endforeach
+                  </div>
+              </div>
+            <!-- Container End -->
+            </section>
           </div>
         </div>
       </section>

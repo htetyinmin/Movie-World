@@ -13,8 +13,8 @@
       <div class="d-flex bd-highlight">
             <div class="container-fluid">
               <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Movie      </li>
+                <li class="breadcrumb-item"><a href="{{route('movie.index')}}">Home</a></li>
+                <li class="breadcrumb-item active">Movie</li>
               </ul>
             </div>
             <div class="p-4 flex-shrink-1 bd-highlight">
@@ -36,26 +36,19 @@
                         <th>Title</th>
                         <th>Cover</th>
                         <th>Year</th>
-                        <th>Language</th>
-                        <th>Duration</th>
                         <th>Status</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @php
-                          $i=1;
-                      @endphp
-                      @foreach ($movies as $movie)
+                      @foreach ($movies as $key => $movie)
                         <tr>
-                          <th scope="row">{{$i++}}</th>
+                          <th scope="row">{{$movies->firstItem() + $key}}</th>
                           <td>{{$movie->name}}</td>
                           <td>
                                 <img src="{{asset('storage/'.$movie->photo)}}" alt="Photo" width="70" height="100" class="mr-3">
                           </td>
                           <td>{{$movie->year}}</td>
-                          <td>{{$movie->language}}</td>
-                          <td>{{$movie->duration}}</td>
                           <td>{{$movie->status}}</td>
                           <td>
                                 <a href="{{route('movie.edit', $movie->id)}}" type="button" class="btn btn-warning mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
@@ -65,7 +58,20 @@
                         </tr>
                       @endforeach
                     </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Cover</th>
+                        <th>Year</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </tfoot>
                   </table>
+                  <div class="d-flex justify-content-center mt-4">
+                    {{ $movies->links() }}
+                  </div>
                 </div>
               </div>
             </div>

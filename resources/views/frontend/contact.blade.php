@@ -49,21 +49,30 @@
                                   <div class="col-md-4">
                                       <div class="form-group">
                                           <label>Name</label>
-                                          <input class="form-control form-control-name" name="visitor_name" id="name" placeholder="" type="text" required>
+                                          <div class="form-holder">
+                                            <i class="fas fa-user"></i>
+                                            <input class="form-control form-control-name" name="visitor_name" id="name" placeholder="" type="text" required>
+                                          </div>
                                       </div>
                                   </div>
                                   <!-- Col End -->
                                   <div class="col-md-4">
                                       <div class="form-group">
                                           <label>Email</label>
-                                          <input class="form-control form-control-email" name="visitor_email" id="email" placeholder="" type="email" required>
+                                          <div class="form-holder">
+                                            <i class="fas fa-at"></i>
+                                            <input class="form-control form-control-email" name="visitor_email" id="email" placeholder="" type="email" required>
+                                          </div>
                                       </div>
                                   </div>
                                   <!-- Col End -->
                                   <div class="col-md-4">
                                       <div class="form-group">
                                           <label>Subject</label>
-                                          <input class="form-control form-control-title" name="email_title" id="title" placeholder="" required>
+                                          <div class="form-holder">
+                                            <i class="far fa-envelope-open"></i>
+                                            <input class="form-control form-control-title" name="email_title" id="title" placeholder="" required>
+                                          </div>
                                       </div>
                                   </div>
                                   <!-- Col End -->

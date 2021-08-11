@@ -53,7 +53,42 @@
             <div class="transparent-block">
                 <div class="banner-caption">
                     <div class="position-relative mb-4">
-                        <a href="watch-movie.html" class="d-flex align-items-center">
+                        {{-- @foreach ($playmovies as $playmovie) --}}
+                            
+    <a class="d-flex align-items-center" tabindex="0"
+    
+        <?php 
+            if (Auth::user()) {
+                $route = route('watchmovie', $movie->id);
+
+                if($status == 0){
+                    echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+                }else{
+                    if($movie->status == "Premium"){
+
+                        if ($authuser_package > 1 ) {
+                            echo "href=$route";
+                        }
+                        else{
+                            echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                        }
+                    }
+
+                    else {
+                        echo "href=$route";
+                    }
+
+                    
+                }
+            }
+            else{
+                $route = route('login');
+                echo "href=$route";
+            }
+        ?>
+
+    >
+                        {{-- <a href="watch-movie.html" class="d-flex align-items-center"> --}}
                             <div class="play-icon">
                                 <div class="circle pulse"></div>
                                 <div class="circle">
@@ -64,6 +99,8 @@
                             </div>
                             <h2 class="banner-name text-white font-weight-700">{{$movie->name}}</h2>
                         </a>
+
+                        
                     </div>
                 </div>
                 <!-- Banner Caption End -->
@@ -118,8 +155,8 @@
                             <span><i class="icofont-clock-time mr-2" aria-hidden="true"></i> {{$movie->duration}} </span>
                             <span><i class="icofont-simple-smile mr-2" aria-hidden="true"></i> {{$movie->year}} </span>
                             <span><i class="icofont-world mr-2" aria-hidden="true"></i> {{$movie->language}} </span>
-                            <span><i class="icofont-movie mr-2" aria-hidden="true"></i> Genres -  @foreach ($movie->genres as $genre)
-                                {{$genre->name}}
+                            <span><i class="fa fa-film mr-2" aria-hidden="true"></i> @foreach ($movie->genres as $genre)
+                                {{$genre->name}}@if (!$loop->last),@endif
                             @endforeach
                             </span>
                         </div>
@@ -131,18 +168,17 @@
                         <!-- Details Desc -->
                         <div class="movie-persons mb-4">
                             <div class="person-block">
-                                <h5 class="title">Genre</h5>
-                                @foreach($movie->genres as $genre)
-                                    <a href="" class="mr-3"><i class="icofont-movie mr-2" aria-hidden="true"></i> {{ $genre->name }}</a>
+                                <h5 class="title">Director</h5>
+                                @foreach ($movie->casts->where('status', 'Director') as $director)
+                                    <a href="{{route('castdetail', $director->id)}}" class="mr-3">{{$director->name}}</a>
                                 @endforeach
-
                             </div>
                             <!-- Person Block -->
                             <div class="person-block">
                                 <h5 class="title">Cast</h5>
 
-                                <span>@foreach ($movie->casts as $cast)
-                                    <a href="{{route('castdetail', $cast->id)}}">{{$cast->name}}</a>
+                                <span>@foreach ($movie->casts->whereNotIn('status', 'Director') as $cast)
+                                    <a href="{{route('castdetail', $cast->id)}}">{{$cast->name}}@if (!$loop->last),@endif</a>
                                 @endforeach</span>
                             </div>
                             <!-- Person Block -->
@@ -153,7 +189,37 @@
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
                                     @if($movie->video)
 
-                                        <a @if(Auth::user()) href="{{route('watchmovie', $movie->id)}}" @else href="route('login')" @endif  class="btn d-block hvr-sweep-to-right" tabindex="0">
+    <a class="btn d-block hvr-sweep-to-right" tabindex="0"
+        <?php 
+            if (Auth::user()) {
+                $route = route('watchmovie', $movie->id);
+
+                if($status == 0){
+                    echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+                }else{
+                    if($movie->status == "Premium"){
+
+                        if ($authuser_package > 1 ) {
+                            echo "href=$route";
+                        }
+                        else{
+                            echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                        }
+                    }
+
+                    else {
+                        echo "href=$route";
+                    }
+
+                    
+                }
+            }
+            else{
+                $route = route('login');
+                echo "href=$route";
+            }
+        ?>
+    >
                                             <i class="icofont-ui-play mr-2" aria-hidden="true"></i>Play
                                         </a>
                                     @endif
@@ -292,11 +358,11 @@
 
                 @foreach($images as $key => $image)
 
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+                <div class="">
                     <div class="gallery-block">
                         <div class="video-thumb position-relative thumb-overlay">
                             <a class="image-link" href="{{asset('storage/'.$image)}}">
-                                <img class="img-fluid" src="{{asset('storage/'.$image)}}" alt="">
+                                <img class="p-2 my-img" src="{{asset('storage/'.$image)}}" alt="">
                             </a>
                         </div>
                     </div>
@@ -319,10 +385,10 @@
                 @foreach($movie->casts as $cast)
                 <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 gallery">
                     <div class="gallery-wrap">
-                            <img src="{{asset('storage/'.$cast->photo)}}" class="img-fluid" alt="">
+                            <img src="{{asset('storage/'.$cast->photo)}}" class="my-img" alt="CastPhoto">
                         <div class="gallery-info">
                             <div class="gallery-links">
-                                <a class="image-link" href="{{asset('storage/'.$cast->photo)}}"><h4> {{ $cast->name }} </h4>
+                                <a href="{{route('castdetail', $cast->id)}}"><h6 class="my-a"> {{ $cast->name }} </h6>
                                 </a>
 
                             </div>

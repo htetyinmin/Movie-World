@@ -36,7 +36,7 @@
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         {{ $errors }}
                         <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                        }
+                    
                     </div>
                     @endif
                         <input type="hidden" name="planid" id="planid">
@@ -189,6 +189,6 @@
 
 @section('script')
 
-      <script type='text/javascript'>document.addEventListener('DOMContentLoaded', function () {window.setTimeout(document.querySelector('svg').classList.add('animated'),1000);})</script>f
+      <script type='text/javascript'>document.addEventListener('DOMContentLoaded', function () {window.setTimeout(document.querySelector('svg').classList.add('animated'),1000);})</script>
 
 @endsection

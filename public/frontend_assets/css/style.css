@@ -449,7 +449,7 @@ ul.list-check li:before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 75%;
     height: 100%;
     background: linear-gradient(90deg, rgb(39 40 41) 0%, rgb(39 40 41) 35%, rgba(83, 100, 141, 0) 100%);
     z-index: 1;
@@ -914,6 +914,9 @@ ul.list-check li:before {
 .details-desc p {
     margin: 32px 0;
     width: 100%;
+    color: #a3a3a3;
+    font-size: 16px;
+    text-align: justify;
 }
 
 .movie-persons {
@@ -1126,8 +1129,8 @@ video {
 
 .filter-accordion .btn {
     width: 100%;
-    font-weight: bold;
-    color: #004987;
+    /* font-weight: bold; */
+    color: #fff;
 }
 
 .filter-accordion .btn-link:hover,
@@ -1553,7 +1556,7 @@ ul.navbar-nav > li.active a::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 90%;
+    width: 70%;
     height: 100%;
     background: linear-gradient(90deg, rgb(39 40 41) 0%, rgb(39 40 41) 35%, rgba(83, 100, 141, 0) 100%);
     z-index: -1;
@@ -1564,7 +1567,7 @@ ul.navbar-nav > li.active a::before {
 .main-slider h1 {
     margin: 30px 0;
     font-weight: 700;
-    font-size: 70px;
+    font-size: 55px;
     color: #ffffff;
     z-index: 9;
     text-transform: uppercase;
@@ -1672,6 +1675,15 @@ ul.navbar-nav > li.active a::before {
     top: 40%;
     left: 0;
     width: 75%;
+    padding-left: 5%;
+    color: #fff;
+}
+
+.my-content {
+    position: absolute;
+    bottom: 3%;
+    left: 0;
+    width: 100%;
     padding-left: 5%;
     color: #fff;
 }

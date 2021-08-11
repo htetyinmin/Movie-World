@@ -119,7 +119,7 @@
                     <div class="col-12" >
 
                         {{-- <iframe width="700" height="500" src="https://www.youtube.com/embed/07d2dXHYb94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
-                        <video src="{{asset('storage/'.$movie->video)}}" style="border: 2px solid #000000; border-radius: 3px;" controls></video>
+                        <video src="{{asset('storage/'.$movie->video)}}" width="700" height="500" style="border: 2px solid #000000; border-radius: 3px;" controls></video>
                     </div>
 
                   </div>

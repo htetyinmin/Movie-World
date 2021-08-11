@@ -7,7 +7,8 @@ use App\Cast;
 use App\Genre;
 use App\Package;
 use App\Moviedownload;
-
+use App\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Auth;
@@ -18,8 +19,8 @@ class PageController extends Controller
 
         $now = Carbon::now();
         $currentyear = $now->year;
-
         $movies = Movie::all();
+        $noti_movies = Movie::latest()->take(3)->get();
         $genres = Genre::all();
         $newmovies = Movie::latest()->take(3)->get();
 
@@ -30,54 +31,94 @@ class PageController extends Controller
 
         $trendingmovies = Movie::all()->random(6);
 
-        return view('frontend.index', compact('movies', 'genres', 'newmovies', 'newfreemovies', 'newpremiummovies', 'currentyearmovies', 'trendingmovies'));
+        return view('frontend.index', compact('movies','noti_movies', 'genres', 'newmovies', 'newfreemovies', 'newpremiummovies', 'currentyearmovies', 'trendingmovies'));
 
     }
 
     public function movielist(){
-        $movies = Movie::all();
+        $movies = Movie::paginate(10);
         $genres = Genre::all();
-        return view('frontend.movielist', compact('movies', 'genres') );
+        $lastmovies = Movie::latest()->take(10)->get();
+        $noti_movies = Movie::latest()->take(3)->get();
+        return view('frontend.movielist', compact('movies', 'genres', 'lastmovies', 'noti_movies') );
     }
 
-    public function genrelist(){
-        $movies = Movie::all();
+    public function genrelist($id){
+        $noti_movies = Movie::latest()->take(3)->get();
         $genres = Genre::all();
-        return view('frontend.genrelist', compact('movies', 'genres') );
+        $genre = Genre::where('id', $id)->get();
+        return view('frontend.genrelist', compact('noti_movies', 'genres', 'genre') );
     }
 
     public function about(){
         $genres = Genre::all();
-        return view('frontend.about', compact('genres'));
+        $movies = Movie::all();
+        $noti_movies = Movie::latest()->take(3)->get();
+        return view('frontend.about', compact('genres', 'movies', 'noti_movies'));
     }
 
     public function contact(){
         $genres = Genre::all();
-        return view('frontend.contact', compact('genres'));
+        $movies = Movie::all();
+        $noti_movies = Movie::latest()->take(3)->get();
+        return view('frontend.contact', compact('genres', 'movies', 'noti_movies'));
+    }
+
+    public function term(){
+        $genres = Genre::all();
+        $movies = Movie::all();
+        $noti_movies = Movie::latest()->take(3)->get();
+        return view('frontend.term', compact('genres', 'movies', 'noti_movies'));
+    }
+
+    public function help(){
+        $genres = Genre::all();
+        $movies = Movie::all();
+        $noti_movies = Movie::latest()->take(3)->get();
+        return view('frontend.help', compact('genres', 'movies', 'noti_movies'));
+    }
+
+    public function privacy(){
+        $genres = Genre::all();
+        $movies = Movie::all();
+        $noti_movies = Movie::latest()->take(3)->get();
+        return view('frontend.privacy', compact('genres', 'movies', 'noti_movies'));
+    }
+
+    public function userdetail(){
+        // $users = User::where('id', $id)->get();
+        // dd($users);
+        $genres = Genre::all();
+        $noti_movies = Movie::latest()->take(3)->get();
+        return view('frontend.userdetail', compact('genres', 'noti_movies'));
     }
 
     public function register(){
         $genres = Genre::all();
-        return view('frontend.register', compact('genres'));
+        $noti_movies = Movie::latest()->take(3)->get();
+        return view('frontend.register', compact('genres', 'noti_movies'));
     }
 
     public function pricing(){
         $packages = Package::all();
         $genres = Genre::all();
-        return view('frontend.pricing', compact('packages','genres'));
+        $noti_movies = Movie::latest()->take(3)->get();
+        return view('frontend.pricing', compact('packages', 'genres', 'noti_movies'));
     }
 
     public function watchmovie($id){
+        $genres = Genre::all();
         $movie = Movie::find($id);
-
-        return view('frontend.watchmovie',compact('movie'));
+        $noti_movies = Movie::latest()->take(3)->get();
+        return view('frontend.watchmovie',compact('genres', 'movie', 'noti_movies'));
     }
 
     public function moviedetail($id){
         $genres = Genre::all();
         $casts = Cast::all();
         $movie = Movie::find($id);
-        return view('frontend.moviedetail', compact('genres', 'casts', 'movie'));
+        $noti_movies = Movie::latest()->take(3)->get();
+        return view('frontend.moviedetail', compact('genres', 'casts', 'movie', 'noti_movies'));
     }
 
     public function downloadmovie($id){
@@ -101,22 +142,58 @@ class PageController extends Controller
             $movie = Movie::find($id);
             $download =  public_path(). '/storage/' .$movie->video;
             return response()->download($download);
+            
         $movies = Movie::where('id', $id)->get();
+        $noti_movies = Movie::latest()->take(3)->get();
         // $gallery = Movie::all();
         // dd($gallery);
         $gallerys = json_decode($movies[0]->gallery);
-        $cast_gallerys = json_decode($casts[0]->gallery);
+        // $cast_gallerys = json_decode($casts[0]->gallery);
         // dd($cast_gallerys);
         // $covers = json_decode($movies[0]->gallery[1]);
         // dd($covers);
-        return view('frontend.moviedetail', compact('genres', 'casts', 'movies', 'gallerys', 'cast_gallerys'));
+        return view('frontend.moviedetail', compact('genres', 'casts', 'movies', 'noti_movies', 'gallerys', 'cast_gallerys'));
     }
 
     public function castdetail($id){
         $genres = Genre::all();
         $casts = Cast::where('id', $id)->get();
-        $movies = Movie::all();
+        $cast = Cast::find($id);
+        $noti_movies = Movie::latest()->take(3)->get();
+        // dd($cast);
+        // $movies = Movie::all();
+        // $cast_movies = Movie::where('id', $movies->casts->id)->get();
+        
         $gallerys = json_decode($casts[0]->gallery);
-        return view('frontend.castdetail', compact('genres', 'casts', 'movies', 'gallerys'));
+        return view('frontend.castdetail', compact('genres', 'casts', 'cast', 'gallerys', 'noti_movies'));
+    }
+
+    public function dashboard(){
+        return view('backend.dashboard.index');
+    }
+
+    public function user(){
+        $noti_movies = Movie::latest()->take(3)->get();
+        $genres = Genre::all();
+        $users = User::all();
+        return view('backend.user.index', compact('noti_movies', 'genres', 'users'));
+    }
+
+    public function search(Request $request){
+        if($request->ajax()){
+            $query = $request->searchdata;
+
+
+            $data=DB::table('movies')->where('name','like','%'.$query.'%')
+                    ->orWhere('overview','like','%'.$query.'%')
+                    ->get();
+
+            return response()->json($data);
+        }
+        $search = $_GET['search'];
+        $genres = Genre::all();
+        $noti_movies = Movie::latest()->take(3)->get();
+        $movies = Movie::where('name', 'like', '%'.$search.'%')->get();
+        return view('frontend.search', compact('genres', 'noti_movies', 'movies') );
     }
 }

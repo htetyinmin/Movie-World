@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{asset('backend-assets/css/style.default.css')}}" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{{asset('backend-assets/css/custom.css')}}">
+    <link rel="stylesheet" href="{{asset('backend-assets/datatables/dataTables.bootstrap4.css')}}">
     <!-- Favicon-->
     <link rel="shortcut icon" href="{{asset('backend-assets/img/favicon.png')}}">
     <!-- Owl Carousel Styles -->
@@ -52,7 +53,7 @@
         </div>
         <div class="container-fluid d-flex align-items-center justify-content-between">
           <div class="navbar-header">
-            <!-- Navbar Header--><a href="index.html" class="navbar-brand">
+            <!-- Navbar Header--><a href="{{route('genre.index')}}" class="navbar-brand">
               <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">Movie</strong><strong>World</strong></div>
               <div class="brand-text brand-sm"><strong class="text-primary">M</strong><strong>W</strong></div></a>
             <!-- Sidebar Toggle Btn-->
@@ -135,14 +136,14 @@
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Data Management</span>
         <ul class="list-unstyled" id="my-list">
-                <li class=""><a href="index.html"> <i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard </a></li>
+                <li class="" id="dashboard"><a href="{{route('dashboard')}}"> <i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard </a></li>
                 <li class="" id="genre"><a href="{{route('genre.index')}}"> <i class="icon-grid"></i>Genres </a></li>
                 <li class="" id="cast"><a href="{{route('cast.index')}}"> <i class="fa fa-video-camera" aria-hidden="true"></i> Casts </a></li>
                 <li class="" id="movie"><a href="{{route('movie.index')}}"> <i class="fa fa-film" aria-hidden="true"></i> Movies Data </a></li>
                 <li class="" id="package"><a href="{{route('package.index')}}"> <i class="fa fa-archive" aria-hidden="true"></i> Packages </a></li>
         </ul><span class="heading">User Management</span>
         <ul class="list-unstyled">
-          <li class="" id="user"><a href="forms.html"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Users </a></li>
+          <li class="" id="user"><a href="{{route('user')}}"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Users </a></li>
           {{-- <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li> --}}
         </ul>
       </nav>
@@ -167,6 +168,7 @@
     <script src="{{asset('backend-assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('backend-assets/vendor/jquery.cookie/jquery.cookie.js')}}"> </script>
     <script src="{{asset('backend-assets/vendor/chart.js/Chart.min.js')}}"></script>
+    <script src="{{asset('backend-assets/js/charts-custom.js')}}"></script>
     <script src="{{asset('backend-assets/vendor/jquery-validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('backend-assets/js/charts-home.js')}}"></script>
     <script src="{{asset('backend-assets/js/front.js')}}"></script>
@@ -174,6 +176,9 @@
     <script src="{{asset('frontend_assets/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('multipleimageupload/image-uploader.min.js')}}"></script>
     <script src="{{asset('frontend_assets/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('frontend_assets/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('frontend_assets/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('frontend_assets/demo/datables-demo.js')}}"></script>
     @yield('script')
   </body>
 </html>

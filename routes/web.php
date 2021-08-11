@@ -26,9 +26,14 @@ Route::post('logout','AuthController@logout')->name('logout');
 
 Route::get('/', 'PageController@index')->name('index');
 Route::get('/movielist', 'PageController@movielist')->name('movielist');
-Route::get('/genrelist', 'PageController@genrelist')->name('genrelist');
+Route::get('/genrelist/{id}', 'PageController@genrelist')->name('genrelist');
 Route::get('/about', 'PageController@about')->name('about');
 Route::get('/contact', 'PageController@contact')->name('contact');
+Route::get('/term', 'PageController@term')->name('term');
+Route::get('/privacy', 'PageController@privacy')->name('privacy');
+Route::get('/userdetail', 'PageController@userdetail')->name('userdetail');
+Route::get('/help', 'PageController@help')->name('help');
+Route::get('/search', 'PageController@search')->name('search');
 
 Route::get('/castdetail/{id}', 'PageController@castdetail')->name('castdetail');
 // Route::get('/login', 'PageController@login')->name('login');
@@ -53,6 +58,8 @@ Route::resource('cast', 'CastController');
 Route::resource('movie', 'MovieController');
 Route::resource('package', 'PackageController');
 
+Route::get('/user', 'PageController@user')->name('user');
+Route::get('/dashboard', 'PageController@dashboard')->name('dashboard');
 
 // Auth::routes();
 

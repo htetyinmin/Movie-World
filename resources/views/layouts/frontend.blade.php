@@ -4,10 +4,12 @@
 <head>
     <!-- Basic Page -->
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <!-- Mobile Specific -->
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
     <!-- Favicon -->
     <link href="{{asset('frontend_assets/images/favicon.png')}}" rel="shortcut icon" type="image/x-icon">
     <link href="{{asset('frontend_assets/images/favicon.png')}}" rel="icon" type="image/x-icon">
@@ -74,7 +76,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="mobile-logo text-center">
-                                <a href="index.html"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/mov.png')}}"></a>
+                                <a href="{{url('/')}}"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/mov.png')}}"></a>
                             </div>
                         </div>
                         <!-- Logo Col End -->
@@ -94,7 +96,7 @@
                     <div class="col-lg-9 pl-0">
                         <!-- Start Navigation -->
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index.html"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/mov.png')}}"></a>
+                            <a class="navbar-brand" href="{{url('/')}}"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/mov.png')}}"></a>
                             <!-- Logo End -->
                             <div class="site-nav-inner float-left">
                                 <button aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button"><span class="fa fa-bars"></span></button> <!-- Navbar Toggler End -->
@@ -111,9 +113,10 @@
                                         <li class="nav-item dropdown">
                                             <a class="nav-link menu-dropdown" data-toggle="dropdown" href="#"> Genre <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu fade-up" role="menu">
-                                                @foreach ($common[0] as $genre)
+                                                @foreach ($genres as $genre)
+                                                {{-- {{$genre->id}} --}}
                                                 <li>
-                                                    <a class="dropdown-item" href="#">{{$genre->name}}</a>
+                                                    <a class="dropdown-item" href="{{route('genrelist', $genre->id)}}">{{$genre->name}}</a>
                                                 </li>
                                                 @endforeach
                                             </ul>
@@ -146,45 +149,20 @@
                                 <div class="nav-notification">
                                     <a class="nav-link menu-dropdown" data-toggle="dropdown" href="#"><i class="icofont-notification"></i></a>
                                     <ul class="dropdown-menu dropdown-menu-right fade-up" role="menu">
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                <div class="notification-card media">
-                                                    <div class="notification-thumb"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/notify/thumb-1.jpg')}}"></div>
-                                                    <!-- Notification thumb end -->
-                                                    <div class="notification-content media-body">
-                                                        <h2 class="notification-title">Iron Door</h2><span class="date"><i class="far fa-clock"></i> 1 min ago</span>
-                                                    </div>
-                                                    <!-- Notification Content end -->
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <!-- Li 1 end -->
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                <div class="notification-card media">
-                                                    <div class="notification-thumb"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/notify/thumb-2.jpg')}}"></div>
-                                                    <!-- Notification thumb end -->
-                                                    <div class="notification-content media-body">
-                                                        <h2 class="notification-title">The Earth</h2><span class="date"><i class="far fa-clock"></i> 3 min ago</span>
-                                                    </div>
-                                                    <!-- Notification Content end -->
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <!-- Li 2 end -->
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                <div class="notification-card media">
-                                                    <div class="notification-thumb"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/notify/thumb-3.jpg')}}"></div>
-                                                    <!-- Notification thumb end -->
-                                                    <div class="notification-content media-body">
-                                                        <h2 class="notification-title">City Dreams</h2><span class="date"><i class="far fa-clock"></i> 10 min ago</span>
-                                                    </div>
-                                                    <!-- Notification Content end -->
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <!-- Li 3 end -->
+                                      @foreach ($noti_movies as $movie)
+                                      <li>
+                                          <a class="dropdown-item" href="{{route('moviedetail', $movie->id)}}">
+                                              <div class="notification-card media">
+                                                  <div class="notification-thumb"><img alt="" class="img-fluid" src="{{asset('storage/'.$movie->photo)}}"></div>
+                                                  <!-- Notification thumb end -->
+                                                  <div class="notification-content media-body">
+                                                      <h2 class="notification-title">{{$movie->name}}</h2><span class="date"><i class="far fa-clock"></i> {{$movie->updated_at}}</span>
+                                                  </div>
+                                                  <!-- Notification Content end -->
+                                              </div>
+                                          </a>
+                                      </li> 
+                                      @endforeach
                                     </ul>
                                     <!-- Notification List End -->
                                 </div>
@@ -204,14 +182,20 @@
                             <li class="nav-item">
                                 <div class="nav-account ml-2">
                                     <div class="dropdown">
-                                        <div aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" id="dropdown-account" role="button"><img alt="" class="img-fluid user-icon rounded-circle" src="{{asset('frontend_assets/images/avatar/user.jpg')}}"></div>
+                                        <div aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" id="dropdown-account" role="button">
+                                            @if (Auth::user())
+                                            <img alt="" class="img-fluid user-icon rounded-circle" src="{{asset('frontend_assets/images/avatar/user.jpg')}}"> 
+                                            @else
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            @endif
+                                        </div>
                                         <ul class="dropdown-menu dropdown-menu-right fade-up">
                                             @if (Auth::user())
                                             <li>
-                                                <a href="" class="dropdown-item"><i class="fa fa-user mr-3"></i>{{ Auth::user()->name }}</a>
+                                                <a href="{{url('userdetail')}}" class="dropdown-item"><i class="fa fa-user mr-3"></i>{{ Auth::user()->name }}</a>
                                             </li>
                                             <li>
-                                                <a href="" class="dropdown-item"><i class="fa fa-cogs mr-3"></i>Account Settings</a>
+                                                <a href="#" class="dropdown-item"><i class="fa fa-cogs mr-3"></i>Account Settings</a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -311,7 +295,7 @@
                                             <a href="{{url('/contact')}}">Contact</a>
                                         </li>
                                         <li>
-                                            <a href="#">Help Center</a>
+                                            <a href="{{url('/help')}}">Help Center</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -357,14 +341,14 @@
                                 <div class="widget-content footer-menu">
                                     <ul class="f-link list-unstyled mb-0">
                                         <li>
-                                            <a href="#">Privacy Policy (Updated)</a>
+                                            <a href="{{url('/privacy')}}">Privacy Policy</a>
                                         </li>
                                         <li>
-                                            <a href="#">Terms of use</a>
+                                            <a href="{{url('/term')}}">Terms of use</a>
                                         </li>
-                                        {{-- <li>
-                                            <a href="#">720p BluRay</a>
-                                        </li> --}}
+                                        <li>
+                                            <a href="#">Download Now</a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <!-- Widget Content End -->
@@ -434,11 +418,16 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="search-panel">
-                    <form class="search-group">
+                    <form class="search-group" action="{{route('search')}}" method="get">
                         <div class="input-group">
-                            <input class="form-control" name="s" placeholder="Search" type="search" value=""> <button class="input-group-btn search-button"><i class="fas fa-search"></i></button>
+                            <input id="search" class="form-control" name="search" placeholder="Search..." type="search" size="10" value="">
                         </div>
                     </form>
+                    <div class="container">
+                        <ul class="list-group list-group-flush" id="search-output">
+                            
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -902,6 +891,36 @@
     <script>
         $("[data-toggle=popover]").popover();
         $('[data-toggle="tooltip"]').tooltip();
+
+        // SEARCH
+        $('#search').on('keyup', function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+          var search_data =$(this).val();
+          if(search_data.length>0){
+            $.ajax({
+                url: "/search",
+                method:"GET",
+                data:{
+                    searchdata:search_data
+                },
+                success: function(res){
+                    console.log(res);
+                    var search_html ="";
+                    $.each(res,function(i,v){
+
+                        var detailUrl ="moviedetail/"+v.id;
+                        // console.log(detailUrl);
+                        search_html+=`<li class="list-group-item"><a href="${detailUrl}"><img src="../storage/${v.photo}" width="100" class="pr-3">${v.name}</a></li>`;
+                   });
+                   $('#search-output').html(search_html);
+                }
+            });
+          }
+      });
     </script>
     @yield('script')
 

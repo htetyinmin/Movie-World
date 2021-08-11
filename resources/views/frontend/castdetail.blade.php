@@ -68,41 +68,13 @@
                         <div class="details-buttons">
                             <div class="row d-flex align-items-center">
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
-                                    <a href="watch-movie.html" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-ui-play mr-2" aria-hidden="true"></i>Play</a>
+                                    <a href="#" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-star mr-2" aria-hidden="true"></i>150</a>
                                 </div>
                                 <!-- Col End -->
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
-                                    <a href="watch-movie.html" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-plus mr-2" aria-hidden="true"></i>MY List</a>
+                                    <a href="#" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-film mr-2" aria-hidden="true"></i>300</a>
                                 </div>
                                 <!-- Col End -->
-                                <div class="col-6 col-xl mb-xl-0 mb-3">
-                                    <a id="trailer" class="btn d-block hvr-sweep-to-right" tabindex="0" data-toggle="modal" data-target="#trailer-modal" aria-hidden="true"><i class="icofont-ui-movie mr-2" aria-hidden="true"></i>Trailer</a>
-                                    <!-- Modal Trailer -->
-                                    <div class="modal fade" id="trailer-modal" tabindex="0" role="dialog" aria-labelledby="trailer-modal" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg" role="document" id="trailerModal">
-                                            <!-- Modal Content -->
-                                            <div class="modal-content">
-                                                <!-- modal header -->
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Trailer</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                                                    </button>
-                                                </div>
-                                                <!-- Modal Body -->
-                                                <div class="modal-body">
-                                                    <video class="video d-block" controls="" loop="">
-                                                        <source src="video/01-video.mp4" type="video/mp4">
-                                                    </video>
-                                                </div>
-                                                <!-- Modal Body -->
-                                            </div>
-                                            <!-- Modal Content -->
-                                        </div>
-                                        <!-- Modal Dialog -->
-                                    </div>
-                                    <!-- Modal Trailer -->
-                                </div>
                                 <!-- Col End -->
                                 <div class="col-6 col-xl mb-xl-0">
                                     <a id="share" class="btn hvr-sweep-to-right d-block" tabindex="0" data-toggle="modal" data-target="#share-modal">
@@ -176,6 +148,92 @@
                 
             </div> 
         </div>
+    </section>
+
+    <section class="pupular">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="block-title"> Movies by {{$cast->name}} </h2>
+                    <!-- Start Pupular Slider -->
+                    <div class="owl-carousel owl-theme" id="pupular-slider">
+                        @foreach ($cast->movies as $movie)
+                            <div class="item">
+                                <div class="video-block">
+                                    <div class="video-thumb position-relative thumb-overlay">
+                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('storage/'.$movie->photo)}}"></a>
+                                        <div class="box-content">
+                                            <ul class="icon">
+                                                <li>
+                                                    <a @if(Auth::user()) href="{{route('watchmovie', $movie->id)}}" @else href="{{route('login')}}" @endif ><i class="fas fa-play"></i></a>
+
+                                                <li>
+                                                    <a href="{{route('moviedetail', $movie->id)}}"><i class="fas fa-info"></i></a>
+                                                </li>
+
+@if($movie->video)
+<li>
+<a 
+<?php 
+    if (Auth::user()) {
+        $route = route('downloadmovie', $movie->id);
+
+        if($status == 0){
+            echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+        }else{
+            if($movie->status == "Premium"){
+
+                if ($authuser_package > 1 ) {
+                    echo "href=$route";
+                }
+                else{
+                    echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                }
+            }
+
+            else {
+                echo "href=$route";
+            }
+
+            
+        }
+    }
+    else{
+        $route = route('login');
+        echo "href=$route";
+    }
+?>
+>
+<i class="fas fa-download"></i>
+</a>
+</li>
+@endif
+
+                                            </ul>
+                                        </div>
+                                        <!-- Box Content End -->
+                                    </div>
+                                    <!-- Video Thumb End -->
+                                    <div class="video-content">
+                                        <h2 class="video-title"><a href="{{route('moviedetail', $movie->id)}}">{{$movie->name}}</a></h2>
+                                        <div class="video-info d-flex align-items-center">
+                                            <span class="video-year">{{$movie->year}}</span>
+                                            <span class="video-age badge badge-pill badge-warning text-dark">{{$movie->status}}</span> 
+                                        </div>
+                                    </div>
+                                    <!-- video Content End -->
+                                </div>
+                                <!-- video Block End -->
+                            </div>
+                        @endforeach
+                    </div>
+                    <!-- Pupular Slider End -->
+                </div>
+                <!-- Col End -->
+            </div>
+            <!-- Row End -->
+        </div>
+        <!-- Container End -->
     </section>
 
 </div>

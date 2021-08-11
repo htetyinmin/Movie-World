@@ -117,4 +117,38 @@
       bottom: 15px;
       right: 15px;
     }
+
+    .my-gallery{
+      width: 400px;
+      height: auto;
+    }
+
+    .my-a:hover{
+        color: #ff0000;
+    }
     
+    .caption{
+      color: gray;
+    }
+
+    .term-content{
+      color: #fff;
+    }
+
+    .pagination > li > a,
+    .pagination > li > span {
+        background-color: #272829 !important;
+        color: #8a8d93 !important;
+        border-color: #8a8d93 !important;
+    }
+
+    .pagination > .active > a,
+    .pagination > .active > a:focus,
+    .pagination > .active > a:hover,
+    .pagination > .active > span,
+    .pagination > .active > span:focus,
+    .pagination > .active > span:hover {
+        background-color: #ff0000 !important;
+        border-color: #ff0000 !important;
+        color: #fff !important;
+    }

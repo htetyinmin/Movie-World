@@ -11,7 +11,7 @@
       <div class="d-flex bd-highlight">
             <div class="container-fluid">
               <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{route('movie.index')}}">Home</a></li>
                 <li class="breadcrumb-item active">Movie Data</li>
               </ul>
             </div>

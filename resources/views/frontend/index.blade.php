@@ -18,6 +18,7 @@
         $status = 1;
 
 
+
         if ($authuser_package == 2) {
             $expiredate = Carbon\Carbon::parse($installmentdate)->addMonths(1);
             $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
@@ -44,9 +45,14 @@
 <!-- Start Main Slider -->
 <div class="main-slider" id="main-slider">
     <div class="slider big-slider slider-wrap">
+        
         @foreach ($newmovies as $key => $newmovie)
 
-        <div class="slide slick-bg bg-{{ $newmovie->id }}" style="background-image: url({{asset('storage/'.$newmovie->photo)}});">
+        @php 
+            $images = json_decode($newmovie->gallery)
+        @endphp
+        
+        <div class="slide slick-bg bg-{{ $newmovie->id }}" style="background-image: url({{asset('storage/'.$images[0])}});">
             <div class="container-fluid position-relative h-100">
                 <div class="slider-content h-100">
                     <div class="row align-items-center h-100">
@@ -58,7 +64,39 @@
                             </div>
                             <p data-animation-in="fadeInUp" data-delay-in="1">{{$newmovie->overview}}</p>
                             <div class="slider-buttons d-flex align-items-center" data-animation-in="fadeInUp" data-delay-in="1">
-                                <a class="btn hvr-sweep-to-right" @if(Auth::user()) href="{{route('watchmovie', $newmovie->id)}}" @else href="route('login')" @endif tabindex="0">
+                                <a class="btn hvr-sweep-to-right"
+                                
+    <?php 
+        if (Auth::user()) {
+            $route = route('watchmovie', $newmovie->id);
+
+            if($status == 0){
+                echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+            }else{
+                if($newmovie->status == "Premium"){
+
+                    if ($authuser_package > 1 ) {
+                        echo "href=$route";
+                    }
+                    else{
+                        echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                    }
+                }
+
+                else {
+                    echo "href=$route";
+                }
+
+                
+            }
+        }
+        else{
+            $route = route('login');
+            echo "href=$route";
+        }
+    ?>
+                                
+                                tabindex="0">
                                     <i aria-hidden="true" class="fa fa-play mr-2"></i>Play Now
                                 </a> 
                                 <a class="btn hvr-sweep-to-right ml-3" href="{{route('moviedetail', $newmovie->id)}}" tabindex="0">
@@ -148,7 +186,7 @@
                                                         <div class="box-content">
                                                             <ul class="icon">
                                                                 <li>
-                                                                    <a @if(Auth::user()) href="{{route('watchmovie', $newfreemovie->id)}}" @else href="route('login')" @endif
+                                                                    <a @if(Auth::user()) href="{{route('watchmovie', $newfreemovie->id)}}" @else href="{{route('login')}}" @endif
                                                                     ><i class="fas fa-play"></i></a>
                                                                 </li>
                                                                 <li>
@@ -192,44 +230,74 @@
     </a>
 </li>
 @endif
-                                                            </ul>
-                                                        </div>
-                                                        <!-- Box Content End -->
-                                                    </div>
-                                                    <!-- Video Thumb End -->
-                                                    <div class="video-content">
-                                                        <h2 class="video-title"><a href="movie-single.html">{{$newfreemovie->name}}</a></h2>
-                                                        <div class="video-info d-flex align-items-center">
-                                                            <span class="video-year">{{$newfreemovie->year}}</span> <span class="video-age">{{$newfreemovie->status}}</span> 
-                                                        </div>
-                                                    </div>
-                                                    <!-- video Content End -->
-                                                </div>
-                                                <!-- video Block End -->
-                                            </div>   
-                                        @endforeach
-                                    </div>
-                                    <!-- Col End -->
-                                
-                                <!-- Row End -->
+                                </ul>
                             </div>
-                            <!-- Tap Pane 1 End -->
-                            <div id="pills-movies" class="tab-pane animated fadeInRight">
-                                <div class="row">
-                                    @foreach ($newpremiummovies as $newpremiummovie)
+                            <!-- Box Content End -->
+                        </div>
+                        <!-- Video Thumb End -->
+                        <div class="video-content">
+                            <h2 class="video-title"><a href="movie-single.html">{{$newfreemovie->name}}</a></h2>
+                            <div class="video-info d-flex align-items-center">
+                                <span class="video-year">{{$newfreemovie->year}}</span><span class="video-age badge badge-pill badge-warning text-dark">{{$newfreemovie->status}}</span>
+                            </div>
+                        </div>
+                        <!-- video Content End -->
+                    </div>
+                    <!-- video Block End -->
+                </div>   
+            @endforeach
+        </div>
+        <!-- Col End -->
+    
+    <!-- Row End -->
+</div>
+<!-- Tap Pane 1 End -->
+<div id="pills-movies" class="tab-pane animated fadeInRight">
+    <div class="row">
+        @foreach ($newpremiummovies as $newpremiummovie)
 
-                                        <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
-                                                <div class="video-block">
-                                                    <div class="video-thumb position-relative thumb-overlay">
-                                                        <a href="#"><img alt="" class="img-fluid" src="{{asset('storage/'.$newpremiummovie->photo)}}"></a>
-                                                        <div class="box-content">
-                                                            <ul class="icon">
-                                                                <li>
-                                                                    <a @if(Auth::user()) href="{{route('watchmovie', $newfreemovie->id)}}" @else href="route('login')" @endif ><i class="fas fa-play"></i></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="{{route('moviedetail', $newpremiummovie->id)}}"><i class="fas fa-info"></i></a>
-                                                                </li>
+            <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+                    <div class="video-block">
+                        <div class="video-thumb position-relative thumb-overlay">
+                            <a href="#"><img alt="" class="img-fluid" src="{{asset('storage/'.$newpremiummovie->photo)}}"></a>
+                            <div class="box-content">
+                                <ul class="icon">
+                                    <li>
+    <a 
+        <?php 
+            if (Auth::user()) {
+                $route = route('watchmovie', $newpremiummovie->id);
+
+                if($status == 0){
+                    echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+                }else{
+                    if($newpremiummovie->status == "Premium"){
+
+                        if ($authuser_package > 1 ) {
+                            echo "href=$route";
+                        }
+                        else{
+                            echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                        }
+                    }
+
+                    else {
+                        echo "href=$route";
+                    }
+
+                    
+                }
+            }
+            else{
+                $route = route('login');
+                echo "href=$route";
+            }
+        ?>
+    ><i class="fas fa-play"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('moviedetail', $newpremiummovie->id)}}"><i class="fas fa-info"></i></a>
+                                    </li>
 
 @if($newpremiummovie->video)
 <li>
@@ -278,7 +346,7 @@
                                                     <div class="video-content">
                                                         <h2 class="video-title"><a href="movie-single.html">{{$newpremiummovie->name}}</a></h2>
                                                         <div class="video-info d-flex align-items-center">
-                                                            <span class="video-year">{{$newpremiummovie->year}}</span> <span class="video-age">{{$newpremiummovie->status}}</span> 
+                                                            <span class="video-year">{{$newpremiummovie->year}}</span> <span class="video-age badge badge-pill badge-warning text-dark">{{$newpremiummovie->status}}</span> 
                                                         </div>
                                                     </div>
                                                     <!-- video Content End -->
@@ -318,7 +386,39 @@
                                             <div class="box-content">
                                                 <ul class="icon">
                                                     <li>
-                                                        <a @if(Auth::user()) href="{{route('watchmovie', $movie->id)}}" @else href="route('login')" @endif ><i class="fas fa-play"></i></a>
+            <a
+
+            <?php 
+            if (Auth::user()) {
+                $route = route('watchmovie', $movie->id);
+    
+                if($status == 0){
+                    echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+                }else{
+                    if($movie->status == "Premium"){
+    
+                        if ($authuser_package > 1 ) {
+                            echo "href=$route";
+                        }
+                        else{
+                            echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                        }
+                    }
+    
+                    else {
+                        echo "href=$route";
+                    }
+    
+                    
+                }
+            }
+            else{
+                $route = route('login');
+                echo "href=$route";
+            }
+        ?>
+                
+            ><i class="fas fa-play"></i></a>
 
                                                     <li>
                                                         <a href="{{route('moviedetail', $movie->id)}}"><i class="fas fa-info"></i></a>
@@ -370,11 +470,8 @@
                                         <div class="video-content">
                                             <h2 class="video-title"><a href="{{route('moviedetail', $movie->id)}}">{{$movie->name}}</a></h2>
                                             <div class="video-info d-flex align-items-center">
-                                                <span class="video-year">{{$movie->year}}</span> <span class="video-age">{{$movie->status}}</span>
+                                                <span class="video-year">{{$movie->year}}</span>
                                                 <span class="video-age badge badge-pill badge-warning text-dark">{{$movie->status}}</span> 
-                                                @foreach ($movie->genres as $genre)
-                                                <span class="video-type">{{$genre->name}}</span>
-                                                @endforeach
                                             </div>
                                         </div>
                                         <!-- video Content End -->
@@ -410,16 +507,50 @@
                                 @foreach($currentyearmovies as $currentyearmovie)
                                 <div class="swiper-slide swiper-bg" style="background-image:url({{asset('storage/'.$currentyearmovie->photo)}})">
                                     <img alt="" class="entity-img" src="{{asset('storage/'.$currentyearmovie->photo)}}">
-                                    <div class="top-badge">
+                                    {{-- <div class="top-badge">
                                         <div class="video-badge"><img alt="" class="img-fluid" src="{{asset('storage/'.$currentyearmovie->photo)}}"></div>
-                                    </div>
+                                    </div> --}}
                                     <div class="content">
                                         <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">
                                             {{$currentyearmovie->name}}
                                         </p>
                                         <span class="caption mb-4" data-swiper-parallax="-20%">{{ $currentyearmovie->overview }}</span>
+                                    </div>
+                                    <div class="my-content">
                                         <div class="slider-buttons d-flex align-items-center" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">
-                                            <a class="btn hvr-sweep-to-right" @if(Auth::user()) href="{{route('watchmovie', $currentyearmovie->id)}}" @else href="route('login')" @endif tabindex="0"><i aria-hidden="true" class="fa fa-play mr-2"></i>Play Now</a> 
+        <a class="btn hvr-sweep-to-right" 
+
+        <?php 
+        if (Auth::user()) {
+            $route = route('watchmovie', $currentyearmovie->id);
+
+            if($status == 0){
+                echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+            }else{
+                if($currentyearmovie->status == "Premium"){
+
+                    if ($authuser_package > 1 ) {
+                        echo "href=$route";
+                    }
+                    else{
+                        echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                    }
+                }
+
+                else {
+                    echo "href=$route";
+                }
+
+                
+            }
+        }
+        else{
+            $route = route('login');
+            echo "href=$route";
+        }
+    ?>
+         
+        tabindex="0"><i aria-hidden="true" class="fa fa-play mr-2"></i>Play Now</a> 
                                             <a class="btn hvr-sweep-to-right ml-3" href="{{route('moviedetail', $currentyearmovie->id)}}" tabindex="0"><i class="fas fa-plus mr-2"></i>View Detail</a>
 
 @if($currentyearmovie->video)
@@ -459,7 +590,7 @@
     </a>
 </li>
 @endif
-                                        </div>
+                                        </div>  
                                     </div>
                                 </div>
                                 @endforeach
@@ -495,7 +626,38 @@
                                             <div class="box-content">
                                                 <ul class="icon">
                                                     <li>
-                                                        <a @if(Auth::user()) href="{{route('watchmovie', $trendingmovie->id)}}" @else href="route('login')" @endif ><i class="fas fa-play"></i></a>
+        <a
+
+        <?php 
+        if (Auth::user()) {
+            $route = route('watchmovie', $trendingmovie->id);
+
+            if($status == 0){
+                echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+            }else{
+                if($trendingmovie->status == "Premium"){
+
+                    if ($authuser_package > 1 ) {
+                        echo "href=$route";
+                    }
+                    else{
+                        echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                    }
+                }
+
+                else {
+                    echo "href=$route";
+                }
+
+                
+            }
+        }
+        else{
+            $route = route('login');
+            echo "href=$route";
+        }
+    ?>
+    ><i class="fas fa-play"></i></a>
                                                     </li>
                                                     <li>
                                                         <a href="{{route('moviedetail', $trendingmovie->id)}}"><i class="fas fa-info"></i></a>
@@ -545,7 +707,7 @@
                                         <div class="video-content">
                                             <h2 class="video-title"><a href="{{route('moviedetail', $trendingmovie->id)}}">{{$trendingmovie->name}}</a></h2>
                                             <div class="video-info d-flex align-items-center">
-                                                <span class="video-year">{{$trendingmovie->year}}</span> <span class="video-age">{{$trendingmovie->status}}</span>
+                                                <span class="video-year">{{$trendingmovie->year}}</span> <span class="video-age badge badge-pill badge-warning text-dark">{{$trendingmovie->status}}</span>
                                             </div>
                                         </div>
                                         <!-- video Content End -->
