@@ -43,9 +43,9 @@
                           $i=1;
                       @endphp
                       
-                      @foreach ($genres as $genre)
+                      @foreach ($genres as $key => $genre)
                         <tr>  
-                          <th scope="row">{{$i++}}</th>
+                          <th scope="row">{{$genres->firstItem() + $key}}</th>
                           <td>{{$genre->name}}</td>
                           <td>
                               <a href="{{route('genre.edit', $genre->id)}}" type="button" class="btn btn-warning mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>

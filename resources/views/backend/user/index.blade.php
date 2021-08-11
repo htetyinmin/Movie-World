@@ -40,9 +40,9 @@
                       @php
                           $i=1;
                       @endphp
-                        @foreach ($users as $user)
+                        @foreach ($users as $key => $user)
                         <tr>  
-                          <td scope="row">{{$i++}}</td>
+                          <th scope="row">{{$users->firstItem() + $key}}</th>
                           <td>{{$user->name}}</td>
                           <td>{{$user->email}}</td>
                           <td>
@@ -54,6 +54,9 @@
                       
                     </tbody>
                   </table>
+                  <div class="d-flex justify-content-center mt-4">
+                    {{ $users->links() }}
+                  </div>
                 </div>
               </div>
             </div>

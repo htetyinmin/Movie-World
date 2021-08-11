@@ -33,9 +33,9 @@
                     <form action="{{ route('register') }}" method="post" id="wizard">
                     @csrf
                     @if ($errors->any())
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <div class="d-flex justify-content-between alert alert-danger alert-dismissible fade show" role="alert">
                         {{ $errors }}
-                        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                        <button type="button" class="btn-close btn-danger" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
                     
                     </div>
                     @endif
