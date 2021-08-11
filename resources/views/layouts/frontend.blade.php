@@ -149,47 +149,20 @@
                                 <div class="nav-notification">
                                     <a class="nav-link menu-dropdown" data-toggle="dropdown" href="#"><i class="icofont-notification"></i></a>
                                     <ul class="dropdown-menu dropdown-menu-right fade-up" role="menu">
-                                        
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                <div class="notification-card media">
-                                                    <div class="notification-thumb"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/notify/thumb-1.jpg')}}"></div>
-                                                    <!-- Notification thumb end -->
-                                                    <div class="notification-content media-body">
-                                                        <h2 class="notification-title">Black Shadow</h2><span class="date"><i class="far fa-clock"></i> 1 min ago</span>
-                                                    </div>
-                                                    <!-- Notification Content end -->
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        <!-- Li 1 end -->
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                <div class="notification-card media">
-                                                    <div class="notification-thumb"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/notify/thumb-2.jpg')}}"></div>
-                                                    <!-- Notification thumb end -->
-                                                    <div class="notification-content media-body">
-                                                        <h2 class="notification-title">The Earth</h2><span class="date"><i class="far fa-clock"></i> 3 min ago</span>
-                                                    </div>
-                                                    <!-- Notification Content end -->
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <!-- Li 2 end -->
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                <div class="notification-card media">
-                                                    <div class="notification-thumb"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/notify/thumb-3.jpg')}}"></div>
-                                                    <!-- Notification thumb end -->
-                                                    <div class="notification-content media-body">
-                                                        <h2 class="notification-title">City Dreams</h2><span class="date"><i class="far fa-clock"></i> 10 min ago</span>
-                                                    </div>
-                                                    <!-- Notification Content end -->
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <!-- Li 3 end -->
+                                      @foreach ($noti_movies as $movie)
+                                      <li>
+                                          <a class="dropdown-item" href="{{route('moviedetail', $movie->id)}}">
+                                              <div class="notification-card media">
+                                                  <div class="notification-thumb"><img alt="" class="img-fluid" src="{{asset('storage/'.$movie->photo)}}"></div>
+                                                  <!-- Notification thumb end -->
+                                                  <div class="notification-content media-body">
+                                                      <h2 class="notification-title">{{$movie->name}}</h2><span class="date"><i class="far fa-clock"></i> {{$movie->updated_at}}</span>
+                                                  </div>
+                                                  <!-- Notification Content end -->
+                                              </div>
+                                          </a>
+                                      </li> 
+                                      @endforeach
                                     </ul>
                                     <!-- Notification List End -->
                                 </div>
@@ -209,7 +182,13 @@
                             <li class="nav-item">
                                 <div class="nav-account ml-2">
                                     <div class="dropdown">
-                                        <div aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" id="dropdown-account" role="button"><img alt="" class="img-fluid user-icon rounded-circle" src="{{asset('frontend_assets/images/avatar/user.jpg')}}"></div>
+                                        <div aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" id="dropdown-account" role="button">
+                                            @if (Auth::user())
+                                            <img alt="" class="img-fluid user-icon rounded-circle" src="{{asset('frontend_assets/images/avatar/user.jpg')}}"> 
+                                            @else
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            @endif
+                                        </div>
                                         <ul class="dropdown-menu dropdown-menu-right fade-up">
                                             @if (Auth::user())
                                             <li>

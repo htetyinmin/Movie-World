@@ -136,7 +136,7 @@
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Data Management</span>
         <ul class="list-unstyled" id="my-list">
-                <li class=""><a href="{{route('genre.index')}}"> <i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard </a></li>
+                <li class="" id="dashboard"><a href="{{route('dashboard')}}"> <i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard </a></li>
                 <li class="" id="genre"><a href="{{route('genre.index')}}"> <i class="icon-grid"></i>Genres </a></li>
                 <li class="" id="cast"><a href="{{route('cast.index')}}"> <i class="fa fa-video-camera" aria-hidden="true"></i> Casts </a></li>
                 <li class="" id="movie"><a href="{{route('movie.index')}}"> <i class="fa fa-film" aria-hidden="true"></i> Movies Data </a></li>
@@ -168,6 +168,7 @@
     <script src="{{asset('backend-assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('backend-assets/vendor/jquery.cookie/jquery.cookie.js')}}"> </script>
     <script src="{{asset('backend-assets/vendor/chart.js/Chart.min.js')}}"></script>
+    <script src="{{asset('backend-assets/js/charts-custom.js')}}"></script>
     <script src="{{asset('backend-assets/vendor/jquery-validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('backend-assets/js/charts-home.js')}}"></script>
     <script src="{{asset('backend-assets/js/front.js')}}"></script>
