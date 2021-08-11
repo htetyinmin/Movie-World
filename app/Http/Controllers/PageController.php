@@ -87,12 +87,12 @@ class PageController extends Controller
         return view('frontend.privacy', compact('genres', 'movies', 'noti_movies'));
     }
 
-    public function userdetail(){
-        // $users = User::where('id', $id)->get();
-        // dd($users);
+    public function userdetail($id){
+        $users = User::where('id', $id)->get();
+        $payments = Payment::where('user_id', $id)->get();
         $genres = Genre::all();
         $noti_movies = Movie::latest()->take(3)->get();
-        return view('frontend.userdetail', compact('genres', 'noti_movies'));
+        return view('frontend.userdetail', compact('users', 'payments', 'genres', 'noti_movies'));
     }
 
     public function register(){
@@ -162,10 +162,6 @@ class PageController extends Controller
         $casts = Cast::where('id', $id)->get();
         $cast = Cast::find($id);
         $noti_movies = Movie::latest()->take(3)->get();
-        // dd($cast);
-        // $movies = Movie::all();
-        // $cast_movies = Movie::where('id', $movies->casts->id)->get();
-        
         $gallerys = json_decode($casts[0]->gallery);
         return view('frontend.castdetail', compact('genres', 'casts', 'cast', 'gallerys', 'noti_movies'));
     }

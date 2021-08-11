@@ -294,41 +294,8 @@
                                 <!-- Col End -->
                                 <div class="col-6 col-xl mb-xl-0">
                                     <a id="share" class="btn hvr-sweep-to-right d-block" tabindex="0" data-toggle="modal" data-target="#share-modal">
-                                        <i class="icofont-share mr-2" aria-hidden="true"></i>Share</a>
-                                    <!-- Modal Share -->
-                                    <div class="modal fade" id="share-modal" tabindex="0" role="dialog" aria-labelledby="share-modal" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg" role="document" id="sharemodal">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Share</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                                                    </button>
-                                                </div>
-                                                <!-- modal header End -->
-                                                <div class="modal-body">
-                                                    <div class="icon-container d-flex">
-                                                        <div class="icon-block"><i class="social-icon fab fa-twitter fa-2x"></i>
-                                                            <p>Twitter</p>
-                                                        </div>
-                                                        <div class="icon-block"><i class="social-icon fab fa-facebook fa-2x"></i>
-                                                            <p>Facebook</p>
-                                                        </div>
-                                                        <div class="icon-block"><i class="social-icon fab fa-instagram fa-2x"></i>
-                                                            <p>Instagram</p>
-                                                        </div>
-                                                        <div class="icon-block"><i class="social-icon fab fa-telegram fa-2x"></i>
-                                                            <p>Telegram</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Modal Body End -->
-                                            </div>
-                                            <!-- Modal Content End -->
-                                        </div>
-                                        <!-- Modal Dialog End -->
-                                    </div>
-                                    <!-- Modal Share End -->
+                                        <i class="icofont-share mr-2" aria-hidden="true"></i>Share
+                                    </a>
                                 </div>
                                 <!-- Col End -->
                             </div>

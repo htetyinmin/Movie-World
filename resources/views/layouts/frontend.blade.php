@@ -156,7 +156,7 @@
                                                   <div class="notification-thumb"><img alt="" class="img-fluid" src="{{asset('storage/'.$movie->photo)}}"></div>
                                                   <!-- Notification thumb end -->
                                                   <div class="notification-content media-body">
-                                                      <h2 class="notification-title">{{$movie->name}}</h2><span class="date"><i class="far fa-clock"></i> {{$movie->updated_at}}</span>
+                                                      <h2 class="notification-title">{{$movie->name}}</h2><span class="date"><i class="far fa-clock"></i> {{$movie->updated_at->format('d M Y')}}</span>
                                                   </div>
                                                   <!-- Notification Content end -->
                                               </div>
@@ -192,7 +192,7 @@
                                         <ul class="dropdown-menu dropdown-menu-right fade-up">
                                             @if (Auth::user())
                                             <li>
-                                                <a href="{{url('userdetail')}}" class="dropdown-item"><i class="fa fa-user mr-3"></i>{{ Auth::user()->name }}</a>
+                                                <a href="{{route('userdetail', Auth::user()->id )}}" class="dropdown-item"><i class="fa fa-user mr-3"></i>{{ Auth::user()->name }}</a>
                                             </li>
                                             <li>
                                                 <a href="#" class="dropdown-item"><i class="fa fa-cogs mr-3"></i>Account Settings</a>
@@ -858,6 +858,41 @@
         <!-- Filter Accordion End -->
     </div>
     <!-- Filter Sidebar End -->
+
+    <!-- Modal Share -->
+    <div class="modal fade" id="share-modal" tabindex="0" role="dialog" aria-labelledby="share-modal" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document" id="sharemodal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Share</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                    </button>
+                </div>
+                <!-- modal header End -->
+                <div class="modal-body">
+                    <div class="icon-container d-flex">
+                        <div class="icon-block"><i class="social-icon fab fa-twitter fa-2x"></i>
+                            <p>Twitter</p>
+                        </div>
+                        <div class="icon-block"><i class="social-icon fab fa-facebook fa-2x"></i>
+                            <p>Facebook</p>
+                        </div>
+                        <div class="icon-block"><i class="social-icon fab fa-instagram fa-2x"></i>
+                            <p>Instagram</p>
+                        </div>
+                        <div class="icon-block"><i class="social-icon fab fa-telegram fa-2x"></i>
+                            <p>Telegram</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Body End -->
+            </div>
+            <!-- Modal Content End -->
+        </div>
+        <!-- Modal Dialog End -->
+    </div>
+    <!-- Modal Share End -->
 
     <!-- Javascript Files
     ================================================== -->

@@ -31,7 +31,7 @@ Route::get('/about', 'PageController@about')->name('about');
 Route::get('/contact', 'PageController@contact')->name('contact');
 Route::get('/term', 'PageController@term')->name('term');
 Route::get('/privacy', 'PageController@privacy')->name('privacy');
-Route::get('/userdetail', 'PageController@userdetail')->name('userdetail');
+Route::get('/userdetail/{id}', 'PageController@userdetail')->name('userdetail');
 Route::get('/help', 'PageController@help')->name('help');
 Route::get('/search', 'PageController@search')->name('search');
 

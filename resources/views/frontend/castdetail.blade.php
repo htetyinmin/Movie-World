@@ -2,6 +2,46 @@
 @section('title','Movie World | Cast Detail Page')
 @section('content')
 
+<?php
+
+    if(Auth::user()){
+        $authuser = Auth::user();
+
+        $authuser_package = $authuser->payments->last()->package_id;
+
+        $payment = $authuser->payments->last();
+
+        $installmentdate = $payment->date;
+
+        $todaydate = Carbon\Carbon::now();
+
+        $status = 1;
+
+
+
+        if ($authuser_package == 2) {
+            $expiredate = Carbon\Carbon::parse($installmentdate)->addMonths(1);
+            $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
+
+            if($diff <= 0 ){
+                $status = 0; // Expired [ 1 Month ]
+            }
+        }
+
+        if ($authuser_package ==3) {
+            $expiredate = Carbon\Carbon::parse($installmentdate)->addYear();
+            $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
+
+            if($diff <= 0 ){
+                $status = 0; // Expired [ 1 Year ]
+            }
+        }
+
+    }
+
+
+?>
+
 
 @foreach ($casts as $cast)
 
@@ -68,51 +108,18 @@
                         <div class="details-buttons">
                             <div class="row d-flex align-items-center">
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
-                                    <a href="#" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-star mr-2" aria-hidden="true"></i>150</a>
+                                    <a href="#" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-star mr-2" aria-hidden="true"></i>10</a>
                                 </div>
                                 <!-- Col End -->
                                 <div class="col-6 col-xl mb-xl-0 mb-3">
-                                    <a href="#" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-film mr-2" aria-hidden="true"></i>300</a>
+                                    <a href="#" class="btn d-block hvr-sweep-to-right" tabindex="0"><i class="icofont-film mr-2" aria-hidden="true"></i>{{count($cast->movies)}}</a>
                                 </div>
                                 <!-- Col End -->
                                 <!-- Col End -->
                                 <div class="col-6 col-xl mb-xl-0">
                                     <a id="share" class="btn hvr-sweep-to-right d-block" tabindex="0" data-toggle="modal" data-target="#share-modal">
-                                        <i class="icofont-share mr-2" aria-hidden="true"></i>Share</a>
-                                    <!-- Modal Share -->
-                                    <div class="modal fade" id="share-modal" tabindex="0" role="dialog" aria-labelledby="share-modal" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg" role="document" id="sharemodal">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Share</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                                                    </button>
-                                                </div>
-                                                <!-- modal header End -->
-                                                <div class="modal-body">
-                                                    <div class="icon-container d-flex">
-                                                        <div class="icon-block"><i class="social-icon fab fa-twitter fa-2x"></i>
-                                                            <p>Twitter</p>
-                                                        </div>
-                                                        <div class="icon-block"><i class="social-icon fab fa-facebook fa-2x"></i>
-                                                            <p>Facebook</p>
-                                                        </div>
-                                                        <div class="icon-block"><i class="social-icon fab fa-instagram fa-2x"></i>
-                                                            <p>Instagram</p>
-                                                        </div>
-                                                        <div class="icon-block"><i class="social-icon fab fa-telegram fa-2x"></i>
-                                                            <p>Telegram</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Modal Body End -->
-                                            </div>
-                                            <!-- Modal Content End -->
-                                        </div>
-                                        <!-- Modal Dialog End -->
-                                    </div>
-                                    <!-- Modal Share End -->
+                                        <i class="icofont-share mr-2" aria-hidden="true"></i>Share
+                                    </a>
                                 </div>
                                 <!-- Col End -->
                             </div>
@@ -165,7 +172,37 @@
                                         <div class="box-content">
                                             <ul class="icon">
                                                 <li>
-                                                    <a @if(Auth::user()) href="{{route('watchmovie', $movie->id)}}" @else href="{{route('login')}}" @endif ><i class="fas fa-play"></i></a>
+            <a
+                <?php 
+                    if (Auth::user()) {
+                        $route = route('watchmovie', $movie->id);
+            
+                        if($status == 1 && $movie->status == "Premium"){
+                            echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
+                        }else{
+                            if($movie->status == "Premium"){
+            
+                                if ($authuser_package > 1 ) {
+                                    echo "href=$route";
+                                }
+                                else{
+                                    echo "data-toggle='tooltip' data-placement='top' title='Your choosing plan is not available'";
+                                }
+                            }
+            
+                            else {
+                                echo "href=$route";
+                            }
+            
+                            
+                        }
+                    }
+                    else{
+                        $route = route('login');
+                        echo "href=$route";
+                    }
+                ?> 
+            ><i class="fas fa-play"></i></a>
 
                                                 <li>
                                                     <a href="{{route('moviedetail', $movie->id)}}"><i class="fas fa-info"></i></a>
