@@ -34,36 +34,41 @@
           <section class="pricing">
               <div class="container">
                 <section>
-                    <h3 style="margin-bottom: 37px;">Choose Your Plan?</h3>
-                    <div class="grid">
+                    <form action="{{ route('pricing') }}" method="post" id="reactivateForm">
+                    @csrf
+                        <input type="hidden" name="planid" id="planid">
 
-                        @foreach($packages as $key => $package)
-                        @php
-                            $data = json_decode($package->description,true);
-                        @endphp
-                        <div class="grid-item @if($key == 0) active @endif" id="{{ $package->id }}">
-                            <div class="thumb" id="{{ $package->id }}">
-                                <h3> {{ $package->title }} Plan </h3>
-                                <h5> {{ $package->period }} </h5>
-                                <div class="pb-2 pt-5">
-                                    @foreach($data as $result)
-                                      <p  class=""> 
-                                        <i class="fa fa-check-circle text-success mr-2"></i> {{$result}} 
-                                      </p>
-                                    @endforeach
+                        <h3 style="margin-bottom: 37px;">Choose Your Plan?</h3>
+                        <div class="grid">
+
+                            @foreach($packages as $key => $package)
+                            @php
+                                $data = json_decode($package->description,true);
+                            @endphp
+                            <div class="grid-item @if($key == 0) active @endif" id="{{ $package->id }}">
+                                <div class="thumb" id="{{ $package->id }}">
+                                    <h3> {{ $package->title }} Plan </h3>
+                                    <h5> {{ $package->period }} </h5>
+                                    <div class="pb-2 pt-5">
+                                        @foreach($data as $result)
+                                          <p  class=""> 
+                                            <i class="fa fa-check-circle text-success mr-2"></i> {{$result}} 
+                                          </p>
+                                        @endforeach
+                                    </div>
+                                    
                                 </div>
-                                
+                                <div class="heading">{{ $package->fees }}</div>
                             </div>
-                            <div class="heading">{{ $package->fees }}</div>
+
+                            @endforeach
+                            
                         </div>
 
-                        @endforeach
-                        
-                    </div>
-
-                    <div class="text-right">
-                        <a href="#" class="btn btn-primary hvr-sweep-to-right text-uppercase">Purchase</a>
-                    </div>
+                        <div class="text-right">
+                            <button class="btn btn-primary hvr-sweep-to-right text-uppercase purchaseBtn">Purchase</button>
+                        </div>
+                    </form>
                 </section>
                   
                   {{-- <div class="row">
@@ -112,4 +117,28 @@
   </div>
   <!-- Main Class End -->
 
+@endsection
+
+@section('script')
+    <script type="text/javascript">
+        var planid;
+        $(document).ready(function(){
+            planid = $("#reactivateForm div.active").attr('id');
+
+            $('.grid .grid-item').click(function(){
+                $('.grid .grid-item').removeClass('active');
+
+                $(this).addClass('active');
+                planid = $("#reactivateForm div.active").attr('id');
+
+            })
+        });
+
+        $('#reactivateForm').on('click', '.purchaseBtn', function (){
+
+            $('#planid').val(planid);
+
+            form.submit();
+        });
+    </script>
 @endsection

@@ -10,32 +10,65 @@
         $authuser_package = $authuser->payments->last()->package_id;
 
         $payment = $authuser->payments->last();
+        $dbStatus = $payment->status;
 
-        $installmentdate = $payment->date;
 
         $todaydate = Carbon\Carbon::now();
 
-        $status = 1;
+        if($dbStatus == 0){
+
+            $status = $dbStatus;
 
 
+            $totaldateCount = 0;
 
-        if ($authuser_package == 2) {
-            $expiredate = Carbon\Carbon::parse($installmentdate)->addMonths(1);
-            $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
+            $payments = $authuser->payments;
+            foreach($payments as $payment){
+                if ($payment->package_id == 2) {
+                    $expiredate = Carbon\Carbon::parse($payment->date)->addMonths(1);
+                    $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
+                }
 
-            if($diff <= 0 ){
-                $status = 0; // Expired [ 1 Month ]
+                if ($payment->package_id == 3) {
+                    $expiredate = Carbon\Carbon::parse($payment->date)->addYear();
+                    $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
+                }
+
+                $totaldateCount += $diff;
             }
+
+            if ($totaldateCount <= 0) {
+                $status = 1;
+            }
+            
+
+        }
+        else{
+            $installmentdate = $payment->date;
+
+            $status = 0;
+
+
+            if ($authuser_package == 2) {
+                $expiredate = Carbon\Carbon::parse($installmentdate)->addMonths(1);
+                $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
+
+                if($diff <= 0 ){
+                    $status = 1; // Expired [ 1 Month ]
+                }
+            }
+
+            if ($authuser_package ==3) {
+                $expiredate = Carbon\Carbon::parse($installmentdate)->addYear();
+                $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
+
+                if($diff <= 0 ){
+                    $status = 1; // Expired [ 1 Year ]
+                }
+            }
+
         }
 
-        if ($authuser_package ==3) {
-            $expiredate = Carbon\Carbon::parse($installmentdate)->addYear();
-            $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
-
-            if($diff <= 0 ){
-                $status = 0; // Expired [ 1 Year ]
-            }
-        }
 
     }
 
@@ -70,7 +103,7 @@
         if (Auth::user()) {
             $route = route('watchmovie', $newmovie->id);
 
-            if($status == 0){
+            if($status == 1 && $newmovie->status == "Premium"){
                 echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
             }else{
                 if($newmovie->status == "Premium"){
@@ -109,7 +142,7 @@
         if (Auth::user()) {
             $route = route('downloadmovie', $newmovie->id);
 
-            if($status == 0){
+            if($status == 1 && $newmovie->status == "Premium"){
                 echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
             }else{
                 if($newmovie->status == "Premium"){
@@ -199,7 +232,7 @@
         if (Auth::user()) {
             $route = route('downloadmovie', $newfreemovie->id);
 
-            if($status == 0){
+            if($status == 1 && $newfreemovie->status == "Premium"){
                 echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
             }else{
                 if($newfreemovie->status == "Premium"){
@@ -268,7 +301,7 @@
             if (Auth::user()) {
                 $route = route('watchmovie', $newpremiummovie->id);
 
-                if($status == 0){
+                if($status == 1 && $newpremiummovie->status == "Premium"){
                     echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
                 }else{
                     if($newpremiummovie->status == "Premium"){
@@ -306,7 +339,7 @@
         if (Auth::user()) {
             $route = route('downloadmovie', $newpremiummovie->id);
 
-            if($status == 0){
+            if($status == 1 && $newpremiummovie->status == "Premium"){
                 echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
             }else{
                 if($newpremiummovie->status == "Premium"){
@@ -392,7 +425,7 @@
             if (Auth::user()) {
                 $route = route('watchmovie', $movie->id);
     
-                if($status == 0){
+                if($status == 1 && $movie->status == "Premium"){
                     echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
                 }else{
                     if($movie->status == "Premium"){
@@ -431,7 +464,7 @@
         if (Auth::user()) {
             $route = route('downloadmovie', $movie->id);
 
-            if($status == 0){
+            if($status == 1 && $movie->status == "Premium"){
                 echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
             }else{
                 if($movie->status == "Premium"){
@@ -524,7 +557,7 @@
         if (Auth::user()) {
             $route = route('watchmovie', $currentyearmovie->id);
 
-            if($status == 0){
+            if($status == 1 && $currentyearmovie->status == "Premium"){
                 echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
             }else{
                 if($currentyearmovie->status == "Premium"){
@@ -560,7 +593,7 @@
         if (Auth::user()) {
             $route = route('downloadmovie', $currentyearmovie->id);
 
-            if($status == 0){
+            if($status == 1 && $currentyearmovie->status == "Premium"){
                 echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
             }else{
                 if($currentyearmovie->status == "Premium"){
@@ -632,7 +665,7 @@
         if (Auth::user()) {
             $route = route('watchmovie', $trendingmovie->id);
 
-            if($status == 0){
+            if($status == 1 && $trendingmovie->status == "Premium"){
                 echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
             }else{
                 if($trendingmovie->status == "Premium"){
@@ -669,7 +702,7 @@
         if (Auth::user()) {
             $route = route('downloadmovie', $trendingmovie->id);
 
-            if($status == 0){
+            if($status == 1 && $trendingmovie->status == "Premium"){
                 echo "data-toggle='tooltip' data-placement='top' title='Your plan has expired. Please update your payment details to reactivate it'";
             }else{
                 if($trendingmovie->status == "Premium"){

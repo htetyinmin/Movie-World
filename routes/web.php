@@ -39,6 +39,8 @@ Route::get('/castdetail/{id}', 'PageController@castdetail')->name('castdetail');
 // Route::get('/login', 'PageController@login')->name('login');
 // Route::get('/register', 'PageController@register')->name('register');
 Route::get('/pricing', 'PageController@pricing')->name('pricing');
+Route::post('/pricing', 'PageController@reactivate');
+
 Route::get('/moviedetail/{id}', 'PageController@moviedetail')->name('moviedetail');
 
 Route::get('/watchmovie/{id}', 'PageController@watchmovie')->name('watchmovie');

@@ -8,6 +8,8 @@ use App\Genre;
 use App\Package;
 use App\Moviedownload;
 use App\User;
+use App\Payment;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -195,5 +197,55 @@ class PageController extends Controller
         $noti_movies = Movie::latest()->take(3)->get();
         $movies = Movie::where('name', 'like', '%'.$search.'%')->get();
         return view('frontend.search', compact('genres', 'noti_movies', 'movies') );
+    }
+
+    public function reactivate(Request $request){
+        $planid = $request->planid;
+        $userID = Auth::id();
+        $authuser = Auth::user();
+
+        $now = Carbon::now();
+        $today = $now->toDateString();
+
+        $authuser_package = $authuser->payments->last()->package_id;
+        $payment = $authuser->payments->last();
+
+        $installmentdate = $payment->date;
+
+        $status = 0;
+
+        if ($authuser_package == 2) {
+            $expiredate = Carbon::parse($installmentdate)->addMonths(1);
+            $diff = $now->diffInDays(Carbon::parse($expiredate), false);
+
+            if($diff <= 0 ){
+                $status = 1; // Expired [ 1 Month ]
+            }
+        }
+
+        if ($authuser_package ==3) {
+            $expiredate = Carbon::parse($installmentdate)->addYear();
+            $diff = $now->diffInDays(Carbon::parse($expiredate), false);
+
+            if($diff <= 0 ){
+                $status = 1; // Expired [ 1 Year ]
+            }
+        }
+
+        // dd($status);  
+
+        $oldpayment = Payment::find($payment->id);
+        $oldpayment->status = $status;
+        $oldpayment->save();      
+
+        Payment::create([
+            'date' => $today,
+            'user_id' => $userID,
+            'package_id' => $planid,
+            'status'    =>  0
+        ]);
+
+        return \Redirect::route('index');
+
     }
 }
