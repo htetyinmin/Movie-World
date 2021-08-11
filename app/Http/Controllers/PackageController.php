@@ -40,9 +40,9 @@ class PackageController extends Controller
 
         //VALIDATION
         $request->validate([
+            "title" => "required|max:15|min:3",
             "fees" => "required",
-            "period" => "required",
-            "description" => "required"
+            "period" => "required"
         ]);
 
         //DATA INSERT
@@ -90,9 +90,9 @@ class PackageController extends Controller
     {
         //VALIDATION
         $request->validate([
+            "title" => "required|max:15|min:3",
             "fees" => "required",
-            "period" => "required",
-            "description" => "required"
+            "period" => "required"
         ]);
 
         //DATA INSERT

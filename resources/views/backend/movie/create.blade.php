@@ -30,42 +30,67 @@
                   <div class="form-group row">
                     <label class="col-sm-3 form-control-label">Title</label>
                     <div class="col-sm-9">
-                      <input type="text" name="name" class="form-control">
+                      <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}">
+                      @if ($errors->has('name'))
+                            <span class="invalid-feedback">
+                            <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                      @endif
                     </div>
                   </div>
                   <div class="line"></div>
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Cover</label>
                         <div class="col-sm-9">
-                          <input type="file" name="photo" class="form-control-file">
+                          <input type="file" name="photo" class="form-control-file{{ $errors->has('photo') ? ' is-invalid' : '' }}">
+                          @if ($errors->has('photo'))
+                              <span class="invalid-feedback">
+                              <strong>{{ $errors->first('photo') }}</strong>
+                              </span>
+                          @endif
                         </div>
                   </div>
                   <div class="line"></div>
                   <div class="form-group row">
                       <label for="genres" class="col-sm-3 form-control-label">Genres</label>
                       <div class="col-sm-9">
-                        <select class="form-control multiple-select" name="genres[]" multiple="multiple" id="genres">
+                        <select class="form-control multiple-select{{ $errors->has('genres') ? ' is-invalid' : '' }}" name="genres[]" multiple="multiple" id="genres">
                           @foreach ($genres as $genre)
                               <option value="{{$genre->id}}">{{$genre->name}}</option>
                           @endforeach
                         </select>
+                        @if ($errors->has('genres'))
+                            <span class="invalid-feedback">
+                            <strong>{{ $errors->first('genres') }}</strong>
+                            </span>
+                        @endif
                       </div>
                   </div>
                   <div class="form-group row">
                     <label for="casts" class="col-sm-3 form-control-label">Casts</label>
                     <div class="col-sm-9">
-                      <select class="form-control multiple-select" name="casts[]" multiple="multiple" id="casts">
+                      <select class="form-control multiple-select{{ $errors->has('casts') ? ' is-invalid' : '' }}" name="casts[]" multiple="multiple" id="casts">
                         @foreach ($casts as $cast)
                             <option value="{{$cast->id}}">{{$cast->name}}</option>
                         @endforeach
                       </select>
+                      @if ($errors->has('casts'))
+                            <span class="invalid-feedback">
+                            <strong>{{ $errors->first('casts') }}</strong>
+                            </span>
+                      @endif
                     </div>
                 </div>
                   <div class="line"></div>
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Year</label>
                         <div class="col-sm-9">
-                              <input type="text" name="year" class="form-control">
+                          <input type="text" name="year" class="form-control{{ $errors->has('year') ? ' is-invalid' : '' }}">
+                          @if ($errors->has('year'))
+                                <span class="invalid-feedback">
+                                <strong>{{ $errors->first('year') }}</strong>
+                                </span>
+                          @endif
                         </div>
                   </div>
                   <div class="line"></div>
@@ -84,21 +109,36 @@
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Duration</label>
                         <div class="col-sm-9">
-                              <input type="text" name="duration" class="form-control">
+                              <input type="text" name="duration" class="form-control{{ $errors->has('duration') ? ' is-invalid' : '' }}">
+                              @if ($errors->has('duration'))
+                                    <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('duration') }}</strong>
+                                    </span>
+                              @endif
                         </div>
                   </div>
                   <div class="line"></div>
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Overview</label>
                         <div class="col-sm-9">
-                              <textarea name="overview" cols="30" rows="4" class="form-control"></textarea>
+                              <textarea name="overview" cols="30" rows="4" class="form-control{{ $errors->has('overview') ? ' is-invalid' : '' }}"></textarea>
+                              @if ($errors->has('overview'))
+                                    <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('overview') }}</strong>
+                                    </span>
+                              @endif
                         </div>
                   </div>
                   <div class="line"></div>
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Trailer</label>
                         <div class="col-sm-9">
-                          <input type="text" name="trailer" class="form-control">
+                          <input type="text" name="trailer" class="form-control{{ $errors->has('trailer') ? ' is-invalid' : '' }}">
+                          @if ($errors->has('trailer'))
+                            <span class="invalid-feedback">
+                            <strong>{{ $errors->first('trailer') }}</strong>
+                            </span>
+                          @endif
                         </div>
                   </div>
                   <div class="line"></div>
@@ -114,7 +154,12 @@
                   <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Video</label>
                         <div class="col-sm-9">
-                          <input type="file" name="video" class="form-control-file">
+                          <input type="file" name="video" class="form-control-file{{ $errors->has('video') ? ' is-invalid' : '' }}">
+                          @if ($errors->has('video'))
+                            <span class="invalid-feedback">
+                            <strong>{{ $errors->first('video') }}</strong>
+                            </span>
+                          @endif
                         </div>
                   </div>
                   <div class="line"></div>

@@ -48,10 +48,13 @@ class MovieController extends Controller
         $request->validate([
             "name" => "required|unique:casts|max:30|min:3",
             "photo" => "required|mimes:jpeg,jpg,png",
+            "genres" => "required",
+            "casts" => "required",
             "year" => "required",
             "duration" => "required",
             "overview" => "required",
-            "trailer" => "required"
+            "trailer" => "required",
+            "video" => "required|mimes:mp4,mkv,avi"
         ]);
 
         //FILE UPLOAD
@@ -151,10 +154,13 @@ class MovieController extends Controller
         $request->validate([
             "name" => "required|max:30|min:3",
             "photo" => "sometimes|mimes:jpeg,jpg,png",
+            "genres" => "required",
+            "casts" => "required",
             "year" => "required",
             "duration" => "required",
             "overview" => "required",
-            "trailer" => "required"
+            "trailer" => "required",
+            "video" => "sometimes|mimes:mp4,mkv,avi"
         ]);
 
         //FILE UPLOAD
