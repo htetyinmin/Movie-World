@@ -155,12 +155,13 @@
                                                     <div class="notification-thumb"><img alt="" class="img-fluid" src="{{asset('frontend_assets/images/notify/thumb-1.jpg')}}"></div>
                                                     <!-- Notification thumb end -->
                                                     <div class="notification-content media-body">
-                                                        <h2 class="notification-title">Iron Door</h2><span class="date"><i class="far fa-clock"></i> 1 min ago</span>
+                                                        <h2 class="notification-title">Black Shadow</h2><span class="date"><i class="far fa-clock"></i> 1 min ago</span>
                                                     </div>
                                                     <!-- Notification Content end -->
                                                 </div>
                                             </a>
                                         </li>
+                                        
                                         <!-- Li 1 end -->
                                         <li>
                                             <a class="dropdown-item" href="#">
