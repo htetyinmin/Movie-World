@@ -42,7 +42,7 @@ class PageController extends Controller
         return view('frontend.movielist', compact('movies', 'genres', 'lastmovies') );
     }
 
-    public function genrelist(){
+    public function genrelist($id){
         $movies = Movie::all();
         $genres = Genre::all();
         return view('frontend.genrelist', compact('movies', 'genres') );

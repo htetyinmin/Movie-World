@@ -17,7 +17,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movies = DB::table('movies')->paginate(5);
+        $movies = Movie::paginate(5);
 
         return view('backend.movie.index', ['movies' => $movies]);
     }

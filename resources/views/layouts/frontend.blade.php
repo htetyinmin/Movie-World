@@ -61,11 +61,11 @@
 
 <body>
     <!-- Start Preloader -->
-    {{-- <div id="loader-wrapper">
+    <div id="loader-wrapper">
         <div id="loader"></div>
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
-    </div> --}}
+    </div>
     <!-- Preloader End -->
 
     <div class="main" id="main">
@@ -113,9 +113,10 @@
                                         <li class="nav-item dropdown">
                                             <a class="nav-link menu-dropdown" data-toggle="dropdown" href="#"> Genre <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu fade-up" role="menu">
+                                                {{-- {{$common[0]}} --}}
                                                 @foreach ($common[0] as $genre)
                                                 <li>
-                                                    <a class="dropdown-item" href="{{url('/genrelist')}}">{{$genre->name}}</a>
+                                                    <a class="dropdown-item" href="{{url('/genrelist', $genre->id)}}">{{$genre->name}}</a>
                                                 </li>
                                                 @endforeach
                                             </ul>

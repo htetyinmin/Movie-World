@@ -73,7 +73,10 @@
                 </div>
                 @endforeach
             </div>
-            {{$movies->links()}}
+
+            <div class="d-flex justify-content-center mt-4">
+                {{ $movies->links() }}
+            </div>
             <!-- Row End -->
         </div>
         <!-- Container End -->

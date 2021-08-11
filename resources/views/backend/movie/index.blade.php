@@ -14,7 +14,7 @@
             <div class="container-fluid">
               <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('movie.index')}}">Home</a></li>
-                <li class="breadcrumb-item active">Movie      </li>
+                <li class="breadcrumb-item active">Movie</li>
               </ul>
             </div>
             <div class="p-4 flex-shrink-1 bd-highlight">
@@ -41,13 +41,9 @@
                       </tr>
                     </thead>
                     <tbody>
-                      {{-- @php
-                          $i=1;
-                      @endphp --}}
-                      {{-- @php $i = $movies->getFrom(); @endphp --}}
-                      @foreach ($movies as $movie)
+                      @foreach ($movies as $key => $movie)
                         <tr>
-                          <th scope="row">{{1}}</th>
+                          <th scope="row">{{$movies->firstItem() + $key}}</th>
                           <td>{{$movie->name}}</td>
                           <td>
                                 <img src="{{asset('storage/'.$movie->photo)}}" alt="Photo" width="70" height="100" class="mr-3">
@@ -73,7 +69,9 @@
                       </tr>
                     </tfoot>
                   </table>
-                  {{$movies->links()}}
+                  <div class="d-flex justify-content-center mt-4">
+                    {{ $movies->links() }}
+                  </div>
                 </div>
               </div>
             </div>

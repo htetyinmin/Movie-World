@@ -42,12 +42,9 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @php
-                          $i=1;
-                      @endphp
-                      @foreach ($casts as $cast)
+                      @foreach ($casts as $key => $cast)
                         <tr>
-                          <th scope="row">{{$i++}}</th>
+                          <th scope="row">{{$casts->firstItem() + $key}}</th>
                           <td>{{$cast->name}}</td>
                           <td>
                                 <img src="{{asset('storage/'.$cast->photo)}}" alt="Photo" width="70" height="100" class="mr-3">
@@ -76,7 +73,9 @@
                     </tfoot>
                   </table>
 
-                  {{$casts->links()}}
+                  <div class="d-flex justify-content-center mt-4">
+                    {{ $casts->links() }}
+                  </div>
                   
                 </div>
               </div>
