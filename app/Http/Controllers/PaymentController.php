@@ -16,10 +16,11 @@ class PaymentController extends Controller
      */
     public function index()
     {
+        $payments = Payment::paginate(5);
+        // // dd($payments);
+        // $packages = Package::all();
         $users = User::all();
-        $packages = Package::all();
-        $payments = Payment::all();
-        return view ('backend.payment.index', compact('users', 'packages', 'payments'));
+        return view ('backend.payment.index', compact('payments', 'users'));
     }
 
     /**

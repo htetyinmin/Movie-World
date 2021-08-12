@@ -30,27 +30,57 @@
                     <thead>
                       <tr>
                         <th class="col-1">#</th>
-                        <th class="col-1">User</th>
-                        <th class="col-2">Package Plan</th>
-                        <th class="col-2">Start Date</th>
-                        <th class="col-2">End Date</th>
-                        <th class="col-2">Payment</th>
+                        <th class="col-2">User</th>
+                        <th class="col-2">Plan</th>
+                        <th class="col-2">S/D</th>
+                        <th class="col-2">E/D</th>
                         <th class="col-2">Action</th>
                       </tr>
                     </thead>
                     <tbody>
-
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    
-                      
+                        @foreach ($payments as $key => $payment)
+                        <tr>
+                        <th scope="row">{{$payments->firstItem() + $key}}</th>
+                        <td>{{$payment->user->name}}</td>
+                        <td>
+                              {{$payment->package->title}} <br>
+                              ({{$payment->package->period}})
+                        </td>
+                        <td>{{Carbon\Carbon::parse($payment->date)->format('d-m-Y')}}</td>
+                        <td>
+                       
+                                  @if($payment->package_id == 1)
+                                          <h1>&infin;</h1>
+                                  @elseif($payment->package_id == 2)
+                                  <?php $expiredate = Carbon\Carbon::parse($payment->date)->addMonths(1);?>
+                                    {{$expiredate->format('d-m-Y')}}
+                                  @else
+                                  <?php $expiredate = Carbon\Carbon::parse($payment->date)->addYear();?>
+                                    {{$expiredate->format('d-m-Y')}}
+                                  @endif
+                        </td>
+                        <td>
+                              <a href="#" type="button" class="btn btn-warning mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                              <a href="#deleteModal" data-id="#" type="button" class="btn btn-primary deletebtn"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        </td>
+                        </tr>
+                        @endforeach
                     </tbody>
-                  </table>
+                    <tfoot>
+                        <tr>
+                        <th class="col-1">#</th>
+                        <th class="col-2">User</th>
+                        <th class="col-2">Plan</th>
+                        <th class="col-2">S/D</th>
+                        <th class="col-2">E/D</th>
+                        <th class="col-2">Action</th>
+                        </tr>
+                  </tfoot>
+            </table>
+            <div class="d-flex justify-content-center mt-4">
+              {{ $payments->links() }}
+            </div>
+                  
                   <div class="d-flex justify-content-center mt-4">
                     {{-- {{ $users->links() }} --}}
                   </div>

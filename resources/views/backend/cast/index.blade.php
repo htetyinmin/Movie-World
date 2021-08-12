@@ -29,7 +29,7 @@
               <div class="block">
                 <div class="title"><strong>Casts Data Table</strong></div>
                 <div class="table-responsive"> 
-                  <table class="table table-striped table-hover" width="100%" id="dataTable">
+                  <table class="table table-striped table-hover" width="100%">
                     <thead>
                       <tr>
                         <th>#</th>
@@ -120,7 +120,7 @@
         $('#deleteModal').modal('show');
       })
 
-      $('#dataTable').DataTable();
+      // $('#dataTable').DataTable();
 
     })
   </script>
