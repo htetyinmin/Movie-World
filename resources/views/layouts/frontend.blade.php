@@ -840,7 +840,7 @@
                 <!-- modal header End -->
                 <div class="modal-body">
                     <div class="icon-container d-flex">
-                        <div class="icon-block"><a class="my-twitter" href="http://twitter.com/home?status=movieworld.org" target="_blank"><i class="social-icon fab fa-twitter fa-2x"></i></a>
+                        <div class="icon-block"><a class="my-twitter" href="https://twitter.com/intent/tweet?text=movieworld.org" target="_blank"><i class="social-icon fab fa-twitter fa-2x"></i></a>
                             <p>Twitter</p>
                         </div>
                         <div class="icon-block"><a class="my-facebook" href="https://www.facebook.com/sharer/sharer.php?u=movieworld.org" target="_blank"><i class="social-icon fab fa-facebook fa-2x"></i></a>

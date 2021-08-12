@@ -10,6 +10,7 @@
         $authuser_package = $authuser->payments->last()->package_id;
 
         $payment = $authuser->payments->last();
+        // dd($payment);
         $dbStatus = $payment->status;
 
 

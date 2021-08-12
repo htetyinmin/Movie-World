@@ -89,7 +89,7 @@ class PageController extends Controller
 
     public function userdetail($id){
         $users = User::where('id', $id)->get();
-        $payments = Payment::where('user_id', $id)->get();
+        $payments = Payment::where('user_id', $id)->latest()->take(1)->get();
         $genres = Genre::all();
         $noti_movies = Movie::latest()->take(3)->get();
         return view('frontend.userdetail', compact('users', 'payments', 'genres', 'noti_movies'));
