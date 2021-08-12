@@ -184,10 +184,7 @@ class PageController extends Controller
         $user = User::all();
         $i = count($user)-1;
         $users = User::latest()->take($i)->get();
-        // dd($users);
-        $packages = Package::all();
-        $payments = Payment::all();
-        return view('backend.user.index', compact('noti_movies', 'genres', 'users', 'packages', 'payments'));
+        return view('backend.user.index', compact('noti_movies', 'genres', 'users'));
     }
 
     public function search(Request $request){

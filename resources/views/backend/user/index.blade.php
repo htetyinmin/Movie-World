@@ -29,9 +29,9 @@
                   <table class="table table-striped table-hover">
                     <thead>
                       <tr>
-                        <th class="col-2">#</th>
+                        <th class="col-1">#</th>
                         <th class="col-2">Name</th>
-                        <th class="col-4">Email</th>
+                        <th class="col-5">Email</th>
                         <th class="2">Package Plan</th>
                         <th class="col-2">Action</th>
                       </tr>
@@ -41,15 +41,23 @@
                       @php
                           $i=1;
                       @endphp
-                        @foreach ($users as $key => $user)
+                        {{-- @foreach ($users as $key => $user) --}}
+                        @foreach ($users as $user)
+                          @php
+                            $lastpay = $user->payments->last();
+                          @endphp
                         <tr>  
                           {{-- <th scope="row">{{$users->firstItem() + $key}}</th> --}}
+                          <th>{{$i++}}</th>
                           <td>{{$user->name}}</td>
                           <td>{{$user->email}}</td>
-                          @foreach ($user->payments as $payment)
-                          <td>{{$payment->package_id}}</td>
-                              
-                          @endforeach
+                          <td>
+                            @if ($lastpay->package_id > 1)
+                                {{'Premium'}}
+                            @else
+                                {{'Free'}}
+                            @endif
+                          </td>
                           <td>
                               <a href="#" type="button" class="btn btn-warning mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
                               <a href="#deleteModal" data-id="#" type="button" class="btn btn-primary deletebtn"><i class="fa fa-trash" aria-hidden="true"></i></a>

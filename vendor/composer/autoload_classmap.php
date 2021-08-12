@@ -24,6 +24,7 @@ return array(
     'App\\Http\\Controllers\\MovieController' => $baseDir . '/app/Http/Controllers/MovieController.php',
     'App\\Http\\Controllers\\PackageController' => $baseDir . '/app/Http/Controllers/PackageController.php',
     'App\\Http\\Controllers\\PageController' => $baseDir . '/app/Http/Controllers/PageController.php',
+    'App\\Http\\Controllers\\PaymentController' => $baseDir . '/app/Http/Controllers/PaymentController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\CheckForMaintenanceMode' => $baseDir . '/app/Http/Middleware/CheckForMaintenanceMode.php',
