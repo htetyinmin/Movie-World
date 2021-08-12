@@ -26,6 +26,10 @@
 
                 $payments = $authuser->payments;
                 foreach($payments as $payment){
+                    if ($payment->package_id == 1) {
+                        $diff = 0;
+                    }
+
                     if ($payment->package_id == 2) {
                         $expiredate = Carbon\Carbon::parse($payment->date)->addMonths(1);
                         $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
