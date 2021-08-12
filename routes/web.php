@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +22,6 @@ Route::get('/register', 'AuthController@registerform')->name('register');
 
 Route::post('logout','AuthController@logout')->name('logout');
 
-
 Route::get('/', 'PageController@index')->name('index');
 Route::get('/movielist', 'PageController@movielist')->name('movielist');
 Route::get('/genrelist/{id}', 'PageController@genrelist')->name('genrelist');
@@ -34,7 +32,6 @@ Route::get('/privacy', 'PageController@privacy')->name('privacy');
 Route::get('/userdetail/{id}', 'PageController@userdetail')->name('userdetail');
 Route::get('/help', 'PageController@help')->name('help');
 Route::get('/search', 'PageController@search')->name('search');
-
 Route::get('/castdetail/{id}', 'PageController@castdetail')->name('castdetail');
 // Route::get('/login', 'PageController@login')->name('login');
 // Route::get('/register', 'PageController@register')->name('register');
@@ -42,7 +39,6 @@ Route::get('/pricing', 'PageController@pricing')->name('pricing');
 Route::post('/pricing', 'PageController@reactivate');
 
 Route::get('/moviedetail/{id}', 'PageController@moviedetail')->name('moviedetail');
-
 Route::get('/watchmovie/{id}', 'PageController@watchmovie')->name('watchmovie');
 Route::get('/downloadmovie/{id}', 'PageController@downloadmovie')->name('downloadmovie');
 
@@ -54,16 +50,19 @@ Route::get('/downloadmovie/{id}', 'PageController@downloadmovie')->name('downloa
 // Route::get('/create', 'PageController@create')->name('create');
 // Route::get('/edit', 'PageController@edit')->name('edit');
 
-//CRUD
-Route::resource('genre', 'GenreController');
-Route::resource('cast', 'CastController');
-Route::resource('movie', 'MovieController');
-Route::resource('package', 'PackageController');
-Route::resource('payment', 'PaymentController');
+Route::middleware('auth','role:admin')->group(function () {
 
-Route::get('/user', 'PageController@user')->name('user');
-Route::get('/dashboard', 'PageController@dashboard')->name('dashboard');
+    //CRUD
+    Route::resource('genre', 'GenreController');
+    Route::resource('cast', 'CastController');
+    Route::resource('movie', 'MovieController');
+    Route::resource('package', 'PackageController');
+    Route::resource('payment', 'PaymentController');
+
+    Route::get('/user', 'PageController@user')->name('user');
+    Route::get('/dashboard', 'PageController@dashboard')->name('dashboard');
+
+});
 
 // Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
