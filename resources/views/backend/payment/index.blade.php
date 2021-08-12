@@ -6,7 +6,7 @@
       <!-- Page Header-->
       <div class="page-header no-margin-bottom">
         <div class="container-fluid">
-          <h2 class="h5 no-margin-bottom">User Table</h2>
+          <h2 class="h5 no-margin-bottom">Payments Detail</h2>
         </div>
       </div>
 
@@ -14,7 +14,7 @@
             <div class="container-fluid">
               <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('user')}}">Home</a></li>
-                <li class="breadcrumb-item active">users</li>
+                <li class="breadcrumb-item active">payments</li>
               </ul>
             </div>
           </div>
@@ -24,38 +24,30 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="block">
-                <div class="title"><strong>Users Data Table</strong></div>
+                <div class="title"><strong>Payments Table</strong></div>
                 <div class="table-responsive"> 
                   <table class="table table-striped table-hover">
                     <thead>
                       <tr>
-                        <th class="col-2">#</th>
-                        <th class="col-2">Name</th>
-                        <th class="col-4">Email</th>
-                        <th class="2">Package Plan</th>
+                        <th class="col-1">#</th>
+                        <th class="col-1">User</th>
+                        <th class="col-2">Package Plan</th>
+                        <th class="col-2">Start Date</th>
+                        <th class="col-2">End Date</th>
+                        <th class="col-2">Payment</th>
                         <th class="col-2">Action</th>
                       </tr>
                     </thead>
                     <tbody>
 
-                      @php
-                          $i=1;
-                      @endphp
-                        @foreach ($users as $key => $user)
-                        <tr>  
-                          {{-- <th scope="row">{{$users->firstItem() + $key}}</th> --}}
-                          <td>{{$user->name}}</td>
-                          <td>{{$user->email}}</td>
-                          @foreach ($user->payments as $payment)
-                          <td>{{$payment->package_id}}</td>
-                              
-                          @endforeach
-                          <td>
-                              <a href="#" type="button" class="btn btn-warning mr-3"><i class="fa fa-cog" aria-hidden="true"></i></a>
-                              <a href="#deleteModal" data-id="#" type="button" class="btn btn-primary deletebtn"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                          </td>
-                        </tr>             
-                        @endforeach
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    
                       
                     </tbody>
                   </table>
@@ -96,7 +88,7 @@
 @section('script')
   <script type="text/javascript">
     $(document).ready(function(){
-      $("#user").addClass("active");
+      $("#payment").addClass("active");
       
       $('.deletebtn').click(function(){
         var id = $(this).data('id');

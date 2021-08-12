@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <div class="col-4 mt-5">
+                <div class="col-lg-4 col-sm-12 mt-5">
                     <h2 class="d-inline-block">{{$user->name}}</h2>
                         @foreach ($payments as $payment)
                             @if($payment->package_id == 1)
@@ -50,13 +50,12 @@
                 </div>
                 <hr>
                 <div class="row mb-5">
-                    <div class="details-info col-6">
-                        <h4 class="mb-3 ml-3">Acount Member & Billing</h4>
-                        <div class="col-8">
-                            <a href="#" class="btn d-block hvr-sweep-to-right" tabindex="0">Cancle Membership</a>
-                        </div>
+                    <div class="details-info col-lg-6 col-sm-12">
+                        <h4 class="mb-3">Acount Member & Billing</h4>
+                        <a href="#" class="btn d-block hvr-sweep-to-right col-8" tabindex="0">Cancle Membership</a>
+
                     </div>
-                    <div class="col-6">
+                    <div class="col-lg-6 col-sm-12">
                         <h6 class="mb-3">{{$user->email}}</h6>
                         <p>Password : **********</p>
                     </div>
@@ -68,18 +67,72 @@
                     </div>
                     <div class="col-6">
                         <h6 class="mb-3">MOVIE WORLD credit</h6>
-                        @foreach ($payments as $payment)
-                            <p>Your Plan is started at {{$payment->created_at->format('d M Y')}}.</p>
-                        @endforeach
+                        @php
+                            $authuser = Auth::user();
+                            // $today = Carbon::today()->toDateString();
+                            $authuser_package = $authuser->payments->last()->package_id;
+                            $payment = $authuser->payments->last();
+                            // dd($payment);
+                            $dbStatus = $payment->status;
+                    
+                    
+                            $todaydate = Carbon\Carbon::now();
+                    
+                            if($dbStatus == 0){
+                    
+                                $status = $dbStatus;
+                    
+                                if ($authuser_package > 1) {
+                    
+                                    $totaldateCount = 0;
+                    
+                                    $payments = $authuser->payments;
+                                    foreach($payments as $payment){
+                                        if ($payment->package_id == 1) {
+                                            $diff = 0;
+                                        }
+                                        
+                                        if ($payment->package_id == 2) {
+                                            $expiredate = Carbon\Carbon::parse($payment->date)->addMonths(1);
+                                            $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
+                                        }
+                    
+                                        if ($payment->package_id == 3) {
+                                            $expiredate = Carbon\Carbon::parse($payment->date)->addYear();
+                                            $diff = $todaydate->diffInDays(Carbon\Carbon::parse($expiredate), false);
+                                        }
+                    
+                                        $totaldateCount += $diff;
+            
+                                    }
+
+                                    $planExpire = Carbon\Carbon::parse($payment->date)->addDays($totaldateCount);
+                                    // dd($planExpire);
+                    
+                                    if ($totaldateCount <= 0) {
+                                        $status = 1;
+                                    }
+                                }
+                            }
+                        @endphp
+                        <?php
+                            if ($authuser_package > 1) {
+                            
+                        ?>
+                        <p>Your Plan will expire in {{$planExpire->format('d M Y')}}.</p>  
+                        <?php
+                            }else{
+                        ?>
+                        <p>You are using free Plan.</p>  
+                        <?php }?>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-6">
-                        <h4 class="ml-3">Plan Details</h4>
+                        <h4>Plan Details</h4>
                     </div>
                     <div class="col-6">
-                        @foreach ($payments as $payment)
                             @if($payment->package_id == 1)
                             <h4>Free</h4>
                             {{-- <span class="badge badge-pill badge-warning text-dark mb-3">Free</span> --}}
@@ -87,13 +140,12 @@
                             <h4>Premium</h4>
                             {{-- <span class="badge badge-pill badge-warning text-dark mb-3">Premium</span> --}}
                             @endif
-                        @endforeach
                     </div>
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-6">
-                        <h4 class="ml-3">Settings</h4>
+                        <h4>Settings</h4>
                     </div>
                     <div class="col-6 d-block">
                         <ul class=" p-0 mb-3">

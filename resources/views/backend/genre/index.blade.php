@@ -27,9 +27,14 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="block">
-                <div class="title"><strong>Genres Data Table</strong></div>
+                <div class="title d-flex justify-content-between">
+                  <strong>Genres Data Table</strong>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input id="myInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                  </form>
+                </div>
                 <div class="table-responsive"> 
-                  <table class="table table-striped table-hover">
+                  <table id="myTable" class="table table-striped table-hover table-sm">
                     <thead>
                       <tr>
                         <th class="col-2">#</th>
@@ -103,6 +108,7 @@
         $('#deleteModalForm').attr('action',id);
         $('#deleteModal').modal('show');
       })
+
     })
   </script>
 @endsection

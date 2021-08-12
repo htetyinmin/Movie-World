@@ -33,6 +33,8 @@ class PageController extends Controller
 
         $trendingmovies = Movie::all()->random(6);
 
+        $payments = Payment::all();
+
         return view('frontend.index', compact('movies','noti_movies', 'genres', 'newmovies', 'newfreemovies', 'newpremiummovies', 'currentyearmovies', 'trendingmovies'));
 
     }
@@ -88,6 +90,8 @@ class PageController extends Controller
     }
 
     public function userdetail($id){
+        // dd($now);
+        // dd($currentyear);
         $users = User::where('id', $id)->get();
         $payments = Payment::where('user_id', $id)->latest()->take(1)->get();
         $genres = Genre::all();
@@ -177,8 +181,13 @@ class PageController extends Controller
     public function user(){
         $noti_movies = Movie::latest()->take(3)->get();
         $genres = Genre::all();
-        $users = User::paginate(5);
-        return view('backend.user.index', compact('noti_movies', 'genres', 'users'));
+        $user = User::all();
+        $i = count($user)-1;
+        $users = User::latest()->take($i)->get();
+        // dd($users);
+        $packages = Package::all();
+        $payments = Payment::all();
+        return view('backend.user.index', compact('noti_movies', 'genres', 'users', 'packages', 'payments'));
     }
 
     public function search(Request $request){

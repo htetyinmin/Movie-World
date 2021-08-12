@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="{{asset('backend-assets/vendor/fontawesome-5/css/fontawesome.min.css')}}">
     <!-- Custom Font Icons CSS-->
     <link rel="stylesheet" href="{{asset('backend-assets/css/font.css')}}">
+
+    {{-- dataTable --}}
+    <link rel="stylesheet" href="{{asset('backend-assets/vendor/dataTables/datatable.min.css')}}">
+
     <!-- Google fonts - Muli-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
     <!-- theme stylesheet-->
@@ -126,12 +130,12 @@
       <nav id="sidebar">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
-          <div class="avatar"><img src="{{asset('backend-assets/img/avatar-6.jpg')}}" alt="..." class="img-fluid rounded-circle"></div>
+          <div class="avatar"><img src="{{asset('frontend_assets/images/user3.png')}}" alt="..." class="img-fluid rounded-circle"></div>
           <div class="title">
             @if (Auth::user())
             <h1 class="h5">{{ Auth::user()->name }}</h1>
             @endif
-            <p>Data Manager</p>
+            <p>Admin</p>
           </div>
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Data Management</span>
@@ -141,9 +145,10 @@
                 <li class="" id="cast"><a href="{{route('cast.index')}}"> <i class="fa fa-video-camera" aria-hidden="true"></i> Casts </a></li>
                 <li class="" id="movie"><a href="{{route('movie.index')}}"> <i class="fa fa-film" aria-hidden="true"></i> Movies Data </a></li>
                 <li class="" id="package"><a href="{{route('package.index')}}"> <i class="fa fa-archive" aria-hidden="true"></i> Packages </a></li>
-        </ul><span class="heading">User Management</span>
-        <ul class="list-unstyled">
-          <li class="" id="user"><a href="{{route('user')}}"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Users </a></li>
+              </ul><span class="heading">User Management</span>
+              <ul class="list-unstyled">
+                <li class="" id="user"><a href="{{route('user')}}"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Users </a></li>
+                <li class="" id="payment"><a href="{{route('payment.index')}}"> <i class="fa fa-archive" aria-hidden="true"></i> Payment </a></li>
           {{-- <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li> --}}
         </ul>
       </nav>
@@ -164,6 +169,7 @@
 
     <!-- JavaScript files-->
     <script src="{{asset('backend-assets/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('backend-assets/vendor/dataTables/datatable.min.js')}}"></script>
     <script src="{{asset('backend-assets/vendor/popper.js/umd/popper.min.js')}}"> </script>
     <script src="{{asset('backend-assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('backend-assets/vendor/jquery.cookie/jquery.cookie.js')}}"> </script>
