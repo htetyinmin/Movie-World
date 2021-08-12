@@ -15,9 +15,78 @@
           <li class="breadcrumb-item active">Dashboard</li>
         </ul>
       </div>
+
+
       <section>
         <div class="container-fluid">
           <div class="row">
+
+            <div class="col-lg-3">
+              <div class="chart block">
+                <div class="row title">
+                  <div class="col-2"><strong><i class="fa fa-film" aria-hidden="true"></i></strong></div>
+
+                  <div class="col-6"><strong>Genres</strong></div>
+                  <div class="col-4"><strong>{{count($genres)}}</strong></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-3">
+              <div class="chart block">
+                <div class="row title">
+                  <div class="col-2"><strong><i class="fa fa-user" aria-hidden="true"></i></strong></div>
+                  <div class="col-6"><strong>Casts</strong></div>
+                  <div class="col-4"><strong>{{count($casts)}}</strong></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-3">
+              <div class="chart block">
+                <div class="row title">
+                  <div class="col-2"><strong><i class="fa fa-film" aria-hidden="true"></i></strong></div>
+                  <div class="col-6"><strong>Movies</strong></div>
+                  <div class="col-4"><strong>{{count($movies)}}</strong></div>
+                </div>
+                
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="chart block">
+                <div class="row title">
+                  <div class="col-2"><strong><i class="fa fa-user" aria-hidden="true"></i></strong></div>
+                  <div class="col-6"><strong>Users</strong></div>
+                  <div class="col-4"><strong>{{count($users)}}</strong></div>
+                </div>
+              </div>
+            </div>
+            {{-- <div class="col-lg-3">
+              <div class="bar-chart block chart">
+                <div class="title"><strong>Casts Chart</strong></div>
+                <div class="bar-chart chart">
+                  <canvas id="barChartCustom3"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="pie-chart chart block">
+                <div class="title"><strong>Users Chart</strong></div>
+                <div class="pie-chart chart margin-bottom-sm">
+                  <canvas id="pieChartCustom1"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3"> --}}
+              {{-- <div class="radar-chart chart block">
+                <div class="title"><strong>Radar Chart</strong></div>
+                <div class="radar-chart chart margin-bottom-sm">
+                  <canvas id="radarChartCustom"></canvas>
+                </div>
+              </div> --}}
+          </div>
+        </div>
+
             <div class="col-lg-12">
               <div class="line-chart block chart">
                 <div class="title"><strong>Movie Download Count Chart</strong></div>
@@ -35,41 +104,7 @@
                 </div>
               </div>
             </div> --}}
-            <div class="col-lg-4">
-              <div class="chart block">
-                <div class="title"> <strong>Genres Chart</strong></div>
-                <div class="bar-chart chart margin-bottom-sm">
-                  <canvas id="barChartCustom1"></canvas>
-                </div>
-                <div class="bar-chart chart">
-                  <canvas id="barChartCustom2"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-8">
-              <div class="bar-chart block chart">
-                <div class="title"><strong>Casts Chart</strong></div>
-                <div class="bar-chart chart">
-                  <canvas id="barChartCustom3"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="pie-chart chart block">
-                <div class="title"><strong>Users Chart</strong></div>
-                <div class="pie-chart chart margin-bottom-sm">
-                  <canvas id="pieChartCustom1"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="radar-chart chart block">
-                <div class="title"><strong>Radar Chart</strong></div>
-                <div class="radar-chart chart margin-bottom-sm">
-                  <canvas id="radarChartCustom"></canvas>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>

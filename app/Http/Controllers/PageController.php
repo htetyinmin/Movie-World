@@ -167,7 +167,11 @@ class PageController extends Controller
     }
 
     public function dashboard(){
-        return view('backend.dashboard.index');
+        $genres = Genre::all();
+        $casts = Cast::all();
+        $movies = Movie::all();
+        $users = User::all();
+        return view('backend.dashboard.index', compact('genres', 'casts', 'movies', 'users'));
     }
 
     public function user(){
