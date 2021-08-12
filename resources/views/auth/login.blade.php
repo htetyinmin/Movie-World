@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="password" class="control-label col-xs-4">Password</label>
-                                    <div class="form-holder">
+                                    <div class="form-holder password">
                                         <i class="far fa-eye"></i>
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                     </div>
