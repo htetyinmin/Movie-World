@@ -50,10 +50,9 @@
                 </div>
                 <hr>
                 <div class="row mb-5">
-                    <div class="details-info col-lg-6 col-sm-12">
+                    <div class="col-lg-6 col-sm-12">
                         <h4 class="mb-3">Acount Member & Billing</h4>
                         <a href="#" class="btn d-block hvr-sweep-to-right col-8" tabindex="0">Cancle Membership</a>
-
                     </div>
                     <div class="col-lg-6 col-sm-12">
                         <h6 class="mb-3">{{$user->email}}</h6>
@@ -65,7 +64,7 @@
                     <div class="col-6">
 
                     </div>
-                    <div class="col-6">
+                    <div class="col-lg-6 col-sm-12">
                         <h6 class="mb-3">MOVIE WORLD credit</h6>
                         @php
                             $authuser = Auth::user();
@@ -129,25 +128,25 @@
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-lg-6 col-sm-12">
                         <h4>Plan Details</h4>
                     </div>
-                    <div class="col-6">
+                    <div class="col-lg-6 col-sm-12">
                             @if($payment->package_id == 1)
-                            <h4>Free</h4>
+                            <p>Free</p>
                             {{-- <span class="badge badge-pill badge-warning text-dark mb-3">Free</span> --}}
                             @else
-                            <h4>Premium</h4>
+                            <p>Premium</p>
                             {{-- <span class="badge badge-pill badge-warning text-dark mb-3">Premium</span> --}}
                             @endif
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-lg-6 col-sm-12">
                         <h4>Settings</h4>
                     </div>
-                    <div class="col-6 d-block">
+                    <div class="col-lg-6 col-sm-12 d-block">
                         <ul class=" p-0 mb-3">
                             <li class="mb-2"><a href="">Change Acount Name</a></li>
                             <li class="mb-2"><a href="">Change Password</a></li>
