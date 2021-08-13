@@ -352,7 +352,7 @@
                 @foreach($movie->casts as $cast)
                 <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 gallery">
                     <div class="gallery-wrap">
-                            <img src="{{asset('storage/'.$cast->photo)}}" class="my-img" alt="CastPhoto">
+                            <img src="{{asset('storage/'.$cast->photo)}}" class="castImg" alt="CastPhoto">
                         <div class="gallery-info">
                             <div class="gallery-links">
                                 <a href="{{route('castdetail', $cast->id)}}"><h6 class="my-a"> {{ $cast->name }} </h6>

@@ -1,6 +1,8 @@
 
     
     .gallery .gallery-wrap {
+      width: 194px;
+      height: 292px;
       transition: 0.3s;
       position: relative;
       overflow: hidden;
@@ -121,6 +123,11 @@
     .my-gallery {
       width: 400px;
       height: auto;
+    }
+
+    .castImg{
+      width: 194px;
+      height: 292px;
     }
 
     .my-a:hover {
