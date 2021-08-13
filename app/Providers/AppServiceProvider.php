@@ -26,11 +26,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $genres = Genre::orderBy('name')->get();
+        // $genres = Genre::orderBy('name')->get();
 
         
         // dd($banners);
 
-        View::share('common',[$genres]);
+        // View::share('common',[$genres]);
     }
 }
