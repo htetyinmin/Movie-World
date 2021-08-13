@@ -121,24 +121,11 @@
                       <div class="col-6 col-xl mb-5 mb-xl-0">
                           <div class="card team-box">
                               <div class="team-box-img">
-                                  <img src="{{asset('frontend_assets/images/kyawwintun.jpg')}}" class="img-fluid img-zoom" alt="">
-                              </div>
-                              <div class="card-body">
-                                  <h2 class="card-title team-box-name">Kelvin</h2>
-                                  <span>CEO</span>
-                              </div>
-                          </div>
-                          <!-- Team Box End -->
-                      </div>
-                      <!-- Col End -->
-                      <div class="col-6 col-xl mb-5 mb-xl-0">
-                          <div class="card team-box">
-                              <div class="team-box-img">
-                                  <img src="{{asset('frontend_assets/images/kyawwintun.jpg')}}" class="img-fluid img-zoom" alt="">
+                                  <img src="{{asset('frontend_assets/images/about/ab2.jpg')}}" class="img-fluid img-zoom" alt="">
                               </div>
                               <div class="card-body">
                                   <h2 class="card-title team-box-name">Kyaw Win Tun</h2>
-                                  <span>Designer</span>
+                                  <span>Admin</span>
                               </div>
                           </div>
                           <!-- Team Box End -->
@@ -147,7 +134,7 @@
                       <div class="col-6 col-xl mb-5 mb-xl-0">
                           <div class="card team-box">
                               <div class="team-box-img">
-                                  <img src="{{asset('frontend_assets/images/kyawwintun.jpg')}}" class="img-fluid img-zoom" alt="">
+                                  <img src="{{asset('frontend_assets/images/about/ab1.jpg')}}" class="img-fluid img-zoom" alt="">
                               </div>
                               <div class="card-body">
                                   <h2 class="card-title team-box-name">Htet Yin Min</h2>
@@ -160,16 +147,27 @@
                       <div class="col-6 col-xl mb-5 mb-xl-0">
                           <div class="card team-box">
                               <div class="team-box-img">
-                                  <img src="{{asset('frontend_assets/images/kyawwintun.jpg')}}" class="img-fluid img-zoom" alt="">
+                                  <img src="{{asset('frontend_assets/images/about/ab3.jpg')}}" class="img-fluid img-zoom" alt="">
                               </div>
                               <div class="card-body">
-                                  <h2 class="card-title team-box-name">Jack</h2>
+                                  <h2 class="card-title team-box-name">Lisa</h2>
                                   <span>Designer</span>
                               </div>
                           </div>
-                          <!-- Team Box End -->
                       </div>
                       <!-- Col End -->
+                      <div class="col-6 col-xl mb-5 mb-xl-0">
+                        <div class="card team-box">
+                            <div class="team-box-img">
+                                <img src="{{asset('frontend_assets/images/about/ab4.png')}}" class="img-fluid img-zoom" alt="">
+                            </div>
+                            <div class="card-body">
+                                <h2 class="card-title team-box-name">Rose</h2>
+                                <span>Data Manager</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Col End -->
                   </div>
                   <!-- Row end -->
               </div>
