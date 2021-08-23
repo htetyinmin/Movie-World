@@ -54,6 +54,7 @@ class MovieController extends Controller
             "duration" => "required",
             "overview" => "required",
             "trailer" => "required",
+            "video" => "required"
             // "video" => "required|mimes:mp4,mkv,avi"
         ]);
 
@@ -100,6 +101,7 @@ class MovieController extends Controller
         $movie->overview = $request->overview;
         $movie->trailer = $request->trailer;
         $movie->gallery =  $photostring;
+        $movie->video = $request->video;
         // $movie->video = $filepath1;
         $movie->status = $request->status;
         $movie->save();
@@ -160,6 +162,7 @@ class MovieController extends Controller
             "duration" => "required",
             "overview" => "required",
             "trailer" => "required",
+            "video" => "required"
             // "video" => "sometimes|mimes:mp4,mkv,avi"
         ]);
 
@@ -253,6 +256,7 @@ class MovieController extends Controller
         $movie->overview = $request->overview;
         $movie->trailer = $request->trailer;
         $movie->gallery =  $photo;
+        $movie->video = $request->video;
         // $movie->video = $filepath1;
         $movie->status = $request->status;
         $movie->save();

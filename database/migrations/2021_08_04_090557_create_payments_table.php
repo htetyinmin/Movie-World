@@ -18,6 +18,7 @@ class CreatePaymentsTable extends Migration
             $table->date('date');
             $table->unsignedBigInteger('user_id'); 
             $table->unsignedBigInteger('package_id');
+            $table->integer('status');
             $table->timestamps();
             $table->softDeletes();
 
