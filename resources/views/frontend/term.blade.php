@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('title','Movie World | Term of Service Page')
+@section('title','Movie World')
 @section('content')
 
 <!-- Main Class Start -->

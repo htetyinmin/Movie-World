@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('title','Movie World | Home Page')
+@section('title','Movie World')
 @section('content')
 
 <?php

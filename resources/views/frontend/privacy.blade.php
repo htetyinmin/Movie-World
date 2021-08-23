@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('title','Movie World | Privacy Page')
+@section('title','Movie World')
 @section('content')
 
 <!-- Main Class Start -->

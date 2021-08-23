@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('title','Movie World | User Detail Page')
+@section('title','Movie World')
 @section('content')
 
 @foreach ($users as $user)

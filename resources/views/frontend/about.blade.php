@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('title','Movie World | About Page')
+@section('title','Movie World')
 @section('content')
 
 <div class="main" id="main">
