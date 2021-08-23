@@ -13,7 +13,7 @@
 
     <div class="container-fluid">
       <div class="row justify-content-center">
-          <iframe src="{{$movie->video}}" height="500" width="800" allow="autoplay" allowfullscreen></iframe>
+          <iframe src="{{$movie->video}}" height="600" width="1000" class="iframe" allow="autoplay" allowfullscreen></iframe>
       </div>
     </div>
 
