@@ -151,7 +151,9 @@
                         </div>
                   </div>
                   <div class="line"></div>
-                  <div class="form-group row">
+
+                  {{-- OLD MOVIE UPLOAD METHOD --}}
+                  {{-- <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Video</label>
                         <div class="col-sm-9">
                           <input type="file" name="video" class="form-control-file{{ $errors->has('video') ? ' is-invalid' : '' }}">
@@ -161,6 +163,18 @@
                             </span>
                           @endif
                         </div>
+                  </div> --}}
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 form-control-label">Video</label>
+                    <div class="col-sm-9">
+                      <input type="text" name="video" class="form-control{{ $errors->has('video') ? ' is-invalid' : '' }}">
+                      @if ($errors->has('video'))
+                        <span class="invalid-feedback">
+                        <strong>{{ $errors->first('video') }}</strong>
+                        </span>
+                      @endif
+                    </div>
                   </div>
                   <div class="line"></div>
                   <div class="form-group row">

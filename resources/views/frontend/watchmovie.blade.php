@@ -4,13 +4,18 @@
 
 
 	<!-- Start Video Player -->
-        <div class="video-container">
+        {{-- <div class="video-container">
             <video class="video d-block" controls="" loop="">
                 <source src="{{asset('storage/'.$movie->video)}}" type="video/mp4">
             </video>
-        </div>
+        </div> --}}
     <!-- Video Player End -->
 
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+          <iframe src="{{$movie->video}}" height="500" width="800" allow="autoplay" allowfullscreen></iframe>
+      </div>
+    </div>
 
 @endsection
 
